@@ -1,0 +1,25 @@
+{
+  "project_root": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE",
+  "nc": 5,
+  "nk": 1,
+  "tmax_fs": 40.0,
+  "sample_fs": 10.0,
+  "site": 0,
+  "runs": {
+    "baseline": {
+      "wall_s": 4.744352579116821,
+      "est_30ps_min": 59.304407238960266,
+      "n_times": 5
+    },
+    "nc_stress": {
+      "wall_s": 18.495070219039917,
+      "est_30ps_min": 231.18837773799896,
+      "dFrob_max": 1.9156427481675374e-05,
+      "dPop_max": 2.8775189342411522e-08,
+      "dCoh_max": 1.0990693459850178e-05,
+      "time_index_frob": 4,
+      "time_index_pop": 2,
+      "time_index_coh": 4
+    }
+  }
+}

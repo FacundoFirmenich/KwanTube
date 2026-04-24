@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Firmenich"
+  given-names: "Facundo"
+  affiliation: "CEDESUR Research Group, Barcelona, Spain"
+- family-names: "Firmenich"
+  given-names: "Pau"
+  affiliation: "CEDESUR Research Group, Barcelona, Spain"
+- family-names: "Firmenich"
+  given-names: "León"
+  affiliation: "CEDESUR Research Group, Barcelona, Spain"
+title: "qmc_mt: Quantum Microtubule Coherence Framework"
+version: 3.5.0
+doi: 10.5281/zenodo.XXXXX
+date-released: 2026-03-26
+url: "https://github.com/biofisicaquantiqa/qmc_mt"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Firmenich"
+    given-names: "Facundo"
+  - family-names: "Firmenich"
+    given-names: "Pau"
+  - family-names: "Firmenich"
+    given-names: "León"
+  journal: "Journal of Open Source Software"
+  title: "qmc_mt: A calibrated framework for tracing quantum decoherence in microtubule proteins"
+  year: 2026
