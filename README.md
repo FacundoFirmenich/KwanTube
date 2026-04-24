@@ -26,10 +26,11 @@ python src/reproduce_paper_results.py --fast
 python src/reproduce_paper_results.py
 ```
 
-### Extended ROC Sensitivity Sweep
+### Extended Detection-Power / ROC Sensitivity Sweep
 ```bash
 python src/reproduce_paper_results.py --full-roc
 ```
+This legacy flag generates the fixed-threshold detection-power surface used in the manuscript.
 
 ## Manuscript Figures
 
@@ -37,7 +38,9 @@ Generate all canonical manuscript figures using the dedicated visualization engi
 ```bash
 python src/generate_paper_figures.py
 ```
-Output artifacts are saved to `git_repo/figures_final/`.
+Output artifacts are saved to `figures_final/`.
+
+Additional diagnostic figures used in the manuscript/SI may be produced by their corresponding result scripts and stored in `figures_final/`.
 
 ## Continuous Integration and Quality Assurance
 

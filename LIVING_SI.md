@@ -79,18 +79,18 @@ calibration trials.
 - **Uniformity p-value**: 0.419 (Statistically consistent with a calibrated rank distribution).
 - **Scope**: SBC results validate the engine's performance under the specific generative models 
   deployed in this study.
-- **Diagnostic Plot**: [sbc_calibration_ns.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/git_repo/figures_final/sbc_calibration_ns.pdf).
+- **Diagnostic Plot**: [sbc_calibration_ns.pdf](figures_final/sbc_calibration_ns.pdf).
 
 ### Prior Sensitivity Analysis
 Evaluation of Bayes Factor (\(BF_{10}\)) stability across a spectrum of weakly-informative priors.
 - **Stability**: \(BF_{10}\) remains robustly above the "Decisive" threshold (\(>100\)) for 
   prior standard deviations \(\sigma_{prior} \in [0.2,\,1.0]\).
 - **Caveat**: The shaded regions indicate prior-dominated regimes where \(\sigma_{prior} < SE\).
-- **Sensitivity Profiles**: [prior_sensitivity.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/git_repo/figures_final/prior_sensitivity.pdf).
+- **Sensitivity Profiles**: [prior_sensitivity.pdf](figures_final/prior_sensitivity.pdf).
 
 ## SI-8 · HEOM Integration Pre-registration
 - **Cryptographic Hash**: `5385692fbb6622b6f48b0535b38dfc07a5cffde2656ff6b6b458bb3da10c4217`
-- **Acceptance Criteria**: [heom_acceptance_criteria.md](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/git_repo/heom_acceptance_criteria.md)
+- **Acceptance Criteria**: [heom_acceptance_criteria.md](heom_acceptance_criteria.md)
 - **Registration Timestamp**: 2026-04-22T05:55:12Z
 
 ## SI-5 · Collective Modes in the Microtubule Lattice (§4.3, COMP-6)
