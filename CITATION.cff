@@ -10,7 +10,7 @@ authors:
 - family-names: "Firmenich"
   given-names: "León"
   affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
-title: "qmc_mt: Quantum Microtubule Coherence Framework"
+title: "Quantubulin: A calibrated framework for tracing quantum decoherence in microtubule proteins"
 version: 3.5.0
 doi: 10.5281/zenodo.XXXXX
 date-released: 2026-03-26
@@ -24,6 +24,6 @@ preferred-citation:
     given-names: "Pau"
   - family-names: "Firmenich"
     given-names: "León"
-  journal: "Journal of Open Source Software"
-  title: "qmc_mt: A calibrated framework for tracing quantum decoherence in microtubule proteins"
+  title: "The equilibrium-to-functionality gap in tubulin quantum dynamics: open-system constraints and falsifiable non-equilibrium tests"
   year: 2026
+  url: "https://github.com/FacundoFirmenich/quantubulin"

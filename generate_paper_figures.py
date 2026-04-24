@@ -12,11 +12,11 @@ import sys
 import os
 import json
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parent.parent # La raíz es biofisicaquantiqaCLINE
+# Robust path resolution relative to repository root
 REPO_ROOT = Path(__file__).resolve().parent
-if str(PROJECT_ROOT / "git_repo" / "src") not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT / "git_repo" / "src"))
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
 # Forzar backend sin interfaz para servidores/terminal
 import matplotlib
@@ -74,7 +74,11 @@ def figure1_landscape():
     ax.set_xscale('log')
     # Load real Redfield results if available for Fig 1
     try:
-        rf_path = PROJECT_ROOT / "redfield_summary.json"
+        # Search for redfield results in multiple locations
+        rf_path = REPO_ROOT / "redfield_summary.json"
+        if not rf_path.exists():
+            rf_path = REPO_ROOT / "outputs" / "redfield_summary.json"
+            
         with open(rf_path, 'r') as f:
             rf_data = json.load(f)
         t2_eq = next(r['results']['tau_coh'] for r in rf_data if r['pdb'] == '1JFF') * 1e-15

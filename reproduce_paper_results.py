@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 reproduce_paper_results.py — qmc_mt v3.5.0
-End-to-end reproduction of every numerical claim in the manuscript.
+End-to-end reproduction of the repository-level numerical validation ledger
+supporting the manuscript's reproducible baseline claims.
 
 Outputs
 -------

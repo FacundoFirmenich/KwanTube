@@ -1,13 +1,13 @@
 {
   "_metadata": {
     "version": "3.5.0",
-    "timestamp_utc": "2026-04-24T02:20:48Z",
+    "timestamp_utc": "2026-04-24T03:40:04Z",
     "python": "3.14.0",
     "platform": "Windows-10-10.0.19045-SP0",
     "numpy": "2.3.5",
     "fast_mode": true,
     "full_roc": false,
-    "wall_time_s": 12.42
+    "wall_time_s": 10.51
   },
   "params": {
     "experiment": "Kalra2023",
@@ -524,5 +524,5 @@
       }
     ]
   },
-  "_sha256": "a7d81477dab23c22c426edb78cb3cd175cebff931803e21547039e2c12f68901"
+  "_sha256": "b5a06a9c1472ad40ace2bf6c8ee67aecbc58b40f453ec2640f3aadb63184c0f3"
 }

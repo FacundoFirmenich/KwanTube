@@ -1,7 +1,7 @@
 # LIVING_SI.md — Supplementary Information (auto-generated)
 
-> **Version** 3.5.0 · **Generated** 2026-04-24T02:20:48Z · **Wall-time** 12.42s
-> **SHA-256** `a7d81477dab23c22…` · **Validation** 11/11 checks passed
+> **Version** 3.5.0 · **Generated** 2026-04-24T03:40:04Z · **Wall-time** 10.51s
+> **SHA-256** `b5a06a9c1472ad40…` · **Validation** 11/11 checks passed
 
 This document is machine-regenerated from `validation_report.json` on every
 pipeline run. **Do not edit by hand.** Every number has a corresponding entry

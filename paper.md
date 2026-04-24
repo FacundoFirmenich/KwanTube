@@ -1,5 +1,5 @@
 ---
-title: 'qmc_mt: A calibrated framework for tracing quantum decoherence in microtubule proteins'
+title: 'Quantubulin: A calibrated framework for tracing quantum decoherence in microtubule proteins'
 tags:
   - Python
   - biophysics
@@ -10,23 +10,21 @@ tags:
 authors:
   - name: Facundo Firmenich
     orcid: 0009-0002-6578-3811
-    affiliation: "1, 2"
+    affiliation: "1"
   - name: Pau Firmenich
     affiliation: "1"
   - name: León Firmenich
     affiliation: "1"
 affiliations:
-  - name: "CEDESUR Research Group, Barcelona, Spain"
+  - name: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ), Argentina"
     index: 1
-  - name: "Independent Research Collaboration in Quantum Biophysics, Barcelona, Spain"
-    index: 2
 date: 26 March 2026
 bibliography: paper.bib
 ---
 
 # Summary
 
-`qmc_mt` is an open-source Python package for reproducible modelling and validation of decoherence-focused calculations in microtubule-inspired open quantum systems. The software provides a practical computational stack for rate calculations, parameter inversion, sensitivity analysis, model comparison, and reproducible report generation. It is designed to support transparent, testable workflows rather than narrative-only claims.
+`Quantubulin` is an open-source Python package for reproducible modelling and validation of decoherence-focused calculations in microtubule-inspired open quantum systems. The software provides a practical computational stack for rate calculations, parameter inversion, sensitivity analysis, model comparison, and reproducible report generation. It is designed to support transparent, testable workflows rather than narrative-only claims.
 
 In the current release (`v3.5.0`), the repository also includes a small-$N$ Bayesian convergence layer for HEOM ledgers (`src/bayesian_heom_hierarchy_v2.py`). This layer summarizes already-computed convergence evidence through hierarchical contraction modelling and is intended for methods/supplementary validation.
 

@@ -1,6 +1,6 @@
-# qmc_mt — Quantum Microtubule Coherence Framework
+# Quantubulin
 
-Repositorio de reproducción para el manuscrito de coherencia cuántica en microtúbulos.
+Quantubulin is the public research repository for the manuscript and reproducible computational framework. The Python package currently retains the legacy import namespace `qmc_mt` for backward compatibility.
 
 ## Estado de reproducción
 
