@@ -55,7 +55,7 @@ The repository includes an automated CI workflow defined in `.github/workflows/c
 
 ## Bayesian HEOM Hierarchy (v2)
 
-Quantubulin includes a specialized hierarchical contraction layer for HEOM convergence validation in the small-$N$ regime.
+KwanTube includes a specialized hierarchical contraction layer for HEOM convergence validation in the small-$N$ regime.
 
 - **Engine**: `src/bayesian_heom_hierarchy_v2.py`
 - **Input Dataset**: `src/heom_bayes_input_current.csv`
