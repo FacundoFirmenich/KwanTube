@@ -12,9 +12,9 @@ authors:
   affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
 title: "Quantubulin: A calibrated framework for tracing quantum decoherence in microtubule proteins"
 version: 3.5.0
-doi: 10.5281/zenodo.XXXXX
+doi: 10.5281/zenodo.19744600
 date-released: 2026-03-26
-url: "https://github.com/FacundoFirmenich/quantubulin"
+url: "https://github.com/FacundoFirmenich/KwanTube"
 preferred-citation:
   type: article
   authors:
@@ -26,4 +26,4 @@ preferred-citation:
     given-names: "León"
   title: "The equilibrium-to-functionality gap in tubulin quantum dynamics: open-system constraints and falsifiable non-equilibrium tests"
   year: 2026
-  url: "https://github.com/FacundoFirmenich/quantubulin"
+  url: "https://github.com/FacundoFirmenich/KwanTube"
