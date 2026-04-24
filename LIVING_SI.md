@@ -1,7 +1,7 @@
 # LIVING_SI.md — Supplementary Information (Automated Validation)
 
-> **Version** 3.5.0 · **Generated** 2026-04-24T05:36:23Z · **Wall-time** 12.08s
-> **SHA-256 Hash** `79fbc29cf4379d4b…` · **Audit Status** 11/11 validation criteria met
+> **Version** 3.5.0 · **Generated** 2026-04-24T05:59:35Z · **Wall-time** 11.07s
+> **SHA-256 Hash** `ad03157f514910c5…` · **Audit Status** 11/11 validation criteria met
 
 This document is machine-regenerated from `validation_report.json` on every 
 pipeline run. Every result is cross-referenced with the machine-auditable 

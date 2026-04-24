@@ -7,7 +7,6 @@ The Python package maintains the legacy import namespace `qmc_mt` for backward c
 ## Reproducibility Status
 
 - **Canonical Entry Point**: `reproduce_paper_results.py`
-- **Compatibility Wrapper**: `reproduce_paper.py` (legacy redirect)
 - **Release Runbook**: `RELEASE_RUNBOOK.md`
 - **Primary Artifacts**:
   - `validation_report.json`: Machine-auditable numerical ledger (SHA-256 stamped).
@@ -19,24 +18,24 @@ Execute the following commands from the `git_repo/` directory.
 
 ### Fast Validation (CI Smoke Test)
 ```bash
-python reproduce_paper_results.py --fast
+python src/reproduce_paper_results.py --fast
 ```
 
 ### Full Repository Reproduction (Canonical)
 ```bash
-python reproduce_paper_results.py
+python src/reproduce_paper_results.py
 ```
 
 ### Extended ROC Sensitivity Sweep
 ```bash
-python reproduce_paper_results.py --full-roc
+python src/reproduce_paper_results.py --full-roc
 ```
 
 ## Manuscript Figures
 
 Generate all canonical manuscript figures using the dedicated visualization engine:
 ```bash
-python generate_paper_figures.py
+python src/generate_paper_figures.py
 ```
 Output artifacts are saved to `git_repo/figures_final/`.
 
@@ -46,7 +45,7 @@ The repository includes an automated CI workflow defined in `.github/workflows/c
 
 1. Successful package installation in an editable environment.
 2. Unit test coverage (`tests/`).
-3. Numerical consistency of the Nested Sampling engine (`test_ns_consistency.py`).
+3. Numerical consistency of the Nested Sampling engine (`src/test_ns_consistency.py`).
 4. Stability of the Bayesian HEOM hierarchy (`src/bayesian_heom_hierarchy_v2.py`).
 5. End-to-end reproducibility smoke tests.
 6. Figure generation integrity.
@@ -64,9 +63,9 @@ This module applies log-scale contraction modeling and hierarchical shrinkage to
 ## Repository Architecture
 
 - `src/qmc_mt/`: Core physical and statistical implementations.
-- `reproduce_paper_results.py`: End-to-end validation pipeline.
-- `generate_paper_figures.py`: Manuscript figure generation engine.
-- `manuscript/`: LaTeX source files and bibliographic data.
+- `src/reproduce_paper_results.py`: End-to-end validation pipeline.
+- `src/generate_paper_figures.py`: Manuscript figure generation engine.
+- `outputs_data/`: Validated numerical artifacts (.json, .npz, .pkl).
 - `heom_acceptance_criteria.md`: Pre-registered validation thresholds for HEOM integration.
 
 ## License

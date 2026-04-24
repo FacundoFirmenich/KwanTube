@@ -17,7 +17,8 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Callable, Tuple, Any
 
-sys.path.insert(0, str(Path(__file__).parent / "src"))
+# Correct sys.path when running from src/
+sys.path.insert(0, str(Path(__file__).parent))
 
 import numpy as np
 
@@ -416,7 +417,8 @@ def _render_ctx(r: dict) -> dict:
     try:
         h_rows = []
         for pdb in ["1JFF", "6DPU_fragment"]:
-            fpath = Path(f"redfield_vs_heom_{pdb}.json")
+            # Search in outputs_data/ following repository restructuring
+            fpath = Path(__file__).parent.parent / "outputs_data" / f"redfield_vs_heom_{pdb}.json"
             if fpath.exists():
                 h_data = json.loads(fpath.read_text())
                 for entry in h_data:
@@ -482,22 +484,27 @@ def _guess_nmc(md: dict) -> int:
 
 
 def write_living_si(r: dict, path: str = "LIVING_SI.md") -> None:
-    Path(path).write_text(SI_TEMPLATE.format(**_render_ctx(r)), encoding="utf-8")
+    # SI stays in root for user visibility
+    repo_root = Path(__file__).parent.parent
+    full_path = repo_root / path
+    full_path.write_text(SI_TEMPLATE.format(**_render_ctx(r)), encoding="utf-8")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Entry Point
-# ─────────────────────────────────────────────────────────────────────────────
 def main() -> int:
+    repo_root = Path(__file__).parent.parent
     ap = argparse.ArgumentParser(description="Quantubulin reproduction pipeline")
     ap.add_argument("--fast",     action="store_true", help="CI mode (~5 s)")
     ap.add_argument("--full-roc", action="store_true", help="High-resolution ROC (~3 min)")
-    ap.add_argument("--out", default="validation_report.json")
+    ap.add_argument("--out", default=str(repo_root / "outputs_data" / "validation_report.json"))
     ap.add_argument("--si",  default="LIVING_SI.md")
     args = ap.parse_args()
 
     r = run_all(fast=args.fast, full_roc=args.full_roc)
-    Path(args.out).write_text(json.dumps(r, indent=2, default=str), encoding="utf-8")
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(r, indent=2, default=str), encoding="utf-8")
     write_living_si(r, path=args.si)
 
     v, md = r["_validation"], r["_metadata"]

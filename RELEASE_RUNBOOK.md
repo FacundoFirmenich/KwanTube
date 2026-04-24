@@ -15,11 +15,11 @@ pip install -e .
 Execute the fast-mode validation pipeline to verify the integrity of the numerical ledger.
 
 ```bash
-python reproduce_paper_results.py --fast
+python src/reproduce_paper_results.py --fast
 ```
 
 **Expected Outcomes**:
-- Successful regeneration of `validation_report.json`.
+- Successful regeneration of `outputs_data/validation_report.json`.
 - Successful regeneration of `LIVING_SI.md`.
 - All summary checks marked as `[OK]`.
 
@@ -28,7 +28,7 @@ python reproduce_paper_results.py --fast
 Verify that the visualization engine produces all required manuscript figures.
 
 ```bash
-python generate_paper_figures.py
+python src/generate_paper_figures.py
 ```
 
 **Expected Artifacts** (`git_repo/figures_final/`):
@@ -43,7 +43,7 @@ Execute the full unit and consistency test batteries.
 
 ```bash
 python -m unittest discover -s tests -v
-python -m unittest test_ns_consistency.py -v
+python -m unittest src/test_ns_consistency.py -v
 ```
 
 ## 5. Bayesian HEOM Hierarchy Validation (v2)
@@ -62,7 +62,6 @@ python src/bayesian_heom_hierarchy_v2.py src/heom_bayes_input_current.csv --outp
 ## 6. Editorial Consistency Checks
 
 Manual verification of metadata and document integrity:
-- [ ] Verify `manuscript/quantubulin_prxlife_v1.tex` presence and content.
 - [ ] Ensure `paper.md` scope aligns with v3.5.0 features.
 - [ ] Confirm `paper.bib` coverage for all software citations.
 - [ ] Verify version synchronization between `CITATION.cff` and `pyproject.toml`.
@@ -73,6 +72,6 @@ Manual verification of metadata and document integrity:
 For final submission, execute the high-resolution sweeps:
 
 ```bash
-python reproduce_paper_results.py
-python reproduce_paper_results.py --full-roc
+python src/reproduce_paper_results.py
+python src/reproduce_paper_results.py --full-roc
 ```

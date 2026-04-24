@@ -13,7 +13,7 @@ import os
 import json
 
 # Robust path resolution relative to repository root
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent
 SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
@@ -75,9 +75,8 @@ def figure1_landscape():
     # Load real Redfield results if available for Fig 1
     try:
         # Search for redfield results in multiple locations
-        rf_path = REPO_ROOT / "redfield_summary.json"
-        if not rf_path.exists():
-            rf_path = REPO_ROOT / "outputs" / "redfield_summary.json"
+        # Search for redfield results in outputs_data/
+        rf_path = REPO_ROOT / "outputs_data" / "redfield_summary.json"
             
         with open(rf_path, 'r') as f:
             rf_data = json.load(f)
