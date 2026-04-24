@@ -3,13 +3,13 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Firmenich"
   given-names: "Facundo"
-  affiliation: "CEDESUR Research Group, Barcelona, Spain"
+  affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
 - family-names: "Firmenich"
   given-names: "Pau"
-  affiliation: "CEDESUR Research Group, Barcelona, Spain"
+  affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
 - family-names: "Firmenich"
   given-names: "León"
-  affiliation: "CEDESUR Research Group, Barcelona, Spain"
+  affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
 title: "qmc_mt: Quantum Microtubule Coherence Framework"
 version: 3.5.0
 doi: 10.5281/zenodo.XXXXX
