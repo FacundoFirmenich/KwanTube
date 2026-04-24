@@ -1,0 +1,30 @@
+{
+    "title": "qmc_mt: Quantum Microtubule Coherence Framework",
+    "description": "A calibrated framework for tracing quantum decoherence in microtubule proteins. This repository contains the reproduction pipeline for the manuscript on quantum coherence in microtubules, including HEOM (Hierarchical Equations of Motion) and Redfield formalisms, Bayesian hierarchy validation, and Simulation-Based Calibration (SBC) diagnostics.",
+    "creators": [
+        {
+            "name": "Firmenich, Facundo",
+            "affiliation": "CEDESUR Research Group, Barcelona, Spain"
+        },
+        {
+            "name": "Firmenich, Pau",
+            "affiliation": "CEDESUR Research Group, Barcelona, Spain"
+        },
+        {
+            "name": "Firmenich, León",
+            "affiliation": "CEDESUR Research Group, Barcelona, Spain"
+        }
+    ],
+    "license": "GPL-3.0-or-later",
+    "keywords": [
+        "quantum-biology",
+        "microtubules",
+        "decoherence",
+        "HEOM",
+        "Bayesian-inference",
+        "biophysics"
+    ],
+    "version": "3.5.0",
+    "upload_type": "software",
+    "access_right": "open"
+}

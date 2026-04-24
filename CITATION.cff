@@ -14,7 +14,7 @@ title: "qmc_mt: Quantum Microtubule Coherence Framework"
 version: 3.5.0
 doi: 10.5281/zenodo.XXXXX
 date-released: 2026-03-26
-url: "https://github.com/biofisicaquantiqa/qmc_mt"
+url: "https://github.com/FacundoFirmenich/quantubulin"
 preferred-citation:
   type: article
   authors:
