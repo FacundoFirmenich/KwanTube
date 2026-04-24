@@ -1,6 +1,6 @@
 # HEOM Acceptance Criteria
 
-This document pre-registers acceptance criteria for HEOM validation in the Quantubulin v3.5.0 release.
+This document pre-registers acceptance criteria for HEOM validation in the KwanTube v3.5.0 release.
 
 ## Scope
 
@@ -17,4 +17,4 @@ The HEOM layer is used as a nonperturbative validation ledger for short-window c
 
 ## Current release status
 
-Quantubulin v3.5.0 satisfies the short-window validation-ledger criteria and reports long-window full-system production trajectories as staged computational closure.
+KwanTube v3.5.0 satisfies the short-window validation-ledger criteria and reports long-window full-system production trajectories as staged computational closure.

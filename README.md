@@ -1,6 +1,6 @@
-# Quantubulin
+# KwanTube
 
-**Quantubulin** is a reproducible computational framework and research repository for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack required to reproduce the claims presented in the associated manuscript (PRX Life / bioRxiv).
+**KwanTube** is a reproducible computational framework and research repository for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack required to reproduce the claims presented in the associated manuscript (PRX Life / bioRxiv).
 
 The Python package maintains the legacy import namespace `qmc_mt` for backward compatibility with established analysis pipelines.
 

@@ -10,7 +10,7 @@ authors:
 - family-names: "Firmenich"
   given-names: "León"
   affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
-title: "Quantubulin: A calibrated framework for tracing quantum decoherence in microtubule proteins"
+title: "KwanTube v3.5.0: Hierarchical Quantum Pipeline & Automated Validation Ledger"
 version: 3.5.0
 doi: 10.5281/zenodo.19744600
 date-released: 2026-03-26
