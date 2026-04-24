@@ -1,87 +1,74 @@
 # Quantubulin
 
-Quantubulin is the public research repository for the manuscript and reproducible computational framework. The Python package currently retains the legacy import namespace `qmc_mt` for backward compatibility.
+**Quantubulin** is a reproducible computational framework and research repository for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack required to reproduce the claims presented in the associated manuscript (PRX Life / bioRxiv).
 
-## Estado de reproducción
+The Python package maintains the legacy import namespace `qmc_mt` for backward compatibility with established analysis pipelines.
 
-- **Entrypoint canónico**: `reproduce_paper_results.py`
-- **Wrapper de compatibilidad**: `reproduce_paper.py` (redirige al canónico)
-- **Runbook release**: `RELEASE_RUNBOOK.md`
-- **Artefactos principales**:
-  - `validation_report.json` (auditable por máquina)
-  - `LIVING_SI.md` (SI autogenerado)
+## Reproducibility Status
 
-## Ejecución rápida
+- **Canonical Entry Point**: `reproduce_paper_results.py`
+- **Compatibility Wrapper**: `reproduce_paper.py` (legacy redirect)
+- **Release Runbook**: `RELEASE_RUNBOOK.md`
+- **Primary Artifacts**:
+  - `validation_report.json`: Machine-auditable numerical ledger (SHA-256 stamped).
+  - `LIVING_SI.md`: Automated, human-readable Supplementary Information.
 
-Desde la carpeta `git_repo/`:
+## Quick Start
 
+Execute the following commands from the `git_repo/` directory.
+
+### Fast Validation (CI Smoke Test)
 ```bash
 python reproduce_paper_results.py --fast
 ```
 
-Ejecución completa por defecto:
-
+### Full Repository Reproduction (Canonical)
 ```bash
 python reproduce_paper_results.py
 ```
 
-Barrido ROC extendido:
-
+### Extended ROC Sensitivity Sweep
 ```bash
 python reproduce_paper_results.py --full-roc
 ```
 
-## Figuras del manuscrito
+## Manuscript Figures
 
+Generate all canonical manuscript figures using the dedicated visualization engine:
 ```bash
 python generate_paper_figures.py
 ```
+Output artifacts are saved to `git_repo/figures_final/`.
 
-Las figuras canónicas se generan en `git_repo/figures_final/`.
+## Continuous Integration and Quality Assurance
 
-## CI / calidad continua
+The repository includes an automated CI workflow defined in `.github/workflows/ci.yml`. The validation suite ensures:
 
-El repo incluye workflow de CI en:
+1. Successful package installation in an editable environment.
+2. Unit test coverage (`tests/`).
+3. Numerical consistency of the Nested Sampling engine (`test_ns_consistency.py`).
+4. Stability of the Bayesian HEOM hierarchy (`src/bayesian_heom_hierarchy_v2.py`).
+5. End-to-end reproducibility smoke tests.
+6. Figure generation integrity.
 
-- `.github/workflows/ci.yml`
+## Bayesian HEOM Hierarchy (v2)
 
-Cobertura mínima del workflow:
+Quantubulin includes a specialized hierarchical contraction layer for HEOM convergence validation in the small-$N$ regime.
 
-1. instalación editable del paquete,
-2. tests unitarios (`tests/`),
-3. test de consistencia NS (`test_ns_consistency.py`),
-4. smoke Bayes HEOM v2 (`src/bayesian_heom_hierarchy_v2.py`),
-5. smoke reproducible (`reproduce_paper_results.py --fast`),
-6. smoke de figuras (`generate_paper_figures.py`).
+- **Engine**: `src/bayesian_heom_hierarchy_v2.py`
+- **Input Dataset**: `src/heom_bayes_input_current.csv`
+- **Output Directory**: `heom_bayes_out_v2/`
 
-## Jerarquía Bayesiana HEOM v2 (N pequeño)
+This module applies log-scale contraction modeling and hierarchical shrinkage to summarize existing HEOM evidence. It is designed for meta-validation of convergence ledgers and does not replace the requirement for full-system HEOM production runs.
 
-- Script canónico: `src/bayesian_heom_hierarchy_v2.py`
-- Input canónico: `src/heom_bayes_input_current.csv`
-- Output canónico: `heom_bayes_out_v2/`
+## Repository Architecture
 
-La v2 modela contracción en escala log para observables de salto positivos y aplica shrinkage jerárquico sobre `log(r)`. Está diseñada para **resumir evidencia de convergencia existente** en grupos pequeños (incluyendo grupos con 2 puntos), no para reemplazar nuevas corridas HEOM completas.
+- `src/qmc_mt/`: Core physical and statistical implementations.
+- `reproduce_paper_results.py`: End-to-end validation pipeline.
+- `generate_paper_figures.py`: Manuscript figure generation engine.
+- `manuscript/`: LaTeX source files and bibliographic data.
+- `heom_acceptance_criteria.md`: Pre-registered validation thresholds for HEOM integration.
 
-## Estructura relevante
+## License
 
-- `src/qmc_mt/`: implementación física/estadística principal.
-- `reproduce_paper_results.py`: pipeline E2E de validación.
-- `reproduce_paper.py`: compatibilidad retroactiva del comando histórico.
-- `generate_paper_figures.py`: generación de figuras finales.
-- `paper.tex`, `paper.md`, `paper.bib`: manuscrito y bibliografía.
-
-## Notas de release
-
-- El comando recomendado para el paper es **solo uno**: `python reproduce_paper_results.py`.
-- Si existen automatizaciones antiguas que llamen `reproduce_paper.py`, seguirán funcionando.
-- Antes de release, ejecutar checklist completo de `RELEASE_RUNBOOK.md`.
-
-## Estado editorial
-
-- El manuscrito de software (`paper.md`) y bibliografía (`paper.bib`) se mantienen en este repo.
-- Auditoría de consistencia editorial disponible en `EDITORIAL_AUDIT.md`.
-- Nota: en `paper/paper.tex` hay claves bibliográficas aún no presentes en `paper.bib`; revisar `EDITORIAL_AUDIT.md` antes de cierre de versión.
-
-## Licencia
-
-GNU GPLv3 (`LICENSE`).
+This project is licensed under the **GNU GPLv3** (`LICENSE`).

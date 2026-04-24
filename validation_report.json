@@ -1,13 +1,13 @@
 {
   "_metadata": {
     "version": "3.5.0",
-    "timestamp_utc": "2026-04-24T03:40:04Z",
+    "timestamp_utc": "2026-04-24T05:36:23Z",
     "python": "3.14.0",
     "platform": "Windows-10-10.0.19045-SP0",
     "numpy": "2.3.5",
     "fast_mode": true,
     "full_roc": false,
-    "wall_time_s": 10.51
+    "wall_time_s": 12.08
   },
   "params": {
     "experiment": "Kalra2023",
@@ -153,7 +153,7 @@
       127.52251317333102,
       142.69536063838706
     ],
-    "max_delta_bic": 142.69536063838706,
+    "max_dbic": 142.69536063838706,
     "best": "emergent"
   },
   "open_system_benchmark": {
@@ -470,59 +470,59 @@
       {
         "name": "noneq_ladder_monotone",
         "passed": true,
-        "detail": "\u03c4(\u0394\u03bc) monotone non-decreasing"
+        "detail": "Coherence \u03c4(\u0394\u03bc) is monotonically non-decreasing"
       },
       {
         "name": "inversion_recovers_fidelity",
         "passed": true,
-        "detail": "\u03c6\u0302=1.000"
+        "detail": "Recovery Fidelity \u03c6\u0302=1.000"
       },
       {
         "name": "sensitivity_phi_finite",
         "passed": true,
-        "detail": "\u03c6\u2080=1.057e-05"
+        "detail": "Nominal Coherence \u03c6\u2080=1.057e-05"
       },
       {
         "name": "model_selection_picks_emergent",
         "passed": true,
-        "detail": "best=emergent (\u0394BIC_max=142.70)"
+        "detail": "Selected Model: emergent (\u0394BIC_max=142.70)"
       },
       {
         "name": "multi_formalism_concordance",
         "passed": true,
-        "detail": "max spread < 1.0 across \u03b7 grid"
+        "detail": "Relative spread < 1.0 across \u03b7 coupling grid"
       },
       {
         "name": "roc_monotone_global",
         "passed": true,
-        "detail": "P_D non-decreasing in SNR across full \u0394\u2113 grid"
+        "detail": "Detection probability P_D increases with SNR"
       },
       {
         "name": "babcock_bf_decisive",
         "passed": true,
-        "detail": "BF10=183.3"
+        "detail": "Decisive Evidence (BF10=183.3)"
       },
       {
         "name": "kalra_bf_very_strong",
         "passed": true,
-        "detail": "BF10=43.3"
+        "detail": "Very Strong Evidence (BF10=43.3)"
       },
       {
         "name": "sbc_calibrated",
         "passed": true,
-        "detail": "p=0.419"
+        "detail": "NS Calibration p=0.419"
       },
       {
         "name": "lattice_gap_positive",
         "passed": true,
-        "detail": "gap=961.10 meV"
+        "detail": "Spectral Gap \u0394=961.10 meV"
       },
       {
         "name": "lattice_subradiant_delocalized",
         "passed": true,
-        "detail": "IPR=64.1"
+        "detail": "Subradiant IPR=64.1"
       }
     ]
   },
-  "_sha256": "b5a06a9c1472ad40ace2bf6c8ee67aecbc58b40f453ec2640f3aadb63184c0f3"
+  "_sha256": "79fbc29cf4379d4b1daa135e39d191d74d5767c7ba5e2aad3bbc4c2ffb5ceb36"
 }

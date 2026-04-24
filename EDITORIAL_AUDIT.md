@@ -1,34 +1,30 @@
-# Editorial Audit (paper.md / paper.bib / paper.tex)
+# Editorial Audit Ledger
 
-This file tracks editorial consistency status after the final v3.5.0 hardening pass.
+This document tracks the editorial consistency and metadata alignment of the Quantubulin repository following the v3.5.0 hardening pass.
 
-## 1) Bibliography architecture clarified
+## 1. Bibliographic Architecture
 
-- `paper/paper.tex` uses an **embedded bibliography** (`\bibitem{...}` block in-file).
-- `git_repo/paper.bib` is used by `git_repo/paper.md` (software-paper metadata path).
+- **Manuscript Source**: `manuscript/quantubulin_prxlife_v1.tex` utilizes an embedded bibliography (`\bibitem{...}`) to ensure independence from external library fluctuations.
+- **Software Metadata**: `paper.md` (JOSS-style metadata) and `README.md` utilize `paper.bib` for citation management.
 
-Therefore, `paper/paper.tex` is not blocked by `paper.bib` key coverage, because it does not import it.
+The separation between the conceptual manuscript and the software documentation is explicit and intentional.
 
-## 2) Current consistency status
+## 2. Consistency Status (v3.5.0)
 
-- `paper.md` placeholder metadata fields were resolved (authors, affiliations, ORCID, acknowledgements text).
-- `paper.md` version mention aligned to **v3.5.0**.
-- Bayesian HEOM v2 guardrail is documented in repository/manuscript scope as:
-  - validation layer for existing convergence evidence,
-  - not a replacement for new full-system HEOM runs.
+- **Metadata Alignment**: `pyproject.toml`, `CITATION.cff`, and `.zenodo.json` have been synchronized with correct author names (Firmenich et al.) and institutional affiliations (CEDESUR & UNAJ).
+- **ORCID Verification**: Primary author ORCID (0009-0002-6578-3811) has been verified across all metadata paths.
+- **HEOM Guardrails**: The Bayesian HEOM v2 layer is explicitly documented as a validation summary tool, not a dynamic solver, ensuring scientific transparency.
 
-## 3) Metadata consistency
+## 3. Release Readiness
 
-Aligned:
-- `pyproject.toml` version -> **3.5.0**
-- `CITATION.cff` version -> **3.5.0**
+- **Version Alignment**: All artifacts are fixed to version **3.5.0**.
+- **DOI Provisioning**: Placeholder DOIs in `CITATION.cff` and `.zenodo.json` must be updated upon Zenodo record activation.
+- **Runbook Execution**: A final end-to-end execution of `RELEASE_RUNBOOK.md` is mandatory prior to the archival tag.
 
-Pending before archival DOI freeze:
-- Replace `CITATION.cff` placeholder DOI (`10.5281/zenodo.XXXXX`) with final Zenodo record.
+## 4. Pending Items
 
-## 4) Release recommendation
+- [ ] Update Zenodo DOI in `CITATION.cff`.
+- [ ] Final audit of `paper.bib` against the latest PRX Life citation requirements.
+- [ ] Verify that `LIVING_SI.md` cryptographic hash matches the pre-registered `heom_acceptance_criteria.md`.
 
-Before final archival tag:
-1. Mint/fetch Zenodo DOI and update `CITATION.cff`.
-2. Run release runbook (`RELEASE_RUNBOOK.md`) end-to-end.
-3. Keep bibliography split explicit: `paper.tex` (embedded), `paper.md` (`paper.bib`).
+*End of Audit Ledger.*
