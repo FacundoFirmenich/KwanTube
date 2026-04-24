@@ -84,4 +84,4 @@ La v2 modela contracción en escala log para observables de salto positivos y ap
 
 ## Licencia
 
-MIT (`LICENSE`).
+GNU GPLv3 (`LICENSE`).
