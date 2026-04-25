@@ -15,7 +15,7 @@ pip install -e .
 Execute the fast-mode validation pipeline to verify the integrity of the numerical ledger.
 
 ```bash
-python src/reproduce_paper_results.py --fast
+python scripts/reproduce_paper_results.py --fast
 ```
 
 **Expected Outcomes**:
@@ -28,7 +28,7 @@ python src/reproduce_paper_results.py --fast
 Verify that the visualization engine produces all required manuscript figures.
 
 ```bash
-python src/generate_paper_figures.py
+python scripts/generate_paper_figures.py
 ```
 
 **Expected Artifacts** (`git_repo/figures_final/`):
@@ -72,6 +72,6 @@ Manual verification of metadata and document integrity:
 For final submission, execute the high-resolution sweeps:
 
 ```bash
-python src/reproduce_paper_results.py
-python src/reproduce_paper_results.py --full-roc
+python scripts/reproduce_paper_results.py
+python scripts/reproduce_paper_results.py --full-roc
 ```

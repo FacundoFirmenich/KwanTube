@@ -17,8 +17,8 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Callable, Tuple, Any
 
-# Correct sys.path when running from src/
-sys.path.insert(0, str(Path(__file__).parent))
+# Correct sys.path to find qmc_mt in src/
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 import numpy as np
 

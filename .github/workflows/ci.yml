@@ -24,16 +24,16 @@ jobs:
       - name: Unit tests
         run: |
           python -m unittest discover -s tests -v
-          python -m unittest src/test_ns_consistency.py -v
+          python -m unittest scripts/test_ns_consistency.py -v
 
       - name: Bayesian HEOM v2 smoke
         run: |
-          python src/bayesian_heom_hierarchy_v2.py src/heom_bayes_input_current.csv --output-dir heom_bayes_out_v2_ci --draws 4000
+          python scripts/bayesian_heom_hierarchy_v2.py src/heom_bayes_input_current.csv --output-dir heom_bayes_out_v2_ci --draws 4000
 
       - name: Reproducibility smoke
         run: |
-          python src/reproduce_paper_results.py --fast
+          python scripts/reproduce_paper_results.py --fast
 
       - name: Figures smoke
         run: |
-          python src/generate_paper_figures.py
+          python scripts/generate_paper_figures.py

@@ -32,7 +32,7 @@ echo "[KwanTube] Reproducing manuscript-level results..."
 python scripts/reproduce_paper_results.py --mode paper
 
 echo "[KwanTube] Generating manuscript figures..."
-python src/generate_paper_figures.py
+python scripts/generate_paper_figures.py
 
 echo "[KwanTube] Done."
 echo "[KwanTube] Outputs: figures_final/ and validation_report.json."
