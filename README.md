@@ -33,8 +33,7 @@ For convenience, the repository also provides platform launchers:
 | Linux desktop environments | `reproduce_paper_linux.desktop` |
 
 The launchers create or activate a local `.venv`, install dependencies from
-`requirements.txt`, run the canonical Python workflow, and attempt to build the
-manuscript PDF when `latexmk` is available.
+`requirements.txt`, and run the canonical Python workflow.
 
 On Linux and macOS, executable permissions may need to be restored after
 downloading:

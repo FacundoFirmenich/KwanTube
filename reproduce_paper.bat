@@ -36,18 +36,6 @@ pip install -r requirements.txt
 echo [KwanTube] Reproducing manuscript-level results...
 python scripts\reproduce_paper_results.py --mode paper
 
-where latexmk >nul 2>nul
-if %errorlevel%==0 (
-    if exist "manuscript\main.tex" (
-        echo [KwanTube] LaTeX detected. Building manuscript PDF...
-        cd manuscript
-        latexmk -pdf -interaction=nonstopmode main.tex
-        cd ..
-    )
-) else (
-    echo [KwanTube] latexmk not found. Skipping PDF build.
-)
-
 echo [KwanTube] Done.
-echo [KwanTube] Outputs: figures_final/, validation_report.json, and manuscript PDF if LaTeX was available.
+echo [KwanTube] Outputs: figures_final/ and validation_report.json.
 pause
