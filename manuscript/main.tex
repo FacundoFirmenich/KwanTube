@@ -1,0 +1,2657 @@
+\documentclass[twocolumn,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{braket}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{mdframed}
+\usepackage{tikz}
+\usepackage{orcidlink}
+\usepackage{enumitem}
+\usetikzlibrary{arrows.meta,positioning,calc,decorations.pathreplacing,patterns,shadows.blur,fadings}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+citecolor=blue,
+urlcolor=blue
+}
+\renewcommand{\hbar}{\hslash}
+\newcommand{\kB}{k_{\text{B}}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\meV}{\text{~meV}}
+\newcommand{\ps}{\text{~ps}}
+\newcommand{\fs}{\text{~fs}}
+\newcommand{\mus}{\text{~}\mu\text{s}}
+\newcommand{\Hz}{\text{~Hz}}
+\newcommand{\THz}{\text{~THz}}
+\newcommand{\DFS}{\text{DFS}}
+\newcommand{\ENAQT}{\text{ENAQT}}
+\newcommand{\BQC}{B_{\text{QC}}}
+
+\title{\textbf{The equilibrium-to-functionality gap in tubulin quantum dynamics:\\
+open-system constraints, non-equilibrium mechanisms, and falsifiable tests}}
+\author{
+\textbf{Facundo Firmenich}$^{1,2,*}$ \orcidlink{0009-0002-6578-3811},
+\textbf{Pau Firmenich}$^{1}$,
+\textbf{Le\'on Firmenich}$^{1}$\\
+\small $^{1}$Centro de Estudios del Sur (CEDESUR), think tank affiliated with multiple universities;
+for this project, academically affiliated with Universidad Nacional Arturo Jauretche (UNAJ),
+Av. Calchaquí 6200, Florencio Varela, Provincia de Buenos Aires, 1888, Argentina\\
+\small $^{2}$Universitat de Barcelona (UB), Gran Via de les Corts Catalanes, 585,
+08007 Barcelona, Spain\\
+\small $^{*}$Correspondence: \href{mailto:f.firmenich@cedesur.org}{f.firmenich@cedesur.org}
+}
+\date{\today}
+\begin{document}
+\maketitle
+
+% ============================================================
+% GRAPHICAL ABSTRACT (TikZ)
+% ============================================================
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[
+scale=0.95,
+font=\sffamily\small,
+box/.style={rounded corners=2pt, draw=black, fill=white, inner sep=4pt, align=center},
+arrow/.style={->, >=Stealth, line width=0.8pt},
+bridge/.style={decorate, decoration={brace, amplitude=6pt, mirror}, thick}
+]
+\fill[white] (-0.5,-2.5) rectangle (14.5,5.5);
+\node[font=\bfseries\large, align=center] at (7,5) {Equilibrium-to-Functionality Gap:\\
+Quantum Coherence in Tubulin};
+\draw[->, thick] (0.5,0) -- (13.5,0) node[right] {$\log_{10}(\tau/\text{s})$};
+\foreach \x/\lab/\sub in {0/-15/fs, 2/-12/ps, 4/-9/ns, 6/-6/\mus, 8/-3/ms, 10/0/s}{
+\draw (\x+0.5,0.1) -- (\x+0.5,-0.1) node[below] {\lab};
+\node[gray, font=\tiny] at (\x+0.5,-0.4) {\sub};
+}
+\fill[red!15] (0.8,-1.8) rectangle (2.8,-0.6);
+\draw[red!70!black, thick] (0.8,-1.8) rectangle (2.8,-0.6);
+\node[red!70!black, font=\footnotesize\bfseries, align=center] at (1.8,-1.2)
+{Equilibrium\\$T_2^*\!\approx\!40$\,fs};
+\node[red!70!black, font=\tiny] at (1.8,-1.6) {vibrational dephasing};
+\fill[gray!20] (8.2,-1.8) rectangle (10.2,-0.6);
+\draw[gray!70!black, thick] (8.2,-1.8) rectangle (10.2,-0.6);
+\node[gray!70!black, font=\footnotesize\bfseries, align=center] at (9.2,-1.2)
+{Neural\\10--100\,ms};
+\node[gray!70!black, font=\tiny] at (9.2,-1.6) {functional window};
+\draw[<->, red!70!black, thick, dashed] (2.9,-1.2) -- (8.1,-1.2);
+\node[red!70!black, font=\footnotesize\bfseries, align=center] at (5.5,-0.9)
+{Gap: $\sim\!10^{11}\text{--}10^{12}\!\times$};
+\node[red!70!black, font=\tiny] at (5.5,-1.5) {amplification required};
+\draw[orange!70!black, thick, rounded corners=3pt] (3.2,-2.2) rectangle (5.2,-1.4);
+\fill[orange!20] (3.2,-2.2) rectangle (5.2,-1.4);
+\node[orange!70!black, font=\footnotesize\bfseries] at (4.2,-1.8) {Fr\"ohlich};
+\node[orange!70!black, font=\tiny] at (4.2,-2.0) {$\tau\!\sim\!10$--$100$\,ps};
+\node[orange!70!black, font=\tiny] at (4.2,-2.15) {length-gated};
+\draw[green!60!black, thick, rounded corners=3pt] (5.5,-2.2) rectangle (7.5,-1.4);
+\fill[green!15] (5.5,-2.2) rectangle (7.5,-1.4);
+\node[green!60!black, font=\footnotesize\bfseries] at (6.5,-1.8) {QED Cavity};
+\node[green!60!black, font=\tiny] at (6.5,-2.0) {$\tau\!\sim\!0.1$--$1$\,\mus};
+\node[green!60!black, font=\tiny] at (6.5,-2.15) {ordered water};
+\draw[violet!70!black, thick, rounded corners=3pt] (7.8,-2.2) rectangle (9.8,-1.4);
+\fill[violet!20] (7.8,-2.2) rectangle (9.8,-1.4);
+\node[violet!70!black, font=\footnotesize\bfseries] at (8.8,-1.8) {Subradiance};
+\node[violet!70!black, font=\tiny] at (8.8,-2.0) {$\tau\!\sim\!10$\,ps--$10$\,s};
+\node[violet!70!black, font=\tiny] at (8.8,-2.15) {geometric protection};
+\draw[bridge, blue!70!black] (3.0,-2.8) -- (10.0,-2.8);
+\node[blue!70!black, font=\footnotesize] at (6.5,-3.3)
+{$\mathcal{U} = \mathcal{K}\tau_{\text{coh}}/\tau_{\text{func}} \gtrsim 1$};
+\node[box, font=\tiny] at (4.2,-3.8) {Exp.~1,5:\\2D-IR + THz};
+\node[box, font=\tiny] at (6.5,-3.8) {Exp.~4:\\UV/THz cavity};
+\node[box, font=\tiny] at (8.8,-3.8) {Exp.~6:\\length-resolved};
+\begin{scope}[shift={(0.5,3.2)}]
+\node[font=\footnotesize\bfseries] at (0,0) {Legend:};
+\draw[red!70!black, thick] (0,-0.4) -- (0.8,-0.4);
+\node[font=\tiny, anchor=west] at (1,-0.4) {Equilibrium (insufficient)};
+\draw[orange!70!black, thick] (0,-0.7) -- (0.8,-0.7);
+\node[font=\tiny, anchor=west] at (1,-0.7) {Non-equilibrium candidates};
+\draw[violet!70!black, thick] (0,-1.0) -- (0.8,-1.0);
+\node[font=\tiny, anchor=west] at (1,-1.0) {Experimentally observed};
+\draw[gray!70!black, thick] (0,-1.3) -- (0.8,-1.3);
+\node[font=\tiny, anchor=west] at (1,-1.3) {Functional target};
+\end{scope}
+\node[box, font=\footnotesize, text width=12.5cm, align=justify] at (7,-4.8)
+{\textbf{Graphical Abstract.} The equilibrium-to-functionality gap separates
+femtosecond molecular coherence (red) from millisecond neural dynamics (gray).
+Three non-equilibrium mechanisms---Fr\"ohlich pumping (orange), ordered-water
+QED cavity (green), and geometric subradiance (violet)---are candidate bridges.
+Only subradiance is experimentally observed in related architectures
+(Babcock et al. 2024). The dimensionless utility $\mathcal{U}$ quantifies
+the amplification requirement ($\mathcal{K}$: effective cascade gain); 
+$\mathcal{U}\!\gtrsim\!1$ defines the falsifiable experimental targets (Experiments 1, 4--6).};
+\end{tikzpicture}
+\caption*{\textbf{Graphical Abstract.} Visual synthesis of the equilibrium-to-functionality gap and candidate non-equilibrium bridges. See main text for quantitative details.}
+\label{fig:graphical_abstract}
+\end{figure*}
+
+% ============================================================
+% ABSTRACT
+% ============================================================
+\begin{abstract}
+Biological quantum effects are no longer exceptional in principle: room-temperature
+photosynthetic complexes display ultrafast electronic coherence and longer-lived
+vibrational coherences, avian magnetoreceptors exploit radical-pair spin dynamics,
+and enzyme catalysis can involve tunnelling. The unresolved biological-physics
+question is sharper: when can short molecular quantum dynamics cross the gap to
+slower cellular or neural function? We formalize this mismatch as an
+\emph{equilibrium-to-functionality gap} and analyze tubulin and microtubules as a
+stringent test case. Using a hierarchical open-quantum-system framework
+(secular Lindblad limits, Redfield theory, and HEOM validation ledgers), we model
+decoherence from thermal collisions, ionic perturbations, protein vibrational
+modes, and structured environmental couplings. The calibrated equilibrium Ohmic
+baseline gives $T_2^*\approx 39\fs$ at 310~K, with structured-bath variants remaining many orders of magnitude below neural timescales, and all equilibrium scenarios remain
+many orders of magnitude shorter than neural synchronization scales
+(10--100~ms). We therefore introduce a dimensionless quantum-coherence utility
+criterion $\mathcal{U}(\tau_{\text{coh}},\tau_{\text{func}},\mathcal{K})$ that
+separates equilibrium insufficiency from non-equilibrium possibility. Within this
+framework, equilibrium protection and naive cooperative scaling fail, whereas
+Fr\"ohlich pumping, ordered-water QED cavity models, and geometrically protected
+subradiant states remain candidate non-equilibrium model classes with distinct
+experimental signatures. The manuscript does not assume that tubulin quantum
+dynamics are functionally relevant; it derives the quantitative conditions under
+which they could become relevant and specifies how each candidate mechanism can
+be falsified. We further compare these mechanisms against classical neural
+synchronization channels and show that known neural-scale synchronization does
+not require a quantum explanation. Six discriminating experimental programmes
+are proposed. The framework is delivered with fully reproducible computational
+artefacts, calibration ledgers, and open-source code.
+\vspace{0.2cm}
+\noindent\textbf{Keywords:} biological physics, quantum coherence, microtubules,
+tubulin, open quantum systems, HEOM, Redfield theory, Fr\"ohlich condensation,
+QED cavity, subradiance, quantum discord, neural synchronization, quantum biology
+\end{abstract}
+
+% ============================================================
+% FUNDING
+% ============================================================
+\section*{Funding}
+This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.
+
+% ============================================================
+% INTRODUCTION
+% ============================================================
+\section{Introduction: biological quantum relevance as an equilibrium-to-functionality problem}
+The central question addressed here is not whether quantum mechanics is present
+in biomolecules---it necessarily is---but whether molecular quantum dynamics can
+remain operationally relevant across the enormous timescale separation between
+femtosecond/picosecond molecular motion and microsecond-to-millisecond biological
+function. We treat this separation as an \emph{equilibrium-to-functionality gap}.
+The gap is especially severe for tubulin: microtubules are structurally ordered,
+biologically central, and optically rich, yet they operate in warm, wet,
+strongly fluctuating cellular environments. They therefore provide a stringent
+rather than permissive test case for biological quantum relevance.
+Our objective is deliberately conservative. We do not assume that tubulin quantum
+coherence contributes to neural computation, nor do we attempt to explain
+consciousness. Instead, we ask what physical conditions would be required for
+molecular quantum dynamics in tubulin to become functionally consequential, and
+which experiments could rule in or rule out the relevant non-equilibrium model
+classes.
+\subsection{Quantum coherence in biology: revised understanding (2017--2025)}
+Quantum mechanics was traditionally considered irrelevant for biology beyond
+bond formation. This shifted with demonstrations of quantum effects in three
+established systems plus one emerging one.
+\textbf{Photosynthetic light harvesting (FMO complex).} Initial reports
+\cite{Engel2007,Panitchayangkoon2010} of $\tau \sim 300\text{--}600\fs$
+electronic coherence at 277~K have been substantially revised. Thyrhaug
+et al.\ \cite{Thyrhaug2018} demonstrated using polarization-controlled 2D
+spectroscopy that long-lived quantum beats are exclusively vibrational in
+origin, whereas electronic coherences dephase within 240~fs even at 77~K.
+At physiological temperature, Duan et al.\ \cite{Duan2017} found electronic
+coherence $\tau_{\text{elec}} < 60\fs$ at 295~K. Computational studies
+\cite{Tiwari2013,Christensson2012,Tempelaar2014} showed vibrational nuclear
+motion produces spectral signatures previously attributed to electronic
+coherence. Thyrhaug et al.\ \cite{Thyrhaug2018,Thyrhaug2018b} confirmed
+electronic coherences are ultrafast ($\sim 60\fs$) at room temperature for
+high-energy excitons, extending to $\sim 500\fs$ only at cryogenic
+temperatures.
+\textbf{Functional implications.} Despite ultrafast electronic decoherence,
+energy transfer in FMO occurs over $\sim 1$~ps timescales, suggesting
+vibrational coherences and environment-assisted quantum transport
+(\ENAQT) \cite{Plenio2008} contribute to efficiency even without persistent
+electronic coherence \cite{Cao2020}. The quantum advantage appears to lie
+in vibronic coupling \cite{Chin2013} and correlated environmental
+fluctuations rather than long-lived electronic superpositions.
+\textbf{Avian magnetoreception.} Radical pair spin coherence in cryptochrome
+proteins exhibits $\tau \sim 1\text{--}10~\mu\text{s}$ at 300~K with
+experimental validation via magnetic isotope effects
+\cite{Ritz2000,Maeda2012,Gauger2011}.
+\textbf{Enzymatic tunneling.} Kinetic isotope effects (KIE $\sim 3\text{--}80$)
+in hydrogen transfer enzymes indicate quantum tunneling contributions to
+catalysis \cite{Scrutton1999,Klinman2013}.
+\textbf{Microtubule tryptophan networks.} Babcock et al.\ \cite{Babcock2024}
+experimentally demonstrated UV superradiance in mega-networks ($>10^5$
+tryptophan dipoles) of microtubule architectures at room temperature,
+building on theoretical predictions of superradiant transport in tubulin
+\cite{Celardo2019}. Superradiant states ($\tau \sim 100\fs$) coexisted with
+subradiant states ($\tau \sim 10$~s), representing the first direct evidence
+of collective quantum optical effects in MTs.
+\subsection{The microtubule hypothesis: QED cavity and non-equilibrium models}
+Microtubules are hollow cylinders (outer diameter 25~nm, inner lumen 15~nm,
+length 1--50~$\mu$m) assembled from $\alpha\beta$-tubulin dimers in 13
+protofilaments. Each neuron contains $\sim 10^7$ dimers.
+\textbf{QED cavity model.} Mavromatos, Mershin, and Nanopoulos
+\cite{Mavromatos2025,Mavromatos1997,Mavromatos2002} developed a model
+treating MT interiors (containing ordered water
+\cite{DelGiudice1988,Sahu2013}) as high-Q electromagnetic cavities. Strong
+dipole-dipole coupling between tubulin dimers ($\mu \sim 1700$~Debye
+\cite{Tuszynski1995}) and ordered water dipoles in a $\sim 1$~nm hydrophobic
+wall layer provides environmental shielding. Decoherence arises primarily
+from leakage of water dipole quanta, yielding:
+\begin{equation}
+\tau_{\text{QED-cavity}} \sim 10^{-7}\text{--}10^{-6}\text{~s}
+\label{eq:cavity_tau}
+\end{equation}
+with scaling $\tau \propto \varepsilon^2$, where $\varepsilon \sim 80$ is
+the ordered-water dielectric constant.
+\textbf{Non-equilibrium (Fr\"ohlich) models.} Fr\"ohlich
+\cite{Frohlich1968,Frohlich1977} demonstrated that dipole systems under
+continuous metabolic pumping can form Bose-like condensates at high
+temperature, explicitly violating equilibrium thermodynamics. For MT dimers
+continuously supplied with GTP hydrolysis energy ($\Delta E \sim 0.42$~eV
+$\approx 16\kB T$ at 310~K), coherence of a collective mode at frequency
+$\omega_F$ could be sustained with:
+\begin{equation}
+\tau_{\text{Fr\"{o}hlich}} \sim Q / \omega_F \sim
+10^{-11}\text{--}10^{-10}\text{~s}
+\end{equation}
+where $Q$ is the quality factor of the condensed mode.
+\textbf{Controversy.} Reimers et al.\ \cite{Reimers2009} analyzed
+one-dimensional polymers and concluded that Fr\"ohlich condensates are
+inaccessible in a biological environment. However, Pokorn\'y et al.\
+\cite{Pokorn2011} noted this analysis uses linearized equations neglecting
+non-linear elastic-electric coupling central to Fr\"ohlich's original
+framework, and models 1D chains rather than cylindrical MT geometry with
+ordered water \cite{Mavromatos2025,Salari2011}. The discrepancy between
+these analyses defines the central unresolved theoretical question.
+\textbf{Recent experimental support.} Khan et al.\ \cite{Khan2024} showed
+MT-stabilizing drugs delayed anesthetic-induced unconsciousness in rats
+(Cohen's $d = 1.9$). Kalra et al.\ \cite{Kalra2023} demonstrated anesthetics
+dampen quantum optical effects in MTs. Wiest \cite{Wiest2025} reviewed
+convergent evidence that volatile anesthetics act on MT quantum states.
+Saxena et al.\ \cite{Saxena2020} and Singh et al.\ \cite{Singh2021}
+observed MT resonances spanning multiple neurons.
+\subsection{Equilibrium vs non-equilibrium: the critical distinction}
+Tegmark's critique \cite{Tegmark2000} assumed thermal equilibrium and large
+spatial superpositions. Hagan et al.\ \cite{Hagan2002} corrected the spatial
+assumption. The fundamental issue remains: equilibrium assumptions are
+inappropriate for living systems continuously dissipating metabolic energy.
+Our approach: \S\S 2--3 establish rigorous equilibrium constraints,
+from the calibrated femtosecond pure-dephasing baseline to ps-scale
+structured-bath benchmarks. \S 3.4 introduces a novel coherence utility framework
+quantifying the amplification gap. \S 4 analyzes non-equilibrium mechanisms
+(Fr\"ohlich, cavity, subradiance) as potential routes to ps--s effective
+lifetimes, depending on the mechanism.
+\S 5 provides a quantitative classical comparison with information-theoretic
+distinguishability criteria. \S\ref{sec:experimental_discrimination} proposes six falsifiable experiments.
+\subsection{The equilibrium-to-functionality gap}
+Neural timescales (10--100~ms) compared with the calibrated equilibrium
+baseline ($T_2^*\approx39\fs$) imply an amplification factor
+$10^{11}\text{--}10^{12}$. Candidate non-equilibrium mechanisms reduce
+this gap to different degrees: Fr\"ohlich pumping remains in the ps regime,
+ordered-water cavity models reach the sub-\(\mu\)s--\(\mu\)s regime, and
+reported subradiant tails in related architectures can extend much further. For functional relevance, one of the
+following must hold: (1) extreme equilibrium protection yielding
+$\tau \sim$ ms (unknown mechanism); (2) cooperative amplification by factor
+$\sim N$ or $\sqrt{N}$; (3) non-equilibrium pumping sustaining coherence
+(Fr\"ohlich); (4) cavity shielding by ordered water (Mavromatos et al.);
+(5) cascading quantum$\to$classical amplification; (6) geometric
+decoherence-free subspaces (subradiant states); (7) classical mechanisms
+suffice (null hypothesis). We demonstrate equilibrium mechanisms (1--2)
+fail; non-equilibrium mechanisms (3, 4, 6) are testable hypotheses.
+
+% ============================================================
+% FIGURE 1: TIMESCALE LANDSCAPE
+% ============================================================
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures_final/fig1_landscape.pdf}
+\caption{\textbf{Landscape of biological quantum timescales and the equilibrium-to-functionality gap.}
+Characteristic timescales for established biological quantum effects, the
+calibrated tubulin equilibrium baseline, candidate non-equilibrium microtubule
+mechanisms, and neural synchronization. The landscape separates the
+femtosecond equilibrium regime from the millisecond functional regime and
+identifies Fr\"ohlich pumping, ordered-water QED cavity protection, and
+geometric subradiance as experimentally testable non-equilibrium bridges rather
+than established functional mechanisms. The horizontal separation defines the
+amplification gap quantified by
+\(\mathcal{U}_{\rm phys}=\mathcal{K}\tau_{\rm coh}/\tau_{\rm func}\).}
+\label{fig:landscape}
+\end{figure*}
+
+\subsection{Scope and contribution}
+The contribution of the paper is a PRX Life-oriented biological-physics
+framework: it turns a historically speculative topic into a constrained set of
+open-system calculations, amplification bounds, non-equilibrium hypotheses, and
+falsifiable experimental discriminants.
+\textbf{Objective 1 (\S 2):} Establish equilibrium decoherence constraints for
+tubulin using calibrated open-system models, spectral-density uncertainty, and
+Redfield/HEOM validation ledgers. The target is not to prove functional quantum
+relevance, but to quantify the equilibrium insufficiency baseline.
+\textbf{Objective 2 (\S 3):} Derive cooperative amplification bounds, introduce
+a quantum-coherence utility criterion, and analyze quantum discord in coupled
+tubulin dimers. This section defines the equilibrium-to-functionality gap in a
+form that can be applied beyond tubulin.
+\textbf{Objective 3 (\S 4):} Treat Fr\"ohlich pumping, ordered-water cavity QED,
+and geometric subradiance as non-equilibrium \emph{model classes}. They are not
+assumed to be biologically realized; they are retained only insofar as they imply
+quantitative, mechanism-specific signatures.
+\textbf{Objective 4 (\S 5):} Compare candidate quantum mechanisms against known
+classical synchronization mechanisms and make the null hypothesis explicit:
+current neural synchronization data do not require a quantum explanation.
+\textbf{Objective 5 (\S\ref{sec:experimental_discrimination}):} Provide six experimental programmes with explicit
+positive criteria, null criteria, confounds, and statistical decision layers.
+The six experiments collectively discriminate between equilibrium vibronic
+(small-polaron), Fr\"ohlich condensate, ordered-water QED cavity, and
+geometric subradiance scenarios, with Experiment~6 providing the first
+quantitative map of the $(\tau_A, p)$ subradiance parameter space.
+
+% ============================================================
+% SECTION 2: EQUILIBRIUM DECOHERENCE
+% ============================================================
+\section{Equilibrium decoherence analysis}
+\subsection{Two-level system model and the choice of open-system formalism}
+We model tubulin dimers as quantum two-state systems (``straight'' $\ket{0}$
+vs ``curved'' $\ket{1}$ conformations):
+\begin{align}
+\hat{H} &= \hat{H}_{\text{sys}} + \hat{H}_{\text{bath}} + \hat{H}_{\text{int}} \label{eq:H_total} \\
+\hat{H}_{\text{sys}} &= \frac{\Delta E}{2}\sigma_z - \Delta \sigma_x \\
+\hat{H}_{\text{bath}} &= \sum_k \hbar\omega_k (b_k^\dagger b_k + \tfrac{1}{2}) \\
+\hat{H}_{\text{int}} &= \sigma_z \otimes \sum_k g_k (b_k^\dagger + b_k)
+\end{align}
+We adopt an Ohmic spectral density as the primary model:
+\begin{equation}
+J_{\text{Ohm}}(\omega) = \eta \omega e^{-\omega/\omega_c}
+\label{eq:spectral_ohmic}
+\end{equation}
+with dimensionless coupling $\eta$ and cutoff $\omega_c$.
+\textbf{Choice of master equation.}
+At $T=310$~K with $\eta\sim 0.3$ and $\omega_c\sim 4.5\THz$ the relevant
+dimensionless parameters are $\hbar\omega_c/\kB T \approx 0.68$ and
+$2\pi\eta\kB T/\hbar\omega_c \approx 1.4$. The system therefore sits in the
+\emph{intermediate-coupling / non-Markovian} regime where neither the
+Born--Markov secular Lindblad equation nor the Redfield equation are
+a priori exact \cite{BreuerPetruccione2002,Weiss2008}. We use three levels
+of description, benchmarked against each other:
+\begin{enumerate}
+\item \emph{Secular Lindblad} --- analytically tractable; valid when
+$|\omega_{ij}-\omega_{kl}|\gg \Gamma$. Used for closed-form scalings.
+\item \emph{Time-convolutionless Redfield} (second order) --- retains
+non-secular coherence transfer; used for rate tables (Table~1).
+\item \emph{Hierarchical Equations of Motion} (HEOM)
+\cite{Ishizaki2009,Tanimura2020} --- numerically exact for Drude--Lorentz
+baths; used as benchmark in \S 2.2.5.
+\end{enumerate}
+All three agree to within $25\%$ on $\tau_c$ for the parameter window
+considered, confirming that the order-of-magnitude conclusions of this
+section are not an artefact of the master-equation choice. The largest
+discrepancies arise for Ohmic baths at $\eta\gtrsim 0.5$, where HEOM
+predicts a $\sim 40\%$ shorter $\tau_c$ than secular Lindblad due to
+non-Markovian memory effects that transiently reduce coherence before
+long-time thermalisation.
+
+\subsubsection{Spectral density calibration and uncertainty}
+The parameters $\eta$ and $\omega_c$ are drawn from protein electron
+transfer studies \cite{May2011,Rego2003}: $\eta \in [0.1, 1.0]$ with central
+value 0.3, and $\omega_c \in [100, 250]\text{~cm}^{-1}$ ($3\text{--}7.5\THz$)
+with central value $150\text{~cm}^{-1}$ ($4.5\THz$). Xiang et al.\
+\cite{Xiang2019} used comparable values for tubulin dephasing. We note these
+are \textit{generic protein} parameters; tubulin-specific values should be
+extracted from molecular dynamics simulations of the $\alpha\beta$-dimer in
+explicit solvent \cite{Sept2003}, which we identify as priority future work.
+To quantify parametric uncertainty, we compute $\tau_c$ across the full
+$(\eta, \omega_c)$ parameter space and verify that the equilibrium scale
+remains ultrafast. In the current public release, using the numerical code
+(\S\ref{sec:code}), we performed a multi-temperature inversion to break the
+degeneracy between $\eta$ and $\omega_c$. Synthetic benchmark tests confirm
+that the inversion engine recovers the true parameters with absolute error
+$\varepsilon_\eta = 1.59\times10^{-12}$ and relative error
+$\varepsilon_{\omega_c}/\omega_c \approx 3.9\times10^{-10}$ under ideal
+conditions, validating identifiability and calibration stability. The calibrated
+equilibrium $T_2^*$ is consistently $39.1\fs$ at 310~K with $\eta=0.1$, adopted
+as the baseline.
+
+\textbf{Sobol sensitivity analysis.} A global variance-based sensitivity analysis (Sobol indices, $N=2000$) reveals that $\eta$ dominates the uncertainty in $T_2^*$: $S_1(\eta)=0.982 \pm 0.011$, $S_T(\eta)=0.991 \pm 0.006$. The cutoff frequency contributes marginally ($S_1(\omega_c)=0.014$), while temperature and protection factors are negligible ($<0.005$). This confirms that the equilibrium bound is structurally controlled by the low-frequency spectral density, not by high-frequency cutoffs or external shielding.
+
+\textbf{Structured-bath cross-check.} To verify robustness beyond the Ohmic approximation, we evaluated a Drude--Lorentz spectral density $J_{\text{DL}}(\omega) = \frac{\eta_{\text{DL}} \omega_c \omega}{\omega^2+\omega_c^2}$ with $\omega_c \sim 50$ THz (typical protein Drude frequency) and $\eta_{\text{DL}}$ matched to the low-frequency dissipation of the Ohmic case. The extracted coherence time shifts to $T_2^* = 42 \pm 3$ fs, confirming that the equilibrium result is robust to spectral shape variations within a factor of two. The $42\pm3$ fs value refers to a low-frequency-matched Drude--Lorentz pure-dephasing surrogate used to test the robustness of the calibrated Ohmic $T_2^*$ baseline. It should not be confused with the structured Drude--Lorentz HEOM excitonic benchmark below, which probes population/coherence decay in a different effective model and yields ps-scale relaxation while still remaining many orders of magnitude below neural timescales.
+
+\subsection{Decoherence sources}
+\subsubsection{Thermal water collisions}
+\begin{equation}
+\Gamma_{\text{water}} = n \sigma v_{\text{th}} f_{\text{prot}}
+\end{equation}
+where $n \approx 3.3 \times 10^{28}$~m$^{-3}$ is water number density,
+$\sigma \sim 10^{-19}$~m$^2$ is the effective collision cross-section,
+$v_{\text{th}} \approx 640$~m/s at 310~K, and $f_{\text{prot}}$ is a
+protection factor. Unprotected: $\Gamma \sim 10^{13}\Hz$. With hydrophobic
+cavity and ordered water shielding ($f_{\text{prot}} \sim 10^{-3}$):
+$\Gamma \sim 10^{10}\Hz$ \cite{Eaves2005}.
+
+\subsubsection{Ionic fluctuations}
+Debye-screened electrostatic noise from physiological ions
+($I \approx 150$~mM):
+\begin{equation}
+\Gamma_{\text{ions}} \sim \frac{\mu^2 E_{\text{rms}}^2}{\hbar^2}
+\tau_{\text{corr}} \sim 10^{9}\text{--}10^{10}\Hz
+\end{equation}
+where $\mu$ is the dipole moment, $E_{\text{rms}}$ the ionic field at the
+Debye length $\lambda_D \approx 0.8$~nm, and
+$\tau_{\text{corr}} \sim \lambda_D / v_{\text{ion}}$ the correlation time
+\cite{Hagan2002,Xiang2019,Israelachvili2011}. Recent computational
+refinements incorporating a screening factor $\delta = 0.005$ due to the
+MT wall reduce the effective ionic rate to $\sim 9.3$~GHz, in agreement
+with numerical simulations (\S\ref{sec:code}).
+
+\subsubsection{Vibrational dephasing (dominant)}
+Tubulin has $\sim 3 \times 10^4$ vibrational modes, many thermally excited
+at 310~K:
+\begin{equation}
+\Gamma_{\text{vib}} = \frac{\pi}{\hbar} \int_0^\infty d\omega \, J(\omega)
+\coth\!\left(\frac{\hbar\omega}{2\kB T}\right)
+\label{eq:Gamma_vib_full}
+\end{equation}
+In the high-temperature regime ($\hbar\omega_c / \kB T \approx 0.7$ at
+310~K), the analytic approximation for Ohmic $J(\omega)$ gives:
+\begin{equation}
+\Gamma_{\text{vib}} \approx \frac{2\pi \eta \kB T}{\hbar}
+\end{equation}
+For the calibrated release baseline $T = 310$~K, $\eta = 0.1$:
+\begin{equation}
+\boxed{\Gamma_{\text{vib}} \approx 2.6\times 10^{13}\Hz
+\quad \Rightarrow \quad T_2^* \approx 39\fs}
+\label{eq:tau_vib_boxed}
+\end{equation}
+\paragraph{Vibrational dominance hierarchy.}
+\label{prop:vib_dominance}
+For tubulin dimers with intrinsic bath coupling $\eta \geq 0.1$,
+vibrational dephasing dominates all other equilibrium mechanisms by at
+least one order of magnitude:
+\begin{equation}
+\Gamma_{\text{vib}} \gg \Gamma_{\text{ions}} \gtrsim
+\Gamma_{\text{water}}^{(\text{prot})} \gg \Gamma_{\text{rad}}
+\end{equation}
+Consequently, external protection mechanisms (cavity shielding, Debye
+screening) cannot improve the equilibrium coherence time beyond
+$\tau \sim 10^{-14}\text{--}10^{-13}$~s in the calibrated Ohmic release,
+as the dominant source is \textbf{intrinsic} to the protein.
+
+\textit{Proof.} From the rates computed above:
+$\Gamma_{\text{vib}} \sim 2.6\times 10^{13}$,
+$\Gamma_{\text{water}}^{(\text{prot})} \sim 2\times 10^{9}$,
+$\Gamma_{\text{ions}} \sim 9\times 10^{9}$,
+$\Gamma_{\text{rad}} \sim 10^6$~Hz. Even complete elimination of water and
+ionic contributions leaves
+$\Gamma_{\text{total}} \geq \Gamma_{\text{vib}} \sim 10^{13}\Hz$.
+\hfill $\square$
+
+\textbf{Rigidity comparison.} Tubulin C-terminus B-factors
+($\sim 50\text{--}80$~\AA$^2$ \cite{Nogales1998}) exceed FMO rigidity
+($\sim 10\text{--}20$~\AA$^2$ \cite{Adolphs2006}), suggesting weaker
+vibrational protection. However, crystallographic B-factors may not reflect
+solution dynamics; NMR relaxation data for tubulin are needed.
+
+\subsubsection{Comparison with photosynthesis (updated)}
+Thyrhaug et al.\ \cite{Thyrhaug2018,Thyrhaug2018b} used polarization-controlled 2D
+electronic spectroscopy to demonstrate that oscillatory signals previously
+interpreted as electronic coherence are vibrational beatings, with
+electronic dephasing completing within 240~fs at 77~K. Duan et al.\
+\cite{Duan2017} reported $\tau_{\text{elec}} < 60\fs$ at 295~K. The revised
+understanding:
+\begin{equation}
+\tau_{\text{elec}}^{\text{FMO}} \sim 60\fs, \quad
+\tau_{\text{vib}}^{\text{FMO}} \sim 1\text{--}10\ps
+\end{equation}
+Our current calibrated Ohmic release value $T_2^* \approx 39\fs$ no longer
+overlaps the FMO vibronic window directly. Any stronger FMO-style vibronic
+analogy for tubulin therefore requires either a more structured bath model,
+correlated environmental effects, or an explicitly non-equilibrium mechanism.
+We retain the Holstein construction of \S\ref{sec:holstein} as a theoretical
+organiser, but not as a numerically closed claim of room-temperature
+vibronic equivalence in the present release.
+
+\subsubsection{Robustness across spectral density models (HEOM-benchmarked)}
+The present release ships the calibrated Ohmic baseline together with
+validation artefacts, convergence ledgers, and manuscript-level HEOM/Redfield
+benchmarks. Dedicated long-window production runs for structured Drude--Lorentz
+and super-Ohmic baths are staged as versioned computational extensions rather
+than overclaimed here as completed biological evidence. Alternative spectral
+densities remain theoretically relevant, and the benchmarks below are used to
+establish the scale and robustness of the equilibrium conclusion, not to claim
+that all structured-bath production calculations are already closed.
+
+\textbf{HEOM benchmark.} We ran the Ishizaki--Fleming HEOM
+\cite{Ishizaki2009} for the Drude--Lorentz case with 4 Matsubara terms and
+truncation depth $K=12$ (convergence verified by doubling both). The HEOM
+population dynamics yield a coherence decay $\tau^{\text{HEOM}}_c
+= 1.7\ps$, to be compared with $\tau^{\text{Redfield}}_c = 2.0\ps$ and
+$\tau^{\text{sec-Lindblad}}_c = 2.3\ps$. The three methods thus agree to
+$\lesssim 30\%$; the secular approximation systematically overestimates
+$\tau_c$ by damping coherence transfer between system eigenstates. For the
+Ohmic case at $\eta=0.5$, the spread widens to $\sim 40\%$
+(HEOM: $0.7\ps$; Redfield: $0.9\ps$; sec-Lindblad: $1.2\ps$), confirming
+that the intermediate-coupling regime warrants exact treatment for any
+precision claim below a factor of two. None of these corrections alter
+the order-of-magnitude result $\tau_c\sim 1\text{--}5\ps$.
+The full parameter sweep ($\eta \in [0.1,1]$, $\omega_c \in [3,7.5]\THz$)
+gives $\tau \in [0.3, 20]\ps$, with the geometric mean
+$\bar{\tau} \approx 3\ps$ (see Supplementary Material for contour plots;
+Fig.~\ref{fig:landscape} for a visual summary across models).
+
+\textbf{Small-$N$ HEOM/Redfield validation ledger.}
+In the accompanying validation artefacts, hierarchy-depth refinement at
+500~fs shows monotonic observable-level contraction across populations,
+coherences, and Frobenius-norm distances:
+\begin{center}
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+Comparison & $dPop$ & $dCoh$ & $dFrob$ \\
+\midrule
+$N_C:3\to4$, $N_k=1$ & $5.51\times10^{-2}$ & $3.57\times10^{-3}$ & $9.97\times10^{-2}$ \\
+$N_C:4\to5$, $N_k=1$ & $2.90\times10^{-2}$ & $2.87\times10^{-3}$ & $4.91\times10^{-2}$ \\
+$N_C:5\to6$, $N_k=1$ & $1.29\times10^{-2}$ & $1.43\times10^{-3}$ & $2.24\times10^{-2}$ \\
+$N_C:6\to7$, $N_k=1$ & $5.45\times10^{-3}$ & $9.10\times10^{-4}$ & $9.45\times10^{-3}$ \\
+$N_C:7\to8$, $N_k=1$ & $2.09\times10^{-3}$ & $5.06\times10^{-4}$ & $3.76\times10^{-3}$ \\
+$N_k:1\to2$, $N_C=5$ & $1.24\times10^{-4}$ & $3.69\times10^{-5}$ & $1.92\times10^{-4}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus, within the tested regime, $N_C$ controls the residual truncation error,
+whereas $N_k$ refinement is subdominant. A full-system 1JFF calibration gives
+$d_{4\to5}=9.15\times10^{-3}$, $d_{5\to6}=5.02\times10^{-3}$, and
+$r(1\text{JFF})=0.549$, supporting geometric contraction while keeping the
+long-window $N_C=7$ production trajectory as a staged computational closure. 
+The 1JFF HEOM--Redfield discrepancy at 500~fs is much larger than the projected residual
+truncation error, indicating a model-level difference between perturbative and
+nonperturbative treatments in this regime. 
+\textbf{Short-window extrapolative check.} The 500-fs HEOM--Redfield discrepancy is used only as a conservative indicator of model-level uncertainty, not as a substitute for a long-window production trajectory. Any extrapolation beyond 500~fs is therefore treated as a diagnostic planning calculation. It does not enter the primary equilibrium bound, which is set by the analytic FDT constraint and the explicit short-window HEOM/Redfield ledger.
+
+% ============================================================
+% FIGURE 2: HEOM BENCHMARK 1JFF
+% ============================================================
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures_final/heom_benchmark_1JFF.png}
+\caption{\textbf{Short-window HEOM benchmark dynamics for the full 1JFF system.}
+Representative HEOM trajectory used as a nonperturbative short-window
+validation benchmark. Left: population redistribution from the initially
+excited site over the femtosecond-to-picosecond window. Right: \(L_1\)-norm
+coherence showing rapid transient build-up followed by non-exponential decay.
+The figure supports the interpretation of the relevant physics as transient
+open-system dynamics and illustrates why HEOM and perturbative Redfield
+treatments are not quantitatively interchangeable in this parameter regime.
+It is not used as a substitute for the staged long-window full-system
+production trajectory.}
+\label{fig:heom_1jff_benchmark}
+\end{figure*}
+
+Figure~\ref{fig:heom_1jff_benchmark} shows the corresponding short-window
+HEOM dynamics for the full 1JFF system. The trajectory is used as a validation
+benchmark for transient open-system behaviour, not as a long-window production
+closure.
+
+\subsection{Combined equilibrium rates}
+Table~\ref{tab:decoherence_rates} summarizes all equilibrium sources.
+Vibrational dephasing is intrinsic and dominant
+(Proposition~\ref{prop:vib_dominance}), yielding an equilibrium coherence
+time of order $10^{-14}\text{--}10^{-13}$~s in the current calibrated Ohmic
+release. Using the calibrated code (\S\ref{sec:code}), the multi-temperature
+inversion yields $T_2^* = 39.1\fs$ at 310~K with $\eta = 0.1$, adopted as
+the baseline equilibrium coherence time for subsequent analysis.
+
+\begin{table*}[t]
+\centering
+\caption{Decoherence rates in tubulin dimers at 310~K under equilibrium
+assumptions. Vibrational dephasing dominates
+(Proposition~\ref{prop:vib_dominance}). Non-equilibrium mechanisms analyzed
+in \S 4. The \emph{Experimental status} column follows a uniform scale:
+NYA = not yet attempted; AI = attempted, inconclusive; PS = partially
+supported; CR = consensus-robust.}
+\label{tab:decoherence_rates}
+\footnotesize
+\begin{tabular}{p{2.0cm}p{2.2cm}ccp{2.4cm}p{1.5cm}p{3.2cm}}
+\toprule
+\textbf{Source} & \textbf{Mechanism} & \textbf{Unprot.} & \textbf{Prot.}
+& \textbf{Protection} & \textbf{Scale} & \textbf{Experimental status} \\
+& & (s$^{-1}$) & (s$^{-1}$) & mechanism & & (refs.) \\
+\midrule
+Water & Collisional & $10^{13}$ & $10^{10}$ & Cavity, H$_2$O order & Ext. &
+PS (Sahu 2013 \cite{Sahu2013}, ordered water) \\
+\addlinespace
+Ions & Electrostatic & $10^{10}$ & $10^9$ & Debye ($\lambda_D \sim 1$~nm) &
+Ext. & CR (Israelachvili \cite{Israelachvili2011}) \\
+\addlinespace
+\textbf{Vibrations} & \textbf{Phonon coupling} & $\mathbf{10^{13}}$ &
+$\mathbf{2.6\times 10^{13}}$ & \textbf{Rigidity (limited)} &
+\textbf{Int.} & \textbf{AI (2D-IR proposed \S\ref{sec:exp1})} \\
+\addlinespace
+Radiation & Spontaneous & $10^6$ & $10^6$ & None & Negl. & CR (standard QED) \\
+\midrule
+\textbf{Total (eq.)} & --- & $\sim 10^{13}$ & $\sim 2.6\times 10^{13}$ & --- &
+Vib-lim. & --- \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\footnotesize
+\textit{Refs:} H$_2$O---\cite{Eaves2005}; Ions---\cite{Israelachvili2011,Xiang2019};
+Vibrations---\cite{May2011,Rego2003,Weiss2008}; B-factors---\cite{Nogales1998}.
+Robustness: the calibrated Ohmic pure-dephasing baseline remains in the
+femtosecond regime, while structured-bath excitonic benchmarks remain in the
+picosecond regime; all variants remain many orders of magnitude below neural
+timescales. (\S 2.2.5), cross-validated against HEOM
+\cite{Ishizaki2009}.
+\end{table*}
+
+% ============================================================
+% SECTION 3: AMPLIFICATION PROBLEM
+% ============================================================
+\section{The amplification problem: equilibrium mechanisms}
+\subsection{Statement and scaling analysis}
+Equilibrium coherence: $T_2^* \approx 39\fs$ in the calibrated release. Neural
+timescale: $\tau_{\text{neural}} \sim 10\text{--}100\text{~ms}$. Required
+amplification: $F = \tau_{\text{neural}}/\tau_{\text{eq}} \sim
+10^{11}\text{--}10^{12}$.
+
+\subsection{Why $\sqrt{N}$ scaling fails}
+For $N$ qubits with independent baths (GHZ-type state):
+\begin{equation}
+\rho_{01\cdots01}(t) \propto e^{-N\Gamma t} \quad \Rightarrow \quad
+\tau_N = \frac{\tau_1}{N}
+\end{equation}
+Coherence \textit{worsens} with $N$ (superdecoherence).
+Decoherence-free subspaces require perfect noise correlation. MT symmetry
+breaking $\delta\varepsilon/\varepsilon \sim 10\text{--}50\%$
+\cite{Sept2003} yields $\tau_{\DFS} \sim \hbar/\delta\varepsilon
+\sim 0.1\ps$. No benefit.
+Dipole--dipole quantum synchronization at 8~nm:
+$K \sim \mu^2/(4\pi\varepsilon_0\varepsilon_r a^3) \sim 2\text{~GHz}$,
+giving $K/\Gamma \sim 10^{-3} \ll 1$ (weak coupling, amplification $<10$).
+
+\subsection{Dimensional equilibrium bound: FDT-rigorous form}
+\textbf{Reformulation as a fluctuation--dissipation corollary.}
+The original Proposition in the previous version is a scaling argument.
+We now derive it as a rigorous consequence of the quantum
+fluctuation--dissipation theorem (FDT; Weiss \cite{Weiss2008}, ch.~4;
+Kubo \cite{Kubo1966}).
+\paragraph{Pure-dephasing FDT estimate.}
+\label{lem:FDT}
+Let a two-level system couple to a thermal bath via
+$\hat{H}_{\text{int}}=\hat\sigma_z\otimes\hat{B}$ with
+$\langle\hat B\rangle=0$, the bath being in Gibbs state at temperature
+$T$. Let $S_{BB}(\omega)$ be the symmetrised noise spectrum. Then the
+pure-dephasing rate in the Born--Markov limit is
+\begin{equation}
+\Gamma_\phi = \frac{1}{\hbar^2}\, S_{BB}(0)
+= \frac{1}{\hbar^2}\lim_{\omega\to 0}
+\bigl[2\kB T\, \chi''(\omega)/\omega\bigr],
+\label{eq:FDT_pure_dephasing}
+\end{equation}
+where $\chi''(\omega)$ is the imaginary part of the bath susceptibility.
+
+\textit{Proof.} Standard: combine Redfield integral expression
+\cite{BreuerPetruccione2002} with the classical form of FDT
+$S_{BB}(\omega)=2\kB T\,\chi''(\omega)/\omega$, valid for
+$\hbar\omega\ll\kB T$, which holds at $\omega\to 0$. \hfill$\square$
+\paragraph{Equilibrium coherence ceiling.}
+\label{cor:ceiling}
+For any system-bath coupling with dimensionless strength
+$\alpha\equiv \hbar\chi''(\omega_c)/\omega_c$ and characteristic bath
+cutoff $\omega_c$, the equilibrium coherence time satisfies
+\begin{equation}
+\tau_{\text{coh}} \;\le\; \frac{\hbar}{\alpha\,\kB T}.
+\label{eq:coh_bound}
+\end{equation}
+
+\textit{Proof.} From Eq.~(\ref{eq:FDT_pure_dephasing}), $\Gamma_\phi
+\ge (\alpha\kB T)/\hbar$ whenever the spectral density is non-zero at
+$\omega=0$ (Ohmic or Drude--Lorentz). $\tau_{\text{coh}}=\Gamma_\phi^{-1}$
+gives the bound. Violations require either (i) gapped spectral density
+($J(0)=0$, super-Ohmic $s\ge 1$), (ii) non-equilibrium drive, or (iii)
+active error correction/feedback. \hfill$\square$
+\paragraph{Structured-bath comparison.}
+For super-Ohmic baths ($s>1$) the $\omega=0$ limit vanishes and pure
+dephasing is suppressed; however, \emph{energy relaxation} (T$_1$) is then
+controlled by $J(\omega_0)$ and imposes its own bound. The full \(T_2\)-relaxation ceiling at 310~K is therefore
+\[
+\tau\lesssim\hbar/(\alpha\kB T)\approx 25\text{--}250\fs
+\quad \text{for } \alpha\in[0.1,1],
+\]
+with the upper end corresponding to weaker coupling, for the strict FDT pure-dephasing estimate. Structured-bath excitonic
+benchmarks can display ps-scale population/coherence relaxation in a
+different effective model, but this does not alter the far-below-neural
+conclusion.
+
+
+\subsection{Quantum coherence utility framework}
+\label{sec:utility}
+The utility criterion is a necessary-condition accounting device, not by
+itself a complete falsification test. It quantifies the minimum product of
+coherence lifetime and downstream amplification required for molecular
+quantum dynamics to influence a functional process at timescale
+$\tau_{\rm func}$. Because the amplification factor $\mathcal{K}$ is not yet
+independently measured in MT-to-neural transduction, $\mathcal{U}_{\rm phys}$
+should not be interpreted as evidence for functional quantum relevance.
+Rather, it defines the required gain that any proposed mechanism must later
+supply and measure independently.
+\paragraph{Coherence utility.}
+\label{def:utility}
+\begin{equation}
+\mathcal{U}_{\rm phys}(\tau_{\text{coh}}, \tau_{\text{func}}, \mathcal{K})
+\equiv \frac{\mathcal{K}\,\tau_{\text{coh}}}{\tau_{\text{func}}}
+\label{eq:utility_phys}
+\end{equation}
+where $\mathcal{K}$ is an effective amplification factor encoding
+cooperative coupling ($N$ coherent units), cascading gain, and signal
+transduction efficiency. Functional quantum influence requires
+$\mathcal{U}_{\rm phys} \gtrsim 1$.
+
+In what follows, we therefore distinguish
+\[
+\mathcal{K}_{\rm req}=\frac{\tau_{\rm func}}{\tau_{\rm coh}}
+\]
+from any empirical amplification factor. A mechanism is physically viable
+only if an independently measured cascade gain satisfies
+$\mathcal{K}_{\rm emp}\gtrsim\mathcal{K}_{\rm req}$. Until such a measurement
+exists, $\mathcal{K}$ is not treated as a fitted explanatory parameter.
+Mechanism-specific falsification is supplied instead by direct observables:
+spectral splitting, linewidth scaling, lifetime scaling, isotope effects, and
+controlled perturbation experiments.
+\textbf{Equilibrium bound on $\mathcal{U}_{\rm phys}$.} From
+Corollary~\ref{cor:ceiling}:
+\begin{equation}
+\mathcal{U}_{\text{eq}} \lesssim
+\frac{\mathcal{K}\hbar}{\alpha\kB T \cdot \tau_{\text{func}}}
+\end{equation}
+At 310~K with $\alpha = 0.3$, $\tau_{\text{func}} = 25$~ms:
+\begin{equation}
+\mathcal{U}_{\text{eq}} \lesssim \mathcal{K} \times 3.3 \times 10^{-12}
+\end{equation}
+For $\mathcal{U}_{\text{eq}} \geq 1$: this requires
+$\mathcal{K} \gtrsim 3\times10^{11}$. No known equilibrium cooperative mechanism in MTs achieves this.
+Dipole coupling gives $\mathcal{K} \lesssim K/\Gamma \times N \sim
+10^{-3} \times 10^4 = 10$; DFS gives $\mathcal{K} \sim 1$ (destroyed by
+disorder). Therefore:
+\begin{equation}
+\boxed{\mathcal{U}_{\text{eq}} < 1
+\quad \text{for all realistic equilibrium scenarios}}
+\end{equation}
+\textbf{Non-equilibrium extension.} With cavity QED protection
+($\tau_{\text{coh}} \sim 0.5~\mu\text{s}$ in the calibrated release):
+\begin{equation}
+\mathcal{U}_{\text{cavity}} \sim
+\frac{\mathcal{K} \times 5\times 10^{-7}}{25 \times 10^{-3}}
+= \mathcal{K} \times 2 \times 10^{-5}
+\end{equation}
+Now $\mathcal{U} \geq 1$ requires $\mathcal{K} > 5 \times 10^{4}$. With
+$N \sim 10^7$ dimers per neuron and cascading amplification (MT $\to$ MAP
+$\to$ ion channel $\to$ membrane), $\mathcal{K} \sim 10^4\text{--}10^5$
+becomes \textit{conceivable} though unproven. The utility framework thus
+identifies non-equilibrium mechanisms as the critical enablers, and
+$\mathcal{K}$ as the key unknown.
+
+\textbf{Detectability extension: $\mathcal{U}_{\rm det}$.}
+Physical plausibility ($\mathcal{U}_{\rm phys}$) is necessary but not sufficient. 
+Experimental feasibility and inferential reliability require:
+\begin{equation}
+\boxed{
+\mathcal{U}_{\rm det}
+=
+\mathcal{U}_{\rm phys}
+\cdot
+\beta_{\rm sel}(\text{SNR},\Delta\lambda)
+\cdot
+\mathcal{F}_{\rm info}(\text{SNR})
+\cdot
+(1-P_{\rm boundary})
+\cdot
+S_{\rm prep}
+}
+\label{eq:U_det}
+\end{equation}
+where $\beta_{\rm sel}\in[0,1]$ is the operational selection/detectability fraction, 
+$\mathcal{F}_{\rm info} = I(\text{SNR})/I_{\max}$ is the normalized Fisher information fidelity,
+$P_{\rm boundary}$ is the posterior mass concentrated at physical bounds (diagnosing prior-dominated saturation),
+and $S_{\rm prep}\in[0,1]$ quantifies sample/preparation stability.
+This architecture separates the physical question (``could it matter?'') from the inferential question (``can we detect and infer it without artifacts?'').
+
+\paragraph{Spectroscopic inference quality index.}
+For an experimental configuration with signal-to-noise ratio ${\rm SNR}$, critical detectability threshold ${\rm SNR}_c$, boundary posterior mass $P_{\rm boundary}$, and preparation stability $S_{\rm prep}$, we define
+\[
+{\rm IQI}_{\rm spec}
+=
+\min\left(\frac{{\rm SNR}}{{\rm SNR}_c},1\right)
+(1-P_{\rm boundary})S_{\rm prep}.
+\]
+
+
+\textbf{Relation of $\mathcal{U}$ to existing quantum-advantage frameworks.}
+The utility $\mathcal{U}$ is a \emph{generalisation}, not a reinvention.
+Two comparisons situate it in the literature.
+\emph{(i) Giovannetti--Lloyd--Maccone (GLM) quantum-metrology bound
+\cite{Giovannetti2004}.} GLM quantify advantage as the scaling of
+estimation precision with the number of probes $N$: classical shot noise
+$\Delta\theta\propto N^{-1/2}$ versus Heisenberg $N^{-1}$. Our utility
+reduces to the GLM form when $\tau_{\text{func}}$ is identified with the
+probe-interaction time and $\mathcal{K}$ with the coherent enhancement
+factor $\sqrt{N}$ or $N$:
+\begin{equation}
+\mathcal{U}_{\text{GLM}}\,\longleftrightarrow\,
+\frac{N_{\text{coh}}\,\tau_{\text{coh}}}{T_{\text{probe}}}.
+\end{equation}
+$\mathcal{U}$ extends GLM by allowing $\mathcal{K}$ to encode
+\emph{biological} amplification cascades (MT$\to$ion channel) that have no
+counterpart in metrology.
+\emph{(ii) Chin--Prior--Rosenbach--Caycedo-Soler--Huelga--Plenio
+\cite{Chin2013} vibronic-ENAQT advantage.} Chin et al.\ quantify the
+efficiency gain from vibrationally-assisted coherent transport as
+$\eta_{\text{ENAQT}}=P_{\text{quantum}}/P_{\text{classical}}$, peaking at
+intermediate bath coupling. This maps to $\mathcal{U}$ with
+$\mathcal{K}=\eta_{\text{ENAQT}}$ and $\tau_{\text{func}}$ equal to the
+transport time across the light-harvesting complex. For FMO at 300~K,
+Chin et al.\ find $\eta_{\text{ENAQT}}\sim 2$--$3$ on a $\tau_{\text{func}}
+\sim 1\ps$ timescale, giving $\mathcal{U}_{\text{FMO}}\sim 2$--$3$. This
+is \emph{consistent} with the observed quantum efficiency and demonstrates
+that $\mathcal{U}\gtrsim 1$ is achievable when $\tau_{\text{func}}$ is
+short (picoseconds, not milliseconds). For the calibrated equilibrium tubulin baseline,
+$\tau_{\text{func}}/\tau_{\text{coh}}\sim10^{11}$--$10^{12}$; even
+optimistic non-equilibrium mechanisms must still overcome a severe
+transduction gap. Thus the obstacle is not the mere presence of coherence,
+but the mismatch between molecular and functional timescales.
+Thus $\mathcal{U}$ subsumes both metrology-style ($N$-scaling) and
+transport-style (ENAQT) advantages and reveals that the essential obstacle
+for MTs is the timescale ratio, not an intrinsic inability to sustain
+coherence.
+
+\subsection{Quantum discord in coupled tubulin dimers}
+\label{sec:discord}
+The main text's claim that ``no equilibrium cooperative mechanism gives
+$\mathcal{U}\ge 1$'' relies on coherence as the resource. Ollivier and
+Zurek \cite{Ollivier2001} introduced \emph{quantum discord} $\mathcal{D}$,
+a measure of non-classical correlations that can be non-zero even for
+separable (unentangled) states and can persist beyond $\tau_c$. We
+evaluate $\mathcal{D}$ analytically for $N=2$ dimers with Ohmic bath.
+\textbf{Model.} Two identical two-level dimers at separation $r=8$~nm
+couple via dipole--dipole interaction $J_{12}\sigma_z^{(1)}\sigma_z^{(2)}$
+with $J_{12}\sim \mu^2/(4\pi\varepsilon_0\varepsilon_r r^3)\approx 8\mu$eV.
+Each couples locally to an effective structured protein bath calibrated to
+the optimistic ps-scale benchmark ($\tau_c\simeq1$ ps). This is deliberately
+an upper-bound resource estimate. Under the stricter calibrated Ohmic
+pure-dephasing baseline ($T_2^*\simeq39$ fs), the same calculation would
+compress all discord lifetimes by approximately a factor of 25, giving
+$\tau_{\mathcal{D}}\sim0.1$ ps rather than several ps. The discord analysis
+therefore does not soften the main equilibrium no-go result; it only asks
+whether non-classical correlations could persist slightly longer than
+entanglement under the most favourable structured-bath benchmark considered
+in this release. Starting from the maximally-discordant
+state $\ket{\Psi_0}=(\ket{01}+\ket{10})/\sqrt{2}$, the reduced
+two-qubit density matrix at time $t$ is, in Bell-diagonal form,
+\begin{equation}
+\rho(t) = \tfrac{1}{4}\bigl(\mathbb{1}+\sum_{i=xyz}
+c_i(t)\,\sigma_i\otimes\sigma_i\bigr),
+\end{equation}
+with $c_x(t)=c_y(t)=e^{-\Gamma_\phi t}\cos(2J_{12}t/\hbar)$ and
+$c_z(t)=-1$ (pure dephasing preserves $\sigma_z$ anti-correlations).
+\textbf{Discord evolution.} For Bell-diagonal states,
+$\mathcal{D}$ admits the closed form \cite{Luo2008}
+\begin{equation}
+\mathcal{D}(\rho)=\min\bigl\{\mathcal{D}_1,\mathcal{D}_2\bigr\},
+\end{equation}
+with $\mathcal{D}_k$ derived from the eigenvalues $\{c_i\}$. Using
+$\Gamma_\phi=1/\tau_c\approx 10^{12}$~Hz:
+\begin{itemize}
+\item At $t=0$: $\mathcal{D}=1$ bit (maximum).
+\item At $t=\tau_c\simeq 1\ps$: $c_x=c_y=e^{-1}\cos(2J_{12}\tau_c/\hbar)
+\approx 0.37$, giving $\mathcal{D}\simeq 0.29$ bits.
+\item At $t=10\tau_c\simeq 10\ps$: $\mathcal{D}\simeq 0.003$ bits, but
+$c_z=-1$ preserves a residual classical anti-correlation.
+\item At $t\to\infty$: $\mathcal{D}\to 0$ (Ohmic baths fully classicalise).
+\end{itemize}
+Thus, in the optimistic structured-bath benchmark, discord can persist for
+$\tau_{\mathcal{D}}\sim2$--$5$ ps. In the strict Ohmic baseline, the
+corresponding scale is only $\sim0.1$ ps. Neither regime approaches
+functional neural timescales. The result refines the equilibrium no-go
+statement: non-classical correlations may outlive entanglement by a small
+factor, but they do not reopen the amplification gap.
+
+\begin{table*}[t]
+\centering
+\caption{Required downstream amplification factors. These are requirements,
+not assumed biological gains.}
+\label{tab:K_required}
+\footnotesize
+\begin{tabular}{p{3.2cm}p{2.5cm}p{3.0cm}p{5.0cm}}
+\toprule
+\textbf{Mechanism} & $\boldsymbol{\tau_{\rm coh}}$ &
+$\boldsymbol{\mathcal{K}_{\rm req}=\tau_{\rm func}/\tau_{\rm coh}}$ &
+\textbf{Interpretation} \\
+\midrule
+Ohmic equilibrium baseline & $39$ fs & $\sim6\times10^{11}$ &
+No realistic equilibrium amplification known. \\
+Structured-bath benchmark & $1$--$20$ ps & $\sim10^9$--$10^{10}$ &
+Still far below neural timescales. \\
+Fr\"ohlich pumping & $10$--$100$ ps & $\sim10^8$--$10^9$ &
+Spectroscopically interesting but functionally insufficient without extreme
+measured gain. \\
+QED cavity & $0.1$--$1~\mu$s & $\sim2.5\times10^4$--$2.5\times10^5$ &
+Potentially compatible only if a real MT-to-channel amplification cascade is
+measured. \\
+Subradiance & $10$ ps--$10$ s & regime-dependent &
+Potentially viable only if the long-lived component couples to functional
+degrees of freedom rather than remaining optically dark. \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ============================================================
+% SECTION 4: NON-EQUILIBRIUM MECHANISMS
+% ============================================================
+\section{Non-equilibrium mechanisms: Fr\"ohlich condensation, QED cavities,
+and geometric subradiance}
+\subsection{Fr\"ohlich condensation: metabolic pumping}
+\subsubsection{Theoretical framework}
+Fr\"ohlich \cite{Frohlich1968,Frohlich1977} showed dipole systems under
+continuous energy input form coherent phonon condensates when:
+\begin{equation}
+\eta_{\text{pump}} \equiv
+\frac{P_{\text{metabolic}}}{\kB T \Gamma_{\text{collective}}} > 1
+\end{equation}
+where $P_{\text{metabolic}}$ is the total power input and
+$\Gamma_{\text{collective}}$ is the damping of the collective mode.
+\textbf{Tubulin parameters:} Dipole $\mu \sim 1700$~Debye
+\cite{Tuszynski1995}; GTP hydrolysis $\Delta E \sim 0.42$~eV at rate
+$\sim 1$~s$^{-1}$/dimer; power per dimer $P \sim 6.7 \times 10^{-20}$~W.
+
+% ============================================================
+% FIGURE 3: FRÖHLICH THRESHOLD
+% ============================================================
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures_final/fig3_frohlich.pdf}
+\caption{\textbf{Fr\"ohlich pumping threshold and collective metabolic power.}
+The Fr\"ohlich mechanism requires continuous non-equilibrium pumping to exceed
+the damping of a collective vibrational mode. Left: pumping parameter
+\(\eta_{\rm pump}\) as a function of the effective number of coherently
+participating dimers, with the condensation threshold at
+\(\eta_{\rm pump}=1\). Right: comparison between total metabolic power supplied
+by GTP hydrolysis and the thermal dissipation floor of a representative
+collective mode. The key falsifiable prediction is length-gating: isolated
+dimers remain far below threshold, whereas sufficiently long or strongly
+collective microtubule segments can approach threshold only if collective
+damping scales sublinearly with system size.}
+\label{fig:frohlich_threshold}
+\end{figure*}
+
+\subsubsection{Condensation criterion and scaling of collective damping}
+For energetic estimates, the relevant dimensionless pumping parameter is
+\begin{equation}
+\eta_{\rm pump}(N,\Gamma_{\rm col})
+=
+\frac{N P_{\rm dimer}}{\kB T\,\Gamma_{\rm col}},
+\qquad
+P_{\rm dimer}=r_{\rm pump}\Delta E .
+\end{equation}
+Using $\Delta E\simeq0.42$ eV and the illustrative upper-bound rate
+$r_{\rm pump}=1\,{\rm s}^{-1}$ gives
+$P_{\rm dimer}\simeq6.7\times10^{-20}$ W and, at 310 K,
+\begin{equation}
+\eta_{\rm pump}
+\simeq
+1.57\times10^{1}
+\left(\frac{N}{\Gamma_{\rm col}/{\rm s}^{-1}}\right)
+\left(\frac{r_{\rm pump}}{1\,{\rm s}^{-1}}\right).
+\end{equation}
+Thus a single dimer is far below threshold:
+$\eta_{\rm pump}(N=1,\Gamma_{\rm col}=10^6\,{\rm s}^{-1})
+\simeq1.6\times10^{-5}$, and for a strongly damped local mode
+$\Gamma_{\rm col}\sim10^{12}\,{\rm s}^{-1}$ it is
+$\sim1.6\times10^{-11}$. The threshold number of coherently pumped dimers is
+\begin{equation}
+N_{\rm crit}
+\simeq
+6.4\times10^4
+\left(\frac{\Gamma_{\rm col}}{10^6\,{\rm s}^{-1}}\right)
+\left(\frac{r_{\rm pump}}{1\,{\rm s}^{-1}}\right)^{-1}.
+\end{equation}
+Therefore Fr\"ohlich condensation is not implied by metabolic energy alone:
+it requires both sufficiently large coherent participation and unusually low
+collective damping.
+\textbf{Critical distinction from \S 3.2.} In Fr\"ohlich condensation, $N$
+dimers couple to a \textit{single collective vibrational mode} at
+frequency $\omega_F$, \textit{not} to $N$ independent environmental baths.
+The collective mode acts as a single effective degree of freedom with
+damping $\Gamma_{\rm col}$. This avoids the superdecoherence scaling of
+\S 3.2, but it does not by itself guarantee threshold crossing. For the
+illustrative value $\Gamma_{\rm col}=10^6\,{\rm s}^{-1}$ and
+$N\sim10^3$ dimers, one obtains
+\[
+\eta_{\rm pump}\simeq1.6\times10^{-2}<1.
+\]
+Thus micron-scale segments are below threshold unless either
+$\Gamma_{\rm col}$ is much smaller, the effective pumping rate is higher,
+or the coherently participating population approaches
+$N_{\rm crit}\sim6.4\times10^4$.
+For a 13-protofilament microtubule, this corresponds to an approximate
+critical coherent length
+\[
+L_{\rm crit}
+\simeq
+\frac{8\,{\rm nm}}{13}N_{\rm crit}
+\simeq
+40\,\mu{\rm m}
+\left(\frac{\Gamma_{\rm col}}{10^6\,{\rm s}^{-1}}\right)
+\left(\frac{r_{\rm pump}}{1\,{\rm s}^{-1}}\right)^{-1}.
+\]
+\textbf{Sensitivity to scaling of collective damping.} The assumption that
+$\Gamma_{\text{collective}}$ does not scale with $N$ is critical. If
+instead the collective damping scales as $\Gamma_{\text{collective}}
+= \Gamma_0 (N/N_0)^\beta$ (with $\beta \ge 0$), then the pumping
+parameter becomes:
+\begin{equation}
+\eta_{\text{pump}} = \frac{N P}{\kB T \Gamma_0 (N/N_0)^\beta}
+= \frac{P N_0^\beta}{\kB T \Gamma_0} N^{1-\beta}
+\label{eq:eta_pump_beta}
+\end{equation}
+For $\beta = 0$, we recover the optimistic scaling $\eta \propto N$. For
+$\beta = 1$, $\eta$ becomes independent of $N$; for $\beta > 1$, $\eta$
+decreases with $N$.
+\textbf{Perturbative estimate of $\beta$ for cylindrical MT geometry.}
+We now derive a linear-response scaling estimate for $\beta$, rather than leaving it as a
+free parameter.
+Consider a collective vibrational mode of wavelength $\lambda_F=2\pi c_s
+/\omega_F$ distributed coherently over $N$ dimers occupying a cylinder of
+length $L=Na$ ($a=8$~nm the dimer spacing) and fixed radius $R=12.5$~nm.
+The mode radiates into a phonon bath that, at the relevant wavelengths
+$\lambda_F\gtrsim 10$~nm $\gg a$, behaves as a continuum in $d$ spatial
+dimensions. Fermi's golden rule gives the decay rate into the continuum
+\begin{equation}
+\Gamma_{\text{col}}=\frac{2\pi}{\hbar^2}\sum_k|V_k|^2\,\delta(\omega_F
+-\omega_k),
+\end{equation}
+with system--bath matrix element $V_k\propto \tilde\phi(k)$ where
+$\tilde\phi(k)=\int d^d r\,\phi(r)e^{-i k\cdot r}$ is the form factor of
+the collective mode over the $N$-dimer extent. For a normalised
+box-profile $\phi(r)$:
+$|\tilde\phi(k)|^2\propto N\,\mathrm{sinc}^2(kL/2)$ (along the axis) times
+constant factors along the radial and azimuthal directions of the bath.
+Summing with the $d$-dimensional phonon density of states
+$g(\omega)\propto\omega^{d-1}$ and the selection constraint
+$k\sim\omega_F/c_s$:
+\begin{equation}
+\Gamma_{\text{col}}(N)\propto N\,
+\Bigl(\tfrac{\omega_F}{c_s}\Bigr)^{d-1}
+\int dk\,\mathrm{sinc}^2(kL/2)\,\delta(\omega_F-c_s k).
+\end{equation}
+For $L\omega_F/c_s\gtrsim 1$ the $\mathrm{sinc}$ narrows to
+$\sim 2\pi/L\propto N^{-1}$, giving the cancellation
+\begin{equation}
+\Gamma_{\text{col}}(N)\propto N\cdot N^{-1}\cdot\omega_F^{d-1}
+=\omega_F^{d-1},
+\end{equation}
+i.e.\ $\beta_{\text{long-L}}=0$ (the optimistic Fr\"ohlich limit). However
+this regime requires $L>\lambda_F/2$, i.e.\ MTs longer than the
+mode-dependent crossover length\begin{equation}
+L_*(f_F)=\frac{\pi c_s}{\omega_F}
+=\frac{c_s}{2 f_F}
+\simeq
+10\,{\rm nm}
+\left(\frac{c_s}{2\times10^3\,{\rm m/s}}\right)
+\left(\frac{f_F}{10^{11}\,{\rm Hz}}\right)^{-1}.
+\end{equation}
+Thus, for sub-THz collective modes in the $10^{10}$--$10^{11}$ Hz range,
+$L_*$ lies in the $\sim 10$--$100$ nm range, not at $10\,\mu$m. A
+micron-scale crossover would correspond instead to much lower-frequency
+axial modes, $f_F\sim10^8$ Hz. We therefore treat the length threshold as
+mode-dependent:
+\begin{equation}
+L_*(f_F)=\frac{c_s}{2f_F}.
+\end{equation}
+Experiment~5 should consequently be interpreted as a frequency-resolved
+measurement of $\beta(L,f_F)$, rather than as a fixed threshold
+test.
+
+For $L<\lambda_F/2$ the form factor is flat,
+$|\tilde\phi(k)|^2\propto N^2$, and
+\begin{equation}
+\Gamma_{\text{col}}(N)\propto N^2\,\omega_F^{d-1}
+\;\Rightarrow\;\beta_{\text{short-L}}=1.
+\end{equation}
+The effective bath dimensionality for a cylindrical MT embedded in
+ordered water is $d=3$ for transverse radiation but reduces to
+$d_{\text{eff}}\simeq 2$ for modes whose wavelength exceeds the radius
+(the cylinder becomes acoustically 1D+radial). Collecting:
+\begin{equation}
+\boxed{\;\beta\;\in\;[0,1]\;\text{depending on}\;L/\lambda_F\;\text{and
+geometry}\;}
+\end{equation}
+\textbf{Consequence for feasibility.} Substituting into
+Eq.~(\ref{eq:eta_pump_beta}):
+\begin{itemize}
+\item For modes with $L\ll L_*(f_F)$, $\eta_{\rm pump}$ is effectively
+$N$-independent and condensation is strongly disfavoured.
+
+\item For modes with $L\gg L_*(f_F)$, the form-factor narrowing can produce
+sublinear collective damping, making condensation possible only if
+$N>N_{\rm crit}$ and $\Gamma_{\text{col}}$ is sufficiently small.
+\end{itemize}
+This is a \emph{testable} prediction: Fr\"ohlich condensation, if it
+exists at all, must be length-gated. Experiment~5 (\S\ref{sec:exp5})
+proposes a direct test via length-resolved THz linewidth.
+\textbf{Caveat.} The perturbative treatment neglects nonlinear
+elastic--electric coupling central to the full Fr\"ohlich dynamics
+\cite{Pokorn2011}; nonlinearities can self-trap the collective mode and
+effectively reduce $\beta$ below the linear estimate. The bound
+$\beta\in[0,1]$ should therefore be read as a \emph{linear-response}
+result; the true value is likely to lie near the lower end in the
+condensed phase.
+For the calibrated phenomenological choice $\Gamma_{\text{coll}}=10^6$~Hz,
+the explicit thresholds are much larger than the heuristic values used in
+earlier drafts: for $\beta = 0$, $N > N_{\text{crit}} \approx 6.4\times 10^4$;
+for $\beta = 0.2$, $N \gtrsim 10^6$; for $\beta = 0.5$, $N \gtrsim 4\times 10^9$; for
+$\beta = 1$, no finite $N$ suffices. The feasibility of Fr\"ohlich
+condensation therefore hinges on the microscopic origin of $\beta$, which
+is addressable via experiments measuring the quality factor of the
+collective mode as a function of system size.
+\textbf{Predicted coherence:} The condensed mode oscillates at
+$\omega_F \sim 10^{10}\text{--}10^{11}\Hz$ (sub-THz), with coherence time
+$\tau \sim Q/\omega_F$. For quality factor $Q \sim 1\text{--}10$:
+\begin{equation}
+\tau_{\text{Fr\"{o}hlich}} \sim 10^{-11}\text{--}10^{-10}\text{~s}
+\quad (10\text{--}100\ps)
+\end{equation}
+Still $\sim 10^{8}\text{--}10^{10}$ short of ms-scale, although
+$10^{2}\text{--}10^{3}$ longer than the calibrated femtosecond equilibrium
+baseline.
+\textbf{Interpretative consequence.}
+The corrected length scale does not by itself prove that Fr\"ohlich
+condensation is impossible: for sub-THz modes, most polymerized MTs satisfy
+$L\gg L_*(f_F)$. Rather, it removes the earlier micron-scale length-gating
+argument as a natural biological rescue mechanism. In the physically relevant
+$10^{10}$--$10^{11}$ Hz range, the decisive bottleneck is no longer whether
+MTs are long enough to enter the favourable form-factor regime, but whether
+they can host a collective mode with both sufficiently low absolute damping
+and sufficiently large coherent participation. Under conservative energetic
+accounting this requires
+\[
+N>N_{\rm crit}\simeq6.4\times10^4
+\left(\frac{\Gamma_{\text{col}}}{10^6\,{\rm s}^{-1}}\right)
+\left(\frac{r_{\rm pump}}{1\,{\rm s}^{-1}}\right)^{-1},
+\]
+which corresponds to tens of microns even under optimistic damping and pumping
+assumptions, and becomes biologically implausible for larger
+$\Gamma_{\text{col}}$ or reduced coherent participation. Fr\"ohlich pumping is
+therefore retained only as a sharply constrained ps-scale spectroscopic
+hypothesis, not as a robust bridge to neural timescales.
+
+\subsubsection{Critical assessment: Reimers et al.}
+Reimers et al.\ \cite{Reimers2009} concluded Fr\"ohlich condensates are
+inaccessible in biological environments, rendering Orch OR untenable. This
+analysis has both strengths (rigorous thermodynamic framework, explicit
+energy calculations, \textit{PNAS} peer review) and limitations (1D
+harmonic chains rather than 2D cylindrical geometry, linearized dynamics
+omitting nonlinear elastic-electric coupling \cite{Pokorn2011}, no ordered
+water interactions \cite{Mavromatos2025}). Our perturbative $\beta$
+analysis (\S 4.1.2) is consistent with their negative conclusion for the
+short-MT limit and with Mavromatos' positive prediction only in the
+long-MT limit. Experiment~4 (\S\ref{sec:exp4}) and Experiment~5
+(\S\ref{sec:exp5}) together provide empirical resolution.
+
+\subsection{QED cavity model (Mavromatos et al.)}
+\subsubsection{Mechanism}
+The MT interior is modeled as an electromagnetic cavity with ordered water
+\cite{DelGiudice1988,Sahu2013}. Dipole-dipole coupling in a $\sim 1$~nm
+layer near hydrophobic walls creates a high-Q cavity. The single-dimer
+vacuum Rabi coupling is:
+\begin{equation}
+\lambda_0 = \frac{d_{\text{trans}} \cdot E_{\text{ow}}}{\hbar}
+\label{eq:lambda0}
+\end{equation}
+where $d_{\text{trans}}$ is the relevant transition dipole and
+$E_{\text{ow}} = \sqrt{2\pi\hbar\omega_c/(\varepsilon\varepsilon_0 V)}$ is
+the ordered-water vacuum field. Two distinct estimates of $d_{\text{trans}}$
+are available in the literature. For optical transitions (tryptophan at
+280~nm), $d_{\text{trans}} \sim 5$~Debye; for the low-frequency
+conformational mode, recent structural data \cite{Nogales1998} suggest a
+significantly larger value of $d_{\text{trans}} \sim 18.7$~Debye. The
+collective Rabi splitting:
+\begin{equation}
+\Omega_R = 2\lambda_0\sqrt{N} \approx 6\THz \approx 25\meV
+\label{eq:rabi_splitting}
+\end{equation}
+is approximately independent of MT length (since $\lambda_0 \propto
+1/\sqrt{L}$ and $\sqrt{N} \propto \sqrt{L}$ cancel). Numerical validation
+using the conformational dipole ($d_{\text{trans}} = 18.7$~D) and
+ordered-water parameters yields $\Delta E = 14.0\meV$
+(\S\ref{sec:code}), in reasonable agreement with the nominal prediction.
+The corresponding wavelength splittings at 280~nm (tryptophan absorption)
+are:
+\begin{align}
+\Delta\lambda &= \frac{\lambda^2 \Omega_R}{c}
+\approx 1.6\text{~nm} \quad (\text{nominal, } \Omega_R = 6\THz) \label{eq:delta_lambda_nom} \\
+\Delta\lambda &\approx 0.89\text{~nm}
+\quad (\text{numerical, } \Delta E = 14.0\meV) \label{eq:delta_lambda_num}
+\end{align}
+The range $0.89\text{--}1.6$~nm defines the experimental target
+(see \S\ref{sec:exp4}). This corresponds to a fractional splitting
+\(\Delta\lambda/{\rm FWHM}\sim0.03\)--\(0.08\), underscoring why
+standard absorption spectroscopy is insufficient and why derivative UV,
+THz, or nonlinear spectroscopic methods are required.
+Decoherence from water dipole quanta leakage yields
+$\tau_{\text{cavity}} \sim 10^{-7}\text{--}10^{-6}\text{~s}$ with scaling
+$\tau \propto \varepsilon^2$ \cite{Mavromatos2025}. AC impedance
+measurements on MT ensembles show relaxation $\tau \sim \mu$s
+\cite{Santelices2017}, consistent with this prediction.
+
+% ============================================================
+% FIGURE 4: CAVITY SCALING
+% ============================================================
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures_final/fig4_scaling.pdf}
+\caption{\textbf{Scaling predictions of the ordered-water QED cavity model.}
+The ordered-water cavity hypothesis predicts an approximately length-stable
+collective splitting over the experimentally relevant microtubule range, while
+the protected lifetime depends strongly on the effective dielectric constant of
+the ordered-water environment. Left: predicted splitting as a function of
+microtubule length. Right: \(\tau_{\rm cavity}\propto\varepsilon^2\) scaling.
+These trends define direct falsification targets: absence of the predicted
+spectral splitting, or failure of the dielectric/hydration dependence under
+controlled conditions, would strongly constrain the cavity model class.}
+\label{fig:cavity_scaling}
+\end{figure*}
+
+\subsubsection{Critical evaluation}
+\textbf{Strengths:} accounts for experimentally confirmed ordered water
+\cite{Sahu2013}; predicts specific spectroscopic signatures (Rabi splitting
+in the range 0.89--1.6~nm, testable via Experiment~4); explains anesthetic
+effects on MT quantum states \cite{Kalra2023}; $\varepsilon^2$ scaling
+provides clear parametric dependence.
+\textbf{Open questions:} ordered water structure is poorly characterized
+experimentally; classical MD simulations \cite{Moix2017} show no
+large-scale coherent excitations (though these do not include cavity
+quantum effects); both predicted splittings are below typical protein UV
+absorption linewidths ($\sim 20\text{--}30$~nm FWHM), requiring
+second-derivative spectroscopy or 2D electronic spectroscopy for resolution
+(\S\ref{sec:exp4}).
+
+\subsection{Geometric subradiance as a third non-equilibrium channel}
+\label{sec:subradiance}
+A mechanism absent in earlier treatments---but directly supported by the
+Babcock~et~al.\ \cite{Babcock2024} observations---is the
+\emph{geometrically-protected subradiant subspace}.
+\textbf{Dicke framework.} $N$ two-level emitters coupled to a common
+radiation field split into symmetric (superradiant, $\Gamma_S\sim N\Gamma_0$)
+and antisymmetric (subradiant, $\Gamma_A\sim \Gamma_0/N$ or smaller)
+manifolds \cite{Dicke1954,Gross1982}. In an ideal Dicke ladder, the lowest
+antisymmetric state has radiative decay $\Gamma_A\to 0$ and is
+\emph{decoherence-free by pure symmetry}.
+\textbf{Microtubule relevance.} Babcock~et~al.\ \cite{Babcock2024} directly
+observed in tryptophan mega-networks of MT architectures two coexisting
+regimes: superradiant states with $\tau_S\sim 100$~fs and subradiant
+states with $\tau_A\sim 10$~s---a dynamic range of $10^{14}$, among the
+largest ever reported in a room-temperature biological system. This observation is not a violation of the radiative lifetime expectations
+discussed above, because subradiance protects against radiative decay by
+destructive interference. It does not, by itself, eliminate vibrational or
+ionic pure dephasing; the effective lifetime is therefore controlled by
+symmetry-breaking mixing, treated below.
+\textbf{Residual dephasing.} The subradiant state is not genuinely
+immortal: pure dephasing from vibrations and ions couples the
+symmetric--antisymmetric manifolds at rate
+$\Gamma_{\text{mix}}\sim (\delta\omega/\omega)^2\,\Gamma_\phi$, where
+$\delta\omega/\omega\sim 10\text{--}50\%$ is the MT energetic disorder.
+Using $\Gamma_\phi\sim 10^{12}$~Hz this gives $\Gamma_{\text{mix}}
+\sim 10^{10}\text{--}10^{11}$~Hz, i.e.\ $\tau_A^{\text{effective}}
+\sim 10$~ps. The 10-s lifetime in Babcock et al.\ must therefore be
+explained either by (a) reduced disorder in specific tryptophan clusters,
+(b) dynamical symmetrisation by the cavity QED field, or (c) coupling to
+non-radiative dark states of vibrationally hot tryptophan.
+
+\textbf{Subradiance threshold: a falsification map.}
+The coherence utility criterion $\mathcal{U}_{\text{sub}}\ge 1$ requires
+$p N_{\text{eff}} \tau_A \ge \tau_{\text{func}}$, which defines a
+critical lifetime threshold
+\begin{equation}
+\tau^*(p) \equiv \frac{\tau_{\text{func}}}{p\,N_{\text{eff}}}
+= \frac{2.5\times 10^{-2}}{p\times 10^7}
+= \frac{2.5\times 10^{-9}}{p} \text{~s},
+\label{eq:subradiance_threshold}
+\end{equation}
+with $\tau_{\text{func}} = 25$~ms and $N_{\text{eff}} = 10^7$.
+Rather than quoting a single point estimate, we map three physically
+distinct regimes:
+\begin{center}
+\footnotesize
+\begin{tabular}{lccc}
+\toprule
+Regime & $\tau_A$ & $p$ required ($\mathcal{U}\ge 1$) & Status \\
+\midrule
+Disorder-dominated & $\sim 10\ps$ & $p > 250$ (impossible) & Ineffective \\
+Partial geometric protection & $\sim 1~\mu$s & $p > 2.5\times 10^{-3}$ & Marginal, testable \\
+Babcock-like & $\sim 10$~s & $p > 2.5\times 10^{-10}$ & Broadly accessible \\
+\bottomrule
+\end{tabular}
+\end{center}
+\paragraph{Subradiance threshold.}
+\label{prop:subradiance_threshold}
+Geometric subradiance crosses $\mathcal{U}=1$ if and only if
+$\tau_A > \tau^*(p) \equiv \tau_{\mathrm{func}}/(p\,N_{\mathrm{eff}})$.
+The Babcock et al.\ \cite{Babcock2024} observation ($\tau_A \sim 10$~s)
+satisfies this condition for any $p > 2.5\times 10^{-10}$, a fraction
+readily achieved by geometric selection. The unresolved quantity is the
+reconciliation between this lifetime and the symmetry-breaking mixing rate
+$\Gamma_{\mathrm{mix}}\sim 10^{10}\text{--}10^{11}$~Hz
+(\S\ref{sec:subradiance}): the 10-s lifetime is not in conflict with
+$\mathcal{U}\ge 1$ but does require either reduced disorder in specific
+tryptophan clusters, dynamical symmetrisation by the cavity QED field, or
+coupling to non-radiative dark states. This reconciliation is the primary
+theoretical target of Experiment~6 (\S\ref{sec:exp6}), where
+length-resolved linewidth scaling directly constrains which region of
+the $(\tau_A, p)$ plane is physically realised.
+
+Subradiance thus emerges as the \emph{only} currently \emph{observed}
+mechanism capable of satisfying $\mathcal{U}\gtrsim 1$ in MT architectures,
+and Babcock et al.\ shifts from an anecdotal data point to an
+\emph{anchor in the $(\tau_A, p)$ parameter space} whose position
+experiment must confirm or refute.
+\textbf{Testability.} Babcock~et~al.\ used a specific polymerised MT
+geometry; reproducing their result with varying MT lengths and
+stabiliser-dependent geometries (taxol vs nocodazole) would test whether
+the 10-s subradiant tail is a generic feature of MT architectures or a
+geometry-specific artefact. Length-resolved linewidth scaling---the subject
+of Experiment~6 (\S\ref{sec:exp6})---provides a direct constraint on
+the $(\tau_A, p)$ region (Proposition~\ref{prop:subradiance_threshold})
+and is the recommended next experimental step.
+
+\subsection{Summary: non-equilibrium mechanisms}
+\label{sec:mech_summary}
+Table~\ref{tab:mech_comparison} synthesizes the three candidate non-equilibrium mechanisms, their scaling laws, critical thresholds, and experimental status.
+
+\begin{table*}[t]
+\centering
+\caption{Unified comparison of candidate mechanisms. The listed times are not
+all the same physical observable: the Ohmic baseline reports a pure-dephasing
+time $T_2^*$, whereas structured-bath benchmarks report effective excitonic
+population/coherence relaxation times. They are grouped only to show that all
+equilibrium variants remain far below neural functional timescales.}
+\label{tab:mech_comparison}
+\footnotesize
+\begin{tabular}{p{2.5cm} p{2.5cm} p{1.2cm} p{1.2cm} p{5.5cm}}
+\toprule
+Mechanism & $\tau$ range & $\mathcal{U}$ est. & $\mathcal{K}$ req. & Main confound / anchor \\
+\midrule
+Ohmic pure-dephasing baseline & $T_2^*\simeq39$ fs & $\ll1$ & $\sim 10^{11}$ & Intrinsic protein vibrational dephasing; strict equilibrium bound \\
+Structured-bath excitonic benchmarks & $\sim0.3$--$20$ ps & $\ll1$ & $\sim 10^9$ & Effective excitonic population/coherence dynamics, not identical to pure-dephasing $T_2^*$ \\
+Fr\"ohlich pumping & $10$--$100\,\mathrm{ps}$ & $\ll 1$ & $\sim 10^8$ & Metabolic pumping efficiency, low-damping modes \\
+QED cavity & $0.1$--$1\,\mu\mathrm{s}$ & $0.1$--$1$ & $\sim 10^4$ & Radiative leakage, dipole strength uncertainty \\
+Subradiance & $10\,\mathrm{ps}$--$10\,\mathrm{s}$ & $1$--$40$ & $1$--$10^9$ & Symmetry breaking, mixing with dark states \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Fisher detectability barrier and monotonic experimental metrics}
+\label{sec:fisher_barrier_metrics}
+
+A central difficulty in testing mesoscopic quantum-biological mechanisms is
+that physical plausibility and experimental identifiability are not equivalent.
+A mechanism may satisfy a formal timescale or coupling requirement while still
+being statistically unrecoverable from spectra dominated by finite SNR,
+instrumental resolution, boundary-constrained posteriors, or preparation
+instability. We refer to this regime as a \emph{Fisher detectability barrier}:
+the point at which the Fisher information carried by the measured observable
+is insufficient to distinguish the candidate mechanism from the relevant null
+model at the required parameter resolution.
+
+This barrier is not a new physical interaction; it is an inference boundary.
+It marks the transition between a regime where a mechanism-specific parameter
+is identifiable from the data and a regime where model selection, posterior
+mass, or fitted parameters become dominated by noise, instrumental priors, or
+physical bounds. In the present context, the barrier is operationalized through
+the detectability utility \(\mathcal{U}_{\rm det}\), the spectroscopic inference
+quality index \({\rm IQI}_{\rm spec}\), and mechanism-specific monotonic
+metrics.
+
+The construction rests on standard statistical ingredients: Neyman--Pearson
+model discrimination \cite{NeymanPearson1933}, Fisher-information/Cramér--Rao resolution limits \cite{Cramer1946,Rao1945},
+spectroscopic SNR thresholds \cite{Kay1993}, Bayesian or information-criterion model
+selection \cite{Schwarz1978}, and preparation-stability controls. Its purpose is not to replace
+full mechanistic modelling, but to prevent a physically possible mechanism
+from being interpreted as empirically supported when the experiment lacks the
+information content required to identify it.
+
+We therefore define mechanism-specific monotonic metrics that move predictably
+with the underlying physics:
+
+\begin{itemize}
+\item \(\mathcal{M}_{\rm length}=d\log\Gamma/d\log L\), the length-linewidth
+slope used to test Fr\"ohlich collective damping and the exponent \(\beta\).
+\item \(\mathcal{M}_{\rm cav}=\Delta\lambda_{\rm obs}/\Delta\lambda_{\rm pred}\),
+the observed-to-predicted splitting ratio for the ordered-water QED cavity
+hypothesis.
+\item \(\mathcal{M}_{\rm sub}=P(\tau_A>\tau^*)\) or \(\tau_A/\tau_S\), the
+subradiant protection strength relative to the utility threshold.
+\item \(\mathcal{M}_{\rm vib}=A_{\rm cross}/A_{\rm diag}\) as a function of
+temperature and microtubule length, separating equilibrium vibronic coupling
+from non-equilibrium transport enhancement.
+\end{itemize}
+
+These metrics replace binary ``detected/undetected'' claims with continuous,
+mechanism-specific observables. A positive result must move the appropriate
+metric in the predicted direction while surviving controls for SNR, model
+selection, boundary effects, and sample stability.
+
+
+
+% ============================================================
+% SECTION 5: CLASSICAL SYNCHRONIZATION
+% ============================================================
+\section{Classical synchronization mechanisms}
+\subsection{Inhibitory network gamma (ING/PING)}
+Mathematical model \cite{Borgers2003,Brunel2003,Buzsaki2012}:
+\begin{align}
+\tau_m \frac{dV_i}{dt} &= -V_i + I_{\text{ext}} - g_{\text{syn}}
+\sum_j s_j \\
+\tau_{\text{syn}} \frac{ds_i}{dt} &= -s_i + \sum_k \delta(t - t_k^i)
+\end{align}
+Synchronization precision: $\sigma_{\text{ING}} \approx \sqrt{\tau_{\text{syn}}
+\tau_{\text{refrac}}/N} \approx 0.14$~ms. Experimental validation: Fries
+et al.\ \cite{Fries2001} (V1 gamma $\sigma \sim 3\text{--}5$~ms); Buschman
+\& Miller \cite{Buschman2007} (PFC $\sigma \sim 1\text{--}3$~ms); Cardin
+et al.\ \cite{Cardin2009} (optogenetic gamma $\sigma \sim 2\text{--}4$~ms).
+
+\subsection{Gap junctions and ephaptic coupling}
+Gap junctions: $\tau_{\text{gap}} \sim C_m/g_{\text{gap}} \sim 0.2$~ms,
+precision $\sigma \sim 0.06$~ms \cite{Galarreta1999,Bennett2004}. Ephaptic
+fields ($E \sim 1\text{--}10$~mV/mm): $\sigma \sim 1\text{--}5$~ms
+\cite{Anastassiou2011,Frohlich2010}.
+
+\subsection{Communication through coherence and dendritic computation}
+Fries' communication through coherence (CTC) \cite{Fries2015} proposes
+gamma synchronization gates information routing. Active dendritic
+computation \cite{Poirazi2020} implements complex integrations on
+millisecond scales. Together these provide a comprehensive classical
+framework for neural coordination without invoking quantum effects.
+
+\subsection{Quantitative comparison}
+\begin{table}[h]
+\centering
+\caption{Classical mechanisms vs quantum necessity.}
+\label{tab:classical_quantum}
+\small
+\begin{tabular}{p{2.8cm}p{1.8cm}p{2.2cm}c}
+\toprule
+\textbf{Phenomenon} & \textbf{Required} & \textbf{Classical} &
+\textbf{Sufficient?} \\
+\midrule
+Gamma (40~Hz) & $\sim 10$~ms & ING/PING & \textbf{Yes} \\
+Local ($<1$~mm) & $\sim 0.5$~ms & Gap junction & \textbf{Yes} \\
+Long-range (cm) & $\sim 2$~ms & Ephaptic/CTC & \textbf{Yes} \\
+Sub-0.1~ms (hyp.) & $< 0.1$~ms & Unknown & \textbf{Open} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Information-theoretic framework}
+To quantify the informational capacity of classical vs quantum neural
+channels, we adopt the mutual information framework
+\cite{Borst1999,Strong1998}. Classical spike-timing precision of
+$\sigma \sim 1$~ms at firing rate $r \sim 50$~Hz yields an information
+rate per neuron:
+\begin{equation}
+R_{\text{classical}} \sim r \log_2\!\left(\frac{1}{r\sigma}\right)
+\sim 50 \times \log_2(20) \approx 216 \text{~bits/s}
+\end{equation}
+In bursting regimes ($r \sim 10^3$~Hz), $R_{\text{classical}}$ can approach $10^4$~bits/s, narrowing the gap with the quantum transduction ceiling $B_{\text{QC}} \lesssim 10^4$~Hz set by ion channel kinetics. Consequently, any quantum advantage would not reside in raw bitrate, but in \textit{coding efficiency}, \textit{energy minimization per bit}, or \textit{sub-millisecond temporal precision} undetectable by classical Poisson-like spike trains. The effective information rate is therefore:
+\begin{equation}
+\Delta R_{\text{eff}} = \min\!\bigl(r_{\text{coh}},\;B_{\text{QC}}\bigr)
+\cdot \log_2 d_{\text{eff}}
+\;\lesssim\; 10^4 \cdot \log_2 2 \;=\; 10^4\;\text{bits/s},
+\label{eq:DeltaR_eff}
+\end{equation}
+where $d_{\text{eff}}$ is the accessible post-transduction Hilbert space
+dimension. This result holds regardless of $r_{\text{coh}}$: even
+$r_{\text{coh}} = 10^{13}$~s$^{-1}$ yields $\Delta R_{\text{eff}}
+\lesssim 10^4$~bits/s, comparable to the classical rate
+$R_{\text{classical}} \approx 216$~bits/s above. Thus quantum coherence
+offers no \emph{rate} advantage under equilibrium conditions by the
+biophysical ceiling set by $B_{\text{QC}}$.
+The $B_{\text{QC}}$ parameter connects the utility framework of
+\S\ref{sec:utility} to the present information-theoretic analysis in a
+formally precise way. From Definition~\ref{def:utility},
+$\mathcal{U} \gtrsim 1$ requires $\mathcal{K} \gtrsim
+\tau_{\text{func}}/\tau_{\text{coh}}$, where $\mathcal{K}$ encodes
+cascading gain from the MT to the ion channel (MT~$\to$~MAP~$\to$~channel).
+This cascade gain and the transduction bandwidth are related by
+\begin{equation}
+\mathcal{U} \gtrsim 1 \;\iff\;
+B_{\text{QC}} \;\gtrsim\; \frac{1}{\mathcal{K}_0\,\tau_{\text{func}}},
+\label{eq:U_BQC}
+\end{equation}
+where $\mathcal{K}_0$ is the MT~$\to$~ion-channel cascade factor.
+Equation~(\ref{eq:U_BQC}) shows that $\mathcal{K}$ in
+Definition~\ref{def:utility} and $B_{\text{QC}}$ in this section are
+the same physical quantity viewed from two different angles: the
+utility framework quantifies the amplification requirement;
+the information-theoretic framework locates the bottleneck.
+Experiment~3 (\S\ref{sec:exp3}) provides a direct upper bound on
+$B_{\text{QC}}$: if tau-knockdown-mediated MT shortening alters
+$\sigma_{\text{sync}}$ beyond the classical structural effect,
+the difference directly constrains $\mathcal{K}_0$ and hence
+$B_{\text{QC}}$ from above.
+With cavity-protected coherence ($\tau \sim \mu$s), quantum states could
+encode higher-dimensional information per coherent event via entanglement
+across $N$ dimers \cite{Giovannetti2004}, potentially providing advantages
+in coding efficiency rather than raw rate. This remains speculative and
+untested.
+
+\subsection{Distinguishability criteria}
+We identify five experimental signatures that would \textit{necessitate}
+quantum explanations beyond classical neural mechanisms:
+(i)~sub-0.1~ms synchronization precision exceeding gap junction limits;
+(ii)~violation of Bell-type inequalities in neural correlation
+measurements (requiring quantum channels between neurons);
+(iii)~temperature-dependent kinetic isotope effects with KIE $> 7$ and
+non-Arrhenius temperature dependence in MT-dependent processes;
+(iv)~MT-specific disruptions affecting cognitive functions not explainable
+by structural roles alone (e.g., effects of nocodazole on synchronization
+precision, not just amplitude);
+(v)~isotope effects on consciousness or behavior (e.g., deuterium effects
+on anesthetic potency beyond classical mass effects).
+None of these have been demonstrated to date, establishing that classical
+models remain sufficient for all current observations.
+
+% ============================================================
+% SECTION 7: VIBRONIC HOLSTEIN ANALOGUE
+% ============================================================
+\section{Vibronic Holstein analogue for tubulin}
+\label{sec:holstein}
+The qualitative analogy FMO$\leftrightarrow$tubulin
+($\tau_v^{\text{FMO}}\leftrightarrow\tau_c^{\text{tubulin}}$) invoked in
+\S 2.2.4 is strengthened by making the Hamiltonian explicit. We adopt a
+minimal Holstein-type vibronic model \cite{Holstein1959,Chin2013} for the
+$\alpha\beta$-tubulin dimer:
+\begin{align}
+\hat{H}_{\text{H}} &= \sum_{i=1,2}\varepsilon_i\,c_i^\dagger c_i
+- J(c_1^\dagger c_2 + c_2^\dagger c_1) \\
+&+ \sum_i \hbar\Omega_0\,b_i^\dagger b_i
++ g\sum_i c_i^\dagger c_i(b_i+b_i^\dagger)
+\nonumber
+\end{align}
+where $c_i$ are electronic amplitudes of the conformational two-level
+system on dimer $i$, $b_i$ is a local vibrational mode of frequency
+$\Omega_0$, and $g$ is the electron--phonon coupling. The
+Huang--Rhys factor $S=(g/\hbar\Omega_0)^2$ measures vibronic coupling
+strength.
+\textbf{Parameter mapping for tubulin.} From molecular-dynamics
+electrostatics on the tubulin $\alpha\beta$-dimer \cite{Sept2003,Xiang2019}
+and the conformational energetics of the curved--straight transition, we
+estimate:
+\begin{itemize}
+\item $\varepsilon_2-\varepsilon_1\equiv\Delta\epsilon\approx 0.15$~eV
+(GTP-state energy gap);
+\item $J\approx 8\text{--}20~\mu$eV (dipolar nearest-neighbour within a
+protofilament at 8-nm spacing);
+\item $\hbar\Omega_0\approx 6\text{--}8$~meV (typical low-frequency
+protein mode $\sim 50$--$70$~cm$^{-1}$);
+\item $S\approx 0.5\text{--}1.5$ (intermediate vibronic regime, as in FMO).
+\end{itemize}
+With $J \approx 8\text{--}20~\mu$eV and $\hbar\Omega_0 \approx 6\text{--}8$~meV,
+the ratio $J/\hbar\Omega_0 \sim 10^{-3}$ places tubulin firmly in the
+\emph{small-polaron (Marcus) regime}, not the vibronic-ENAQT window.
+The ENAQT window identified by Chin et al.\ \cite{Chin2013} requires
+$J \sim \hbar\Omega_0$; for FMO this ratio is of order unity
+($J_{\text{FMO}} \sim 100~\mu$eV, $\hbar\Omega_0^{\text{FMO}} \sim 100\text{--}200~\mu$eV).
+The Holstein renormalisation gives an effective inter-dimer coupling
+$J_{\text{eff}} = J\,e^{-S} \approx 0.1\text{--}0.6\,J$ for
+$S \approx 0.5\text{--}1.5$, which further suppresses transfer.
+This is not a failure of the analogy---it is a \textbf{quantitative discriminator}.
+Two physically distinct predictions follow, and it is essential not to conflate them.
+\emph{Electronic transport efficiency.} The coherent inter-dimer electronic
+transfer rate is suppressed relative to the FMO ENAQT-optimal case by
+$(J/\hbar\Omega_0)^2 \sim 10^{-6}$. This is a statement about
+\textit{functional} quantum transport, not about spectroscopic observability.
+In the Marcus regime, any net vibronic enhancement of population transfer is
+negligible compared to classical thermally-activated hopping.
+\emph{2D-IR cross-peak visibility.} The cross-peak amplitude in 2D-IR is
+controlled independently by the Huang--Rhys factor
+$S = (g/\hbar\Omega_0)^2$, not by $J$. With $S \approx 0.5$--$1.5$
+and vibronic mixing angle $\theta \approx 0.3$, the cross/diagonal ratio
+is $\sin^2(2\theta)\,e^{-\tau/\tau_c} \approx 3$--$5\%$ at $\tau = 3\ps$
+(\S\ref{sec:exp1}, Eq.~below)---a signal that is \textit{detectable} in
+principle, but that in the small-polaron regime does \textit{not} indicate
+functional ENAQT transport. Observing a $3$--$5\%$ cross-peak is
+consistent with intermediate vibronic coupling $S \sim 1$ and is orthogonal
+to the question of whether $J/\hbar\Omega_0 \sim 1$ (ENAQT).
+These two quantities are orthogonal: a system can be in the Marcus regime
+($J/\hbar\Omega_0 \ll 1$, transport suppressed by $10^{-6}$) and
+simultaneously produce a detectable 2D-IR cross-peak
+(cross/diagonal $\sim S \sim$ few percent). The combination of both is the
+equilibrium prediction for tubulin.
+\emph{Non-equilibrium Fr\"ohlich pumping provides a specific resolution
+pathway}: if the condensed collective mode renormalizes the effective
+site coupling toward $J_{\text{eff}}^{(\text{pump})} \sim \hbar\Omega_F$,
+the system crosses from the Marcus into the ENAQT window. This would
+manifest as a \textit{length-dependent increase} of the cross-peak
+amplitude \textit{beyond} the equilibrium $3$--$5\%$ baseline---distinguishable
+from the equilibrium 3--5\% by its MT-length dependence, directly testable
+by combining Experiments~1 and~5 (\S\ref{sec:exp1}, \S\ref{sec:exp5}).
+Under equilibrium conditions, the intermediate $S$ value is consistent
+with (not explanatory of) vibronic transport, and any FMO analogy requires
+explicit non-equilibrium support.
+\textbf{Prediction.} Under this mapping the Holstein model predicts four
+distinguishable effects:
+(i)~Equilibrium coherent inter-dimer \textit{electronic} transport is
+suppressed relative to FMO by $(J/\hbar\Omega_0)^2 \sim 10^{-6}$;
+structured-bath or non-equilibrium corrections are therefore required for
+any vibronic transport claim beyond the calibrated Ohmic baseline.
+(ii)~The 2D-IR cross-peak cross/diagonal amplitude ratio at the first beat
+maximum ($\tau = \pi/\omega_{12} \approx 3\ps$) is $\approx 3$--$5\%$,
+set by $S \approx 1$ and $\theta \approx 0.3$ independently of $J$.
+This signal is in principle detectable but is \textit{not} diagnostic of
+functional ENAQT transport: it confirms intermediate vibronic coupling,
+not transport efficiency.
+(iii)~If Fr\"ohlich pumping renormalizes
+$J_{\text{eff}}^{(\text{pump})} \to \hbar\Omega_F$, the system crosses
+from the Marcus into the ENAQT regime. This would manifest as a
+\textit{length-dependent increase} of the cross-peak amplitude
+\textit{above} the equilibrium $3$--$5\%$ baseline---the primary joint
+discriminant of Experiments~1 and~5.
+(iv)~A length-independent cross-peak at the equilibrium $3$--$5\%$ level
+with no dependence on MT length is the \textit{null result} for ENAQT: it
+confirms vibronic coupling (detectable) but refutes functional
+non-equilibrium transport enhancement (absent).
+\textbf{Interpretative shift.} The Holstein mapping reframes the
+central question from ``is coherence present?'' to
+``is coherence \textit{functional}?'' The equilibrium prediction is
+precisely that both answers can be independently true: a
+$\sim 3$--$5\%$ 2D-IR cross-peak (vibronic coupling, controlled by $S$)
+coexists with a $(J/\hbar\Omega_0)^2 \sim 10^{-6}$ suppression of
+ENAQT-type electronic transport (controlled by $J/\hbar\Omega_0$).
+Observing the cross-peak does not establish functional transport;
+\textit{not} observing a length-dependent increase in the cross-peak under
+varied MT length (Experiments~1+5) would falsify the non-equilibrium
+Fr\"ohlich-mediated ENAQT scenario. The functional question that remains open
+is whether Fr\"ohlich or other non-equilibrium pumping drives
+$J_{\text{eff}}^{(\text{pump})} \to \hbar\Omega_F$, promoting the system
+into the ENAQT window---which is precisely what the joint Experiments~1
+and~5 (\S\ref{sec:exp1}, \S\ref{sec:exp5}) are designed to test.
+\textbf{Limitations.} The Holstein reduction retains a single vibrational
+mode per dimer; a realistic treatment requires the full vibrational
+density of states, which for tubulin spans $10\text{--}3000$~cm$^{-1}$. A
+multimode Brownian oscillator extension \cite{Mukamel1995} or a HEOM
+treatment with Matsubara-expanded correlated baths is left as priority
+follow-up.
+
+% ============================================================
+% SECTION 6: EXPERIMENTAL DISCRIMINATION
+% ============================================================
+\section{Experimental discrimination programme}
+\label{sec:experimental_discrimination}
+The experimental goal is not to confirm a preferred quantum narrative, but to
+separate candidate mechanisms by signatures they cannot all share. Table
+\ref{tab:mechanism_discrimination} summarizes the primary positive and null
+criteria used throughout the experiments below.
+\begin{table*}[t]
+\centering
+\caption{Mechanism-specific discriminating signatures. The table is intended as
+a falsification map: each candidate non-equilibrium mechanism survives only if
+its own positive criterion is observed while the listed null criteria and
+classical confounds are controlled.}
+\label{tab:mechanism_discrimination}
+\footnotesize
+\begin{tabular}{p{2.6cm}p{3.0cm}p{3.5cm}p{3.0cm}p{3.2cm}}
+\toprule
+Mechanism & Primary signature & Positive criterion & Null criterion & Main confound \\
+\midrule
+Equilibrium vibronic coherence & 2D-IR cross-peaks & Temperature-dependent cross/diagonal ratio with ps-scale vibronic decay & No statistically resolved cross-peak above thermal background & Vibrational congestion and sample heterogeneity \\
+Fr\"ohlich pumping & Length-dependent THz linewidth & $\beta\lesssim0.1$ with long-MT length gating & $\beta\gtrsim0.9$ or no length dependence & Bundling, damping heterogeneity, preparation variability \\
+Ordered-water QED cavity & UV/THz spectral splitting & Predicted UV derivative doublet or THz cavity mode at high SNR & No feature at predicted band under controlled hydration & Turbidity, scattering, nonspecific absorption \\
+Geometric subradiance & Collective lifetime/linewidth scaling & Lifetime or linewidth scaling with tryptophan-network geometry; $(\tau_A,p)$ above $\tau^*(p)$ curve & Independent-emitter scaling; $\tau_A(L)$ flat and short & Disorder and symmetry breaking \\
+Classical cytoskeletal route & Tau/actin/tubulin perturbation controls & MT-specific effect not reducible to mechanics or trafficking & No specific MT contribution & Structural disruption and indirect network effects \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Validation hierarchy L1--L4}
+To ensure inferential closure, all experimental proposals are structured under a four-tier validation architecture:
+\begin{table*}[t]
+\centering
+\caption{Validation hierarchy L1--L4.}
+\footnotesize
+\begin{tabular}{p{1.5cm}p{3.5cm}p{8.5cm}}
+\toprule
+Level & Scope & KwanTube Implementation \\
+\midrule
+L1 & Analytic structure & FDT bounds, $\mathcal{U}_{\rm phys}$, Holstein mapping, monotonic metric definitions \\
+L2 & Model calibration & SNR/Fisher calibration, synthetic spectra generation, BIC/power surfaces \\
+L3 & Internal cross-check & HEOM/Redfield degradation, noise injection, spectral posterior predictive checks (PPC) \\
+L4 & External validation & Babcock/Kalra/Sahu datasets, independent spectroscopic benchmarks \\
+\bottomrule
+\end{tabular}
+\end{table*}
+This hierarchy prevents circular interpretation, separates theoretical bounds from empirical detection limits, and ensures that claims of detectability are grounded in calibrated inference, not idealized assumptions.
+
+\subsection{Experiment 1: Temperature-dependent 2D-IR}
+\label{sec:exp1}
+\textbf{Objective:} Detect conformational coherence; distinguish
+vibrational from electronic origin.
+\textbf{Method:} 2D-IR spectroscopy on amide~I band ($\sim 1650\text{~cm}^{-1}$)
+of polymerized MTs.
+\textbf{Key diagnostic} \cite{Christensson2012,Dean2017}: electronic
+coherence produces linewidth $\Gamma(T) \propto T$; vibrational coherence
+yields $\Gamma(T) \propto \coth(\hbar\omega_{\text{vib}}/2\kB T)$.
+Temperature range: 280--340~K.
+\textbf{Predictions.} Coherence exists: oscillatory cross-peaks with period
+$T \sim h/\Delta E \sim 7\ps$, decay $\tau \sim 1\text{--}10\ps$. No
+coherence: monotonic exponential decay. Controls: denatured tubulin,
+monomer vs polymer.
+\textbf{Quantitative cross-peak amplitude.} From response-function
+formalism \cite{Mukamel1995} the rephasing 2D-IR amplitude at the
+cross-peak $(\omega_i,\omega_j)$ scales as
+\begin{equation}
+A_{ij}^{(4)}(\tau)=|\mu_i|^2|\mu_j|^2\,
+R_{ij}(\tau)\,\bigl|\langle ij|\hat\rho(\tau)|ij\rangle\bigr|,
+\end{equation}
+with the fourth-order response function
+$R_{ij}(\tau)=e^{-\tau/\tau_c}\cos(\omega_{ij}\tau)$ in the secular
+approximation. For the tubulin Holstein parameters of
+\S\ref{sec:holstein} ($S\approx 1$, $\hbar\Omega_0\approx 7$~meV,
+$\tau_c\approx 2\ps$, vibronic mixing angle $\theta\approx 0.3$), the
+expected cross/diagonal amplitude ratio at the first beat maximum
+$\tau=\pi/\omega_{12}\approx 3\ps$ is
+\begin{equation}
+\frac{A^{(4)}_{\text{cross}}}{A^{(4)}_{\text{diag}}}\Bigg|_{\tau=3\ps}
+=\frac{|\mu_1|^2|\mu_2|^2}{|\mu_1|^4}\,\sin^2(2\theta)\,e^{-\tau/\tau_c}
+\approx 0.18\,e^{-3/2}\approx 4\times 10^{-2}.
+\end{equation}
+Thus a cross/diagonal ratio of $\sim 3\text{--}5\%$ with a $\sim 3\ps$
+oscillation period is the quantitative target. Below $\sim 1\%$ the null
+hypothesis (no conformational vibronic coherence) is preferred.
+Signal-to-noise requirements follow from standard pulse-shaper 2D-IR
+performance \cite{Hamm2011}: $>10^4$ scans per temperature point are
+needed at amide-I cross-peak level.
+\textbf{Power analysis:} $n=5$ replicates/condition, Cohen's $d \sim 0.8$
+detectable at $\alpha = 0.05$ with $\sim 80\%$ power.
+\textbf{IQI estimate:} $\text{IQI}_{\rm spec} \approx 0.92$ (assuming $S_{\rm prep}\approx 0.95$, $\text{SNR}/\text{SNR}_c > 1$, $P_{\rm boundary} < 0.05$).
+
+\subsection{Experiment 2: Kinetic isotope effects}
+Deuterated modulators (colchicine-d$_{10}$, taxol-d$_{30}$, GTP-d$_{12}$).
+Measure KIE $= k_H/k_D$ at multiple temperatures. Tunneling: KIE $> 2$,
+increases with decreasing $T$. Classical: KIE $\sim 1.2\text{--}1.5$,
+Arrhenius-consistent. Statistics: two-way ANOVA (isotope $\times$
+temperature), $n = 3 \times 3$ replicates.
+\textbf{IQI estimate:} $\text{IQI}_{\rm spec} \approx 0.88$ (standard biochemical assay precision, high $S_{\rm prep}$).
+
+\subsection{Experiment 3: MT integrity and synchronization}
+\label{sec:exp3}
+MEA recordings of cortical cultures with nocodazole (MT disruptor), taxol
+(stabilizer), and cytochalasin~D (actin control). Metrics: phase-locking
+value (gamma band), cross-correlation timing precision $\sigma$,
+spike-time tiling coefficient. Power: for 30\% PLV change (SD $\sim 15\%$),
+$n = 8$ cultures at 80\% power ($\alpha = 0.05$, paired $t$-test).
+\textbf{Negative control via tau knockdown.} The nocodazole--taxol--cytD
+triad leaves open a confound: both nocodazole and taxol alter MT
+structural abundance, which has direct non-quantum effects on
+cytoskeletal mechanics and trafficking. We add a fourth arm, \emph{tau-protein
+knockdown} (shRNA against MAPT), which reduces MT \emph{length}
+without globally destroying the network. Under the Fr\"ohlich stress-test logic of \S 4.1.2, tau knockdown does not
+test a universal length threshold. Instead, it shifts the
+microtubule length distribution relative to the mode-dependent crossover
+\(L_*(f_F)=c_s/(2f_F)\), reduces the number of coherently participating dimers,
+and can increase the effective collective linewidth. A Fr\"ohlich-compatible
+outcome would require preservation of near-\(\beta\simeq0\) linewidth scaling
+together with \(N>N_{\rm crit}\) and \(\Gamma_{\rm col}\sim10^6\,{\rm s}^{-1}\).
+Failure of these conditions would disfavour Fr\"ohlich as a functional channel
+without excluding ordinary cytoskeletal contributions to synchronisation.
+\textbf{Statistical design.} $2\times 2$ factorial (tau-KD vs scramble,
+actin-KD vs scramble) with $n=10$ cultures per cell; primary endpoint
+gamma PLV; secondary endpoint $\sigma$. Pre-registration of interaction
+contrast recommended.
+\textbf{IQI estimate:} $\text{IQI}_{\rm spec} \approx 0.90$ (electrophysiology standard, moderate $S_{\rm prep}$ variability across cultures).
+
+\subsection{Experiment 4: Cavity spectroscopy}
+\label{sec:exp4}
+\textbf{Objective:} Test QED cavity model predictions \cite{Mavromatos2025}.
+\textbf{Predictions.} The QED cavity model predicts a collective Rabi
+splitting $\Omega_R \approx 6\THz \approx 25\meV$ (Eq.~\ref{eq:rabi_splitting}).
+The corresponding wavelength splitting at 280~nm spans a range depending
+on the transition dipole used: $\Delta\lambda \approx 1.6$~nm
+(Eq.~\ref{eq:delta_lambda_nom}, optical-transition estimate) or
+$\Delta\lambda \approx 0.89$~nm (Eq.~\ref{eq:delta_lambda_num},
+conformational-dipole numerical estimate). These define the full target
+window; both are below standard UV linewidths and require the strategies
+detailed below.
+\textbf{Challenge: linewidth and turbidity.} Standard protein UV
+absorption FWHM is $\sim 20\text{--}30$~nm, far exceeding either predicted
+$\Delta\lambda$. Direct resolution of a doublet in standard absorption is
+therefore \textit{unlikely}. Moreover, MT solutions are highly turbid due
+to their size, leading to significant scattering that can distort the
+baseline and obscure weak features. We propose three detection strategies
+that mitigate these issues:
+\textit{(A) Second-derivative UV spectroscopy.} The second derivative
+$d^2A/d\lambda^2$ of the absorption spectrum resolves sub-linewidth
+structure. A doublet with separation $\Delta\lambda$ in the range
+0.89--1.6~nm produces two negative lobes separated by $\Delta\lambda$ in
+the second-derivative spectrum, detectable even when the parent spectrum
+appears as a single peak. Scattering contributes a slowly varying
+background that is largely suppressed by differentiation. Resolution:
+$< 0.5$~nm. Compare polymerized MTs vs free tubulin vs denatured protein.
+\textit{(B) THz/far-IR spectroscopy.} The Rabi splitting directly probes
+the conformational mode at $\sim 6\THz$. Time-domain THz spectroscopy of
+stabilized MT films should reveal absorption peaks absent in free
+tubulin. This approach is less affected by scattering because the
+wavelength is large compared to MT dimensions, and the sample can be
+prepared as a thin film or in a low-scattering medium.
+\textit{(C) 2D electronic spectroscopy near 280~nm.} Cross-peaks between
+the Rabi-split states would appear as off-diagonal features, as in
+photosynthetic complex studies \cite{Thyrhaug2018,Thyrhaug2018b}, with methodological details on polarization control and vibrational assignment provided in \cite{Thyrhaug2018b}. This technique
+inherently separates homogeneous and inhomogeneous broadening and can
+resolve splittings smaller than the linear absorption linewidth.
+\textbf{Protocol:} (1) stabilize MTs with taxol (10~$\mu$M); (2) immobilize
+on functionalized glass surface (for UV) or prepare thin films (for THz);
+(3) measure with approach A, B, or C; (4) compare polymer/monomer/denatured
+controls; (5) fit to doublet vs single-peak model.
+\textbf{Interpretation.} Doublet or THz absorption observed: strong
+evidence for cavity model, $\tau \sim \mu$s plausible. Single peak only:
+cavity model falsified at predicted coupling strength, equilibrium
+$\tau \sim$~ps confirmed.
+
+% ============================================================
+% FIGURE 5: SPECTRAL SIGNATURES
+% ============================================================
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures_final/fig2_signatures.pdf}
+\caption{\textbf{Spectroscopic signatures and detection-power analysis for
+ordered-water cavity hypotheses.}
+Candidate ordered-water QED cavity models predict polaritonic splitting and
+spectral doublet structure in UV/THz observables. Upper left: avoided-crossing
+structure of the upper and lower polaritonic branches as a function of detuning.
+Upper right: second-derivative UV absorption signature associated with a finite
+splitting. Bottom: operational detection-power calculation using
+\(\Delta{\rm BIC}\) as the decision statistic, with decisive evidence defined
+by \(\Delta{\rm BIC}>10\). This figure implements the detectability layer of
+the framework: a mechanism is not treated as supported merely because it is
+physically possible, but only if the predicted spectral feature exceeds the
+instrumental SNR and model-selection threshold.}
+\label{fig:spectral_signatures}
+\end{figure*}
+
+\textbf{Why not observed previously?} Most protein UV studies use soluble
+tubulin (no cavity); MT solutions have high turbidity; predicted splitting
+not sought before Mavromatos 2025; standard spectral resolution
+($\sim 1$~nm) marginal for the conformational-dipole estimate and
+insufficient for the optical estimate.
+\textbf{Feasibility:} MEDIUM. Approaches A and B available in most
+biophysics labs. Cost $\sim$ \$50K--100K. Timeline 12--18 months.
+\textbf{IQI estimate:} $\text{IQI}_{\rm spec} \approx 0.85$ (requires careful scattering subtraction; $S_{\rm prep}$ depends on turbidity control).
+
+\subsection{Bayesian model selection and detection-power surface}
+\label{sec:bic_roc}
+To quantify the statistical evidence for a doublet vs singlet spectrum,
+we employ the Bayesian Information Criterion (BIC). For a given
+signal-to-noise ratio (SNR), the difference
+$\Delta\text{BIC} = \text{BIC}_{\text{singlet}} -
+\text{BIC}_{\text{doublet}}$ indicates the strength of evidence. Using
+our current idealized synthetic fit (20 effective resolution elements,
+direct doublet-vs-singlet regression), we find that decisive evidence starts
+around SNR $\sim 2.6\times 10^2$ and is unambiguous by SNR $\gtrsim 10^3$,
+$\Delta\text{BIC} > 10$, corresponding to ``decisive'' evidence for the
+doublet model in the Jeffreys scale. This provides a quantitative
+threshold for experimental design: achieving SNR $\geq 10^3$ at
+the predicted splitting should be a primary instrument-specification
+target.
+\textbf{Full detection-power surface.} A single SNR threshold is less informative than
+the full detection-probability surface. We computed, via Monte-Carlo
+($10^3$ realisations per grid point), the probability
+$P(\text{detect doublet}\mid\Delta\lambda,\text{SNR})$ for
+$\Delta\lambda\in[0.5,2.0]$~nm and $\text{SNR}\in[10,10^4]$ (logarithmic
+grid), declaring detection when $\Delta\text{BIC}>10$. Qualitative summary
+of the resulting surface:
+\begin{itemize}
+\item Along the nominal target $\Delta\lambda=1.6$~nm: $P=0.5$ at
+SNR$\approx 6\times 10^2$; $P=0.95$ at SNR$\approx 2\times 10^3$.
+\item Along the numerical target $\Delta\lambda=0.89$~nm: $P=0.5$ at
+SNR$\approx 2.5\times 10^3$; $P=0.95$ at SNR$\approx 8\times 10^3$.
+\item Below $\Delta\lambda\simeq 0.5$~nm detection requires
+SNR$>10^4$, beyond current feasibility for scattering-limited UV; the
+THz approach (B) becomes mandatory.
+\end{itemize}
+Reframing Experiment~4 in these Neyman--Pearson detection-power terms shifts the primary instrument
+specification from ``SNR $>100$ at one wavelength'' (Jeffreys threshold
+on the singlet baseline) to ``SNR $\gtrsim 10^3$ across the
+277--283~nm window for high-confidence detection at the
+conformational-dipole target.'' This is achievable with modern
+derivative-UV spectrophotometers but requires careful scattering
+subtraction.
+
+\subsection{Experiment 5: Frequency- and length-resolved THz linewidth
+as a Fr\"ohlich stress test}
+\label{sec:exp5}
+The corrected Fr\"ohlich analysis shifts the role of this experiment. It is
+not designed to confirm a generic length-gating rescue mechanism. For
+sub-THz modes, the crossover length
+\[
+L_*(f_F)=\frac{\pi c_s}{\omega_F}
+=\frac{c_s}{2 f_F}
+\]
+is only $\sim10$--$100$ nm for $f_F=10^{10}$--$10^{11}$ Hz, so ordinary
+polymerized MTs already satisfy $L\gg L_*$. The decisive quantities are
+therefore the absolute collective damping $\Gamma_{\rm col}$, the scaling
+exponent $\beta$, and the number of coherently participating dimers.
+
+\textbf{Protocol.} Polymerize MTs under controlled nucleation to obtain
+length distributions peaked at
+$L\in\{0.5,1,2,5,10,20,50\}\,\mu$m where feasible, validated by cryo-EM
+or high-resolution fluorescence sizing. Measure time-domain THz/far-IR
+absorption over the $0.01$--$1$ THz window. Primary endpoints are:
+(i) the absolute linewidth $\Gamma_{\rm col}(f_F,L)$;
+(ii) the scaling exponent
+\[
+\beta(f_F)=\frac{d\log\Delta\omega_F}{d\log N};
+\]
+and (iii) whether the measured pair $(N,\Gamma_{\rm col})$ satisfies the
+Fr\"ohlich threshold condition
+\[
+N>
+6.4\times10^4
+\left(\frac{\Gamma_{\rm col}}{10^6\,{\rm s}^{-1}}\right)
+\left(\frac{r_{\rm pump}}{1\,{\rm s}^{-1}}\right)^{-1}.
+\]
+
+\textbf{Decision logic.}
+\begin{itemize}
+\item If $\Gamma_{\rm col}\gg10^6\,{\rm s}^{-1}$, Fr\"ohlich condensation is
+below threshold even if $\beta\simeq0$.
+\item If $\beta\gtrsim0.5$, the required coherent participation rapidly
+becomes biologically implausible.
+\item If $\beta\simeq0$ and $\Gamma_{\rm col}\lesssim10^6\,{\rm s}^{-1}$,
+Fr\"ohlich pumping survives as a ps-scale non-equilibrium spectroscopic
+mechanism, but still does not close the neural functional gap without a
+large independently measured amplification cascade.
+\item If no narrow collective mode is observed in the predicted band,
+Fr\"ohlich condensation is strongly disfavoured in biologically relevant MT
+preparations.
+\end{itemize}
+
+\textbf{Interpretation.} A positive result in Experiment~5 would not establish
+neural quantum functionality. It would only rescue Fr\"ohlich pumping as a
+candidate collective vibrational phenomenon. A negative result would sharply
+constrain or effectively falsify Fr\"ohlich condensation in microtubules under
+the tested biological conditions.
+
+\subsection{Experiment 6: Length-resolved linewidth scaling for subradiance
+characterisation}
+\label{sec:exp6}
+\textbf{Objective:} Constrain the $(\tau_A, p)$ region of
+Proposition~\ref{prop:subradiance_threshold} and reconcile the Babcock
+et al.\ 10-s subradiant lifetime with the symmetry-breaking mixing rate
+$\Gamma_{\text{mix}} \sim 10^{10}\text{--}10^{11}$~Hz.
+\textbf{Physical target.} The critical threshold
+$\tau^*(p) = 2.5\times 10^{-9}/p$~s (Eq.~\ref{eq:subradiance_threshold})
+can be traversed experimentally by varying MT length, since the geometric
+symmetry underlying subradiance degrades with increased translational
+disorder at shorter lengths. Specifically:
+\begin{itemize}
+\item In long, well-ordered MTs ($L \gtrsim 5\,\mu$m) the tryptophan
+network has higher translational periodicity, lower effective disorder
+$\delta\omega/\omega$, and reduced $\Gamma_{\text{mix}}$.
+\item In short or nocodazole-treated MTs the disorder is high and
+$\Gamma_{\text{mix}}$ dominates, driving the system toward the
+disorder-dominated row of the table in \S\ref{sec:subradiance}.
+\end{itemize}
+The predicted signature is a \emph{length-dependent narrowing} of the
+subradiant UV emission linewidth $\Delta\nu_{\text{sub}}$:
+\begin{equation}
+\Delta\nu_{\text{sub}}(L) \propto
+\Gamma_{\text{mix}}(L) \approx
+\left(\frac{\delta\omega(L)}{\omega}\right)^2 \Gamma_\phi,
+\end{equation}
+where $\delta\omega(L)/\omega$ decreases with $L$ as the tryptophan lattice
+becomes more ordered. A plot of $\Delta\nu_{\text{sub}}$ vs $\log L$
+provides a direct upper bound on $\tau_A^{\text{effective}}$ and,
+combined with fluorescence-lifetime resolved spectra, maps the
+experimentally realised $(p, \tau_A)$ point onto
+Proposition~\ref{prop:subradiance_threshold}.
+\textbf{Protocol.}
+(1)~Polymerise MTs to length distributions at
+$L \in \{1, 2, 5, 10, 20\}\,\mu$m (cryo-EM verified).
+(2)~UV fluorescence spectroscopy (280~nm excitation) with picosecond
+time-correlated single-photon counting to resolve the fast superradiant
+($\tau_S \sim 100\fs$--ps) and slow subradiant components.
+(3)~Extract the subradiant component lifetime $\tau_A(L)$ and emission
+linewidth $\Delta\nu_{\text{sub}}(L)$ per length bin.
+(4)~Compare taxol-stabilised vs nocodazole-treated vs free-tubulin controls.
+(5)~Test disorder-reduction hypothesis: high-ionic-strength buffer
+(reduced Debye shielding, more ordered lateral contacts)
+vs low-ionic-strength.
+\textbf{Primary endpoint:} the slope $d\log\tau_A / d\log L$.
+\begin{itemize}
+\item Steep positive slope ($\tau_A \propto L^\alpha$, $\alpha > 1$):
+subradiance is geometry-gated; long MTs are in the
+$p > 2.5\times 10^{-3}$ region ($\mathcal{U} \ge 1$ marginal).
+\item Flat slope with $\tau_A$ near 10~s for all lengths:
+subradiant protection is intrinsic rather than length-gated;
+Babcock et al.\ is reproduced, supports
+$p \gg 2.5\times 10^{-9}$ and $\mathcal{U} \gg 1$.
+\item Short-length $\tau_A \sim 10\ps$ (disorder-dominated):
+no $\mathcal{U} \ge 1$ crossing, subradiance falsified as
+a functional mechanism.
+\end{itemize}
+\textbf{Reconciliation with mixing rate.} If $\tau_A \sim 10$~s is
+reproduced at any length, then $\Gamma_{\text{mix}} \sim 10^{10}$~Hz must
+be reconciled with the long lifetime. Possible resolutions (to be tested):
+(a)~the relevant disorder parameter is $\delta\omega \ll \omega$ due to
+topological protection in helical MT geometry; (b)~dynamical symmetrisation
+by the QED cavity field (links to Experiment~4); (c)~coupling to dark
+vibrationally excited states that buffer the symmetry-breaking perturbation.
+This reconciliation constitutes an explicit theoretical target for the
+v2 structured-bath HEOM extension.
+\textbf{Statistical design.} $n = 5$ MT preparations per length class,
+$n = 3$ independent fluorescence measurements per preparation.
+Power: with the expected factor $>10^{10}$ between subradiant and
+superradiant lifetime, even modest $n$ provides $>90\%$ power to
+detect the subradiant component above noise.
+Cost $\sim$\$80\,K; timeline 12--18 months.
+Feasibility: MEDIUM-HIGH (requires UV ultrafast spectroscopy; comparable
+to Babcock et al.\ setup).
+\textbf{IQI estimate:} $\text{IQI}_{\rm spec} \approx 0.94$ (high-precision TCSPC, strong $S_{\rm prep}$ via cryo-EM validation).
+
+% ============================================================
+% DISCUSSION
+% ============================================================
+\section{Discussion}
+\subsection{Principal findings}
+(1) The calibrated Ohmic equilibrium pure-dephasing baseline gives
+\(T_2^*\approx39\fs\) at 310~K, while structured-bath excitonic benchmarks
+remain in the ps regime. Both scales are many orders of magnitude below
+neural synchronization times.
+(2) The quantum coherence utility $\mathcal{U}_{\rm phys} < 1$ for all equilibrium
+cooperative mechanisms (Definition~\ref{def:utility}); quantum discord
+persists to $\sim 2\tau_c$ without changing this conclusion
+(\S\ref{sec:discord}).
+(3) The Holstein mapping places tubulin in the \emph{small-polaron regime}
+($J/\hbar\Omega_0 \sim 10^{-3}$), suppressing coherent inter-dimer
+electronic transport by $(J/\hbar\Omega_0)^2 \sim 10^{-6}$ relative to
+FMO. Critically, this is independent of the 2D-IR cross-peak amplitude,
+which is set by $S \approx 1$ and predicts a cross/diagonal ratio of
+$\sim 3$--$5\%$---detectable but not diagnostic of functional ENAQT.
+Fr\"ohlich pumping represents the specific pathway to enter the ENAQT
+window, testable via the length-dependent cross-peak increase in
+Experiments~1 and~5.
+(4) Fr\"ohlich condensation is no longer treated as a presumed bridge to
+functionality. For sub-THz modes, the form-factor crossover
+\(L_*(f_F)=c_s/(2f_F)\) is typically in the \(10\)--\(100\) nm range, so
+micrometre-scale microtubules can in principle enter the favourable
+\(\beta\simeq0\) geometric regime. The bottleneck instead becomes the
+simultaneous requirement of large coherent participation
+(\(N_{\rm crit}\sim6.4\times10^4\) for
+\(\Gamma_{\rm col}=10^6\,{\rm s}^{-1}\)) and exceptionally weak collective
+damping. Fr\"ohlich pumping is therefore a stress-tested but currently
+disfavoured functional channel, whereas QED cavity protection and geometric
+subradiance remain the only candidate mechanisms that can approach
+\(\mathcal{U}\gtrsim1\) without an extreme downstream gain.
+(5) The quantum-to-classical transduction bandwidth $B_{\text{QC}}
+\lesssim 10^4$~Hz (ion channel kinetics) limits the effective information
+gain to $\Delta R_{\text{eff}} \lesssim 10^4$~bits/s under any equilibrium
+scenario; $B_{\text{QC}}$ unifies the utility framework (\S 3.4) and the
+information-theoretic analysis (\S 5.5) and is the physical quantity
+targeted by Experiment~3 (Eq.~\ref{eq:U_BQC}).
+(6) All current neural synchronization phenomena are explained by
+classical mechanisms (\S 5.4--5.5).
+(7) UV superradiance \cite{Babcock2024}, anesthetic-MT interactions
+\cite{Khan2024,Kalra2023}, and MT resonances \cite{Saxena2020,Singh2021}
+support further experimental investigation.
+
+\subsection{Reconciliation of conflicting predictions}
+Equilibrium models \cite{Tegmark2000,Hagan2002,Xiang2019} yield
+$\tau \sim 10\fs\text{--}10\ps$. Non-equilibrium models diverge: Fr\"ohlich
+(optimistic) $\tau \sim 10\text{--}100\ps$; Fr\"ohlich (Reimers critique)
+inaccessible \cite{Reimers2009}; cavity QED $\tau \sim 0.1\text{--}1~\mu$s
+\cite{Mavromatos2025}; subradiance up to 10~s \cite{Babcock2024}.
+Key distinctions: (a) equilibrium vs driven systems---Corollary~\ref{cor:ceiling}
+assumes thermal equilibrium, violated in living systems dissipating
+$\sim 100$~W metabolic power; (b) geometry---Reimers \cite{Reimers2009}
+analyzed 1D chains, MTs are 2D cylindrical lattices, and the $\beta$
+analysis (\S 4.1.2) shows that geometry+length dictate which regime
+applies; (c) nonlinearity---Reimers used linearized dynamics, Fr\"ohlich
+condensation requires nonlinear dipole interactions \cite{Pokorn2011};
+(d) collective vs independent modes---\S 3.2 shows independent baths give
+$\tau_N = \tau_1/N$, while Fr\"ohlich condensation involves a single
+collective mode avoiding this scaling.
+
+\subsection{Comparison with FMO: lessons from updated understanding}
+The FMO case initially appeared to support long electronic coherence.
+Careful analysis revealed electronic coherence is ultrafast ($\sim 60\fs$)
+\cite{Duan2017,Thyrhaug2018}, vibrational coherences persist longer
+($\sim$~ps) \cite{Thyrhaug2018}, and functional energy transfer uses
+vibronic mechanisms plus correlated environmental fluctuations
+\cite{Dean2017,Cao2020,Chin2013}. The Holstein mapping of
+\S\ref{sec:holstein} therefore remains a useful theoretical organiser, but
+the calibrated tubulin release described here does not by itself place the
+system in the same numerical coherence window as FMO vibronics; any such
+claim requires structured-bath or driven extensions beyond the present code.
+
+\subsection{Limitations}
+The two-level approximation neglects tubulin's complex conformational
+landscape; qudit models \cite{Mavromatos2025} are more realistic. Spectral
+density parameters are generic protein values (\S 2.1.1); tubulin-specific
+MD simulations should refine $\eta$ and $\omega_c$. The Fr\"ohlich
+$\beta$-estimate (\S 4.1.2) is a linear-response result; nonlinear
+self-trapping could reduce $\beta$ further, slightly extending the
+optimistic regime. The QED cavity model relies on poorly characterized
+ordered water structure; the two estimates of $\Delta\lambda$
+(Eqs.~\ref{eq:delta_lambda_nom}--\ref{eq:delta_lambda_num}) reflect
+genuine uncertainty in the relevant transition dipole. The subradiant
+scenario (\S\ref{sec:subradiance}) requires a full quantitative
+reconciliation of the 10-s Babcock lifetime with the
+$\sim$10-ps symmetry-breaking mixing rate; we flag this as priority
+theoretical work.
+
+\subsection{Falsifiability of competing non-equilibrium models}
+The disagreement between Reimers et al.\ and Mavromatos et al.\ is often
+presented as an irresolvable theoretical dispute. Our experimental
+proposals (\S\ref{sec:experimental_discrimination}) turn it into an empirical question.
+Specifically:
+\begin{itemize}
+\item If Experiment 4 detects the predicted Rabi splitting in the
+range $\Delta\lambda \approx 0.89\text{--}1.6$~nm, or a THz absorption at
+$\sim 6$~THz, the QED cavity model is strongly supported. Conversely, the
+absence of any splitting at SNR$>10^4$ falsifies the cavity model at the
+predicted coupling strengths, lending weight to Reimers' conclusion.
+\item If Experiment 5 finds $\beta\lesssim 0.1$ with length-dependent
+THz linewidth, Fr\"ohlich condensation is supported; $\beta\gtrsim 0.9$
+falsifies it; intermediate values narrow the viable parameter region.
+\item If Experiment 3 shows specific tau-KD suppression of gamma
+synchrony beyond classical structural effects, a length-dependent
+quantum contribution is implicated, and $B_{\text{QC}}$ is bounded from
+above (\S 5.5, Eq.~\ref{eq:U_BQC}).
+\item If Experiment 6 finds $\tau_A(L) \propto L^\alpha$ with $\alpha>1$,
+geometric subradiance is length-gated; if $\tau_A \sim 10$~s is reproduced
+at all lengths, the Babcock et al.\ observation is generic and
+$\mathcal{U}_{\text{sub}} \gg 1$ (Proposition~\ref{prop:subradiance_threshold}).
+\end{itemize}
+Thus, the proposed experiments provide clear, falsifiable tests that
+can resolve the long-standing controversy.
+
+\subsection{Relation to Orch OR}
+Orch OR \cite{Penrose1994,Hameroff2014} provides historical motivation for
+considering microtubules as possible quantum substrates, but it is not assumed
+or tested in the present work. Our analysis addresses a narrower and more
+operational biological-physics question: whether tubulin can host molecular
+quantum dynamics with experimentally distinguishable signatures on functionally
+relevant timescales. Under equilibrium assumptions the answer is negative
+($\tau\sim$~fs--ps, $\mathcal{U}\ll1$). Non-equilibrium mechanisms can become
+formally compatible only if they supply strong amplification
+($\tau\sim\mu$s--s for the most favourable subradiant estimates,
+$\mathcal{U}\sim1$--$40$) and, in several cases, cascading
+quantum$\to$classical amplification ($\mathcal{K}\sim10^3$--$10^4$). Kerskens
+and L\'opez P\'erez \cite{Kerskens2022} reported MRI evidence interpreted as
+non-classical brain function, whereas Warren \cite{Warren2023} provided a
+critical rebuttal. The present manuscript remains independent of that dispute:
+it supplies constraints and experimental discriminants rather than an Orch OR
+endorsement.
+
+\subsection{Computational framework}
+\label{sec:code}
+All numerical results presented in this release are generated by the
+open-source project \texttt{KwanTube}, available at
+\url{https://github.com/FacundoFirmenich/KwanTube}. The repository contains
+the manuscript-oriented entry points, validation ledgers, figure-generation
+scripts, and Bayesian contraction summaries used for this bioRxiv v1 release. The code
+implements the calibrated rate-model baseline described in \S\S 2--4,
+performs multi-temperature inversion to constrain $\eta$ and $\omega_c$
+(yielding $T_2^* = 39.1\fs$ at 310~K; \S 2.3), computes Sobol-style
+sensitivity indices for the current four-parameter release
+($\eta,\omega_c,T,f_{\text{prot}}$), and provides a synthetic BIC model
+selection tool for distinguishing cavity doublets from singlets
+(\S\ref{sec:bic_roc}). A complete validation report is included
+in the supplementary information and in the repository as
+\texttt{validation\_report.json}. All figures can be reproduced by
+running \texttt{python src/generate\_paper\_figures.py}, which writes the
+manuscript-ready assets to \texttt{figures\_final/}
+(\texttt{fig1\_landscape}, \texttt{fig2\_signatures},
+\texttt{fig3\_frohlich}, \texttt{fig4\_scaling}; PDF and PNG).
+\textbf{Software architecture, solvers and regression tests.}
+\emph{(i) Open-system engine.} The public release exposes a
+phenomenological secular/Markovian rate model, not a production HEOM stack;
+HEOM and structured-bath benchmarks are integrated as validation modules.
+\emph{(ii) Integrals.} The vibrational-dephasing integral is evaluated with
+\texttt{scipy.integrate.quad}, using an analytic low-frequency completion and
+an upper cutoff $50\,\omega_c$.
+\emph{(iii) Inversion.} The multi-temperature parameter inversion uses
+\texttt{scipy.optimize.least\_squares} (Trust Region Reflective) with
+multi-start initialisation and variance-scaled residuals.
+\emph{(iv) Sensitivity indices.} The current release computes Jansen-style
+first-order and total-order indices for four parameters
+($\eta,\omega_c,T,f_{\text{prot}}$) with $N=2000$ base samples.
+\emph{(v) Regression tests.} The test suite
+(\texttt{test\_physics.py}, \texttt{test\_inversion.py}) verifies: positivity
+of all rates; the FDT bound $\tau\le\hbar/(\alpha\kB T)$; near-consistency
+between numeric and analytic vibrational rates; ionic-mass sensitivity; and
+synthetic recovery of $(\eta,\omega_c,\Delta\epsilon)$ at the calibrated
+tolerance level. A CI workflow on
+every commit re-runs these tests and rebuilds all figures. The repository
+state at publication is archived via Zenodo (DOI: 10.5281/zenodo.19744600)
+to guarantee computational reproducibility.
+
+% ============================================================
+% FIGURES (SUPPLEMENTARY REFERENCES)
+% ============================================================
+
+
+\subsection{Generalization beyond tubulin: a framework for biological quantum relevance}
+The equilibrium-to-functionality framework developed here is intentionally
+general. While tubulin provides a stringent test case due to its structural
+order and biological centrality, the formalism applies to any biomolecular
+system where quantum dynamics might influence function across timescale
+separations. For chromatin, the gap spans electronic coherence (fs) to
+epigenetic regulation (minutes); for ion channels, it spans tunnelling
+events (fs--ps) to gating dynamics (ms). The utility criterion
+$\mathcal{U}_{\rm phys} = \mathcal{K}\tau_{\text{coh}}/\tau_{\text{func}}$ provides
+a universal dimensionless metric: $\mathcal{U}\gtrsim 1$ defines the
+necessary condition for functional quantum influence, regardless of the
+specific molecular substrate. The three non-equilibrium mechanisms
+analyzed---metabolic pumping, environmental cavity protection, and
+geometric decoherence-free subspaces---represent generic physical pathways
+that could, in principle, bridge the gap in diverse biological contexts.
+Future work should apply this framework systematically to other candidate
+systems (e.g., voltage-gated ion channels, chromatin remodeling complexes,
+olfactory receptors) to map the landscape of biologically plausible quantum
+effects. This generalization transforms the question from ``is quantum
+mechanics relevant in biology?'' to the more precise ``under what
+non-equilibrium conditions, and in which specific biological architectures,
+can molecular quantum dynamics achieve functional relevance?''.
+
+\section{Conclusions}
+We have presented a comprehensive analysis of quantum coherence mechanisms
+in microtubules with four main contributions: a calibrated open-system
+baseline for equilibrium decoherence, an
+FDT-rigorous quantum coherence utility framework (\S 3.4, including
+quantum-discord refinement and comparison with Giovannetti-2004 /
+Chin-2013), a perturbative scaling analysis of collective damping that
+renders Fr\"ohlich condensation length-gated (\S 4.1.2), and the
+integration of geometric subradiance as a third non-equilibrium channel
+(\S\ref{sec:subradiance}), together with a Holstein vibronic analogue that
+formalises the FMO--tubulin analogy (\S\ref{sec:holstein}).
+\textbf{Equilibrium:} Vibrational dephasing limits coherence to
+$T_2^* \approx 39\fs$ in the calibrated Ohmic release at 310~K. The strict FDT pure-dephasing ceiling remains sub-ps, and even favourable
+structured-bath benchmarks remain confined to the fs--ps regime; no
+cooperative equilibrium mechanism circumvents this bound.
+\textbf{Non-equilibrium:} Fr\"ohlich pumping can in principle generate
+driven collective vibrational behaviour, but the corrected energetic and
+geometric accounting makes it a strongly constrained mechanism. For
+sub-THz modes, ordinary MTs already exceed the form-factor crossover length;
+the decisive bottlenecks are instead low absolute damping, coherent
+participation above $N_{\rm crit}$, and downstream amplification. Even in
+the favourable case, the expected coherence time remains
+$\tau\sim10$--$100$ ps, requiring $\mathcal{K}_{\rm req}\sim10^8$--$10^9$
+to influence millisecond neural function. Fr\"ohlich therefore shifts from
+a presumed functional bridge to a falsifiable but currently disfavoured
+functional channel. QED cavity models predict $\tau\sim0.1$--$1~\mu$s and
+remain testable by UV/THz cavity spectroscopy. Geometric subradiance,
+reported in related tryptophan mega-networks \cite{Babcock2024}, reaches
+lifetimes up to 10 s but requires reconciliation with vibrational and ionic
+mixing and with functional transduction from optically dark states.
+\textbf{Classical sufficiency:} ING networks, gap junctions, ephaptic
+coupling, and CTC quantitatively explain all observed neural
+synchronization (\S 5.4). Information-theoretic analysis confirms no rate
+advantage for quantum coherence under equilibrium assumptions (\S 5.5).
+\textbf{Experimental priorities:} (1) Cavity spectroscopy---second-derivative
+UV or THz---for direct test of QED cavity model, with detection-power design
+specifying SNR $\gtrsim 10^3$ as a conservative target and idealized BIC
+crossing already in the few-$10^2$ range; (2) temperature-dependent 2D-IR with cross/diagonal amplitude
+ratio of $\sim 3$--$5\%$ as the equilibrium target (vibronic coupling,
+$S$-controlled) and a \textit{length-dependent increase above this baseline}
+as the ENAQT indicator (transport efficiency, $J/\hbar\Omega_0$-controlled);
+the two quantities are physically orthogonal and must be reported separately; (3) kinetic isotope effects for tunneling;
+(4) tau-knockdown-controlled MT disruption with synchronization precision
+measurements, directly constraining $B_{\text{QC}}$; (5) length-resolved
+THz linewidth as direct $\beta$-falsification test for Fr\"ohlich;
+(6) length-resolved UV subradiant linewidth to map the $(\tau_A, p)$
+region and reconcile the Babcock 10-s lifetime with the mixing rate.
+The amplification gap from picoseconds to milliseconds remains a hard
+constraint, not a rhetorical one. Our utility framework sharpens that
+constraint quantitatively and converts it into a testable experimental
+agenda. In that sense, the contribution of this manuscript is twofold:
+it narrows the plausible mechanism space under explicit assumptions, and
+it specifies concrete falsification routes for cavity, Fr\"ohlich, and
+subradiant scenarios without relying on overextended interpretative claims.
+
+% ============================================================
+% ETHICS, ACKNOWLEDGMENTS, AUTHOR CONTRIBUTIONS
+% ============================================================
+\section*{Ethics and Conflict of Interest}
+The authors declare no financial or personal conflicts of interest.
+
+\section*{Acknowledgments}
+Numerical analysis and visualization were performed using the \textbf{Python} scientific stack, including \textbf{NumPy}, \textbf{SciPy}, \textbf{Matplotlib}, and \textbf{Pandas}. We thank \textbf{Marc Mart\'inez Sep\'ulveda}, \textbf{Hernando Rub\'en Ch\'avez Fern\'andez}, \textbf{Camila Paz Bravo}, and \textbf{Pablo Cingolani}, along with the entire team at \textbf{CEDESUR}. We also acknowledge \textbf{Ernesto Villanueva} and \textbf{Juan Pastor Gonz\'alez} (UNAJ) for institutional support.
+
+\section*{Data and code availability}
+
+The canonical computational entry point for reproducing the manuscript-level
+results is the Python workflow
+\texttt{scripts/reproduce\_paper\_results.py}. The platform-specific launchers
+provided in the repository are convenience wrappers around this canonical
+Python entry point; they do not replace it.
+
+\begin{itemize}
+\item \textbf{Primary repository:}
+\url{https://github.com/FacundoFirmenich/KwanTube}
+(GPL-3.0 License).
+\item \textbf{Permanent archive:}
+\href{https://doi.org/10.5281/zenodo.19744600}{10.5281/zenodo.19744600}.
+\item \textbf{Canonical command:}
+\texttt{python scripts/reproduce\_paper\_results.py --mode paper}.
+\item \textbf{Convenience launchers:}
+\texttt{reproduce\_paper.bat} for Windows,
+\texttt{reproduce\_paper.sh} for Linux/macOS terminals,
+\texttt{reproduce\_paper.command} for macOS Finder, and
+\texttt{reproduce\_paper\_linux.desktop} for Linux desktop environments that
+allow trusted executable launchers.
+\end{itemize}
+
+The launchers create or activate a local Python environment, install the
+declared dependencies, run the canonical reproducibility workflow, and rebuild
+the manuscript figures and validation outputs. Where a LaTeX installation is
+available, the workflow can also be used to rebuild the manuscript PDF. The
+Python workflow remains the authoritative reproducibility layer.
+
+\section*{Hardware disclosure}
+
+The manuscript-level Python workflow was designed and tested on commodity
+hardware, including a mid-range 2016 laptop with an Intel i5-6200U CPU,
+16 GB DDR3 RAM, SSD storage, and 128 MB dedicated VRAM. Baseline figure
+generation, rate-model calculations, validation-table regeneration, and
+synthetic detection-power analyses do not require high-end HPC access.
+Optional long-window HEOM production extensions are treated separately as
+staged computational extensions and may require substantially longer runtimes
+depending on truncation depth, bath expansion, and system size.
+
+\section*{Author contributions}
+
+\textbf{Facundo Firmenich} led conceptualization, theoretical development,
+methodology, formal analysis, software implementation, validation,
+visualization, project administration, and original-draft writing.
+\textbf{Pau Firmenich} contributed to reproducibility testing, computational
+workflow review, validation checks, and editorial quality control.
+\textbf{Le\'on Firmenich} contributed to independent review of figures,
+tables, explanatory consistency, and editorial quality control. All authors
+reviewed and approved the final manuscript and associated software release.
+
+\section*{AI-assisted development disclosure}
+\label{sec:ai_disclosure}
+
+Large language models, including ChatGPT, Qwen, DeepSeek, GLM, and Gemini,
+were used as assistive tools for drafting support, code prototyping,
+debugging, translation, refactoring, and consistency checking. Wolfram Alpha
+was used for symbolic and numerical spot checks. All scientific claims,
+equations, numerical outputs, code behaviour, interpretations, and final
+editorial decisions were reviewed, validated, and approved by the human
+authors. The AI systems were used as research-assistance tools, not as
+autonomous scientific agents.
+
+
+% ============================================================
+% APPENDICES AND SUPPLEMENTARY FIGURES
+% ============================================================
+\appendix
+\section{Supplementary material}
+Detailed derivations of $\mathcal{F}_{\rm info}(\text{SNR})$, full Fisher barrier calibration, spectral posterior predictive checks (PPC), dual KL+$P_{\rm boundary}$ diagnostics, and complete L1--L4 validation ledgers are provided in the supplementary information to maintain main-text flow while preserving full methodological transparency.
+
+% Supplementary figures referenced in main text
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures_final/redfield_1JFF.pdf}
+\caption{\textbf{Redfield baseline dynamics for the full 1JFF system.}
+Perturbative Redfield trajectory for the full 1JFF tubulin-inspired system.
+Left: site-resolved population redistribution over the short-time window.
+Right: \(L_1\)-norm coherence. This figure provides the perturbative baseline
+against which the HEOM short-window benchmark is compared. It is used as a
+model-comparison diagnostic and not as a numerically exact reference.}
+\label{fig:supp_redfield_1jff}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures_final/redfield_6DPU.pdf}
+\caption{\textbf{Redfield baseline dynamics for the 6DPU fragment.}
+Site-resolved Redfield population dynamics and \(L_1\)-norm coherence for the
+6DPU fragment. The many-site legend is retained to preserve traceability of the
+fragment-level diagnostic, but the figure is treated as a supplementary
+validation artefact rather than a main-text result. Together with the 1JFF
+baseline, it documents the perturbative reference layer used in the
+HEOM/Redfield validation ledger.}
+\label{fig:supp_redfield_6dpu}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures_final/prior_sensitivity.pdf}
+\caption{\textbf{Prior-sensitivity analysis for evidence ratios.}
+Sensitivity of \(BF_{10}\) to prior width for the Babcock and Kalra evidence
+layers. Horizontal dashed lines mark conventional strong and decisive evidence
+thresholds. The Babcock analysis remains in the strong-to-decisive regime over
+a broad prior-width interval, while the Kalra layer is more prior-sensitive and
+approaches the strong-evidence threshold for broad priors. The figure supports
+the use of study-specific Bayesian evidence as a diagnostic layer while
+discouraging overinterpretation of any single pooled Bayes factor.}
+\label{fig:supp_prior_sensitivity}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.85\textwidth]{figures_final/sbc_calibration_ns.pdf}
+\caption{\textbf{Simulation-based calibration of the nested-sampling engine.}
+Rank histogram for simulation-based calibration of the nested-sampling evidence
+engine. The dashed line denotes the expected uniform rank distribution under
+calibrated posterior recovery. The reported \(p=0.8009\) is consistent with no
+detectable deviation from rank uniformity in this calibration test, supporting
+use of the engine for evidence diagnostics within the validation ledger.}
+\label{fig:supp_sbc_ns}
+\end{figure*}
+
+% ============================================================
+% BIBLIOGRAPHY
+% ============================================================
+\begin{thebibliography}{99}
+\bibitem{Engel2007} G.~S.~Engel \textit{et al.}, \textit{Nature}
+\textbf{446}, 782 (2007).
+\bibitem{Panitchayangkoon2010} G.~Panitchayangkoon \textit{et al.},
+\textit{Proc.\ Natl.\ Acad.\ Sci.\ USA} \textbf{107}, 12766 (2010).
+\bibitem{Duan2017} H.-G.~Duan \textit{et al.},
+\textit{Proc.\ Natl.\ Acad.\ Sci.\ USA} \textbf{114}, 8493 (2017).
+\bibitem{Thyrhaug2018} E.~Thyrhaug \textit{et al.},
+\textit{Nat.\ Chem.} \textbf{10}, 780 (2018).
+\bibitem{Thyrhaug2018b} E.~Thyrhaug \textit{et al.},
+\textit{J.\ Phys.\ Chem.\ Lett.} \textbf{9}, 6412 (2018).
+\bibitem{Tiwari2013} V.~Tiwari, W.~K.~Peters, and D.~M.~Jonas,
+\textit{Proc.\ Natl.\ Acad.\ Sci.\ USA} \textbf{110}, 1203 (2013).
+\bibitem{Christensson2012} N.~Christensson \textit{et al.},
+\textit{J.\ Phys.\ Chem.\ B} \textbf{116}, 7449 (2012).
+\bibitem{Tempelaar2014} R.~Tempelaar, T.~L.~C.~Jansen, and J.~Knoester,
+\textit{J.\ Phys.\ Chem.\ B} \textbf{118}, 12865 (2014).
+\bibitem{Dean2017} J.~C.~Dean and G.~D.~Scholes,
+\textit{Acc.\ Chem.\ Res.} \textbf{50}, 2746 (2017).
+\bibitem{Plenio2008} M.~B.~Plenio and S.~F.~Huelga,
+\textit{New J.\ Phys.} \textbf{10}, 113019 (2008).
+\bibitem{Cao2020} J.~Cao \textit{et al.},
+\textit{Sci.\ Adv.} \textbf{6}, eaaz4888 (2020).
+\bibitem{Chin2013} A.~W.~Chin, J.~Prior, R.~Rosenbach, F.~Caycedo-Soler,
+S.~F.~Huelga, and M.~B.~Plenio,
+\textit{Nat.\ Phys.} \textbf{9}, 113 (2013).
+\bibitem{Ritz2000} T.~Ritz, S.~Adem, and K.~Schulten,
+\textit{Biophys.\ J.} \textbf{78}, 707 (2000).
+\bibitem{Maeda2012} K.~Maeda \textit{et al.},
+\textit{Proc.\ Natl.\ Acad.\ Sci.\ USA} \textbf{109}, 4774 (2012).
+\bibitem{Gauger2011} E.~M.~Gauger \textit{et al.},
+\textit{Phys.\ Rev.\ Lett.} \textbf{106}, 040503 (2011).
+\bibitem{Scrutton1999} N.~S.~Scrutton, J.~Basran, and M.~J.~Sutcliffe,
+\textit{Eur.\ J.\ Biochem.} \textbf{264}, 666 (1999).
+\bibitem{Klinman2013} J.~P.~Klinman and A.~Kohen,
+\textit{Annu.\ Rev.\ Biochem.} \textbf{82}, 471 (2013).
+\bibitem{Babcock2024} N.~S.~Babcock \textit{et al.},
+\textit{J.\ Phys.\ Chem.\ B} \textbf{128}, 4035 (2024).
+\bibitem{Celardo2019} G.~L.~Celardo, A.~Ferretti, and R.~Kaiser,
+\textit{New J.\ Phys.} \textbf{21}, 023012 (2019).
+\bibitem{Dicke1954} R.~H.~Dicke,
+\textit{Phys.\ Rev.} \textbf{93}, 99 (1954).
+\bibitem{Gross1982} M.~Gross and S.~Haroche,
+\textit{Phys.\ Rep.} \textbf{93}, 301 (1982).
+\bibitem{Mavromatos2025} N.~E.~Mavromatos, A.~Mershin, and D.~V.~Nanopoulos,
+\textit{Eur.\ Phys.\ J.\ Plus} \textbf{140}, 1116 (2025).
+\bibitem{Mavromatos1997} N.~E.~Mavromatos and D.~V.~Nanopoulos,
+\textit{Int.\ J.\ Mod.\ Phys.\ B} \textbf{11}, 851 (1997).
+\bibitem{Mavromatos2002} N.~E.~Mavromatos, A.~Mershin, and D.~V.~Nanopoulos,
+\textit{Int.\ J.\ Mod.\ Phys.\ B} \textbf{16}, 3623 (2002).
+\bibitem{DelGiudice1988} E.~Del~Giudice, G.~Preparata, and G.~Vitiello,
+\textit{Phys.\ Rev.\ Lett.} \textbf{61}, 1085 (1988).
+\bibitem{Sahu2013} S.~Sahu \textit{et al.},
+\textit{Biosens.\ Bioelectron.} \textbf{47}, 141 (2013).
+\bibitem{Tuszynski1995} J.~A.~Tuszy\'nski \textit{et al.},
+\textit{J.\ Theor.\ Biol.} \textbf{174}, 371 (1995).
+\bibitem{Frohlich1968} H.~Fr\"ohlich,
+\textit{Phys.\ Lett.\ A} \textbf{26}, 402 (1968).
+\bibitem{Frohlich1977} H.~Fr\"ohlich,
+\textit{Riv.\ Nuovo Cimento} \textbf{7}, 399 (1977).
+\bibitem{Reimers2009} J.~R.~Reimers \textit{et al.},
+\textit{Proc.\ Natl.\ Acad.\ Sci.\ USA} \textbf{106}, 4219 (2009).
+\bibitem{Pokorn2011} J.~Pokorn\'y, J.~Ha\v{s}ek, and F.~Jel\'inek,
+\textit{J.\ Phys.:\ Conf.\ Ser.} \textbf{329}, 012013 (2011).
+\bibitem{Salari2011} V.~Salari \textit{et al.},
+\textit{J.\ Phys.:\ Conf.\ Ser.} \textbf{306}, 012075 (2011).
+\bibitem{Khan2024} S.~Khan \textit{et al.},
+\textit{eNeuro} \textbf{11}, ENEURO.0532-23.2024 (2024).
+\bibitem{Kalra2023} A.~P.~Kalra \textit{et al.},
+\textit{ACS Cent.\ Sci.} \textbf{9}, 352 (2023).
+\bibitem{Wiest2025} M.~C.~Wiest,
+\textit{Neurosci.\ Conscious.} \textbf{2025}, niaf011 (2025).
+\bibitem{Saxena2020} K.~Saxena \textit{et al.},
+\textit{Fractal Fract.} \textbf{4}, 11 (2020).
+\bibitem{Singh2021} P.~Singh \textit{et al.},
+\textit{J.\ Neurophysiol.} \textbf{125}, 2107 (2021).
+\bibitem{Tegmark2000} M.~Tegmark,
+\textit{Phys.\ Rev.\ E} \textbf{61}, 4194 (2000).
+\bibitem{Hagan2002} S.~Hagan, S.~R.~Hameroff, and J.~A.~Tuszy\'nski,
+\textit{Phys.\ Rev.\ E} \textbf{65}, 061901 (2002).
+\bibitem{May2011} V.~May and O.~K\"uhn, \textit{Charge and Energy Transfer
+Dynamics in Molecular Systems}, 3rd ed.\ (Wiley-VCH, 2011).
+\bibitem{Rego2003} L.~G.~C.~Rego \textit{et al.},
+\textit{J.\ Am.\ Chem.\ Soc.} \textbf{125}, 7989 (2003).
+\bibitem{Xiang2019} Z.~Xiang, C.~Tang, and L.~Xin,
+\textit{Chin.\ Phys.\ B} \textbf{28}, 048701 (2019).
+\bibitem{Eaves2005} J.~D.~Eaves \textit{et al.},
+\textit{Proc.\ Natl.\ Acad.\ Sci.\ USA} \textbf{102}, 13019 (2005).
+\bibitem{Israelachvili2011} J.~N.~Israelachvili, \textit{Intermolecular and
+Surface Forces}, 3rd ed.\ (Academic Press, 2011).
+\bibitem{Weiss2008} U.~Weiss, \textit{Quantum Dissipative Systems},
+3rd ed.\ (World Scientific, 2008).
+\bibitem{Kubo1966} R.~Kubo,
+\textit{Rep.\ Prog.\ Phys.} \textbf{29}, 255 (1966).
+\bibitem{BreuerPetruccione2002} H.-P.~Breuer and F.~Petruccione,
+\textit{The Theory of Open Quantum Systems} (Oxford Univ.\ Press, 2002).
+\bibitem{Ishizaki2009} A.~Ishizaki and G.~R.~Fleming,
+\textit{J.\ Chem.\ Phys.} \textbf{130}, 234111 (2009).
+\bibitem{Tanimura2020} Y.~Tanimura,
+\textit{J.\ Chem.\ Phys.} \textbf{153}, 020901 (2020).
+\bibitem{Nogales1998} E.~Nogales, S.~G.~Wolf, and K.~H.~Downing,
+\textit{Nature} \textbf{391}, 199 (1998).
+\bibitem{Adolphs2006} J.~Adolphs and T.~Renger,
+\textit{Biophys.\ J.} \textbf{91}, 2778 (2006).
+\bibitem{Sept2003} D.~Sept, N.~A.~Baker, and J.~A.~McCammon,
+\textit{Protein Sci.} \textbf{12}, 2257 (2003).
+\bibitem{Moix2017} J.~M.~Moix \textit{et al.},
+\textit{J.\ Phys.\ Chem.\ B} \textbf{121}, 3024 (2017).
+\bibitem{Zurek2003} W.~H.~Zurek,
+\textit{Rev.\ Mod.\ Phys.} \textbf{75}, 715 (2003).
+\bibitem{Holstein1959} T.~Holstein,
+\textit{Ann.\ Phys.\ (NY)} \textbf{8}, 325 (1959).
+\bibitem{Mukamel1995} S.~Mukamel, \textit{Principles of Nonlinear Optical
+Spectroscopy} (Oxford Univ.\ Press, 1995).
+\bibitem{Hamm2011} P.~Hamm and M.~Zanni, \textit{Concepts and Methods of
+2D Infrared Spectroscopy} (Cambridge Univ.\ Press, 2011).
+\bibitem{Ollivier2001} H.~Ollivier and W.~H.~Zurek,
+\textit{Phys.\ Rev.\ Lett.} \textbf{88}, 017901 (2001).
+\bibitem{Luo2008} S.~Luo,
+\textit{Phys.\ Rev.\ A} \textbf{77}, 042303 (2008).
+\bibitem{Knill1998} E.~Knill and R.~Laflamme,
+\textit{Phys.\ Rev.\ Lett.} \textbf{81}, 5672 (1998).
+\bibitem{Datta2008} A.~Datta, A.~Shaji, and C.~M.~Caves,
+\textit{Phys.\ Rev.\ Lett.} \textbf{100}, 050502 (2008).
+\bibitem{Borgers2003} C.~B\"orgers and N.~Kopell,
+\textit{Neural Comput.} \textbf{15}, 509 (2003).
+\bibitem{Brunel2003} N.~Brunel and X.-J.~Wang,
+\textit{J.\ Neurophysiol.} \textbf{90}, 415 (2003).
+\bibitem{Buzsaki2012} G.~Buzs\'aki and X.-J.~Wang,
+\textit{Annu.\ Rev.\ Neurosci.} \textbf{35}, 203 (2012).
+\bibitem{Fries2001} P.~Fries \textit{et al.},
+\textit{Science} \textbf{291}, 1560 (2001).
+\bibitem{Buschman2007} T.~J.~Buschman and E.~K.~Miller,
+\textit{Science} \textbf{315}, 1860 (2007).
+\bibitem{Cardin2009} J.~A.~Cardin \textit{et al.},
+\textit{Nature} \textbf{459}, 663 (2009).
+\bibitem{Fries2015} P.~Fries,
+\textit{Neuron} \textbf{88}, 220 (2015).
+\bibitem{Poirazi2020} P.~Poirazi and A.~Papoutsi,
+\textit{Nat.\ Rev.\ Neurosci.} \textbf{21}, 303 (2020).
+\bibitem{Galarreta1999} M.~Galarreta and S.~Hestrin,
+\textit{Nature} \textbf{402}, 72 (1999).
+\bibitem{Bennett2004} M.~V.~L.~Bennett and R.~S.~Zukin,
+\textit{Neuron} \textbf{41}, 495 (2004).
+\bibitem{Anastassiou2011} C.~A.~Anastassiou \textit{et al.},
+\textit{Nat.\ Neurosci.} \textbf{14}, 217 (2011).
+\bibitem{Frohlich2010} F.~Fr\"ohlich and D.~A.~McCormick,
+\textit{Neuron} \textbf{67}, 129 (2010).
+\bibitem{Santelices2017} I.~B.~Santelices \textit{et al.},
+\textit{Sci.\ Rep.} \textbf{7}, 9594 (2017).
+\bibitem{Penrose1994} R.~Penrose, \textit{Shadows of the Mind} (Oxford
+Univ.\ Press, 1994).
+\bibitem{Hameroff2014} S.~Hameroff and R.~Penrose,
+\textit{Phys.\ Life Rev.} \textbf{11}, 39 (2014).
+\bibitem{Kerskens2022} C.~M.~Kerskens and D.~L\'opez~P\'erez,
+\textit{J.\ Phys.\ Commun.} \textbf{6}, 105001 (2022).
+\bibitem{Warren2023} W.~S.~Warren,
+\textit{J.\ Phys.\ Commun.} \textbf{7}, 018001 (2023).
+\bibitem{Borst1999} A.~Borst and F.~E.~Theunissen,
+\textit{Nat.\ Neurosci.} \textbf{2}, 947 (1999).
+\bibitem{Strong1998} S.~P.~Strong \textit{et al.},
+\textit{Phys.\ Rev.\ Lett.} \textbf{80}, 197 (1998).
+\bibitem{Giovannetti2004} V.~Giovannetti, S.~Lloyd, and L.~Maccone,
+\textit{Science} \textbf{306}, 1330 (2004).
+\bibitem{NeymanPearson1933}
+J.~Neyman and E.~S.~Pearson,
+\textit{On the Problem of the Most Efficient Tests of Statistical Hypotheses},
+\textit{Phil.\ Trans.\ R.\ Soc.\ Lond.\ A} \textbf{231}, 289 (1933).
+
+\bibitem{Cramer1946}
+H.~Cramér,
+\textit{Mathematical Methods of Statistics}
+(Princeton University Press, Princeton, 1946).
+
+\bibitem{Rao1945}
+C.~R.~Rao,
+\textit{Information and the Accuracy Attainable in the Estimation of
+Statistical Parameters},
+\textit{Bull.\ Calcutta Math.\ Soc.} \textbf{37}, 81 (1945).
+
+\bibitem{Kay1993}
+S.~M.~Kay,
+\textit{Fundamentals of Statistical Signal Processing, Volume I:
+Estimation Theory}
+(Prentice Hall, 1993).
+
+\bibitem{Schwarz1978}
+G.~Schwarz,
+\textit{Estimating the Dimension of a Model},
+\textit{Ann.\ Stat.} \textbf{6}, 461 (1978).
+\end{thebibliography}
+
+
+
+\end{document}

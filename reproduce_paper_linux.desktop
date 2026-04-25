@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Reproduce KwanTube Paper
+Comment=Run the KwanTube manuscript-level reproducibility workflow
+Exec=sh -c 'DIR="$(dirname "$1")"; cd "$DIR"; chmod +x ./reproduce_paper.sh; ./reproduce_paper.sh' launcher %k
+Terminal=true
+Categories=Science;Education;
+StartupNotify=true

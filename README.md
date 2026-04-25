@@ -6,31 +6,45 @@ The Python package maintains the legacy import namespace `qmc_mt` for backward c
 
 ## Reproducibility Status
 
-- **Canonical Entry Point**: `reproduce_paper_results.py`
+- **Canonical Entry Point**: `scripts/reproduce_paper_results.py`
 - **Release Runbook**: `RELEASE_RUNBOOK.md`
 - **Primary Artifacts**:
   - `validation_report.json`: Machine-auditable numerical ledger (SHA-256 stamped).
   - `LIVING_SI.md`: Automated, human-readable Supplementary Information.
 
-## Quick Start
+## One-shot reproduction
 
-Execute the following commands from the `git_repo/` directory.
+The canonical reproducibility entry point is:
 
-### Fast Validation (CI Smoke Test)
 ```bash
-python src/reproduce_paper_results.py --fast
+python scripts/reproduce_paper_results.py --mode paper
 ```
 
-### Full Repository Reproduction (Canonical)
+This regenerates the manuscript-level numerical outputs, validation ledgers,
+and figures used in the paper.
+
+For convenience, the repository also provides platform launchers:
+
+| Platform                   | Launcher                        |
+| -------------------------- | ------------------------------- |
+| Windows                    | `reproduce_paper.bat`           |
+| Linux/macOS terminal       | `reproduce_paper.sh`            |
+| macOS Finder               | `reproduce_paper.command`       |
+| Linux desktop environments | `reproduce_paper_linux.desktop` |
+
+The launchers create or activate a local `.venv`, install dependencies from
+`requirements.txt`, run the canonical Python workflow, and attempt to build the
+manuscript PDF when `latexmk` is available.
+
+On Linux and macOS, executable permissions may need to be restored after
+downloading:
+
 ```bash
-python src/reproduce_paper_results.py
+chmod +x reproduce_paper.sh reproduce_paper.command reproduce_paper_linux.desktop
 ```
 
-### Extended Detection-Power / ROC Sensitivity Sweep
-```bash
-python src/reproduce_paper_results.py --full-roc
-```
-This legacy flag generates the fixed-threshold detection-power surface used in the manuscript.
+On Linux desktop environments, the `.desktop` launcher may also need to be
+marked as trusted using the file manager option such as “Allow Launching”.
 
 ## Manuscript Figures
 
@@ -66,7 +80,7 @@ This module applies log-scale contraction modeling and hierarchical shrinkage to
 ## Repository Architecture
 
 - `src/qmc_mt/`: Core physical and statistical implementations.
-- `src/reproduce_paper_results.py`: End-to-end validation pipeline.
+- `scripts/reproduce_paper_results.py`: End-to-end validation pipeline.
 - `src/generate_paper_figures.py`: Manuscript figure generation engine.
 - `outputs_data/`: Validated numerical artifacts (.json, .npz, .pkl).
 - `heom_acceptance_criteria.md`: Pre-registered validation thresholds for HEOM integration.
