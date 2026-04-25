@@ -32,14 +32,7 @@ The `relative_spread` indicator (\((\max − \min)/\text{mean}\)) quantifies cro
 concordance. Values below 1.0 indicate that the closed-form Lindblad rate accurately 
 captures the hierarchical physics within the specified perturbative regime.
 
-## SI-2b · Hierarchical Equations of Motion (HEOM) Validation
-
-Full non-perturbative hierarchical integration (\(L=4\), high-temperature Matsubara truncation). 
-Comparison between the nominal Lindblad baseline and the numerically exact HEOM propagator:
-
-_(Hierarchical results pending solver completion)_
-
-## SI-2c · Bayesian HEOM Hierarchy (v2) — Contraction Analysis
+## SI-2b · Hierarchical Equations of Motion (HEOM) Validation — Bayesian Contraction Analysis
 
 Automated Bayesian hierarchy for summarize small-N HEOM convergence evidence. This 
 module models jump magnitudes on the log-scale to infer stable contraction ratios \(r\).
