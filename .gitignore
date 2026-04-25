@@ -15,3 +15,11 @@ Thumbs.db
 
 .vscode/
 .idea/
+
+# Raw API payloads — reproducible via src/scripts/scripts_data_real/fetch_public_data.py
+# Sources: RCSB PDB, OpenAlex, PubChem PUG-View, EuropePMC, Crossref (all public, no auth)
+outputs_data/data_apis_sin_auth/
+data/raw/
+
+# Large intermediate data files not required for reproduction
+*.pkl.bak
