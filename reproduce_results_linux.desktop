@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Reproduce KwanTube Results
+Comment=Run the KwanTube results reproducibility workflow
+Exec=sh -c 'DIR="$(dirname "$1")"; cd "$DIR"; chmod +x ./reproduce_results.sh; ./reproduce_results.sh' launcher %k
+Terminal=true
+Categories=Science;Education;
+StartupNotify=true

@@ -27,10 +27,10 @@ For convenience, the repository also provides platform launchers:
 
 | Platform                   | Launcher                        |
 | -------------------------- | ------------------------------- |
-| Windows                    | `reproduce_paper.bat`           |
-| Linux/macOS terminal       | `reproduce_paper.sh`            |
-| macOS Finder               | `reproduce_paper.command`       |
-| Linux desktop environments | `reproduce_paper_linux.desktop` |
+| Windows                    | `reproduce_results.bat`         |
+| Linux/macOS terminal       | `reproduce_results.sh`          |
+| macOS Finder               | `reproduce_results.command`     |
+| Linux desktop environments | `reproduce_results_linux.desktop`|
 
 The launchers create or activate a local `.venv`, install dependencies from
 `requirements.txt`, and run the canonical Python workflow.
@@ -39,7 +39,7 @@ On Linux and macOS, executable permissions may need to be restored after
 downloading:
 
 ```bash
-chmod +x reproduce_paper.sh reproduce_paper.command reproduce_paper_linux.desktop
+chmod +x reproduce_results.sh reproduce_results.command reproduce_results_linux.desktop
 ```
 
 On Linux desktop environments, the `.desktop` launcher may also need to be
