@@ -1,0 +1,2 @@
+n_structures,n_spectral_rows,n_delta_lambda,mean_delta_lambda_nm,bootstrap_ci99_low,bootstrap_ci99_high,n_bfactor,bfactor_median_angstrom2,heterogeneity_index_Hs,eta_proxy_central,eta_proxy_low,eta_proxy_high,eta_range_validated
+507,892,10,98.55,67.7,135.4,362,48.21,0.5292,0.6026,0.4801,0.7464,True

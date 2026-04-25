@@ -1,0 +1,2 @@
+n_bfactor,bfactor_mean,bfactor_median,bfactor_q1,bfactor_q3,bfactor_iqr,eta_proxy_low,eta_proxy_high,eta_proxy_central,eta_proxy_method,n_resolution,resolution_median,resolution_mean,n_xray,n_em,n_nmr
+362,52.29,48.21,38.41,59.71,21.31,0.301,1.0,0.603,BFactor_linear_response_FMO_rescaling,495,2.50,3.20,366,126,12

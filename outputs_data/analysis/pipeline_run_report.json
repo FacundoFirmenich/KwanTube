@@ -1,0 +1,44 @@
+{
+  "script": "run_pipeline_vscode.py",
+  "started_at": "2026-04-25T11:55:42.427045+00:00",
+  "stages": [
+    {
+      "name": "fetch_public_data",
+      "status": "ok",
+      "started_at": "2026-04-25T11:55:42.427145+00:00",
+      "ended_at": "2026-04-25T11:58:08.178559+00:00"
+    },
+    {
+      "name": "curate_compact",
+      "status": "ok",
+      "started_at": "2026-04-25T11:58:08.178606+00:00",
+      "ended_at": "2026-04-25T11:58:32.220734+00:00"
+    },
+    {
+      "name": "compute_detectability_metrics",
+      "status": "ok",
+      "started_at": "2026-04-25T11:58:32.220788+00:00",
+      "ended_at": "2026-04-25T11:58:32.261317+00:00"
+    },
+    {
+      "name": "run_comparative_panels",
+      "status": "ok",
+      "started_at": "2026-04-25T11:58:32.261370+00:00",
+      "ended_at": "2026-04-25T11:58:32.322035+00:00"
+    },
+    {
+      "name": "build_registry",
+      "status": "ok",
+      "started_at": "2026-04-25T11:58:32.322079+00:00",
+      "ended_at": "2026-04-25T11:58:40.529436+00:00"
+    },
+    {
+      "name": "export_claim_traceability",
+      "status": "ok",
+      "started_at": "2026-04-25T11:58:40.529486+00:00",
+      "ended_at": "2026-04-25T11:58:40.572296+00:00"
+    }
+  ],
+  "status": "ok",
+  "finished_at": "2026-04-25T11:58:40.573393+00:00"
+}
