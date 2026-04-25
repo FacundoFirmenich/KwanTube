@@ -12,7 +12,7 @@ Outputs
 Exit code 0 is returned if all validation criteria are met.
 """
 from __future__ import annotations
-import argparse, json, time, sys, hashlib, platform
+import argparse, json, time, sys, hashlib, platform, csv
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Callable, Tuple, Any
@@ -326,6 +326,24 @@ Comparison between the nominal Lindblad baseline and the numerically exact HEOM 
 
 {heom_table}
 
+## SI-2c · Bayesian HEOM Hierarchy (v2) — Contraction Analysis
+
+Automated Bayesian hierarchy for summarize small-N HEOM convergence evidence. This 
+module models jump magnitudes on the log-scale to infer stable contraction ratios \(r\).
+
+- **Global Contraction Ratio** (\(r = \exp(\mu_{{logr}})\)): {heom_v2_r_mean:.3f} (\([{heom_v2_r_q025:.3f},\, {heom_v2_r_q975:.3f}]\) 95% CI).
+- **Global Decay Rate** (\(\beta = -\mu_{{logr}}\)): {heom_v2_beta_mean:.3f}.
+- **Hierarchical Stability**: \(\tau_{{logr}} = {heom_v2_tau:.3f}\) (Group-level heterogeneity).
+
+**Output Artifacts** (`heom_bayes_out_v2/`):
+- [Group Summary](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/group_loglinear_summary.csv)
+- [Global Contraction](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/hierarchy_global_contraction.csv)
+- [Extrapolated Jumps](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/extrapolated_jumps.csv)
+- [Level Checks](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/level_reference_checks.csv)
+- [Diagnostics](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/diagnostics_v2.txt)
+
+**Posterior Plots**: [posterior_plots_v2.png](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/posterior_plots_v2.png)
+
 ## SI-3 · Detector Performance: ROC Detection Surface (§5, COMP-12)
 
 Probability of detection \(P_D(\Delta\ell,\mathrm{{SNR}})\) at a fixed false-alarm rate 
@@ -361,18 +379,18 @@ calibration trials.
 - **Uniformity p-value**: {sbc_p:.3f} (Statistically consistent with a calibrated rank distribution).
 - **Scope**: SBC results validate the engine's performance under the specific generative models 
   deployed in this study.
-- **Diagnostic Plot**: [sbc_calibration_ns.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/git_repo/figures_final/sbc_calibration_ns.pdf).
+- **Diagnostic Plot**: [sbc_calibration_ns.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/figures_final/sbc_calibration_ns.pdf).
 
 ### Prior Sensitivity Analysis
 Evaluation of Bayes Factor (\(BF_{{10}}\)) stability across a spectrum of weakly-informative priors.
 - **Stability**: \(BF_{{10}}\) remains robustly above the "Decisive" threshold (\(>100\)) for 
   prior standard deviations \(\sigma_{{prior}} \in [0.2,\,1.0]\).
 - **Caveat**: The shaded regions indicate prior-dominated regimes where \(\sigma_{{prior}} < SE\).
-- **Sensitivity Profiles**: [prior_sensitivity.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/git_repo/figures_final/prior_sensitivity.pdf).
+- **Sensitivity Profiles**: [prior_sensitivity.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/figures_final/prior_sensitivity.pdf).
 
 ## SI-8 · HEOM Integration Pre-registration
 - **Cryptographic Hash**: `5385692fbb6622b6f48b0535b38dfc07a5cffde2656ff6b6b458bb3da10c4217`
-- **Acceptance Criteria**: [heom_acceptance_criteria.md](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/git_repo/heom_acceptance_criteria.md)
+- **Acceptance Criteria**: [heom_acceptance_criteria.md](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_acceptance_criteria.md)
 - **Registration Timestamp**: 2026-04-22T05:55:12Z
 
 ## SI-5 · Collective Modes in the Microtubule Lattice (§4.3, COMP-6)
@@ -396,7 +414,7 @@ Analysis of a 13-protofilament B-lattice configuration (\(N = {lat_N}\) dimers,
 ---
 
 *End of auto-generated Supplementary Information. To regenerate, execute:* 
-`python reproduce_paper_results.py [--full-roc]`.
+`python scripts/reproduce_paper_results.py [--full-roc]`.
 """
 
 
@@ -476,6 +494,7 @@ def _render_ctx(r: dict) -> dict:
         lat_gap=lat["gap_meV"], lat_ipr=lat["subradiant_IPR"],
         lat_axial=lat["nn_axial_meV"], lat_lateral=lat["nn_lateral_meV"],
         nmc=_guess_nmc(md),
+        **_load_heom_v2_summary(),
     )
 
 
@@ -488,6 +507,35 @@ def write_living_si(r: dict, path: str = "LIVING_SI.md") -> None:
     repo_root = Path(__file__).parent.parent
     full_path = repo_root / path
     full_path.write_text(SI_TEMPLATE.format(**_render_ctx(r)), encoding="utf-8")
+
+
+def _load_heom_v2_summary() -> dict:
+    """Loads results from the Bayesian HEOM hierarchy v2 summary file."""
+    repo_root = Path(__file__).parent.parent
+    path = repo_root / "heom_bayes_out_v2" / "hierarchy_global_contraction.csv"
+    defaults = {
+        "heom_v2_r_mean": 0.0, "heom_v2_r_q025": 0.0, "heom_v2_r_q975": 0.0,
+        "heom_v2_beta_mean": 0.0, "heom_v2_tau": 0.0
+    }
+    if not path.exists():
+        return defaults
+    try:
+        data = {}
+        with open(path, newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                p = row["parameter"]
+                if p == "global_r":
+                    data["heom_v2_r_mean"] = float(row["mean"])
+                    data["heom_v2_r_q025"] = float(row["q025"])
+                    data["heom_v2_r_q975"] = float(row["q975"])
+                elif p == "global_beta":
+                    data["heom_v2_beta_mean"] = float(row["mean"])
+                elif p == "tau_logr":
+                    data["heom_v2_tau"] = float(row["mean"])
+        return {**defaults, **data}
+    except Exception:
+        return defaults
 
 
 # ─────────────────────────────────────────────────────────────────────────────

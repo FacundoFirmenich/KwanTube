@@ -1,0 +1,22 @@
+Bayesian HEOM hierarchy v2 diagnostics
+=====================================
+jump_groups = 4
+level_reference_groups = 1
+posterior_draws = 4000
+min_log_sigma = 0.03
+max_log_sigma = 0.75
+
+Method:
+- Jump observables are modeled on log scale as log(y_gn)=log(A_g)+(n-n0)log(r_g).
+- theta=0 is imposed for jump magnitudes; no free asymptotic floor is estimated from small-N data.
+- Group slopes log(r_g) are pooled by a Bayesian random-effects grid. No fragile MCMC is used.
+- Population/asymptote level checks are not pooled with jump magnitudes.
+
+Warnings:
+- full1jff_jump_dPop_site5@500fs: only 2 points; slope is ratio-calibration, not independent curve-shape evidence.
+
+Global contraction ratio r = exp(mu_logr):
+mean=0.526312, q025=0.380857, q50=0.522203, q975=0.708511
+
+Interpretation:
+This output is designed for small HEOM validation ledgers. It is not a substitute for new HEOM runs; it compresses existing convergence evidence into a stable posterior over contraction ratios.

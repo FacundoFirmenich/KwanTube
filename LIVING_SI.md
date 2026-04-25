@@ -1,7 +1,7 @@
 # LIVING_SI.md — Supplementary Information (Automated Validation)
 
-> **Version** 3.5.0 · **Generated** 2026-04-24T05:59:35Z · **Wall-time** 11.07s
-> **SHA-256 Hash** `ad03157f514910c5…` · **Audit Status** 11/11 validation criteria met
+> **Version** 3.5.0 · **Generated** 2026-04-25T01:41:50Z · **Wall-time** 13.04s
+> **SHA-256 Hash** `826f451b2d4ac80f…` · **Audit Status** 11/11 validation criteria met
 
 This document is machine-regenerated from `validation_report.json` on every 
 pipeline run. Every result is cross-referenced with the machine-auditable 
@@ -38,6 +38,24 @@ Full non-perturbative hierarchical integration (\(L=4\), high-temperature Matsub
 Comparison between the nominal Lindblad baseline and the numerically exact HEOM propagator:
 
 _(Hierarchical results pending solver completion)_
+
+## SI-2c · Bayesian HEOM Hierarchy (v2) — Contraction Analysis
+
+Automated Bayesian hierarchy for summarize small-N HEOM convergence evidence. This 
+module models jump magnitudes on the log-scale to infer stable contraction ratios \(r\).
+
+- **Global Contraction Ratio** (\(r = \exp(\mu_{logr})\)): 0.526 (\([0.381,\, 0.709]\) 95% CI).
+- **Global Decay Rate** (\(\beta = -\mu_{logr}\)): 0.653.
+- **Hierarchical Stability**: \(\tau_{logr} = 0.263\) (Group-level heterogeneity).
+
+**Output Artifacts** (`heom_bayes_out_v2/`):
+- [Group Summary](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/group_loglinear_summary.csv)
+- [Global Contraction](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/hierarchy_global_contraction.csv)
+- [Extrapolated Jumps](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/extrapolated_jumps.csv)
+- [Level Checks](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/level_reference_checks.csv)
+- [Diagnostics](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/diagnostics_v2.txt)
+
+**Posterior Plots**: [posterior_plots_v2.png](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/posterior_plots_v2.png)
 
 ## SI-3 · Detector Performance: ROC Detection Surface (§5, COMP-12)
 
@@ -79,18 +97,18 @@ calibration trials.
 - **Uniformity p-value**: 0.419 (Statistically consistent with a calibrated rank distribution).
 - **Scope**: SBC results validate the engine's performance under the specific generative models 
   deployed in this study.
-- **Diagnostic Plot**: [sbc_calibration_ns.pdf](figures_final/sbc_calibration_ns.pdf).
+- **Diagnostic Plot**: [sbc_calibration_ns.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/figures_final/sbc_calibration_ns.pdf).
 
 ### Prior Sensitivity Analysis
 Evaluation of Bayes Factor (\(BF_{10}\)) stability across a spectrum of weakly-informative priors.
 - **Stability**: \(BF_{10}\) remains robustly above the "Decisive" threshold (\(>100\)) for 
   prior standard deviations \(\sigma_{prior} \in [0.2,\,1.0]\).
 - **Caveat**: The shaded regions indicate prior-dominated regimes where \(\sigma_{prior} < SE\).
-- **Sensitivity Profiles**: [prior_sensitivity.pdf](figures_final/prior_sensitivity.pdf).
+- **Sensitivity Profiles**: [prior_sensitivity.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/figures_final/prior_sensitivity.pdf).
 
 ## SI-8 · HEOM Integration Pre-registration
 - **Cryptographic Hash**: `5385692fbb6622b6f48b0535b38dfc07a5cffde2656ff6b6b458bb3da10c4217`
-- **Acceptance Criteria**: [heom_acceptance_criteria.md](heom_acceptance_criteria.md)
+- **Acceptance Criteria**: [heom_acceptance_criteria.md](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_acceptance_criteria.md)
 - **Registration Timestamp**: 2026-04-22T05:55:12Z
 
 ## SI-5 · Collective Modes in the Microtubule Lattice (§4.3, COMP-6)
@@ -124,4 +142,4 @@ Analysis of a 13-protofilament B-lattice configuration (\(N = 130\) dimers,
 ---
 
 *End of auto-generated Supplementary Information. To regenerate, execute:* 
-`python reproduce_paper_results.py [--full-roc]`.
+`python scripts/reproduce_paper_results.py [--full-roc]`.

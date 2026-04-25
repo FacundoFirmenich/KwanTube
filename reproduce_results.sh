@@ -28,6 +28,9 @@ echo "[KwanTube] Installing dependencies..."
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
+echo "[KwanTube] Running Bayesian HEOM hierarchy v2 analysis..."
+python scripts/bayesian_heom_hierarchy_v2.py src/heom_bayes_input_current.csv --output-dir heom_bayes_out_v2 --draws 20000
+
 echo "[KwanTube] Reproducing manuscript-level results..."
 python scripts/reproduce_paper_results.py --mode paper
 

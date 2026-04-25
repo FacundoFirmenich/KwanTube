@@ -1,0 +1,2 @@
+group,observable,time_fs,n_points,reference,last_nc,last_value,delta_last_mean,delta_last_q025,delta_last_q50,delta_last_q975,p_abs_delta_last_lt_1e_minus_4,mean_value,delta_mean_mean,delta_mean_q025,delta_mean_q50,delta_mean_q975
+fragment6dpu_site0_population_level@500fs,site0_population_level,500.0,2,0.486315,8,0.486348,3.3390273879789755e-05,-0.00012187154789569665,3.497724120174461e-05,0.00018618793824481673,0.74,0.4863745,5.887618589588578e-05,-5.629599970207177e-05,5.920452708396695e-05,0.00016779397930934972
