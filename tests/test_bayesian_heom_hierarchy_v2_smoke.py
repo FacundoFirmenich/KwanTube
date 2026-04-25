@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = REPO_ROOT / "src" / "bayesian_heom_hierarchy_v2.py"
+SCRIPT = REPO_ROOT / "src" / "scripts" / "bayesian_heom_hierarchy_v2.py"
 INPUT_CSV = REPO_ROOT / "src" / "heom_bayes_input_current.csv"
 
 
