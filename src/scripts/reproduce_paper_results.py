@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import Callable, Tuple, Any
 
 # Correct sys.path to find qmc_mt in src/
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
 
 import numpy as np
 
@@ -157,21 +157,21 @@ class ValidationCheck:
 CHECKS = [
     ValidationCheck("noneq_ladder_monotone",
         lambda r: (bool(np.all(np.diff(r["noneq"]["tau_ratio_vs_Delta_muJ"]) >= -0.05)),
-                   "Coherence τ(Δμ) is monotonically non-decreasing")),
+                   "Coherence tau(Delta_mu) is monotonically non-decreasing")),
     ValidationCheck("inversion_recovers_fidelity",
         lambda r: (0.85 <= r["inversion"]["fidelity_recovered"] <= 1.01,
-                   f"Recovery Fidelity φ̂={r['inversion']['fidelity_recovered']:.3f}")),
+                   f"Recovery Fidelity phi_hat={r['inversion']['fidelity_recovered']:.3f}")),
     ValidationCheck("sensitivity_phi_finite",
         lambda r: (bool(np.isfinite(r["sensitivity"]["phi_nominal"])),
-                   f"Nominal Coherence φ₀={r['sensitivity']['phi_nominal']:.3e}")),
+                   f"Nominal Coherence phi_0={r['sensitivity']['phi_nominal']:.3e}")),
     ValidationCheck("model_selection_picks_emergent",
         lambda r: (r["model_selection"]["best"] in ("emergent", "weakly_emergent"),
                    f"Selected Model: {r['model_selection']['best']} "
-                   f"(ΔBIC_max={r['model_selection']['max_dbic']:.2f})")),
+                   f"(Delta_BIC_max={r['model_selection']['max_dbic']:.2f})")),
     ValidationCheck("multi_formalism_concordance",
         lambda r: (all(row["relative_spread"] < 1.0
                        for row in r["open_system_benchmark"]["ohmic_rows"]),
-                   "Relative spread < 1.0 across η coupling grid")),
+                   "Relative spread < 1.0 across eta coupling grid")),
     ValidationCheck("roc_monotone_global",
         lambda r: (bool(np.all(np.diff(r["roc_surface"]["P_D_grid"], axis=1) >= -0.05)),
                    "Detection probability P_D increases with SNR")),
@@ -186,7 +186,7 @@ CHECKS = [
                    f"NS Calibration p={r['sbc']['p_value']:.3f}")),
     ValidationCheck("lattice_gap_positive",
         lambda r: (r["lattice"]["gap_meV"] > 0.0,
-                   f"Spectral Gap Δ={r['lattice']['gap_meV']:.2f} meV")),
+                   f"Spectral Gap Delta={r['lattice']['gap_meV']:.2f} meV")),
     ValidationCheck("lattice_subradiant_delocalized",
         lambda r: (r["lattice"]["subradiant_IPR"] > 2.0,
                    f"Subradiant IPR={r['lattice']['subradiant_IPR']:.1f}")),
@@ -218,29 +218,29 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
                                       eta_list=(0.1, 0.3, 1.0),
                                       omega_c=4.5e12)
 
+    # ROC grid sizing
     if fast:          n_dl, n_snr, nmc = 3, 3, 10
-    elif full_roc:    n_dl, n_snr, nmc = 8, 8, 150
-    else:             n_dl, n_snr, nmc = 4, 4, 200
+    elif full_roc:    n_dl, n_snr, nmc = 8, 8, 1000
+    else:             n_dl, n_snr, nmc = 4, 4, 500
+    
     roc = roc_surface(np.linspace(0.3, 1.8, n_dl).tolist(),
                       np.linspace(2.0, 3.7, n_snr).tolist(),
                       n_mc=nmc, seed=42)
 
     meta = per_study_evidence(seed=42)
     
-    # SBC Calibration
+    # SBC CROSS-CHECK: PRODUCTION DEFAULT 1000
     sbc_res = simulation_based_calibration(
         prior_sampler=lambda rng: float(rng.normal(0, SBC_PRIOR_SD)),
         data_sampler=lambda theta, rng: rng.normal(theta, SBC_SIGMA_DATA, size=1),
         posterior_sampler=sbc_sampler,
-        n_sim=100 if fast else 400,
+        n_sim=1000,          # ⬅️ HARDCODED TO 1000 AS REQUESTED
         L=99,
         seed=42
     )
     
-    # Sensitivity Analysis
+    # Sensitivity
     sens_babcock = scan_study(BABCOCK_2024, np.logspace(-1, 1, 5).tolist())
-    
-    # Lattice Summary
     lat  = lattice_summary(n_layers=10 if fast else 20,
                            mu_debye=1700.0, eps_r=80.0)
 
@@ -336,13 +336,13 @@ module models jump magnitudes on the log-scale to infer stable contraction ratio
 - **Hierarchical Stability**: \(\tau_{{logr}} = {heom_v2_tau:.3f}\) (Group-level heterogeneity).
 
 **Output Artifacts** (`heom_bayes_out_v2/`):
-- [Group Summary](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/group_loglinear_summary.csv)
-- [Global Contraction](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/hierarchy_global_contraction.csv)
-- [Extrapolated Jumps](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/extrapolated_jumps.csv)
-- [Level Checks](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/level_reference_checks.csv)
-- [Diagnostics](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/diagnostics_v2.txt)
+- [Group Summary](heom_bayes_out_v2/group_loglinear_summary.csv)
+- [Global Contraction](heom_bayes_out_v2/hierarchy_global_contraction.csv)
+- [Extrapolated Jumps](heom_bayes_out_v2/extrapolated_jumps.csv)
+- [Level Checks](heom_bayes_out_v2/level_reference_checks.csv)
+- [Diagnostics](heom_bayes_out_v2/diagnostics_v2.txt)
 
-**Posterior Plots**: [posterior_plots_v2.png](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/posterior_plots_v2.png)
+**Posterior Plots**: [posterior_plots_v2.png](heom_bayes_out_v2/posterior_plots_v2.png)
 
 ## SI-3 · Detector Performance: ROC Detection Surface (§5, COMP-12)
 
@@ -379,18 +379,18 @@ calibration trials.
 - **Uniformity p-value**: {sbc_p:.3f} (Statistically consistent with a calibrated rank distribution).
 - **Scope**: SBC results validate the engine's performance under the specific generative models 
   deployed in this study.
-- **Diagnostic Plot**: [sbc_calibration_ns.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/figures_final/sbc_calibration_ns.pdf).
+- **Diagnostic Plot**: [sbc_calibration_ns.pdf](figures_final/sbc_calibration_ns.pdf).
 
 ### Prior Sensitivity Analysis
 Evaluation of Bayes Factor (\(BF_{{10}}\)) stability across a spectrum of weakly-informative priors.
 - **Stability**: \(BF_{{10}}\) remains robustly above the "Decisive" threshold (\(>100\)) for 
   prior standard deviations \(\sigma_{{prior}} \in [0.2,\,1.0]\).
 - **Caveat**: The shaded regions indicate prior-dominated regimes where \(\sigma_{{prior}} < SE\).
-- **Sensitivity Profiles**: [prior_sensitivity.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/figures_final/prior_sensitivity.pdf).
+- **Sensitivity Profiles**: [prior_sensitivity.pdf](figures_final/prior_sensitivity.pdf).
 
 ## SI-8 · HEOM Integration Pre-registration
 - **Cryptographic Hash**: `5385692fbb6622b6f48b0535b38dfc07a5cffde2656ff6b6b458bb3da10c4217`
-- **Acceptance Criteria**: [heom_acceptance_criteria.md](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_acceptance_criteria.md)
+- **Acceptance Criteria**: [heom_acceptance_criteria.md](heom_acceptance_criteria.md)
 - **Registration Timestamp**: 2026-04-22T05:55:12Z
 
 ## SI-5 · Collective Modes in the Microtubule Lattice (§4.3, COMP-6)
@@ -436,7 +436,8 @@ def _render_ctx(r: dict) -> dict:
         h_rows = []
         for pdb in ["1JFF", "6DPU_fragment"]:
             # Search in outputs_data/ following repository restructuring
-            fpath = Path(__file__).parent.parent / "outputs_data" / f"redfield_vs_heom_{pdb}.json"
+            repo_root = Path(__file__).resolve().parents[2]
+            fpath = repo_root / "outputs_data" / f"redfield_vs_heom_{pdb}.json"
             if fpath.exists():
                 h_data = json.loads(fpath.read_text())
                 for entry in h_data:
@@ -499,19 +500,19 @@ def _render_ctx(r: dict) -> dict:
 
 
 def _guess_nmc(md: dict) -> int:
-    return 10 if md["fast_mode"] else (150 if md["full_roc"] else 200)
+    return 10 if md["fast_mode"] else (1000 if md["full_roc"] else 500)
 
 
 def write_living_si(r: dict, path: str = "LIVING_SI.md") -> None:
     # SI stays in root for user visibility
-    repo_root = Path(__file__).parent.parent
+    repo_root = Path(__file__).resolve().parents[2]
     full_path = repo_root / path
     full_path.write_text(SI_TEMPLATE.format(**_render_ctx(r)), encoding="utf-8")
 
 
 def _load_heom_v2_summary() -> dict:
     """Loads results from the Bayesian HEOM hierarchy v2 summary file."""
-    repo_root = Path(__file__).parent.parent
+    repo_root = Path(__file__).resolve().parents[2]
     path = repo_root / "heom_bayes_out_v2" / "hierarchy_global_contraction.csv"
     defaults = {
         "heom_v2_r_mean": 0.0, "heom_v2_r_q025": 0.0, "heom_v2_r_q975": 0.0,
@@ -541,30 +542,29 @@ def _load_heom_v2_summary() -> dict:
 # ─────────────────────────────────────────────────────────────────────────────
 # Entry Point
 def main() -> int:
-    repo_root = Path(__file__).parent.parent
-    ap = argparse.ArgumentParser(description="Quantubulin reproduction pipeline")
-    ap.add_argument("--fast",     action="store_true", help="CI mode (~5 s)")
-    ap.add_argument("--full-roc", action="store_true", help="High-resolution ROC (~3 min)")
-    ap.add_argument("--out", default=str(repo_root / "outputs_data" / "validation_report.json"))
+    ap = argparse.ArgumentParser(description="KwanTube reproduction pipeline")
+    ap.add_argument("--fast",     action="store_true", help="small grids (~5 s)")
+    ap.add_argument("--full-roc", action="store_true", help="8×8 ROC, n_mc=1000 (~3 min)")
+    ap.add_argument("--out", default="validation_report.json")
     ap.add_argument("--si",  default="LIVING_SI.md")
     args = ap.parse_args()
 
     r = run_all(fast=args.fast, full_roc=args.full_roc)
-    out_path = Path(args.out)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
+    repo_root = Path(__file__).resolve().parents[2]
+    out_path = repo_root / args.out
     out_path.write_text(json.dumps(r, indent=2, default=str), encoding="utf-8")
     write_living_si(r, path=args.si)
 
     v, md = r["_validation"], r["_metadata"]
     bar = "=" * 64
-    print(f"\n{bar}\nQuantubulin v{md['version']}  -  {v['passed']}/{v['total']} "
+    print(f"\n{bar}\nKwanTube v{md['version']}  -  {v['passed']}/{v['total']} "
           f"checks passed   (wall {md['wall_time_s']}s)")
     print(f"SHA-256: {r['_sha256']}")
     print(f"Outputs: {args.out}  -  {args.si}\n{bar}")
     for c in v["checks"]:
         mark = "OK" if c["passed"] else "FAIL"
-        detail = str(c["detail"]).encode("ascii", errors="replace").decode("ascii")
-        check_name = str(c["name"]).encode("ascii", errors="replace").decode("ascii")
+        detail = str(c["detail"])
+        check_name = str(c["name"])
         print(f"  [{mark}] {check_name:38s} {detail}")
     print(bar)
     return 0 if v["passed"] == v["total"] else 1

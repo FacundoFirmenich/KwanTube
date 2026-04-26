@@ -453,6 +453,7 @@ def write_outputs(
             ax.legend(fontsize=8)
         plt.tight_layout()
         fig.savefig(out / "posterior_plots_v2.png", dpi=180)
+        fig.savefig(out / "posterior_plots_v2.pdf", bbox_inches='tight')
         plt.close(fig)
 
 
@@ -476,7 +477,8 @@ def main():
     hier = hierarchy_grid(jump_fits, args.draws, rng)
     level_rows = level_reference_checks(groups, args.draws, rng)
     thresholds = [float(x) for x in args.thresholds.split(",") if x.strip()]
-    out = Path(args.output_dir)
+    repo_root = Path(__file__).resolve().parents[2]
+    out = repo_root / args.output_dir
     write_outputs(out, groups, jump_fits, hier, level_rows, thresholds, args.draws, args.min_log_sigma, args.max_log_sigma)
     print(f"Completed HEOM Bayesian hierarchy v2: {len(jump_fits)} jump groups, {len(level_rows)} level-reference groups")
     print(f"Outputs written to: {out.resolve()}")

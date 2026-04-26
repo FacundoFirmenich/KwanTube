@@ -1,7 +1,7 @@
 # LIVING_SI.md — Supplementary Information (Automated Validation)
 
-> **Version** 3.5.0 · **Generated** 2026-04-26T12:05:18Z · **Wall-time** 29.83s
-> **SHA-256 Hash** `c79eb7b87791e6cd…` · **Audit Status** 11/11 validation criteria met
+> **Version** 3.5.0 · **Generated** 2026-04-25T01:41:50Z · **Wall-time** 13.04s
+> **SHA-256 Hash** `826f451b2d4ac80f…` · **Audit Status** 11/11 validation criteria met
 
 This document is machine-regenerated from `validation_report.json` on every 
 pipeline run. Every result is cross-referenced with the machine-auditable 
@@ -32,30 +32,23 @@ The `relative_spread` indicator (\((\max − \min)/\text{mean}\)) quantifies cro
 concordance. Values below 1.0 indicate that the closed-form Lindblad rate accurately 
 captures the hierarchical physics within the specified perturbative regime.
 
-## SI-2b · Hierarchical Equations of Motion (HEOM) Validation
-
-Full non-perturbative hierarchical integration (\(L=4\), high-temperature Matsubara truncation). 
-Comparison between the nominal Lindblad baseline and the numerically exact HEOM propagator:
-
-_(Hierarchical results pending solver completion)_
-
-## SI-2c · Bayesian HEOM Hierarchy (v2) — Contraction Analysis
+## SI-2b · Hierarchical Equations of Motion (HEOM) Validation — Bayesian Contraction Analysis
 
 Automated Bayesian hierarchy for summarize small-N HEOM convergence evidence. This 
 module models jump magnitudes on the log-scale to infer stable contraction ratios \(r\).
 
-- **Global Contraction Ratio** (\(r = \exp(\mu_{logr})\)): 0.000 (\([0.000,\, 0.000]\) 95% CI).
-- **Global Decay Rate** (\(\beta = -\mu_{logr}\)): 0.000.
-- **Hierarchical Stability**: \(\tau_{logr} = 0.000\) (Group-level heterogeneity).
+- **Global Contraction Ratio** (\(r = \exp(\mu_{logr})\)): 0.526 (\([0.381,\, 0.709]\) 95% CI).
+- **Global Decay Rate** (\(\beta = -\mu_{logr}\)): 0.653.
+- **Hierarchical Stability**: \(\tau_{logr} = 0.263\) (Group-level heterogeneity).
 
 **Output Artifacts** (`heom_bayes_out_v2/`):
-- [Group Summary](heom_bayes_out_v2/group_loglinear_summary.csv)
-- [Global Contraction](heom_bayes_out_v2/hierarchy_global_contraction.csv)
-- [Extrapolated Jumps](heom_bayes_out_v2/extrapolated_jumps.csv)
-- [Level Checks](heom_bayes_out_v2/level_reference_checks.csv)
-- [Diagnostics](heom_bayes_out_v2/diagnostics_v2.txt)
+- [Group Summary](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/group_loglinear_summary.csv)
+- [Global Contraction](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/hierarchy_global_contraction.csv)
+- [Extrapolated Jumps](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/extrapolated_jumps.csv)
+- [Level Checks](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/level_reference_checks.csv)
+- [Diagnostics](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/diagnostics_v2.txt)
 
-**Posterior Plots**: [posterior_plots_v2.png](heom_bayes_out_v2/posterior_plots_v2.png)
+**Posterior Plots**: [posterior_plots_v2.png](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_bayes_out_v2/posterior_plots_v2.png)
 
 ## SI-3 · Detector Performance: ROC Detection Surface (§5, COMP-12)
 
@@ -92,23 +85,23 @@ Summary of experimental contrasts integrated into the Bayesian hierarchy:
 ## SI-7 · Calibration and Robustness Audits
 
 ### Simulation-Based Calibration (SBC)
-Validation of the Nested Sampling (NS) inference engine via SBC on \(N_{sim}=1000\) 
+Validation of the Nested Sampling (NS) inference engine via SBC on \(N_{sim}=100\) 
 calibration trials.
-- **Uniformity p-value**: 0.560 (Statistically consistent with a calibrated rank distribution).
+- **Uniformity p-value**: 0.419 (Statistically consistent with a calibrated rank distribution).
 - **Scope**: SBC results validate the engine's performance under the specific generative models 
   deployed in this study.
-- **Diagnostic Plot**: [sbc_calibration_ns.pdf](figures_final/sbc_calibration_ns.pdf).
+- **Diagnostic Plot**: [sbc_calibration_ns.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/figures_final/sbc_calibration_ns.pdf).
 
 ### Prior Sensitivity Analysis
 Evaluation of Bayes Factor (\(BF_{10}\)) stability across a spectrum of weakly-informative priors.
 - **Stability**: \(BF_{10}\) remains robustly above the "Decisive" threshold (\(>100\)) for 
   prior standard deviations \(\sigma_{prior} \in [0.2,\,1.0]\).
 - **Caveat**: The shaded regions indicate prior-dominated regimes where \(\sigma_{prior} < SE\).
-- **Sensitivity Profiles**: [prior_sensitivity.pdf](figures_final/prior_sensitivity.pdf).
+- **Sensitivity Profiles**: [prior_sensitivity.pdf](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/figures_final/prior_sensitivity.pdf).
 
 ## SI-8 · HEOM Integration Pre-registration
 - **Cryptographic Hash**: `5385692fbb6622b6f48b0535b38dfc07a5cffde2656ff6b6b458bb3da10c4217`
-- **Acceptance Criteria**: [heom_acceptance_criteria.md](heom_acceptance_criteria.md)
+- **Acceptance Criteria**: [heom_acceptance_criteria.md](file:///c:/Users/User/3D%20Objects/biofisicaquantiqaCLINE/KwanTube/heom_acceptance_criteria.md)
 - **Registration Timestamp**: 2026-04-22T05:55:12Z
 
 ## SI-5 · Collective Modes in the Microtubule Lattice (§4.3, COMP-6)
@@ -127,16 +120,16 @@ Analysis of a 13-protofilament B-lattice configuration (\(N = 130\) dimers,
 
 | Validation Metric | Status | Technical Detail |
 |---|:---:|---|
-| `noneq_ladder_monotone` | ✅ | Coherence tau(Delta_mu) is monotonically non-decreasing |
-| `inversion_recovers_fidelity` | ✅ | Recovery Fidelity phi_hat=1.000 |
-| `sensitivity_phi_finite` | ✅ | Nominal Coherence phi_0=1.057e-05 |
-| `model_selection_picks_emergent` | ✅ | Selected Model: emergent (Delta_BIC_max=142.70) |
-| `multi_formalism_concordance` | ✅ | Relative spread < 1.0 across eta coupling grid |
+| `noneq_ladder_monotone` | ✅ | Coherence τ(Δμ) is monotonically non-decreasing |
+| `inversion_recovers_fidelity` | ✅ | Recovery Fidelity φ̂=1.000 |
+| `sensitivity_phi_finite` | ✅ | Nominal Coherence φ₀=1.057e-05 |
+| `model_selection_picks_emergent` | ✅ | Selected Model: emergent (ΔBIC_max=142.70) |
+| `multi_formalism_concordance` | ✅ | Relative spread < 1.0 across η coupling grid |
 | `roc_monotone_global` | ✅ | Detection probability P_D increases with SNR |
 | `babcock_bf_decisive` | ✅ | Decisive Evidence (BF10=183.3) |
 | `kalra_bf_very_strong` | ✅ | Very Strong Evidence (BF10=43.3) |
-| `sbc_calibrated` | ✅ | NS Calibration p=0.560 |
-| `lattice_gap_positive` | ✅ | Spectral Gap Delta=961.10 meV |
+| `sbc_calibrated` | ✅ | NS Calibration p=0.419 |
+| `lattice_gap_positive` | ✅ | Spectral Gap Δ=961.10 meV |
 | `lattice_subradiant_delocalized` | ✅ | Subradiant IPR=64.1 |
 
 ---
