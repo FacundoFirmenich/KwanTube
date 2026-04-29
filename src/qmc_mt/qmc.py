@@ -63,11 +63,11 @@ def convergence_study(
 if __name__ == "__main__":
     import json
     out = {}
-    # ∫_{[0,1]^d} Σ x_i = d/2
+    # integral over [0,1]^d sum(x_i) = d/2
     for d in (2, 5, 10):
         f = (lambda x, d=d: x.sum(axis=1))
         out[f"sum_d{d}"] = convergence_study(f, d/2, d, [2**k for k in range(6, 14)])
-    # ∫_{[0,1]} e^x = e - 1
+    # integral over [0,1] e^x = e - 1
     for seq in ("sobol", "halton"):
         out[f"exp_{seq}"] = convergence_study(
             lambda x: np.exp(x[:, 0]), float(np.e - 1), 1,

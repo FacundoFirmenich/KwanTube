@@ -17,21 +17,21 @@ import sys
 from pathlib import Path
 from scipy.stats import norm
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 def neyman_pearson_power_surface(dl_grid, snr_exp_grid, n_mc: int = 100,
                                  seed: int = 42, alpha: float = 0.05) -> dict:
     """
-    Calcula la superficie de potencia de detección de Neyman-Pearson.
+    Calcula la superficie de potencia de deteccion de Neyman-Pearson.
 
-    DEFINICIONES EXPLÍCITAS PARA EL MANUSCRITO:
-    - FILAS (Axis 0): Intensidad/separación de señal (dl).
+    DEFINICIONES EXPLICITAS PARA EL MANUSCRITO:
+    - FILAS (Axis 0): Intensidad/separacion de senal (dl).
     - COLUMNAS (Axis 1): Nivel de ruido (log10 SNR).
-    - MÉTRICA: Probabilidad de Detección (P_D) = Potencia Estadística (1 - beta).
-    - CRITERIO: Detector tipo Neyman–Pearson con umbral crítico z_alpha (alpha=0.05).
+    - METRICA: Probabilidad de Deteccion (P_D) = Potencia Estadistica (1 - beta).
+    - CRITERIO: Detector tipo Neyman-Pearson con umbral critico z_alpha (alpha=0.05).
 
     Ref SI:
     The detection grid should be interpreted as a Neyman--Pearson power surface 
@@ -54,7 +54,7 @@ def neyman_pearson_power_surface(dl_grid, snr_exp_grid, n_mc: int = 100,
         for j, snr_exp in enumerate(snr_exp_grid):
             snr   = 10.0 ** snr_exp
             mu1   = dl * np.sqrt(snr / 1.0e3)
-            # Monte Carlo bajo H1 (Detección de señal real)
+            # Monte Carlo bajo H1 (Deteccion de senal real)
             x = rng.normal(mu1, 1.0, n_mc)
             P_D_mc[i, j]  = float(np.mean(x > z_alpha))
             P_D_ana[i, j] = float(norm.sf(z_alpha - mu1))
@@ -90,11 +90,11 @@ if __name__ == "__main__":
     res = neyman_pearson_power_surface(dl_vals, snr_exp_vals, n_mc=200)
     
     print("\n=== NEYMAN-PEARSON DETECTION POWER SURFACE (alpha=0.05) ===")
-    print("Métrica: Probabilidad de Detección (1 - beta)")
+    print("Metrica: Probabilidad de Deteccion (1 - beta)")
     print("\nEje X: log10(SNR) ->", "  ".join([f"{v:6.1f}" for v in snr_exp_vals]))
     print("-" * 55)
     for i, dl in enumerate(dl_vals):
         row = "  ".join([f"{p:6.3f}" for p in res["P_D_grid"][i]])
         print(f"dl={dl:3.1f} | {row}")
     print("-" * 55)
-    print("Nota: dl es la intensidad de señal; log10(SNR) es el nivel de ruido.")
+    print("Nota: dl es la intensidad de senal; log10(SNR) es el nivel de ruido.")

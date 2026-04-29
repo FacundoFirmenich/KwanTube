@@ -11,8 +11,8 @@ import sys
 from pathlib import Path
 from scipy.optimize import least_squares
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 

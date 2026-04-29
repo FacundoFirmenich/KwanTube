@@ -8,8 +8,8 @@ import sys
 import json
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -58,7 +58,7 @@ def sobol_indices(n_samples: int = 2048, seed: int = 42):
 
 def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
     """
-    Realiza un análisis de Sobol (Saltelli) con bootstrapping para IC 95%.
+    Realiza un analisis de Sobol (Saltelli) con bootstrapping para IC 95%.
     """
     dimer = TubulinDimer()
     rng = np.random.default_rng(42)
@@ -66,7 +66,7 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
     params_names = ['eta', 'omega_c', 'Temperature', 'f_prot']
 
     def model(x):
-        # Evaluación vectorizada o en batch del modelo de decoherencia
+        # Evaluacion vectorizada o en batch del modelo de decoherencia
         y = np.zeros(len(x))
         for i in range(len(x)):
             eta, wc, temp, f_prot = x[i]
@@ -75,7 +75,7 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
             y[i] = 1e12 / m.get_all_rates()['total_dephasing'] # T2 en ps
         return y
 
-    # 1. Generar matrices A y B (Quasi-Monte Carlo Sobol sería ideal, usamos Uniforme por ahora)
+    # 1. Generar matrices A y B (Quasi-Monte Carlo Sobol seria ideal, usamos Uniforme por ahora)
     A = rng.uniform(0, 1, (n_samples, dim))
     B = rng.uniform(0, 1, (n_samples, dim))
     
@@ -90,7 +90,7 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
     A_s, B_s = scale(A), scale(B)
     yA, yB = model(A_s), model(B_s)
     
-    # Matrices Ci para cada parámetro
+    # Matrices Ci para cada parametro
     yCi = []
     for i in range(dim):
         Ci = A_s.copy()
@@ -143,7 +143,7 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
     }
 
 if __name__ == "__main__":
-    print("Iniciando análisis de Sobol de alta precisión (Saltelli + Bootstrap)...")
+    print("Iniciando analisis de Sobol de alta precision (Saltelli + Bootstrap)...")
     summary = sobol_indices_bootstrap(n_samples=5000, n_boot=100) # 5k para balancear tiempo
     
     print("\n=== REPORTE DE SENSIBILIDAD (CON IC 95%) ===")
@@ -154,5 +154,7 @@ if __name__ == "__main__":
     if summary["is_one_parameter_dominated"]:
         print("\nVEREDICTO: The model is effectively one-parameter-dominated (eta) in the present regime.")
     
-    with open("sensitivity_sobol_final.json", "w") as f:
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "sensitivity_sobol_final.json"
+    with open(out_path, "w") as f:
         json.dump(summary, f, indent=2)
+    print(f"\nResultados guardados en: {out_path}")

@@ -1,0 +1,42 @@
+# numerical_params.yaml — Tolerancias y parámetros de convergencia numérica
+# Patch v3.5.1 — Centraliza parámetros que antes estaban hardcodeados en scripts.
+# REGLA: Cambios aquí requieren re-validación explícita del pipeline HEOM.
+
+heom:
+  nc_min_reliable: 7
+  nk_default: 1
+  time_fs_max: 500.0
+  n_time_points: 51
+  richardson:
+    fallback_ratio_r: 0.383
+    fallback_source: "HEOM_EXECUTION_LEDGER_6DPU_NC7_NC8"
+    epsilon_nc8_max_acceptable: 0.01    # 1% — umbral de convergencia aceptable
+    notes: >
+      r = d(NC=8)/d(NC=7) medido de ledger pade_convergence_report.json.
+      Si el ledger no está disponible, se usa fallback_ratio_r como red de seguridad.
+      SIEMPRE intentar calcular r on-the-fly desde los pickles antes de usar el fallback.
+
+sbc:
+  n_sim: 1000
+  L: 99
+  n_bins: 20
+  seed: 42
+  confidence: 0.95
+  notes: "n_sim=1000 es el estándar mínimo Tier-1. No reducir por debajo de 400 sin justificación."
+
+bayesian:
+  n_live_nested: 100
+  prior_sd: 2.0
+  sigma_data: 1.0
+  notes: "Configuración de Nested Sampling para SBC; prior N(0, prior_sd^2)"
+
+tolerances:
+  hermiticity_threshold: 1.0e-12
+  notes_hermiticity: "||H - H†|| < 1e-12; cualquier valor mayor indica error de construcción"
+  kl_threshold: 0.05
+  notes_kl: "KL(rho_HEOM || rho_ref) < 0.05 nats para claims Tier-1"
+  steady_state_drift_threshold: 1.0e-5
+  notes_drift: "||rho(t_f) - rho(t_f - 10dt)||_F / dt < 1e-5 para considerar SS alcanzado"
+  coupling_v_max_cm1: 300.0
+  coupling_v_min_cm1: 10.0
+  notes_coupling: "Rango físico esperado para acoplamientos Trp-Trp en tubulina"

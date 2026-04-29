@@ -3,8 +3,8 @@
 Tight-binding exciton Hamiltonian on the canonical 13-protofilament B-lattice
 with point-dipole nearest-neighbour couplings:
 
-  J_axial   = (1/4πε₀ε_r) · (−2 μ²/r_axial³)     head-to-tail, attractive (J)
-  J_lateral = (1/4πε₀ε_r) · (+1 μ²/r_lateral³)   side-by-side, repulsive (H)
+  J_axial   = (1/(4*pi*epsilon_0*epsilon_r)) * (-2 * mu^2 / r_axial^3)     head-to-tail, attractive (J)
+  J_lateral = (1/(4*pi*epsilon_0*epsilon_r)) * (+1 * mu^2 / r_lateral^3)   side-by-side, repulsive (H)
 
 Periodic boundary in the protofilament index, open in the axial index, with
 the B-lattice 0.92 nm lateral rise realised as a shift-by-one along the
@@ -17,8 +17,8 @@ import numpy as np
 import sys
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -62,7 +62,7 @@ def summary(n_layers: int = 20, mu_debye: float = 1700.0,
     gap_meV        = float(E_super - E_sub)
 
     v_sub = evecs[:, 0]
-    # Inverse participation ratio: 1 ≤ IPR ≤ N (extended when IPR ≫ 1)
+    # Inverse participation ratio: 1 <= IPR <= N (extended when IPR >> 1)
     IPR_sub = float(1.0 / np.sum(v_sub**4))
 
     return {

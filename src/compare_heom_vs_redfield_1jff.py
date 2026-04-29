@@ -4,18 +4,18 @@ import sys
 import json
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[1] # La raíz es biofisicaquantiqaCLINE
-if str(PROJECT_ROOT / "git_repo" / "src") not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT / "git_repo" / "src"))
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[1] # retrocede desde src/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 def main():
     print("="*60)
     print("  DIAGNOSTICO CIENTIFICO: 1JFF (HEOM vs Redfield)")
     print("="*60)
 
-    # 1. Load Redfield
-    red_path = PROJECT_ROOT / "figures_final" / "redfield_1JFF.npz"
+    # 1. Load Redfield - Sincronizado con raw_npz
+    red_path = PROJECT_ROOT / "outputs_data" / "raw_npz" / "redfield_1JFF.npz"
     if not red_path.exists():
         print(f"ERROR: No se encuentra {red_path}. Ejecuta primero redfield_tubulin.py.")
         return
@@ -24,10 +24,10 @@ def main():
     t_red = red["t_fs"]
     P_site_red = red["P_site"] # (nt, N)
 
-    # 2. Load HEOM NC=6 (from calibration data)
-    calib_path = PROJECT_ROOT / "git_repo" / "jff_calib_data.npz"
+    # 2. Load HEOM NC=6 (from calibration data) - Sincronizado con raw_npz
+    calib_path = PROJECT_ROOT / "outputs_data" / "raw_npz" / "jff_calib_data.npz"
     if not calib_path.exists():
-        print(f"ERROR: No se encuentra {calib_path}.")
+        print(f"ERROR: No se encuentra {calib_path}. Ejecuta primero jff_calibration_check.py.")
         return
 
     calib = np.load(calib_path, allow_pickle=True)
@@ -42,7 +42,7 @@ def main():
     p_red_500 = P_site_red[idx_500_red]
     p_heom_500 = P6[idx_500_heom]
     
-    # B:103 es el sitio inicial en 1JFF (índice 5)
+    # B:103 es el sitio inicial en 1JFF (indice 5)
     site_idx = 5
     
     diff = p_heom_500 - p_red_500
@@ -67,10 +67,10 @@ def main():
         "p_heom_500": p_heom_500.tolist()
     }
     
-    report_path = PROJECT_ROOT / "heom_vs_redfield_report.json"
+    report_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "heom_vs_redfield_report.json"
     with report_path.open("w") as f:
         json.dump(report, f, indent=2)
-    print(f"\nReporte guardado en: {report_path.name}")
+    print(f"\nReporte guardado en: {report_path}")
 
 if __name__ == "__main__":
     main()

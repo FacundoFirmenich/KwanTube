@@ -1,7 +1,7 @@
 """
 Nested Sampling for Bayesian Evidence Computation (Skilling 2004/2006).
 
-Computes the marginal likelihood (evidence) Z = ∫ L(θ) π(θ) dθ.
+Computes the marginal likelihood (evidence) Z = integral L(theta) pi(theta) dtheta.
 Uses a static nested sampling approach with simple ellipsoidal sampling
 or rejection for low-dimensional problems (ndim=1).
 
@@ -59,7 +59,7 @@ def nested_sample(
             h = np.exp(log_wt - logZ_new) * logl_star + \
                 np.exp(logZ - logZ_new) * (h + logZ) - logZ_new
         else:
-            # First iteration or extremely low Z: h ≈ logl_star - logZ_new
+            # First iteration or extremely low Z: h approx logl_star - logZ_new
             h = logl_star - logZ_new
             
         logZ = logZ_new
@@ -103,10 +103,10 @@ def nested_sample(
 if __name__ == "__main__":
     import math
     # Test: N(0, 1) likelihood with U[-10, 10] prior.
-    # Z = ∫_{-10}^{10} (1/sqrt(2π)) exp(-x²/2) (1/20) dx ≈ 1/20 = 0.05
-    # logZ ≈ log(0.05) ≈ -2.9957
+    # Z = integral from -10 to 10 (1/sqrt(2*pi)) exp(-x^2/2) (1/20) dx approx 1/20 = 0.05
+    # logZ approx log(0.05) approx -2.9957
     def lt(th): return -0.5 * th[0]**2 - 0.5 * math.log(2*math.pi)
     def pt(u): return np.array([20.0 * u[0] - 10.0])
     
     res = nested_sample(lt, pt, 1, n_live=1000)
-    print(f"LogZ (truth ≈ -2.9957): {res.logZ:.4f} ± {res.logZ_err:.4f}")
+    print(f"LogZ (truth approx -2.9957): {res.logZ:.4f} +/- {res.logZ_err:.4f}")

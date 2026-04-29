@@ -2,16 +2,16 @@
 
 Three computational axes:
   1. STRUCTURAL DISORDER METRICS (from structures_compact.csv + bath_params_proxy.csv)
-     → eta_proxy range, B-factor distribution, heterogeneity index H_s
-     → Informs J(omega) parametric uncertainty in §2.1.1
+     -> eta_proxy range, B-factor distribution, heterogeneity index H_s
+     -> Informs J(omega) parametric uncertainty in Section2.1.1
 
   2. SPECTROSCOPIC DETECTABILITY METRICS (from spectral_compact.csv)
-     → IQI_spec, FDM_lite, PSI_lite per row
-     → Bootstrap CI99 on delta_lambda distribution
+     -> IQI_spec, FDM_lite, PSI_lite per row
+     -> Bootstrap CI99 on delta_lambda distribution
 
   3. FISHER INFORMATION BARRIER (SNR-dependent)
-     → Cram\'er-Rao lower bound on spectral splitting resolution
-     → Maps instrument SNR requirement for Experiment 4 (cavity doublet)
+     -> Cram\'er-Rao lower bound on spectral splitting resolution
+     -> Maps instrument SNR requirement for Experiment 4 (cavity doublet)
 
 All outputs are paper-ready CSV tables with physical interpretation notes.
 """
@@ -26,6 +26,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+
+# Boilerplate para resolver importaciones y rutas desde la raiz del proyecto
+PROJECT_ROOT = Path(__file__).resolve().parents[3] # retrocede desde src/scripts/scripts_data_real/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -51,9 +56,9 @@ def _safe_float(value: str, default: float = float("nan")) -> float:
 
 
 def _write_progress(step: str, payload: Dict[str, str]) -> None:
-    analysis_dir = Path("analysis")
-    analysis_dir.mkdir(parents=True, exist_ok=True)
-    progress_path = analysis_dir / "_progress_compute_detectability_metrics.json"
+    progress_dir = PROJECT_ROOT / "outputs_data" / "raw_json"
+    progress_dir.mkdir(parents=True, exist_ok=True)
+    progress_path = progress_dir / "_progress_compute_detectability_metrics.json"
     blob: Dict[str, str] = {
         "script": "compute_detectability_metrics.py",
         "step": step,
@@ -78,9 +83,9 @@ def _compute_structural_metrics(
     (coefficient of variation of Wilson B-factors across the structural ensemble)
 
     Physical interpretation:
-        High H_s → high structural heterogeneity → broader J(omega) distribution.
-        FMO reference: B ~ 12 Å², H_s ~ 0.3 → eta ~ 0.15.
-        Tubulin: B_median ~ 48 Å² → eta_proxy ~ 0.6 (B-factor linear rescaling).
+        High H_s -> high structural heterogeneity -> broader J(omega) distribution.
+        FMO reference: B ~ 12 A^2, H_s ~ 0.3 -> eta ~ 0.15.
+        Tubulin: B_median ~ 48 A^2 -> eta_proxy ~ 0.6 (B-factor linear rescaling).
         BUT: upper-bound argument. eta in paper uses [0.1, 1.0] range
         which INCLUDES this proxy. This empirically validates the range choice
         rather than contradicting it.
@@ -119,13 +124,13 @@ def _compute_structural_metrics(
         eta_fmo_ref = 0.15
         b_fmo_ref = 12.0
         eta_proxy_central = eta_fmo_ref * (median_b / b_fmo_ref)
-        # Clip to [0.1, 1.0] — the literature range used in the paper
+        # Clip to [0.1, 1.0] - the literature range used in the paper
         eta_proxy_central = max(0.1, min(1.0, eta_proxy_central))
         eta_proxy_low = max(0.1, eta_fmo_ref * (q1 / b_fmo_ref))
         eta_proxy_high = min(1.0, eta_fmo_ref * (q3 / b_fmo_ref))
 
         # Validation statement for paper:
-        # eta range [0.1, 1.0] in §2.1.1 encompasses [eta_low, eta_high]
+        # eta range [0.1, 1.0] in Section2.1.1 encompasses [eta_low, eta_high]
         range_covered = (eta_proxy_low >= 0.1) and (eta_proxy_high <= 1.0)
 
         out.update({
@@ -179,7 +184,7 @@ def _compute_structural_metrics(
 # 2. Spectroscopic detectability (Axis C)
 # ---------------------------------------------------------------------------
 
-# Experimental SNR target from §6.3 (Experiment 4): SNR >= 10^3 for high-confidence detection
+# Experimental SNR target from Section6.3 (Experiment 4): SNR >= 10^3 for high-confidence detection
 SNR_C = 300.0        # critical SNR threshold for basic detection
 PREP_STABILITY_DEFAULT = 0.95
 P_BOUNDARY_DEFAULT = 0.05
@@ -251,23 +256,23 @@ def _compute_fisher_barrier(
         where N_eff = number of independent resolution elements = FWHM / delta_lambda
 
     Decision threshold: doublet is resolvable when
-        sigma_CRB < delta_lambda / 2   ↔   SNR > 2 * sqrt(N_eff)
+        sigma_CRB < delta_lambda / 2   ->   SNR > 2 * sqrt(N_eff)
 
     For the cavity model targets (Eq. delta_lambda_nom = 1.6 nm, delta_lambda_num = 0.89 nm):
-        FWHM_protein_UV ~ 25 nm → N_eff ~ 16 (for 1.6 nm) or 28 (for 0.89 nm)
+        FWHM_protein_UV ~ 25 nm -> N_eff ~ 16 (for 1.6 nm) or 28 (for 0.89 nm)
         Threshold SNR ~ 2*sqrt(16) = 8 (detection) or ~8-20 for P>0.95
 
     This provides the instrumental SNR requirement table for the paper.
     """
     rows = []
-    fwhm_uv = 25.0  # nm, typical protein UV absorption FWHM (paper §6.3)
+    fwhm_uv = 25.0  # nm, typical protein UV absorption FWHM (paper Section6.3)
     for dl in delta_lambdas_nm:
         if dl <= 0:
             continue
         n_eff = max(1.0, fwhm_uv / dl)
         # CRB SNR threshold for 50% detection probability (sigma_CRB = dl/2)
         snr_50pct = 2.0 * math.sqrt(n_eff)
-        # 95% detection requires ~3× higher SNR (Gaussian model)
+        # 95% detection requires ~3x higher SNR (Gaussian model)
         snr_95pct = snr_50pct * 3.0
         # Fisher information normalized (1 = fully informative at given SNR)
         for snr in snr_grid:
@@ -294,7 +299,7 @@ def _compute_fisher_barrier(
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    analysis_dir = Path("analysis")
+    analysis_dir = PROJECT_ROOT / "outputs_data" / "raw_csv"
     analysis_dir.mkdir(parents=True, exist_ok=True)
 
     bootstrap_iters = 5000
@@ -321,7 +326,7 @@ def main() -> None:
     )
 
     # -----------------------------------------------------------------------
-    # Axis A: Structural disorder metrics → bath_params_empirical.csv
+    # Axis A: Structural disorder metrics -> bath_params_empirical.csv
     # -----------------------------------------------------------------------
     structural_metrics = _compute_structural_metrics(structures_rows, bath_proxy)
     bath_empirical_path = analysis_dir / "bath_params_empirical.csv"
@@ -333,13 +338,13 @@ def main() -> None:
     print(
         f"[compute_detectability_metrics] bath_params_empirical: "
         f"eta_proxy={structural_metrics.get('eta_proxy_central', 'N/A')}, "
-        f"B_median={structural_metrics.get('bfactor_median_angstrom2', 'N/A')} Å², "
+        f"B_median={structural_metrics.get('bfactor_median_angstrom2', 'N/A')} A^2, "
         f"H_s={structural_metrics.get('heterogeneity_index_Hs', 'N/A')}"
     )
     _write_progress("structural_metrics_done", {"eta_proxy": structural_metrics.get("eta_proxy_central", "")})
 
     # -----------------------------------------------------------------------
-    # Axis C: Spectroscopic detectability → metrics_compact.csv
+    # Axis C: Spectroscopic detectability -> metrics_compact.csv
     # -----------------------------------------------------------------------
     out_rows: List[Dict[str, str]] = []
     total_spectral = len(spectral_rows)
@@ -367,7 +372,7 @@ def main() -> None:
     print(f"[compute_detectability_metrics] wrote {len(out_rows)} spectral metric rows")
 
     # -----------------------------------------------------------------------
-    # Bootstrap CI99 on Δλ
+    # Bootstrap CI99 on Deltalambda
     # -----------------------------------------------------------------------
     deltas = [_safe_float(r.get("delta_lambda_nm", "")) for r in spectral_rows]
     deltas = [d for d in deltas if not math.isnan(d) and d > 0]
@@ -424,9 +429,9 @@ def main() -> None:
     print(f"[compute_detectability_metrics] summary: {row_summary}")
 
     # -----------------------------------------------------------------------
-    # Fisher information barrier → fisher_barrier.csv
+    # Fisher information barrier -> fisher_barrier.csv
     # -----------------------------------------------------------------------
-    # Cavity model target splittings from paper §4.2 (Eqs. delta_lambda_nom, delta_lambda_num)
+    # Cavity model target splittings from paper Section4.2 (Eqs. delta_lambda_nom, delta_lambda_num)
     delta_lambda_targets = [1.6, 0.89, 0.5, 0.3]  # nm
     # SNR grid: from detection floor to requirement ceiling
     snr_grid = [10, 30, 100, 300, 600, 1000, 2000, 5000, 10000]

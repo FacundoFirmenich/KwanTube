@@ -1,0 +1,20 @@
+{
+  "1JFF": {
+    "label": "1JFF",
+    "kl_bare": 0.38094063513707827,
+    "kl_mf": 18.525423269765202,
+    "kl_bare_vs_mf": 18.280889315874738,
+    "drift": 1.6130761455405382e-05,
+    "ss_verdict": "NOT_STEADY",
+    "verdict": "FAIL"
+  },
+  "6DPU": {
+    "label": "6DPU",
+    "kl_bare": 0.009379477829118327,
+    "kl_mf": 28.040840330137975,
+    "kl_bare_vs_mf": 28.08901031047258,
+    "drift": 5.480905521185237e-06,
+    "ss_verdict": "STEADY",
+    "verdict": "PASS"
+  }
+}

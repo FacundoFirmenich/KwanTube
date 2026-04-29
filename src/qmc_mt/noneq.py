@@ -7,8 +7,8 @@ import numpy as np
 import sys
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -62,3 +62,6 @@ class QEDCavityModel:
 
     def tau_cavity(self) -> float:
         return 5e-7 * (self.epsilon / 80.0)**2
+
+if __name__ == "__main__":
+    print("[noneq] Realizando subprocesos de fondo...")

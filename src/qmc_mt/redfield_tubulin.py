@@ -1,31 +1,31 @@
 """
-redfield_tubulin.py — Redfield secular con baño Drude-Lorentz
+redfield_tubulin.py - Redfield secular con bano Drude-Lorentz
 sobre la red de Trps de tubulina.
 
 Modelo
 ------
-Sistema:  H electrónico (desde build_hamiltonian.py)  en base de sitios.
-Baño:     un oscilador de Drude por sitio (no correlacionado entre sitios),
-          densidad espectral J(ω) = 2λγω/(ω²+γ²).
-          λ = 35 cm⁻¹ (reorganización típica cromóforo en proteína; Renger 2009).
-          γ = 53 cm⁻¹ ↔ τ_bath ≈ 100 fs (correlación protein-water bath).
-T = 300 K  ⇒  kT = 208.5 cm⁻¹.
+Sistema:  H electronico (desde build_hamiltonian.py)  en base de sitios.
+Bano:     un oscilador de Drude por sitio (no correlacionado entre sitios),
+          densidad espectral J(omega) = 2*lambda*gamma*omega/(omega^2+gamma^2).
+          lambda = 35 cm^-1 (reorganizacion tipica cromoforo en proteina; Renger 2009).
+          gamma = 53 cm^-1 -> tau_bath ~ 100 fs (correlacion protein-water bath).
+T = 300 K -> kT = 208.5 cm^-1.
 
-Ecuación (base excitónica μ,ν = autoestados de H):
-  poblaciones:   dP_μ/dt = Σ_ν [k_{μ←ν} P_ν  −  k_{ν←μ} P_μ]
-  coherencias:   dρ_μν/dt = (−i ω_μν − Γ_μν) ρ_μν
+Ecuacion (base excitonica mu,nu = autoestados de H):
+  poblaciones:   dP_mu/dt = sum_nu [k_{mu<-nu} P_nu - k_{nu<-mu} P_mu]
+  coherencias:   drho_munu/dt = (-i omega_munu - Gamma_munu) rho_munu
 con
-  k_{μ←ν} = 2π Σ_i |c_iμ|² |c_iν|² · Re C(ω_μν)
-  Γ_μν    = ½(k_μ^out + k_ν^out) + γ_vibr_pd + γ_μν^pd
-  γ_vibr_pd = 2π·α·kT (vibrational dephasing baseline)
+  k_{mu<-nu} = 2*pi * sum_i |c_imu|^2 |c_inu|^2 * Re C(omega_mu nu)
+  Gamma_munu = 0.5(k_mu^out + k_nu^out) + gamma_vibr_pd + gamma_munu_pd
+  gamma_vibr_pd = 2*pi*alpha*kT (vibrational dephasing baseline)
 """
 from __future__ import annotations
 import sys, json, os
 from pathlib import Path
 import numpy as np
 
-# Boilerplate para resolver importaciones y rutas desde la raíz del proyecto
-PROJECT_ROOT = Path(__file__).resolve().parents[3] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones y rutas desde la raiz del proyecto
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -34,59 +34,59 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 # ---------- constantes ----------
-CM_TO_INVFS = 2 * np.pi * 2.9979e-5      # rad·fs⁻¹ por cm⁻¹
-KB_CM_K     = 0.69503                     # cm⁻¹ / K
+CM_TO_INVFS = 2 * np.pi * 2.9979e-5      # rad*fs^-1 por cm^-1
+KB_CM_K     = 0.69503                     # cm^-1 / K
 T_K         = 300.0
-KT          = KB_CM_K * T_K               # ≈ 208.5 cm⁻¹
+KT          = KB_CM_K * T_K               # ~ 208.5 cm^-1
 BETA        = 1.0 / KT                    # cm
 
-LAMBDA_CM   = 35.0    # reorganización (Renger 2009, cromóforo en proteína)
+LAMBDA_CM   = 35.0    # reorganizacion (Renger 2009, cromoforo en proteina)
 GAMMA_B_CM  = 53.0    # inverso tau_bath (~100 fs)
 
-DATA_DIR = PROJECT_ROOT
+DATA_DIR = PROJECT_ROOT / "outputs_data" / "raw_npz"
 FIG_DIR  = PROJECT_ROOT / "figures_final"
 FIG_DIR.mkdir(exist_ok=True)
 
 def save_paper(fig, name, outdir=FIG_DIR):
-    """Guarda la figura en formatos PNG y PDF para calidad de publicación."""
+    """Guarda la figura en formatos PNG y PDF para calidad de publicacion."""
     os.makedirs(outdir, exist_ok=True)
     for ext in ("png", "pdf"):
         path = outdir / f"{name}.{ext}"
         fig.savefig(str(path), dpi=600, bbox_inches="tight")
     print(f"  figuras -> {name}.[png, pdf] en {outdir.name}/")
 
-# ---------- función correlación baño (Drude-Lorentz) ----------
+# ---------- funcion correlacion bano (Drude-Lorentz) ----------
 def S_quantum_cm(omega_cm: np.ndarray) -> np.ndarray:
     """
-    Densidad espectral asimétrica S(ω) = 2*Re[C(ω)] que satisface
-    el balance detallado: S(ω) = e^{βω} S(-ω).
+    Densidad espectral asimetrica S(omega) = 2*Re[C(omega)] que satisface
+    el balance detallado: S(omega) = e^{beta omega} S(-omega).
     """
     w = np.asarray(omega_cm, dtype=float)
     out = np.empty_like(w)
-    # límite ω->0: S(0) = 4 * λ * kT / γ
+    # limite omega->0: S(0) = 4 * lambda * kT / gamma
     small = np.abs(w) < 1e-6
     out[small] = 4.0 * LAMBDA_CM * KT / GAMMA_B_CM
     if np.any(~small):
         ww = w[~small]
-        # J(ω) = 2λγω / (ω² + γ²)
+        # J(omega) = 2*lambda*gamma*omega / (omega^2 + gamma^2)
         j_w = 2.0 * LAMBDA_CM * GAMMA_B_CM * ww / (ww**2 + GAMMA_B_CM**2)
-        # S(ω) = 2 * J(ω) / (1 - np.exp(-BETA * ww))
+        # S(omega) = 2 * J(omega) / (1 - np.exp(-BETA * ww))
         out[~small] = 2.0 * j_w / (1.0 - np.exp(-BETA * ww))
     return out
 
-# ---------- construcción del generador ----------
+# ---------- construccion del generador ----------
 def build_generator(H_cm: np.ndarray):
-    """Devuelve (E, C, k_rates, Gamma_coh) en base excitónica, unidades cm⁻¹."""
-    E, C = np.linalg.eigh(H_cm)     # C[:,μ] = autovector μ
+    """Devuelve (E, C, k_rates, Gamma_coh) en base excitonica, unidades cm^-1."""
+    E, C = np.linalg.eigh(H_cm)     # C[:,mu] = autovector mu
     N = len(E)
-    pop = np.abs(C)**2              # pop[i,μ] = |c_iμ|²
+    pop = np.abs(C)**2              # pop[i,mu] = |c_imu|^2
 
-    # 1. Tasas de relajación (Poblaciones)
+    # 1. Tasas de relajacion (Poblaciones)
     k = np.zeros((N, N))
     for mu in range(N):
         for nu in range(N):
             if mu == nu: continue
-            omega = E[nu] - E[mu] # nu -> mu (E_mu < E_nu => omega > 0 => emisión)
+            omega = E[nu] - E[mu] # nu -> mu (E_mu < E_nu => omega > 0 => emision)
             overlap = float(np.sum(pop[:, mu] * pop[:, nu]))
             k[mu, nu] = 2.0 * np.pi * overlap * float(S_quantum_cm(np.array([omega]))[0])
 
@@ -97,7 +97,7 @@ def build_generator(H_cm: np.ndarray):
     alpha = 0.1
     gamma_vibr_pd = (2.0 * np.pi) * alpha * KT 
     
-    # b) Pure dephasing excitónico inducido por el baño
+    # b) Pure dephasing excitonico inducido por el bano
     s0 = float(S_quantum_cm(np.array([0.0]))[0])
     gamma_mu_nu_pd = np.zeros((N, N))
     for mu in range(N):
@@ -121,16 +121,16 @@ def propagate(H_cm: np.ndarray, rho0_site: np.ndarray,
     E, C, k, k_out, Gamma_coh = build_generator(H_cm)
     N = len(E)
 
-    # rho inicial en base excitónica
+    # rho inicial en base excitonica
     rho_exc = C.conj().T @ rho0_site @ C
 
-    # conversión cm⁻¹ -> fs⁻¹
+    # conversion cm^-1 -> fs^-1
     k_fs      = k * CM_TO_INVFS
     k_out_fs  = k_out * CM_TO_INVFS
     Gamma_fs  = Gamma_coh * CM_TO_INVFS
     omega_fs  = (E[:, None] - E[None, :]) * CM_TO_INVFS
 
-    # generador coherencias: L_coh[μ,ν] = -iω_μν - Γ_μν
+    # generador coherencias: L_coh[mu,nu] = -iomega_munu - Gamma_munu
     L_coh = -1j * omega_fs - Gamma_fs
 
     def deriv(rho):
@@ -232,7 +232,7 @@ def run(npz_path: Path, initial_label: str, t_max_fs: float = 5000.0):
     print(f"  tau_coherencia (1/e peak)= {tau_coh:8.1f} fs")
     print(f"  avg IPR (delocaliz)    = {avg_ipr:8.2f}")
 
-    out_npz = FIG_DIR / f"redfield_{pid}.npz"
+    out_npz = DATA_DIR / f"redfield_{pid}.npz"
     np.savez(out_npz, t_fs=t, P_site=P_site, coh_tot=coh_tot, labels=np.array(labels),
              tau_tr=tau_tr, tau_coh=tau_coh, avg_ipr=avg_ipr)
     
@@ -251,6 +251,6 @@ if __name__ == "__main__":
     summary = []
     summary.append(run(DATA_DIR / "H_1JFF.npz", "B:103"))
     summary.append(run(DATA_DIR / "H_6DPU.npz", "A:346"))
-    out_json = FIG_DIR / "redfield_summary.json"
+    out_json = PROJECT_ROOT / "outputs_data" / "raw_json" / "redfield_summary.json"
     out_json.write_text(json.dumps(summary, indent=2))
-    print(f"\nresumen -> {out_json.name}")
+    print(f"\nresumen -> {out_json.name}")

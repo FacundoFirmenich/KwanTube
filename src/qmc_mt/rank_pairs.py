@@ -1,21 +1,27 @@
 """
-rank_pairs.py — lee pdb_tubulin_analysis.json y tabula:
-  (1) top-10 pares Trp-Trp por G = κ²/r⁶  para cada estructura
-  (2) clasificación intra-cadena vs inter-cadena
-  (3) comparación 1JFF vs 1TUB (pares compartidos)
+rank_pairs.py - lee pdb_tubulin_analysis.json y tabula:
+  (1) top-10 pares Trp-Trp por G = kappa^2/r^6 para cada estructura
+  (2) clasificacion intra-cadena vs inter-cadena
+  (3) comparacion 1JFF vs 1TUB (pares compartidos)
+Corregido: Encoding ASCII-safe para terminales Windows.
 """
 from __future__ import annotations
 import json
+import sys
 from pathlib import Path
 
-JSON_PATH = Path(r"C:\Users\User\3D Objects\biofisicaquantiqaCLINE\pdb_tubulin_analysis.json")
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
+
+JSON_PATH = PROJECT_ROOT / "outputs_data" / "raw_json" / "pdb_tubulin_analysis.json"
 
 def load():
     return json.loads(JSON_PATH.read_text())
 
 def classify(pair_str: str) -> str:
-    # pair_str = "A:388—B:101"
-    left, right = pair_str.split("—")
+    left, right = pair_str.split("-")
     cL = left.split(":")[0]
     cR = right.split(":")[0]
     return "intra" if cL == cR else "inter"
@@ -27,11 +33,12 @@ def top_table(pid: str, data: dict, n: int = 10):
         return []
     pairs = r["pairs_within_cutoff"]
     pairs_sorted = sorted(pairs, key=lambda p: -p["G_A-6"])[:n]
-    print(f"\n=== {pid}  (nTrp={r['n_trp']}, ⟨κ²⟩={r['summary']['kappa2']['mean']:.3f}) ===")
-    print(f"{'rank':>4}  {'pair':<20}  {'r(Å)':>7}  {'κ²':>6}  {'G(Å⁻⁶) ×1e9':>14}  {'tipo':>5}")
+    # ASCII-safe: kappa^2 instead of greek
+    print(f"\n=== {pid}  (nTrp={r['n_trp']}, <kappa2>={r['summary']['kappa2']['mean']:.3f}) ===")
+    print(f"{'rank':>4}  {'pair':<20}  {'r(A)':>7}  {'kappa2':>6}  {'G(A^-6) *1e9':>14}  {'tipo':>5}")
     out = []
     for k, p in enumerate(pairs_sorted, 1):
-        pair = f"{p['donor']}—{p['acceptor']}"
+        pair = f"{p['donor']}-{p['acceptor']}"
         tipo = classify(pair)
         print(f"{k:>4}  {pair:<20}  {p['r_A']:>7.2f}  {p['kappa2']:>6.3f}  "
               f"{p['G_A-6']*1e9:>14.3f}  {tipo:>5}")
@@ -40,10 +47,8 @@ def top_table(pid: str, data: dict, n: int = 10):
 
 def intra_inter_balance(pid: str, data: dict):
     pairs = data[pid]["pairs_within_cutoff"]
-    G_intra = sum(p["G_A-6"] for p in pairs
-                  if classify(f"{p['donor']}—{p['acceptor']}") == "intra")
-    G_inter = sum(p["G_A-6"] for p in pairs
-                  if classify(f"{p['donor']}—{p['acceptor']}") == "inter")
+    G_intra = sum(p["G_A-6"] for p in pairs if classify(f"{p['donor']}-{p['acceptor']}") == "intra")
+    G_inter = sum(p["G_A-6"] for p in pairs if classify(f"{p['donor']}-{p['acceptor']}") == "inter")
     total = G_intra + G_inter
     if total == 0:
         print(f"[{pid}] sin pares")
@@ -52,7 +57,6 @@ def intra_inter_balance(pid: str, data: dict):
           f"inter-cadena = {100*G_inter/total:5.1f}%")
 
 def pair_key(p):
-    # clave robusta: resseq del donor y acceptor ordenados (ignora cadena)
     a = p["donor"].split(":")[1]
     b = p["acceptor"].split(":")[1]
     return tuple(sorted((a, b)))
@@ -60,10 +64,9 @@ def pair_key(p):
 def compare_structures(pid1: str, pid2: str, data: dict, n: int = 10):
     s1 = {pair_key(p): p for p in data[pid1]["pairs_within_cutoff"]}
     s2 = {pair_key(p): p for p in data[pid2]["pairs_within_cutoff"]}
-    top1 = sorted(data[pid1]["pairs_within_cutoff"],
-                  key=lambda p: -p["G_A-6"])[:n]
-    print(f"\n=== top-{n} de {pid1} — ¿aparecen en {pid2}? ===")
-    print(f"{'pair':<20}  {'G1(×1e9)':>10}  {'G2(×1e9)':>10}  {'ratio':>7}")
+    top1 = sorted(data[pid1]["pairs_within_cutoff"], key=lambda p: -p["G_A-6"])[:n]
+    print(f"\n=== top-{n} de {pid1} - aparecen en {pid2} ===")
+    print(f"{'pair':<20}  {'G1(*1e9)':>10}  {'G2(*1e9)':>10}  {'ratio':>7}")
     for p in top1:
         k = pair_key(p)
         g1 = p["G_A-6"] * 1e9
@@ -74,23 +77,20 @@ def compare_structures(pid1: str, pid2: str, data: dict, n: int = 10):
         else:
             g2 = 0.0
             marca = "   ---"
-        pair = f"{p['donor']}—{p['acceptor']}"
+        pair = f"{p['donor']}-{p['acceptor']}"
         print(f"{pair:<20}  {g1:>10.3f}  {g2:>10.3f}  {marca}")
 
 if __name__ == "__main__":
-    data = load()
-
-    # (1) top-10 por estructura
-    for pid in ("1JFF", "1TUB", "6DPU"):
-        if pid in data and "pairs_within_cutoff" in data[pid]:
-            top_table(pid, data)
-
-    # (2) balance intra/inter
-    print("\n--- balance intra-cadena vs inter-cadena (suma de G) ---")
-    for pid in ("1JFF", "1TUB", "6DPU"):
-        if pid in data and "pairs_within_cutoff" in data[pid]:
-            intra_inter_balance(pid, data)
-
-    # (3) robustez: 1JFF vs 1TUB
-    if "1JFF" in data and "1TUB" in data:
-        compare_structures("1JFF", "1TUB", data)
+    try:
+        data = load()
+        for pid in ("1JFF", "1TUB", "6DPU"):
+            if pid in data and "pairs_within_cutoff" in data[pid]:
+                top_table(pid, data)
+        print("\n--- balance intra-cadena vs inter-cadena (suma de G) ---")
+        for pid in ("1JFF", "1TUB", "6DPU"):
+            if pid in data and "pairs_within_cutoff" in data[pid]:
+                intra_inter_balance(pid, data)
+        if "1JFF" in data and "1TUB" in data:
+            compare_structures("1JFF", "1TUB", data)
+    except FileNotFoundError:
+        print(f"Error: {JSON_PATH} no encontrado.")

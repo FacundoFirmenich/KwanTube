@@ -1,8 +1,8 @@
 """
 Randomized QMC: R independent Owen-scrambled Sobol nets of size N.
 
-  μ̂ = (1/R) Σ_r μ_r,   μ_r = (1/N) Σ_i f(x_{r,i})
-  Var(μ̂) unbiasedly estimated as s²({μ_r}) / R.
+  mu_hat = (1/R) sum_r mu_r,   mu_r = (1/N) sum_i f(x_{r,i})
+  Var(mu_hat) unbiasedly estimated as s^2({mu_r}) / R.
 
 Gives unbiased estimate + honest SE (not available in deterministic QMC),
 while keeping O(N^{-3/2}) RMSE for smooth integrands in low d.
@@ -16,8 +16,8 @@ from dataclasses import dataclass
 from typing import Callable
 from scipy.stats import qmc
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -56,7 +56,7 @@ def rqmc_integrate(
 
 if __name__ == "__main__":
     import json
-    # ∫∫ sin(πx)sin(πy) dx dy = (2/π)^2 over [0,1]^2
+    # Integral of sin(pi*x)sin(pi*y) dx dy = (2/pi)^2 over [0,1]^2
     f = lambda x: np.sin(np.pi * x[:, 0]) * np.sin(np.pi * x[:, 1])
     truth = (2 / np.pi) ** 2
     out = []

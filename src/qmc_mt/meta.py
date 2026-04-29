@@ -11,7 +11,7 @@ Design decisions (honesty constraints):
      we compute no BF for them.
   4. Each BF is computed by nested sampling (qmc_mt.nested_sampling)
      integrating a Gaussian likelihood over an explicit prior,
-     against the point null θ=0 with its analytic marginal likelihood.
+     against the point null theta=0 with its analytic marginal likelihood.
 
 Output: one BF10 per usable study, plus a combined multiplicative BF
 under strict independence assumption (reported with that caveat).
@@ -23,8 +23,8 @@ from dataclasses import dataclass, asdict
 import sys
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -49,12 +49,12 @@ class StudyEvidence:
 
 
 def _logZ_H0(effect: float, se: float) -> float:
-    """Marginal likelihood at θ=0 (point null), analytic Gaussian."""
+    """Marginal likelihood at theta=0 (point null), analytic Gaussian."""
     return -0.5 * (effect / se) ** 2 - 0.5 * math.log(2 * math.pi * se * se)
 
 
 def _logZ_H1_analytic(effect: float, se: float, prior_sd: float) -> float:
-    """Exact marginal likelihood for θ ~ N(0, σ_p²), y|θ ~ N(θ, s²)."""
+    """Exact marginal likelihood for theta ~ N(0, sigma_p^2), y|theta ~ N(theta, s^2)."""
     var_total = se**2 + prior_sd**2
     return -0.5 * (effect**2 / var_total) - 0.5 * math.log(2 * math.pi * var_total)
 
@@ -70,7 +70,7 @@ def _study_bf(
 
     y, s = float(study.effect), float(study.se)
 
-    # H1: θ ~ N(0, prior_sd²); y | θ ~ N(θ, s²).
+    # H1: theta ~ N(0, prior_sd^2); y | theta ~ N(theta, s^2).
     def prior_transform(u: np.ndarray) -> np.ndarray:
         # inverse standard-normal CDF (Acklam approximation or simple proxy)
         return np.array([prior_sd * _norm_ppf(float(u[0]))])
@@ -140,8 +140,8 @@ def _norm_ppf(p: float) -> float:
 def per_study_evidence(seed: int = 0) -> dict:
     """
     Per-study BF10 with scale-appropriate weakly-informative priors:
-      - Babcock (log-ratio): θ ~ N(0, 1), covering ratios from ~0.14 to ~7.4.
-      - Kalra (seconds):     θ ~ N(0, 120 s), covering ±2 min of latency shift.
+      - Babcock (log-ratio): theta ~ N(0, 1), covering ratios from ~0.14 to ~7.4.
+      - Kalra (seconds):     theta ~ N(0, 120 s), covering +/-2 min of latency shift.
     """
     babcock = _study_bf(BABCOCK_2024, prior_sd=1.0, seed=seed)
     kalra   = _study_bf(KALRA_2024,   prior_sd=120.0, seed=seed)

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security reports
+    url: https://github.com/FacundoFirmenich/KwanTube/blob/main/SECURITY.md
+    about: Please report vulnerabilities privately as described in SECURITY.md.
+  - name: Usage and support
+    url: https://github.com/FacundoFirmenich/KwanTube/blob/main/SUPPORT.md
+    about: Check SUPPORT.md for troubleshooting and reproducibility help.

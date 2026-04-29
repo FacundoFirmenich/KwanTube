@@ -1,6 +1,5 @@
 """
 jff_short_validation.py
-
 Valida que el par (NC*, Nk*) identificado en 6DPU sigue siendo
 suficiente para el sistema completo 1JFF (8 sitios).
 """
@@ -12,10 +11,10 @@ from qutip.solver.heom import DrudeLorentzPadeBath, HEOMSolver
 import pickle, json, time
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parent.parent # La raíz es biofisicaquantiqaCLINE
-if str(PROJECT_ROOT / "git_repo" / "src") not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT / "git_repo" / "src"))
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[1] # retrocede desde src/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 # ----------------- parametros fisicos -----------------
 LAM_CM   = 35.0
@@ -28,13 +27,18 @@ T_MAX_VAL_FS = 200.0
 DT_FS        = 1.0
 THRESHOLD    = 1e-3
 
-PADE_REPORT = PROJECT_ROOT / "git_repo" / "pade_convergence_report.json"
+# Sincronizado con la nueva estructura
+PADE_REPORT = PROJECT_ROOT / "outputs_data" / "raw_json" / "pade_convergence_report.json"
 
 def H_1JFF_from_file():
-    npz_path = PROJECT_ROOT / "H_1JFF.npz"
+    npz_path = PROJECT_ROOT / "outputs_data" / "raw_npz" / "H_1JFF.npz"
     if not npz_path.exists():
-        print(f"ERROR: No se encuentra {npz_path}")
+        npz_path = PROJECT_ROOT / "H_1JFF.npz"
+        
+    if not npz_path.exists():
+        print(f"ERROR: No se encuentra H_1JFF.npz en {npz_path}")
         sys.exit(1)
+        
     d = np.load(npz_path, allow_pickle=True)
     H_cm = d["H_cm1"]
     H = (H_cm - np.mean(np.diag(H_cm)) * np.eye(H_cm.shape[0])) * CM_TO_RADFS
@@ -48,7 +52,6 @@ def initial_state(N, site=0):
     return psi * psi.dag()
 
 def run_heom(H_S, coupling_ops, NC, Nk, t_max_fs, dt_fs, rho0, label=""):
-    # Convertir lambdas a rad/fs para consistencia con H
     lam_rad = LAM_CM * CM_TO_RADFS
     gam_rad = GAM_CM * CM_TO_RADFS
     baths = [
@@ -74,14 +77,16 @@ def max_frobenius_diff(states_A, states_B):
 
 def main():
     if not PADE_REPORT.exists():
-        print("ERROR: correr primero heom_pade_convergence.py")
+        print(f"ERROR: No se encuentra {PADE_REPORT}. Correr primero heom_pade_convergence.py")
         return
+        
     with open(PADE_REPORT) as f:
         rep = json.load(f)
     v = rep.get("verdict")
     if not isinstance(v, dict):
         print(f"ERROR: verdict no es dict: {v}")
         return
+        
     NC_star, Nk_star = int(v["NC"]), int(v["Nk"])
     
     H_S   = H_1JFF_from_file()

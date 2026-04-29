@@ -25,11 +25,11 @@ from qmc_mt.meta import _norm_ppf
 # ========== STANDARD CONFIGURATION ==========
 SIGMA_DATA = 1.0
 PRIOR_SD   = 2.0
-N_SIM      = 1000      # ← ESTÁNDAR: 1000 simulaciones
-L_POST     = 99        # ← 99 muestras posteriores
-N_BINS     = 20        # ← 20 bins (dof=19)
-SEED       = 42        # ← Reproducibilidad
-CONFIDENCE = 0.95      # ← Nivel de confianza 95%
+N_SIM      = 1000      # <- ESTANDAR: 1000 simulaciones
+L_POST     = 99        # <- 99 muestras posteriores
+N_BINS     = 20        # <- 20 bins (dof=19)
+SEED       = 42        # <- Reproducibilidad
+CONFIDENCE = 0.95      # <- Nivel de confianza 95%
 FIG_DIR    = PROJECT_ROOT / "figures_final"
 # ============================================
 
@@ -129,10 +129,11 @@ def run_sbc_report(n_sim: int = N_SIM) -> dict:
         }
     }
 
-    report_path = PROJECT_ROOT / "sbc_report.json"
+    report_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "sbc_report.json"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
     with open(report_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
-    print(f"  [OK] Saved {report_path}")
+    print(f"  [OK] Saved {report_path.resolve()}")
     
     # Print summary
     print(f"\n{'='*60}")

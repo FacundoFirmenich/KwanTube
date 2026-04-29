@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 """
 jff_nk_stress_probe.py
-
 Minimal probe to compare Nk=1 vs Nk=2 at a fixed NC level for 1JFF.
-Designed for rapid verification of the Padé bath truncation.
 """
 
 import argparse
 import json
 import time
+import sys
 from pathlib import Path
 import numpy as np
 import qutip as qt
 from qutip.solver.heom import DrudeLorentzPadeBath, HEOMSolver
+
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[1] # retrocede desde src/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 # Constants
 CM_TO_RADFS = 2 * np.pi * 2.9979e-5
@@ -37,10 +41,15 @@ def main():
     parser.add_argument("--sample", type=float, default=10.0)
     args = parser.parse_args()
 
-    # Load 1JFF
-    npz_path = Path("H_1JFF.npz")
+    # Load 1JFF - Sincronizado con outputs_data/raw_npz/
+    npz_path = PROJECT_ROOT / "outputs_data" / "raw_npz" / "H_1JFF.npz"
     if not npz_path.exists():
-        npz_path = Path(__file__).parent / "H_1JFF.npz"
+        npz_path = PROJECT_ROOT / "H_1JFF.npz"
+        
+    if not npz_path.exists():
+        print(f"ERROR: No se encuentra H_1JFF.npz en {npz_path}")
+        sys.exit(1)
+        
     data = np.load(npz_path)
     H_cm = data["H_cm1"]
     H_rad = (H_cm - np.mean(np.diag(H_cm)) * np.eye(H_cm.shape[0])) * CM_TO_RADFS
@@ -81,11 +90,14 @@ def main():
         "final_dFrob": float(dfrob[-1])
     }
 
-    # Output
-    with open("jff_nk_stress_probe.json", "w") as f:
+    # Output - Redirigido a raw_json y raw_txt+md
+    json_out = PROJECT_ROOT / "outputs_data" / "raw_json" / "jff_nk_stress_probe.json"
+    txt_out = PROJECT_ROOT / "outputs_data" / "raw_txt+md" / "jff_nk_stress_probe.txt"
+    
+    with open(json_out, "w") as f:
         json.dump(results, f, indent=2)
     
-    with open("jff_nk_stress_probe.txt", "w") as f:
+    with open(txt_out, "w") as f:
         f.write("=== JFF NK STRESS PROBE RESULTS ===\n")
         for k, v in results.items():
             f.write(f"{k}: {v}\n")
@@ -93,6 +105,7 @@ def main():
     print("\nProbe Complete.")
     print(f"dPop_max: {results['dPop_max']:.2e} at {results['t_dPop_max']} fs")
     print(f"dFrob_max: {results['dFrob_max']:.2e}")
+    print(f"Results saved in {json_out.name} and {txt_out.name}")
 
 if __name__ == "__main__":
     main()

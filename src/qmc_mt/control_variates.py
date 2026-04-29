@@ -1,13 +1,13 @@
 """
 Optimal linear control variates for variance reduction.
 
-  μ_cv = Ê[f] - β̂ (Ê[g] - m_g),    β̂ = Cov̂(f,g) Var̂(g)^{-1}
-  Var(μ_cv) / Var(μ) = 1 - ρ²   (multi-dim: 1 - R²)
+  mu_cv = E[f] - beta_hat * (E[g] - m_g),    beta_hat = Cov_hat(f,g) Var_hat(g)^{-1}
+  Var(mu_cv) / Var(mu) = 1 - rho^2   (multi-dim: 1 - R^2)
 
-Plug-in β̂ from the same sample; bias O(1/N), variance
+Plug-in beta_hat from the same sample; bias O(1/N), variance
 reduction factor reported exactly on sample.
 
-Ref: Glasserman, Monte Carlo Methods in Financial Engineering (2004), §4.1.
+Ref: Glasserman, Monte Carlo Methods in Financial Engineering (2004), Section4.1.
 """
 from __future__ import annotations
 import numpy as np

@@ -1,5 +1,5 @@
 """
-pdb_tubulin_analysis.py — real Trp geometry & Förster couplings from RCSB.
+pdb_tubulin_analysis.py - real Trp geometry & Foerster couplings from RCSB.
 
 Pipeline
 --------
@@ -8,22 +8,22 @@ Pipeline
 3. Parse with Biopython's MMCIFParser; for every TRP residue collect the
    nine indole heavy atoms (CG, CD1, NE1, CE2, CD2, CE3, CZ2, CZ3, CH2).
 4. SVD-fit the indole plane; build in-plane orthonormal frame (x_hat,
-   y_hat) with x_hat ≡ long axis (NE1 → midpoint(CZ3, CH2)) and y_hat
+   y_hat) with x_hat approx long axis (NE1 -> midpoint(CZ3, CH2)) and y_hat
    oriented such that CE3 lies on the +y side (fixes rotation sign).
 5. Place the 1La and 1Lb transition dipoles per Callis (1997):
-      μ̂_1La = cos(+38°)·x_hat + sin(+38°)·y_hat       (in-plane)
-      μ̂_1Lb = μ̂_1La rotated +90° in-plane               (orthogonal proxy)
-   The +38° convention and long-axis definition follow Callis, Methods
+      mu_1La = cos(+38 deg)*x_hat + sin(+38 deg)*y_hat       (in-plane)
+      mu_1Lb = mu_1La rotated +90 deg in-plane               (orthogonal proxy)
+   The +38 deg convention and long-axis definition follow Callis, Methods
    Enzymol. 278 (1997) 113-150, Fig. 2.
 6. For every ordered pair of Trps compute
       r_vec = R_A - R_D,    r = |r_vec|
-      κ²   = (μ̂_D·μ̂_A − 3 (μ̂_D·r̂)(μ̂_A·r̂))²
-      G    = κ² / r^6        [Å⁻⁶, the structure-only FRET factor]
+      kappa^2   = (mu_D dot mu_A - 3 * (mu_D dot r_hat) * (mu_A dot r_hat))^2
+      G    = kappa^2 / r^6        [A^-6, the structure-only FRET factor]
    A FRET rate requires also the donor lifetime and the spectral overlap
    integral; those are residue-environment-dependent and are supplied
    downstream. Here we expose only the geometric factor, which is the
    quantity that differs between tubulin isoforms at fixed photophysics.
-7. Self-validate: Monte-Carlo isotropic average of κ² must recover 2/3.
+7. Self-validate: Monte-Carlo isotropic average of kappa^2 must recover 2/3.
 
 References
 ----------
@@ -42,6 +42,11 @@ from pathlib import Path
 import numpy as np
 import requests
 from Bio.PDB import MMCIFParser
+
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 # ------------------------------------------------------------------ constants
 INDOLE_ATOMS    = ("CG", "CD1", "NE1", "CE2", "CD2", "CE3", "CZ2", "CZ3", "CH2")
@@ -200,7 +205,7 @@ def pairwise(dipoles: list[TrpDipole], cutoff_A: float) -> tuple[list[dict], dic
             "isotropic_reference": 2/3,
         }
         summary["top5_by_G_A-6"] = [
-            {"pair": f"{p['donor']}—{p['acceptor']}", "r_A": p["r_A"],
+            {"pair": f"{p['donor']}-{p['acceptor']}", "r_A": p["r_A"],
              "kappa2": p["kappa2"], "G_A-6": p["G_A-6"]}
             for p in pairs_within[:5]
         ]
@@ -247,11 +252,11 @@ if __name__ == "__main__":
     if "--with-3j6f" in sys.argv:
         targets.append("3J6F")
 
-    # 1. κ² isotropic sanity check (must equal 2/3 within MC noise)
+    # 1. kappa^2 isotropic sanity check (must equal 2/3 within MC noise)
     k2_iso = _validate_kappa2_isotropic()
-    print(f"self-check  ⟨κ²⟩_iso = {k2_iso:.4f}   expected = 0.6667   "
-          f"Δ = {abs(k2_iso - 2/3):.4f}")
-    assert abs(k2_iso - 2/3) < 5e-3, "κ² isotropic average failed"
+    print(f"self-check  <kappa^2>_iso = {k2_iso:.4f}   expected = 0.6667   "
+          f"Delta = {abs(k2_iso - 2/3):.4f}")
+    assert abs(k2_iso - 2/3) < 5e-3, "kappa^2 isotropic average failed"
 
     # 2. structures
     results = {}
@@ -264,13 +269,13 @@ if __name__ == "__main__":
             rmin    = s["r_A"]["min"]
             print(f"[{pid}] {r['method']:20s}  res={r['resolution_A']}  "
                   f"nTrp={r['n_trp']:3d}  "
-                  f"⟨κ²⟩={k2_mean if k2_mean is None else f'{k2_mean:.3f}'}  "
-                  f"r_min={rmin if rmin is None else f'{rmin:.2f} Å'}  "
-                  f"pairs≤{DEFAULT_CUTOFF_A:.0f}Å={s['n_pairs_within_cutoff']}")
+                  f"<kappa^2>={k2_mean if k2_mean is None else f'{k2_mean:.3f}'}  "
+                  f"r_min={rmin if rmin is None else f'{rmin:.2f} A'}  "
+                  f"pairs (r < {DEFAULT_CUTOFF_A:.0f} A) = {s['n_pairs_within_cutoff']}")
         except Exception as e:
             results[pid] = {"error": repr(e)}
             print(f"[{pid}] ERROR: {e}", file=sys.stderr)
 
-    out_path = Path("pdb_tubulin_analysis.json")
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "pdb_tubulin_analysis.json"
     out_path.write_text(json.dumps(results, indent=2, default=float))
     print(f"\nwrote {out_path.resolve()}")

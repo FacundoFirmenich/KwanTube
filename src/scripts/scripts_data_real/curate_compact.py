@@ -2,10 +2,10 @@
 
 Axes extracted:
   A) Structural-spectral (RCSB): Wilson B, resolution, method, heterogeneity
-     → informs bath coupling strength eta via B-factor proxy
+     -> informs bath coupling strength eta via B-factor proxy
   B) Literature (OpenAlex/Crossref/EuropePMC): study provenance
   C) Ligand (PubChem PUG-View): UV/Vis peaks, wavenumbers, spectral features
-     → informs detectability / spectroscopic layer
+     -> informs detectability / spectroscopic layer
 """
 
 from __future__ import annotations
@@ -20,12 +20,15 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 
+# Boilerplate para resolver importaciones y rutas desde la raiz del proyecto
+PROJECT_ROOT = Path(__file__).resolve().parents[3] # retrocede desde src/scripts/scripts_data_real/ a la raiz
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
 def _iter_latest_raw_json() -> Iterable[Path]:
-    root = Path("data") / "raw" / "public_api"
+    root = PROJECT_ROOT / "data" / "raw" / "public_api"
     if not root.exists():
         return []
     runs = sorted([p for p in root.iterdir() if p.is_dir()])
@@ -77,9 +80,9 @@ def _iter_payload_pages(payload: Dict[str, Any]) -> Iterable[Dict[str, Any]]:
 
 
 def _write_progress(step: str, payload: Dict[str, str]) -> None:
-    analysis_dir = Path("analysis")
-    analysis_dir.mkdir(parents=True, exist_ok=True)
-    progress_path = analysis_dir / "_progress_curate_compact.json"
+    progress_dir = PROJECT_ROOT / "outputs_data" / "raw_json"
+    progress_dir.mkdir(parents=True, exist_ok=True)
+    progress_path = progress_dir / "_progress_curate_compact.json"
     blob: Dict[str, str] = {
         "script": "curate_compact.py",
         "step": step,
@@ -141,7 +144,7 @@ def _extract_rcsb_structural_row(
 
     Returns a row with:
         - entry_id, method, resolution_angstrom
-        - wilson_b_estimate (proxy for thermal/dynamic disorder → informs eta)
+        - wilson_b_estimate (proxy for thermal/dynamic disorder -> informs eta)
         - rfree, rfactor (quality indicators)
         - em_resolution (for cryo-EM entries)
         - experimental_method_count
@@ -154,7 +157,7 @@ def _extract_rcsb_structural_row(
     res_combined = _safe_get(payload, ["rcsb_entry_info", "resolution_combined"], [])
     resolution = str(res_combined[0]) if res_combined else ""
 
-    # Wilson B (thermal disorder proxy) — from validation report
+    # Wilson B (thermal disorder proxy) - from validation report
     vrpt_diff = payload.get("pdbx_vrpt_summary_diffraction", [])
     wilson_b = ""
     rfree = ""
@@ -281,9 +284,9 @@ def compute_structural_summary(structures: List[Dict[str, str]]) -> Dict[str, st
         q3 = wb_sorted[3 * n // 4]
         med = statistics.median(wb_vals)
         mn = statistics.mean(wb_vals)
-        # eta proxy: B-factor in Å² → <u²> in Å² → normalize to FMO reference
-        # FMO: B ~ 12 Å² → eta_FMO ~ 0.15 (literature)
-        # Tubulin: B_median → eta_proxy = eta_FMO * (B_median / B_FMO)
+        # eta proxy: B-factor in A^2 -> <u^2> in A^2 -> normalize to FMO reference
+        # FMO: B ~ 12 A^2 -> eta_FMO ~ 0.15 (literature)
+        # Tubulin: B_median -> eta_proxy = eta_FMO * (B_median / B_FMO)
         # This is a linear-response estimate, not a derived MD value.
         eta_fmo_ref = 0.15
         b_fmo_ref = 12.0
@@ -427,10 +430,10 @@ def _extract_spectral_quantities(
     )
     snr_match = re.search(r"(?:SNR|S/N|ratio)[^0-9]*(\d+(?:\.\d+)?)", text, flags=re.IGNORECASE)
     bic_match = re.search(
-        r"(?:Δ?\s*BIC|delta\s*BIC|Bayes)[^\-0-9]*(-?\d+(?:\.\d+)?)", text, flags=re.IGNORECASE
+        r"(?:Delta?\s*BIC|delta\s*BIC|Bayes)[^\-0-9]*(-?\d+(?:\.\d+)?)", text, flags=re.IGNORECASE
     )
     peak_match = re.search(
-        r"(?:peak|max(?:imum)?\.?(?:\s+at)?|λmax|absorption)[^0-9]*(\d+(?:\.\d+)?)\s*nm",
+        r"(?:peak|max(?:imum)?\.?(?:\s+at)?|lambdamax|absorption)[^0-9]*(\d+(?:\.\d+)?)\s*nm",
         text,
         flags=re.IGNORECASE,
     )
@@ -464,7 +467,7 @@ def curate_spectral_pubchem(
         wl = [x for x in wl_all if 150.0 <= x <= 1200.0]
 
         peak_matches = re.findall(
-            r"(?:peak|max(?:imum)?\.?(?:\s+at)?|λmax|absorption)[^0-9]*(\d+(?:\.\d+)?)\s*nm",
+            r"(?:peak|max(?:imum)?\.?(?:\s+at)?|lambdamax|absorption)[^0-9]*(\d+(?:\.\d+)?)\s*nm",
             text,
             flags=re.IGNORECASE,
         )
@@ -475,7 +478,7 @@ def curate_spectral_pubchem(
         )
         snr_match = re.search(r"(?:SNR|S/N|ratio)[^0-9]*(\d+(?:\.\d+)?)", text, flags=re.IGNORECASE)
         bic_match = re.search(
-            r"(?:Δ?\s*BIC|delta\s*BIC|Bayes)[^\-0-9]*(-?\d+(?:\.\d+)?)",
+            r"(?:Delta?\s*BIC|delta\s*BIC|Bayes)[^\-0-9]*(-?\d+(?:\.\d+)?)",
             text,
             flags=re.IGNORECASE,
         )
@@ -523,7 +526,7 @@ def curate_spectral_pubchem(
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    analysis_dir = Path("analysis")
+    analysis_dir = PROJECT_ROOT / "outputs_data" / "raw_csv"
     analysis_dir.mkdir(parents=True, exist_ok=True)
     print("[curate_compact] START")
     _write_progress("start", {})
@@ -610,7 +613,7 @@ def main() -> None:
             w.writerow({k: row.get(k, "") for k in struct_fields})
 
     # -----------------------------------------------------------------------
-    # Write bath_params_proxy.csv (B-factor → eta proxy)
+    # Write bath_params_proxy.csv (B-factor -> eta proxy)
     # Interpretation note is embedded in CSV as comment rows
     # -----------------------------------------------------------------------
     structural_summary = compute_structural_summary(structures)

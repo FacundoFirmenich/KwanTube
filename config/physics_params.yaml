@@ -1,0 +1,56 @@
+# physics_params.yaml — Parámetros físicos centralizados con trazabilidad de fuente
+# Patch v3.5.1 — Única fuente de verdad para build_hamiltonian.py y pipeline derivados.
+# REGLA: NO editar valores sin actualizar 'source' y 'uncertainty'.
+# Cualquier cambio aquí debe reflejarse en un commit con mensaje descriptivo (Conventional Commits).
+
+spectral_density:
+  lambda_cm:
+    value: 35.0
+    source: "Renger2009_Fig3"
+    uncertainty: 10.0
+    validated_for_tubulin: false
+    notes: "Reorganization energy Drude-Lorentz; estimado para proteína globular genérica"
+  gamma_cm:
+    value: 53.0
+    source: "protein_water_bath_estimate"
+    uncertainty: 15.0
+    notes: "Bath cutoff frequency; estimado para entorno proteína-agua a 300 K"
+
+dipole:
+  mu_trp_1La_D:
+    value: 2.0
+    source: "Callis1997_Fig2"
+    uncertainty: 0.3
+    notes: "Momento dipolar de transición 1La del Trp en proteína; Callis, Methods Enzymol. 278 (1997) 113-150"
+  epsilon_r_protein:
+    value: 2.0
+    source: "effective_screening_estimate"
+    uncertainty: 0.5
+    notes: "Constante dieléctrica efectiva en interior proteína; rango típico 2–4"
+
+energetics:
+  E0_cm1:
+    value: 35000.0
+    source: "Trp_1La_absorption_peak"
+    uncertainty: 500.0
+    notes: "Energía 0-0 de la transición 1La del Trp (~286 nm en agua)"
+  sigma_site_cm1:
+    value: 200.0
+    source: "Callis_Liu_2004_protein_disorder"
+    uncertainty: 50.0
+    notes: "Desorden estático gaussiano en proteína; Callis & Liu, J. Phys. Chem. B 108 (2004) 4248"
+
+constants:
+  prefactor_cm1_A3_D2:
+    value: 50400.0
+    source: "Madjet_Renger_2006_eq2"
+    uncertainty: 0.0
+    notes: >
+      Prefactor de acoplamiento dipolo-dipolo puntual: V[cm^-1] = C * kappa * mu[D]^2 / (epsilon * r[Å]^3).
+      Derivación: Madjet, Abdurakhmanov, Renger (2006) J. Phys. Chem. B 110:17268, ec. 2.
+      Valor exacto: 5.04e4 = 1 / (hc) * (1 D)^2 / (1 Å)^3 * conversión_CGS.
+  rng_seed:
+    value: 12345
+    source: "reproducibility_seed_fixed"
+    uncertainty: 0.0
+    notes: "Semilla fija para reproducibilidad del desorden estático. No modificar."

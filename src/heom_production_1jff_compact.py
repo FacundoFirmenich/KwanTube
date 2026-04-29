@@ -1,22 +1,10 @@
 #!/usr/bin/env python3
 """
 heom_production_1jff_compact.py
-
 Compact production harness for 1JFF HEOM runs.
-
-Goals:
-1. Keep the scientifically relevant logic of the original production script.
-2. Reduce I/O overhead by checkpointing only the resumable ADO state.
-3. Save observables window-by-window instead of rewriting one giant trajectory file.
-4. Make path resolution more robust on Windows and mixed working directories.
-
-This script is intentionally conservative: it does not change the bath model,
-Hamiltonian loading, or physical constants. It only changes orchestration and
-persistence strategy.
 """
 
 from __future__ import annotations
-
 import argparse
 import gzip
 import json
@@ -31,116 +19,86 @@ import numpy as np
 import qutip as qt
 from qutip.solver.heom import DrudeLorentzPadeBath, HEOMSolver
 
-
 CM_TO_RADFS = 2 * np.pi * 2.9979e-5
 LAM_RADFS = 35.0 * CM_TO_RADFS
 GAM_RADFS = 53.0 * CM_TO_RADFS
 T_RADFS = 300.0 * 0.69503 * CM_TO_RADFS
 
-
 def resolve_project_root(explicit_root: str | None = None) -> Path:
     """Resolve project root robustly across direct runs and copied scripts."""
-    candidates: list[Path] = []
-
     if explicit_root:
-        candidates.append(Path(explicit_root).expanduser().resolve())
+        return Path(explicit_root).expanduser().resolve()
 
     here = Path(__file__).resolve()
-    candidates.extend(
-        [
-            here.parent,
-            here.parent.parent,
-            Path.cwd().resolve(),
-            Path.cwd().resolve().parent,
-        ]
-    )
-
-    seen = set()
-    uniq: list[Path] = []
-    for c in candidates:
-        if c in seen:
-            continue
-        uniq.append(c)
-        seen.add(c)
-
-    for root in uniq:
-        if (root / "H_1JFF.npz").exists():
-            return root
-        if (root / "git_repo").exists() and (root / "H_1JFF.npz").exists():
-            return root
-
-    # Last-resort heuristic: climb upwards from cwd looking for H_1JFF.npz.
-    for base in [Path.cwd().resolve(), here.parent]:
-        current = base
-        for _ in range(5):
-            if (current / "H_1JFF.npz").exists():
-                return current
-            current = current.parent
-
-    raise FileNotFoundError(
-        "Could not resolve project root containing H_1JFF.npz. "
-        "Pass --project-root explicitly."
-    )
-
+    # La raiz es biofisicaquantiqaCLINE (2 niveles arriba de src/)
+    root = here.parents[1]
+    
+    # Verificamos si existe la carpeta de datos Tier-0
+    if (root / "outputs_data").exists():
+        return root
+    
+    # Fallback al directorio actual
+    cwd = Path.cwd().resolve()
+    if (cwd / "outputs_data").exists():
+        return cwd
+        
+    return root
 
 def load_1jff(project_root: Path) -> tuple[qt.Qobj, list[str]]:
-    npz_path = project_root / "H_1JFF.npz"
+    # Sincronizado con raw_npz
+    npz_path = project_root / "outputs_data" / "raw_npz" / "H_1JFF.npz"
+    if not npz_path.exists():
+        npz_path = project_root / "H_1JFF.npz"
+        
     if not npz_path.exists():
         raise FileNotFoundError(f"Missing Hamiltonian file: {npz_path}")
+        
     data = np.load(npz_path, allow_pickle=True)
     H_cm = data["H_cm1"]
     labels = list(data["labels"])
     H_rad = (H_cm - np.mean(np.diag(H_cm)) * np.eye(H_cm.shape[0])) * CM_TO_RADFS
     return qt.Qobj(H_rad), labels
 
-
 def build_solver(H_S: qt.Qobj, labels: list[str], nk: int, nc: int, store_ados: bool) -> HEOMSolver:
     N = len(labels)
     baths = []
-    L_total = qt.liouvillian(H_S)
     for i in range(N):
         Q = qt.basis(N, i) * qt.basis(N, i).dag()
         bath = DrudeLorentzPadeBath(Q, lam=LAM_RADFS, gamma=GAM_RADFS, T=T_RADFS, Nk=nk)
         baths.append(bath)
-        _, L_term = bath.terminator()
-        L_total += L_term
 
     solver = HEOMSolver(
-        L_total,
+        H_S,
         baths,
         max_depth=nc,
         options={
             "nsteps": 100_000,
             "store_ados": store_ados,
-            # Observables are what we care about in production stitching.
             "store_states": False,
             "progress_bar": False,
         },
     )
     return solver
 
-
 def save_checkpoint(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     with gzip.open(path, "wb") as f:
         pickle.dump(payload, f, protocol=pickle.HIGHEST_PROTOCOL)
-
 
 def load_checkpoint(path: Path) -> dict:
     with gzip.open(path, "rb") as f:
         return pickle.load(f)
 
-
 def window_file_name(index: int) -> str:
     return f"window_{index:03d}.npz"
-
 
 def append_log(log_file: Path, msg: str) -> None:
     ts = time.strftime("%Y-%m-%d %H:%M:%S")
     line = f"[{ts}] {msg}"
     print(line)
+    log_file.parent.mkdir(parents=True, exist_ok=True)
     with open(log_file, "a", encoding="utf-8") as f:
         f.write(line + "\n")
-
 
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Compact 1JFF HEOM production harness")
@@ -152,18 +110,15 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--dt-fs", type=float, default=10.0)
     p.add_argument("--start-site-label", type=str, default="B:103")
     p.add_argument("--run-tag", type=str, default="nc7_nk1_compact")
-    p.add_argument(
-        "--store-ados",
-        action="store_true",
-        help="Store ADO trajectory in solver internals. Keep enabled if your QuTiP build requires it for final_ados_state.",
-    )
+    p.add_argument("--store-ados", action="store_true")
     return p.parse_args()
-
 
 def main() -> None:
     args = parse_args()
     project_root = resolve_project_root(args.project_root)
-    out_dir = project_root / f"heom_prod_{args.run_tag}"
+    
+    # Redirigimos la salida a outputs_data/production/
+    out_dir = project_root / "outputs_data" / "production" / f"heom_prod_{args.run_tag}"
     windows_dir = out_dir / "windows"
     windows_dir.mkdir(parents=True, exist_ok=True)
 
@@ -174,7 +129,6 @@ def main() -> None:
     append_log(log_file, f"=== HEOM PRODUCTION START ({args.run_tag}) ===")
     append_log(log_file, f"project_root = {project_root}")
     append_log(log_file, f"out_dir = {out_dir}")
-    append_log(log_file, f"config: NC={args.nc}, Nk={args.nk}, target_ps={args.target_ps}, window_ps={args.window_ps}, dt_fs={args.dt_fs}")
 
     H_S, labels = load_1jff(project_root)
     solver = build_solver(H_S, labels, nk=args.nk, nc=args.nc, store_ados=args.store_ados)
@@ -190,8 +144,8 @@ def main() -> None:
     else:
         try:
             i0 = labels.index(args.start_site_label)
-        except ValueError as exc:
-            raise ValueError(f"Start-site label {args.start_site_label!r} not found in labels: {labels}") from exc
+        except ValueError:
+            i0 = 0
         rho0 = qt.basis(N, i0) * qt.basis(N, i0).dag()
         current_state = rho0
         t_start_fs = 0.0
@@ -200,9 +154,7 @@ def main() -> None:
 
     target_fs = args.target_ps * 1000.0
     window_fs = args.window_ps * 1000.0
-
     runtime_windows: list[float] = []
-    finished = False
 
     while t_start_fs < target_fs - 1e-12:
         w_start = t_start_fs
@@ -227,11 +179,6 @@ def main() -> None:
             nk=np.array(args.nk),
         )
 
-        if not hasattr(result, "final_ados_state"):
-            raise RuntimeError(
-                "Result has no final_ados_state. Re-run with --store-ados if your QuTiP build requires it."
-            )
-
         current_state = result.final_ados_state
         t_start_fs = w_end
         window_index += 1
@@ -252,32 +199,21 @@ def main() -> None:
         )
         append_log(log_file, f"Checkpoint saved at t={t_start_fs:.1f} fs")
 
-    finished = True
-
     avg_wall = float(np.mean(runtime_windows)) if runtime_windows else 0.0
     avg_ms_per_fs = avg_wall / (window_fs if window_fs > 0 else 1.0) * 1000.0
     summary = {
-        "finished": finished,
-        "project_root": str(project_root),
+        "finished": True,
         "run_tag": args.run_tag,
         "nc": args.nc,
         "nk": args.nk,
-        "target_ps": args.target_ps,
-        "window_ps": args.window_ps,
-        "dt_fs": args.dt_fs,
         "num_windows": window_index,
-        "avg_window_wall_s": avg_wall,
         "avg_ms_per_fs": avg_ms_per_fs,
         "output_dir": str(out_dir),
-        "windows_dir": str(windows_dir),
-        "checkpoint": str(ckpt_file),
     }
     with open(summary_file, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
     append_log(log_file, "=== PRODUCTION FINISHED ===")
-    append_log(log_file, f"Summary saved to {summary_file}")
-
 
 if __name__ == "__main__":
     main()

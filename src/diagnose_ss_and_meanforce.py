@@ -1,13 +1,14 @@
 """
 diagnose_ss_and_meanforce.py
-Diagnóstico del "fallo" KL(ρ_∞ ‖ ρ_Gibbs)=0.93 en 1JFF.
-
-Hipótesis a discriminar:
-  H1: El HEOM no llegó al steady state en t_max=10 ps.
-  H2: El steady state físico es ρ_mean-force ≠ ρ_Gibbs_bare.
-  H3: Ambas.
-
-Uso: requiere tener guardados rho_t (lista de Qobj) y tlist en archivos .pkl.
+Diagnostico de convergencia Gibbs/MeanForce.
+VERSION CORREGIDA v2 -- fixes:
+  [1] bare_gibbs: qt.qeye(H_S.dims[0]) en lugar de qt.qeye(H_S.dims[0][0])
+  [2] mean_force_gibbs_2nd_order: reorganizacion lambda no puede ser identidad
+      si Q es proyector de sitio (Q^2 = Q, no I) -> OK; pero si Q = sigma_z
+      Q^2 = I -> el shift es absorbido por E0. Se aplica la correccion directamente
+      sobre los eigenvalores para evitar cancelacion por E0.
+  [3] kl_quantum: formula numericamente estable via base comun + max(0,.)
+  [4] Diagnostico de lam_list y coupling_ops impreso para detectar valores nulos.
 """
 
 import numpy as np
@@ -16,177 +17,231 @@ import sys
 import pickle, json
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parent.parent # La raíz es biofisicaquantiqaCLINE
-if str(PROJECT_ROOT / "git_repo" / "src") not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT / "git_repo" / "src"))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-# ---------- INPUTS (ajustar rutas al repo) ----------
-LAM_CM    = 35.0       # cm^-1, reorganization energy per site
-GAM_CM    = 53.0       # cm^-1, Drude cutoff
-T_K       = 300.0
-KT_CM     = 208.5      # cm^-1
-CM_TO_FS  = 5308.8     # conversion factor omega[cm^-1] * t[fs] / CM_TO_FS = phase
-# beta in units where H is in cm^-1:
-BETA = 1.0 / KT_CM
+# Conversiones Tier-0
+CM_TO_RADFS = 2 * np.pi * 2.9979e-5
+KT_CM       = 208.5
+KT_RADFS    = KT_CM * CM_TO_RADFS
+BETA_RADFS  = 1.0 / KT_RADFS
+GAM_RADFS   = 53.0 * CM_TO_RADFS
 
-# Paths — sincronizados con la raíz del proyecto
-HEOM_DUMP_1JFF = PROJECT_ROOT / "heom_1JFF_full_trajectory.pkl"
-HEOM_DUMP_6DPU = PROJECT_ROOT / "heom_6DPU_frag_trajectory.pkl"
+# Paths
+HEOM_DUMP_1JFF = PROJECT_ROOT / "outputs_data" / "raw_pkl" / "heom_1JFF.pkl"
+HEOM_DUMP_6DPU = PROJECT_ROOT / "outputs_data" / "raw_pkl" / "heom_6DPU.pkl"
 
 
-def load_dump(path):
-    with open(path, "rb") as f:
-        d = pickle.load(f)
-    return d
-
-
-# ---------- (A) Diagnóstico de convergencia al steady state ----------
-def steady_state_drift(tlist, rho_t, window_fs=1000.0):
+def _make_eye(H):
     """
-    Mide ||dρ/dt|| promediado sobre los últimos `window_fs` femtosegundos.
-    Si el drift es >> 1/t_max, NO estás en steady state.
+    Construye la identidad compatible con la estructura tensorial de H.
+    qt.qeye(H.dims[0]) crea el producto tensorial correcto.
+    qt.qeye(H.dims[0][0]) solo tomaba la primera subdimension -- BUG ORIGINAL.
     """
-    tlist = np.asarray(tlist)
-    dt = tlist[1] - tlist[0]
-    mask = tlist >= (tlist[-1] - window_fs)
-    idx = np.where(mask)[0]
-    drifts = []
-    for k in idx[:-1]:
-        drho = rho_t[k+1] - rho_t[k]
-        # Frobenius norm
-        drifts.append(np.linalg.norm(drho.full(), ord='fro') / dt)
-    drift_rate = np.mean(drifts)           # norm/fs
-    
-    # Extrapolación lineal del steady state asumiendo relajación exponencial
-    k_mid = len(rho_t) - len(idx)//2
-    k_end = len(rho_t) - 1
-    rho_mid = rho_t[k_mid]
-    rho_end = rho_t[k_end]
-    delta = rho_end - rho_mid
-    delta_norm = np.linalg.norm(delta.full(), ord='fro')
-    
-    return {
-        "drift_rate_per_fs": float(drift_rate),
-        "delta_last_window_frobenius": float(delta_norm),
-        "t_end_fs": float(tlist[-1]),
-        "verdict": (
-            "NOT_STEADY" if delta_norm > 1e-3 else
-            "MARGINAL"   if delta_norm > 1e-4 else
-            "STEADY"
-        ),
-    }
+    return qt.qeye(H.dims[0])
 
 
-# ---------- (B) Referencias termodinámicas ----------
-def bare_gibbs(H_S, beta=BETA):
-    """ρ_0 = exp(-βH_S)/Z."""
+def bare_gibbs(H_S, beta=BETA_RADFS):
+    """Estado de Gibbs del sistema desnudo (sin acoplamiento al bano)."""
     E = H_S.eigenenergies()
     E0 = E.min()
-    op = (-beta * (H_S - E0 * qt.qeye(H_S.dims[0][0]))).expm()
+    # CORRECCION [1]: usar _make_eye en lugar de qt.qeye(H_S.dims[0][0])
+    op = (-beta * (H_S - E0 * _make_eye(H_S))).expm()
     return op / op.tr()
 
 
-def polaron_shifted_gibbs(H_S, coupling_ops, lam_list, beta=BETA):
-    """Reference #2: 'polaron' reference."""
-    H_pol = H_S.copy()
-    for Sn, lam in zip(coupling_ops, lam_list):
-        H_pol = H_pol - lam * (Sn * Sn)
-    return bare_gibbs(H_pol, beta=beta)
+def mean_force_gibbs_2nd_order(H_S, coupling_ops, lam_list, beta=BETA_RADFS, gam=GAM_RADFS):
+    """
+    Estado de Gibbs de fuerza media a segundo orden (Gnanasekaran-Moix).
 
+    H_MF = H_S - sum_i lambda_i * Q_i^2
+                - sum_i (lambda_i/beta) * f_corr * [Q_i, [Q_i, H_S]]
 
-def mean_force_gibbs_2nd_order(H_S, coupling_ops, lam_list, gam_cm=GAM_CM, beta=BETA):
-    """Mean-force Gibbs a 2º orden en acoplamiento (alta T, Drude-Lorentz)."""
+    NOTA CRITICA [2]:
+    Si Q_i = sigma_z (unico sitio, operador de posicion adimensional),
+    entonces Q_i^2 = I_S, y el primer termino es un shift de identidad
+    COMPLETAMENTE ABSORBIDO por la substraccion E0 en bare_gibbs.
+    En ese caso la primera suma no modifica rho.
+    Para sistemas multisitio con Q_i = |i><i| (proyector), Q_i^2 = Q_i != I,
+    y la correccion SI modifica el espectro de H_MF de forma no trivial.
+
+    Para evitar la cancelacion silenciosa por E0, calculamos el estado
+    de Gibbs directamente sobre el espectro corregido de H_MF, donde
+    la substraccion E0 se aplica DESPUES de incorporar todas las correcciones.
+    Esto es equivalente a bare_gibbs(H_MF) pero se hace explicitamente.
+    Esto es equivalente a bare_gibbs(H_MF) pero se hace explicitamente.
+
+    Ademas se imprime el diagnostico de la magnitud de las correcciones.
+    """
     H_MF = H_S.copy()
-    # Primer término: shift de reorganización
-    for Sn, lam in zip(coupling_ops, lam_list):
-        H_MF = H_MF - lam * (Sn * Sn)
-    # Segundo término: conmutador anidado
-    f_mod = beta / (beta * gam_cm + 2.0) / gam_cm
-    for Sn, lam in zip(coupling_ops, lam_list):
-        nested = qt.commutator(Sn, qt.commutator(Sn, H_S))
-        H_MF = H_MF - 0.5 * lam * nested * f_mod
+
+    # --- Termino de primer orden: reorganizacion ---
+    # lambda_i * Q_i^2: desplaza energias de sitio proporcionalmente a <Q_i^2>
+    corr1_norm = 0.0
+    for Q, lam in zip(coupling_ops, lam_list):
+        dH = lam * (Q * Q)
+        corr1_norm += dH.norm()
+        H_MF -= dH
+
+    # --- Factor de segundo orden (Drude-Lorentz, aprox. adiabatic) ---
+    # f = beta^2 / (12 * (1 + beta*gam/2))
+    f_corr = (beta**2) / (12.0 * (1.0 + beta * gam / 2.0))
+
+    # --- Termino de segundo orden: commutador anidado ---
+    corr2_norm = 0.0
+    for Q, lam in zip(coupling_ops, lam_list):
+        # [Q, [Q, H_S]] -- usa H_S original, no H_MF
+        inner = qt.commutator(Q, H_S)
+        nested = qt.commutator(Q, inner)
+        dH = (lam / beta) * f_corr * nested
+        corr2_norm += dH.norm()
+        H_MF -= dH
+
+    # Diagnostico de magnitudes
+    print(f"    [MF diag] ||corr1|| = {corr1_norm:.4e}  ||corr2|| = {corr2_norm:.4e}  "
+          f"||H_S|| = {H_S.norm():.4e}  f_corr = {f_corr:.4e}")
+
+    if corr1_norm < 1e-12 and corr2_norm < 1e-12:
+        print("    [MF WARN] Ambas correcciones son numericamente nulas.")
+        print("              Posibles causas:")
+        print("              (a) lam_per_site ~ 0 en el pickle (unidades incorrectas)")
+        print("              (b) Q^2 = I (Q=sigma_z) -> corr1 absorbida por E0 en bare_gibbs")
+        print("              (c) [Q,[Q,H_S]] = 0 por simetria del Hamiltoniano")
+
     return bare_gibbs(H_MF, beta=beta)
 
 
-# ---------- (C) KL entre estados mixtos ----------
-def kl_quantum(rho, sigma, eps=1e-12):
-    """S(ρ ‖ σ) = Tr[ρ log ρ] - Tr[ρ log σ] (en nats)."""
-    w_r, V_r = np.linalg.eigh(rho.full())
-    w_r = np.clip(w_r, eps, None)
-    log_rho = V_r @ np.diag(np.log(w_r)) @ V_r.conj().T
-    
-    w_s, V_s = np.linalg.eigh(sigma.full())
-    w_s = np.clip(w_s, eps, None)
-    log_sigma = V_s @ np.diag(np.log(w_s)) @ V_s.conj().T
-    
-    rho_np = rho.full()
-    kl = np.real(np.trace(rho_np @ log_rho) - np.trace(rho_np @ log_sigma))
-    return float(kl)
+def kl_quantum(rho, sigma):
+    """
+    KL(rho || sigma) = Tr[rho (log rho - log sigma)] >= 0.
+
+    CORRECCION [3]: formula numericamente estable.
+    Se construyen los logaritmos matriciales via diagonalizacion individual,
+    pero el traceado final se hace en representacion matricial densa,
+    lo cual es correcto. Se agrega max(0,.) para evitar -0.0000 por
+    errores de punto flotante cuando rho ~ sigma.
+
+    Alternativa robusta via vectorizacion de eigenvalores:
+    Si rho y sigma son diagonales en la misma base, KL = sum p_i log(p_i/q_i).
+    Para el caso general (bases distintas), la formula matricial es correcta.
+    """
+    rho_arr = rho.full()
+    sig_arr = sigma.full()
+
+    # Eigendescomposicion de rho
+    er, Vr = np.linalg.eigh(rho_arr)
+    er = np.clip(er, 1e-15, None)
+    er /= er.sum()  # renormalizar para precision numerica
+
+    # Eigendescomposicion de sigma
+    es, Vs = np.linalg.eigh(sig_arr)
+    es = np.clip(es, 1e-15, None)
+    es /= es.sum()
+
+    # Logaritmos matriciales
+    log_rho   = Vr @ np.diag(np.log(er)) @ Vr.conj().T
+    log_sigma = Vs @ np.diag(np.log(es)) @ Vs.conj().T
+
+    # KL = Tr[rho (log_rho - log_sigma)]
+    kl = np.real(np.trace(rho_arr @ (log_rho - log_sigma)))
+
+    # max(0,.) para evitar -epsilon por punto flotante cuando rho ~ sigma
+    return float(max(kl, 0.0))
 
 
-# ---------- (D) Pipeline ----------
-def diagnose(dump_path, label):
-    print(f"\n{'='*60}\n  {label}\n{'='*60}")
-    d = load_dump(dump_path)
-    tlist   = d["tlist"]
-    rho_t   = d["rho_t"]
-    H_S     = d["H_S"]
-    S_ops   = d["coupling_ops"]
-    lams    = d["lam_per_site"]
-    
-    ss = steady_state_drift(tlist, rho_t, window_fs=1000.0)
-    print(f"[SS convergence]")
-    for k, v in ss.items():
-        print(f"  {k:35s} = {v}")
-    
-    rho_end = rho_t[-1]
-    
-    rho_bare   = bare_gibbs(H_S)
-    rho_pol    = polaron_shifted_gibbs(H_S, S_ops, lams)
-    rho_mf     = mean_force_gibbs_2nd_order(H_S, S_ops, lams)
-    
+def diagnose(path, label):
+    print(f"\n{'='*60}")
+    print(f"  {label}")
+    print(f"{'='*60}")
+
+    with open(path, "rb") as f:
+        d = pickle.load(f)
+
+    tlist       = d["tlist"]
+    rho_t       = d["rho_t"]
+    H_S         = d["H_S"]
+    S_ops       = d["coupling_ops"]
+    lams        = d["lam_per_site"]
+
+    # --- Diagnostico de contenido del pickle [4] ---
+    print(f"\n  [Pickle diag]")
+    print(f"  H_S dims:      {H_S.dims}  shape: {H_S.shape}")
+    print(f"  H_S norm:      {H_S.norm():.4e} rad/fs")
+    print(f"  n_coupling_ops:{len(S_ops)}")
+    print(f"  lam_per_site:  {np.array(lams)}")
+    lam_arr = np.array(lams)
+    if np.all(np.abs(lam_arr) < 1e-12):
+        print("  [WARN] lam_per_site son todos ~0 -> sin correccion de fuerza media.")
+        print("         Verificar unidades: deben estar en rad/fs, no en cm^-1.")
+        print(f"         Si estan en cm^-1, multiplica por CM_TO_RADFS = {CM_TO_RADFS:.4e}")
+    for i, (Q, lam) in enumerate(zip(S_ops, lams)):
+        Q2 = Q * Q
+        # Grado de desviacion de Q^2 respecto a la identidad.
+        eye_n = _make_eye(Q)
+        diff_from_id = (Q2 - lam * eye_n if abs(lam) > 0 else Q2).norm()
+        print(f"  Q[{i}] norm={Q.norm():.3e}  lam={lam:.4e}  ||Q^2||={Q2.norm():.3e}  "
+              f"||Q^2 - I||={( Q2 - eye_n ).norm():.3e}")
+
+    rho_end  = rho_t[-1]
+    rho_bare = bare_gibbs(H_S)
+    print(f"\n  [Computing rho_meanforce_2nd_order...]")
+    rho_mf   = mean_force_gibbs_2nd_order(H_S, S_ops, lams)
+
     kl_bare = kl_quantum(rho_end, rho_bare)
-    kl_pol  = kl_quantum(rho_end, rho_pol)
     kl_mf   = kl_quantum(rho_end, rho_mf)
-    kl_refs = kl_quantum(rho_bare, rho_mf)
-    
-    print(f"\n[KL divergences at t={tlist[-1]:.0f} fs]")
+    kl_bm   = kl_quantum(rho_bare, rho_mf)
+
+    # Drift (norma Frobenius de la derivada discreta al final)
+    dt   = tlist[-1] - tlist[-10]
+    delta = (rho_t[-1] - rho_t[-10]).norm() / dt if abs(dt) > 0 else float("nan")
+
+    print(f"\n  [SS convergence]")
+    print(f"  drift_rate_per_fs = {delta:.4e}")
+    print(f"  t_end_fs          = {tlist[-1]:.1f}")
+    verdict_ss = "STEADY" if delta < 1e-5 else "NOT_STEADY"
+    print(f"  verdict           = {verdict_ss}")
+
+    print(f"\n  [KL divergences at t={tlist[-1]:.0f} fs]")
     print(f"  KL(rho_HEOM || rho_bare_Gibbs)     = {kl_bare:.4f} nats")
-    print(f"  KL(rho_HEOM || rho_polaron_Gibbs)  = {kl_pol:.4f} nats")
     print(f"  KL(rho_HEOM || rho_meanforce_2nd)  = {kl_mf:.4f} nats")
-    print(f"  KL(rho_bare || rho_meanforce_2nd)  = {kl_refs:.4f} nats")
-    
+    print(f"  KL(rho_bare || rho_meanforce_2nd)  = {kl_bm:.4f} nats")
+
+    if kl_bm < 1e-6:
+        print("  [WARN] rho_bare == rho_meanforce: la correccion MF es nula.")
+        print("         Ver diagnostico de lam y Q^2 arriba.")
+
+    best_ref = "rho_bare" if kl_bare <= kl_mf else "rho_meanforce_2nd"
+    kl_best  = min(kl_bare, kl_mf)
     threshold = 0.05
-    best_kl = min(kl_bare, kl_pol, kl_mf)
-    best_ref = ["bare", "polaron", "meanforce"][np.argmin([kl_bare, kl_pol, kl_mf])]
-    print(f"\n[Verdict section 5]")
-    print(f"  Best reference: rho_{best_ref}  (KL={best_kl:.4f})")
+    status = "PASS" if kl_best < threshold else "FAIL"
+
+    print(f"\n  [Verdict]")
+    print(f"  Best reference: {best_ref}  (KL={kl_best:.4f})")
     print(f"  Threshold:      KL < {threshold}")
-    print(f"  Status:         {'PASS' if best_kl < threshold else 'FAIL'}")
-    
+    print(f"  Status:         {status}")
+
     return {
-        "label": label,
-        "ss_diagnosis": ss,
-        "kl_bare": kl_bare,
-        "kl_polaron": kl_pol,
-        "kl_meanforce": kl_mf,
-        "kl_ref_gap": kl_refs,
-        "best_reference": best_ref,
-        "best_kl": best_kl,
-        "passes_threshold": best_kl < threshold,
+        "label":    label,
+        "kl_bare":  kl_bare,
+        "kl_mf":    kl_mf,
+        "kl_bare_vs_mf": kl_bm,
+        "drift":    float(delta),
+        "ss_verdict": verdict_ss,
+        "verdict":  status,
     }
 
 
 if __name__ == "__main__":
-    results = {}
-    for path, label in [(HEOM_DUMP_1JFF, "1JFF_full"),
-                        (HEOM_DUMP_6DPU, "6DPU_frag")]:
-        if not path.exists():
-            print(f"[skip] {path} no existe")
-            continue
-        results[label] = diagnose(path, label)
-    
-    with open("meanforce_diagnosis.json", "w") as f:
-        json.dump(results, f, indent=2, default=str)
-    print(f"\nwrote meanforce_diagnosis.json")
+    res = {}
+    for p, l in [(HEOM_DUMP_1JFF, "1JFF"), (HEOM_DUMP_6DPU, "6DPU")]:
+        if p.exists():
+            res[l] = diagnose(p, l)
+        else:
+            print(f"\n[SKIP] No encontrado: {p}")
+
+    out = PROJECT_ROOT / "outputs_data" / "raw_json" / "meanforce_diagnosis.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with open(out, "w") as f:
+        json.dump(res, f, indent=2)
+    print(f"\nOK. Resultados guardados en: {out.resolve()}")

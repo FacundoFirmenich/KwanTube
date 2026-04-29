@@ -8,8 +8,8 @@ import json
 import sys
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
@@ -29,7 +29,7 @@ def scan_study(study: StudyRecord, priors: list[float]) -> list[float]:
     return bfs
 
 def run_sensitivity():
-    print("Iniciando Análisis de Sensibilidad de Priors...")
+    print("Iniciando Analisis de Sensibilidad de Priors...")
     
     # --- Babcock Sensitivity (Log-ratio scale) ---
     babcock_priors = np.logspace(-1, 1, 15)
@@ -67,7 +67,7 @@ def run_sensitivity():
     ax.grid(True, which="both", ls="-", alpha=0.2)
 
     fig.tight_layout()
-    out_dir = Path("figures_final")
+    out_dir = PROJECT_ROOT / "figures_final"
     out_dir.mkdir(exist_ok=True)
     for ext in ("png", "pdf"):
         fig.savefig(out_dir / f"prior_sensitivity.{ext}", dpi=600)
@@ -91,18 +91,24 @@ def run_sensitivity():
         }
     }
     
-    with open("prior_sensitivity.json", "w") as f:
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "prior_sensitivity.json"
+    with open(out_path, "w") as f:
         json.dump(summary, f, indent=2)
         
     return summary
 
 if __name__ == "__main__":
     report = run_sensitivity()
+    out_dir = PROJECT_ROOT / "figures_final"
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "prior_sensitivity.json"
+    
     print("\n=== RESUMEN DE SENSIBILIDAD DEL PRIOR ===")
     print(f"Babcock 2024: BF10 min={report['babcock']['min_bf']:.1f}, max={report['babcock']['max_bf']:.1f}")
-    print(f"   -> ¿Es robusto (>100)?: {'SÍ' if report['babcock']['remains_decisive'] else 'NO'}")
+    status_b = "SI" if report["babcock"]["remains_decisive"] else "NO"
+    print(f"   -> Es robusto (>100): {status_b}")
     
     print(f"Kalra 2024:   BF10 min={report['kalra']['min_bf']:.1f}, max={report['kalra']['max_bf']:.1f}")
-    print(f"   -> ¿Es robusto (>10)?:  {'SÍ' if report['kalra']['remains_decisive_kalra'] else 'NO'}")
+    status_k = "SI" if report["kalra"]["remains_decisive_kalra"] else "NO"
+    print(f"   -> Es robusto (>10):  {status_k}")
     
-    print("\nResultados guardados en: prior_sensitivity.json y figures_final/prior_sensitivity.png")
+    print(f"\nResultados guardados en: {out_path} y {out_dir}/prior_sensitivity.png")

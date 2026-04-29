@@ -1,41 +1,47 @@
 """Generate mechanism-specific comparative panels using empirical bath parameters.
 
-For each non-equilibrium mechanism (Fröhlich, QED cavity, subradiance) this script:
+For each non-equilibrium mechanism (Froehlich, QED cavity, subradiance) this script:
   1. Computes the coherence utility U_phys = K * tau_coh / tau_func
   2. Derives the required amplification K_req = tau_func / tau_coh
   3. Incorporates the empirically validated eta proxy from structural data
   4. Generates mechanism-specific detectability scores tied to experimental signatures
-  5. Produces the comparative panel table used in §3.4 / Table 1 annotations
+  5. Produces the comparative panel table used in Section3.4 / Table 1 annotations
 
 Physical parameter definitions:
   - tau_eq       : equilibrium coherence time (calibrated: 39.1 fs)
-  - tau_frohlich : Fröhlich driven mode coherence (10–100 ps)
-  - tau_qed      : QED cavity coherence (0.1–1 µs)
-  - tau_sub      : subradiant coherence (10 ps – 10 s, Babcock 2024)
+  - tau_froehlich : Froehlich driven mode coherence (10-100 ps)
+  - tau_qed      : QED cavity coherence (0.1-1 us)
+  - tau_sub      : subradiant coherence (10 ps - 10 s, Babcock 2024)
   - tau_func     : neural functional timescale (25 ms canonical)
   - K            : amplification cascade factor (unknown; K_req computed)
 """
 
 from __future__ import annotations
+import sys
+
+# Boilerplate para resolver importaciones y rutas desde la raiz del proyecto
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parents[3] # retrocede desde src/scripts/scripts_data_real/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 import csv
 import math
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Dict, List, Optional
 
 
 # ---------------------------------------------------------------------------
 # Physical constants (SI)
 # ---------------------------------------------------------------------------
-HBAR_SI = 1.0545718e-34       # J·s
+HBAR_SI = 1.0545718e-34       # J*s
 KB_SI = 1.380649e-23           # J/K
 T_BODY_K = 310.0               # K
-TAU_FUNC_S = 25e-3             # 25 ms neural functional timescale (paper §3.3)
-TAU_EQ_S = 39.1e-15            # Calibrated equilibrium T2* = 39.1 fs (paper §2.2)
-# alpha = eta * omega_c / (pi) normalized  — used in FDT bound
-ETA_CENTRAL = 0.3              # paper central value §2.1.1
-OMEGA_C_CENTRAL_CM1 = 150.0   # cm⁻¹, paper central value §2.1.1
+TAU_FUNC_S = 25e-3             # 25 ms neural functional timescale (paper Section3.3)
+TAU_EQ_S = 39.1e-15            # Calibrated equilibrium T2* = 39.1 fs (paper Section2.2)
+# alpha = eta * omega_c / (pi) normalized  - used in FDT bound
+ETA_CENTRAL = 0.3              # paper central value Section2.1.1
+OMEGA_C_CENTRAL_CM1 = 150.0   # cm^-1, paper central value Section2.1.1
 
 
 # ---------------------------------------------------------------------------
@@ -62,9 +68,9 @@ def _read_csv_single(path: Path) -> Optional[Dict[str, str]]:
 
 
 def _write_progress(step: str, payload: Dict[str, str]) -> None:
-    analysis_dir = Path("analysis")
-    analysis_dir.mkdir(parents=True, exist_ok=True)
-    p = analysis_dir / "_progress_run_comparative_panels.json"
+    progress_dir = PROJECT_ROOT / "outputs_data" / "raw_json"
+    progress_dir.mkdir(parents=True, exist_ok=True)
+    p = progress_dir / "_progress_run_comparative_panels.json"
     blob: Dict[str, str] = {
         "script": "run_comparative_panels.py",
         "step": step,
@@ -81,7 +87,7 @@ def _write_progress(step: str, payload: Dict[str, str]) -> None:
 def _fdt_ceiling(eta: float, omega_c_cm1: float, T_K: float) -> float:
     """FDT pure-dephasing ceiling: tau_coh <= hbar / (alpha * kB * T).
 
-    alpha = eta (Ohmic bath dimensionless coupling, from §3.2 paper).
+    alpha = eta (Ohmic bath dimensionless coupling, from Section3.2 paper).
     Returns tau_coh in seconds.
     """
     alpha = eta
@@ -94,7 +100,7 @@ def _utility(tau_coh_s: float, tau_func_s: float, K: float) -> float:
 
 
 def _k_req(tau_coh_s: float, tau_func_s: float) -> float:
-    """K_req = tau_func / tau_coh — required amplification for U>=1."""
+    """K_req = tau_func / tau_coh - required amplification for U>=1."""
     if tau_coh_s <= 0:
         return float("inf")
     return tau_func_s / tau_coh_s
@@ -135,7 +141,7 @@ def _compute_mechanism_panel(
     gap_ratio = tau_coh_central_s / TAU_EQ_S
 
     # Falsifiability score: 1 = directly falsifiable by experiment in paper
-    # Based on Table tab:mechanism_discrimination in §6
+    # Based on Table tab:mechanism_discrimination in Section6
     falsifiability_map = {
         "frohlich": 0.9,       # Experiment 5: THz linewidth beta
         "qed_cavity": 0.85,    # Experiment 4: UV/THz doublet
@@ -183,7 +189,7 @@ def _compute_mechanism_panel(
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    analysis_dir = Path("analysis")
+    analysis_dir = PROJECT_ROOT / "outputs_data" / "raw_csv"
     analysis_dir.mkdir(parents=True, exist_ok=True)
     print("[run_comparative_panels] START")
     _write_progress("start", {})
@@ -233,9 +239,9 @@ def main() -> None:
     # -----------------------------------------------------------------------
     # Mechanism-specific panels
     # Physical parameters from paper:
-    # - Fröhlich (§4.1): tau ~ 10-100 ps, K_bio ~ 10^7-10^8 (needed)
-    # - QED cavity (§4.2): tau ~ 0.1-1 µs, K_bio ~ 10^4-10^5
-    # - Subradiance (§4.3): tau ~ 10 ps to 10 s (Babcock), K_bio ~ 10^3-10^4
+    # - Froehlich (Section4.1): tau ~ 10-100 ps, K_bio ~ 10^7-10^8 (needed)
+    # - QED cavity (Section4.2): tau ~ 0.1-1 us, K_bio ~ 10^4-10^5
+    # - Subradiance (Section4.3): tau ~ 10 ps to 10 s (Babcock), K_bio ~ 10^3-10^4
     # - Equilibrium baseline: tau = 39.1 fs
     # -----------------------------------------------------------------------
 
@@ -253,14 +259,14 @@ def main() -> None:
         mean_iqi_filtered=_mean_iqi_for_technique("2d-ir"),
         eta_proxy=eta_proxy, omega_c_cm1=omega_c_proxy,
         notes=(
-            "Calibrated Ohmic T2*=39.1fs at eta=0.1 (§2.2). "
+            "Calibrated Ohmic T2*=39.1fs at eta=0.1 (Section2.2). "
             "FDT ceiling: U_eq << 1 for all realistic K. "
-            "Vibronic 2D-IR cross-peak ~3-5%% detectable (S~1, theta~0.3) "
-            "but NOT diagnostic of functional ENAQT (§5.2)."
+            "Vibronic 2D-IR cross-peak ~3-5% detectable (S~1, theta~0.3) "
+            "but NOT diagnostic of functional ENAQT (Section5.2)."
         ),
     ))
 
-    # Fröhlich
+    # Froehlich
     panels.append(_compute_mechanism_panel(
         name="frohlich",
         tau_coh_low_s=10e-12,   tau_coh_central_s=50e-12, tau_coh_high_s=100e-12,
@@ -272,10 +278,10 @@ def main() -> None:
         mean_iqi_filtered=_mean_iqi_for_technique("thz"),
         eta_proxy=eta_proxy, omega_c_cm1=omega_c_proxy,
         notes=(
-            "Driven collective sub-THz mode. tau~10-100ps (§4.1.2). "
-            "Decision metric: beta = d(log Δω_F)/d(log N) (Exp.5). "
-            "Survives only if beta~0 AND Γ_col < 10^6 s^-1. "
-            "K_req~5×10^8 still not provided by MT→MAP→ion cascade estimates."
+            "Driven collective sub-THz mode. tau~10-100ps (Section4.1.2). "
+            "Decision metric: beta = d(log Delta omega_F)/d(log N) (Exp.5). "
+            "Survives only if beta~0 AND gamma_col < 10^6 s^-1. "
+            "K_req~5e8 still not provided by MT->MAP->ion cascade estimates."
         ),
     ))
 
@@ -284,17 +290,17 @@ def main() -> None:
         name="qed_cavity",
         tau_coh_low_s=0.1e-6,   tau_coh_central_s=0.5e-6, tau_coh_high_s=1e-6,
         tau_func_s=TAU_FUNC_S,
-        k_biological_estimate=1e5,   # ~10^7 dimers × 10^-2 transduction
+        k_biological_estimate=1e5,   # ~10^7 dimers * 10^-2 transduction
         n_studies=n_studies, n_structures=n_structures,
         technique_tag_filter="uv-vis",
         n_technique_studies=technique_counts.get("uv-vis", 0),
         mean_iqi_filtered=_mean_iqi_for_technique("uv-vis"),
         eta_proxy=eta_proxy, omega_c_cm1=omega_c_proxy,
         notes=(
-            "Ordered-water QED cavity (Mavromatos2025). tau~0.1-1µs (§4.2). "
-            "Prediction: Rabi splitting Ω_R~6THz → Δλ=0.89-1.6nm UV doublet. "
-            "Detection requires SNR >= 10^3 (Exp.4, §6.3). "
-            "U_cavity requires K~5×10^4; conceivable with N~10^7 cascade."
+            "Ordered-water QED cavity (Mavromatos2025). tau~0.1-1 us (Section4.2). "
+            "Prediction: Rabi splitting Omega_R~6THz -> Deltalambda=0.89-1.6nm UV doublet. "
+            "Detection requires SNR >= 10^3 (Exp.4, Section6.3). "
+            "U_cavity requires K~5e4; conceivable with N~10^7 cascade."
         ),
     ))
 
@@ -312,8 +318,8 @@ def main() -> None:
         notes=(
             "Geometric subradiance in tryptophan mega-network (Babcock2024). "
             "tau_A up to 10s observed; tau_S~100fs superradiant. "
-            "Threshold: p = Γ_mix/Γ_A > 2.5×10^-3 for U~1. "
-            "OPEN: reconcile tau_A~10s with Γ_mix~10^10-11 Hz (§4.3, Exp.6). "
+            "Threshold: p = gamma_mix/gamma_A > 2.5e-3 for U~1. "
+            "OPEN: reconcile tau_A~10s with gamma_mix~10^10-11 Hz (Section4.3, Exp.6). "
             "IQI_spec~0.94 (Exp.6 design). Only mechanism with U>>1 at central tau."
         ),
     ))

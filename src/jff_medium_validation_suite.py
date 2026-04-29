@@ -1,28 +1,10 @@
 #!/usr/bin/env python3
 """
 jff_medium_validation_suite.py
-
 NC-SPECIFIC VALIDATION SUITE for the full 1JFF HEOM model.
-This script focuses exclusively on hierarchy depth (NC) convergence.
-
-What it does
-------------
-1. Runs a trio of HEOM simulations for the full 1JFF Hamiltonian:
-   - NC-1, Nk      (cheap baseline for convergence ratio)
-   - NC,   Nk      (working production level)
-   - NC+1, Nk      (hierarchy stress test)
-2. Compares trajectories across a medium horizon (default 200 fs).
-3. Reports:
-   - maximum population difference
-   - maximum coherence difference
-   - maximum Frobenius-norm difference
-   - argmax (time and site) for deviations
-4. Computes medium-horizon convergence ratio r = d(NC->NC+1)/d(NC-1->NC).
-5. Writes JSON, TXT, and MD summaries.
 """
 
 from __future__ import annotations
-
 import argparse
 import json
 import sys
@@ -34,6 +16,10 @@ import numpy as np
 import qutip as qt
 from qutip.solver.heom import DrudeLorentzPadeBath, HEOMSolver
 
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[1] # retrocede desde src/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 # ------------------------- physical parameters -------------------------
 LAM_CM = 35.0
@@ -41,41 +27,22 @@ GAM_CM = 53.0
 T_K = 300.0
 CM_TO_RADFS = 2 * np.pi * 2.9979e-5
 T_RADFS = T_K * 0.69503 * CM_TO_RADFS
-
 DEFAULT_THRESHOLD = 1e-3
-DEFAULT_WINDOWS_FS = [40, 80, 120, 160, 200]
-
-
-def candidate_roots() -> List[Path]:
-    here = Path(__file__).resolve()
-    cwd = Path.cwd().resolve()
-    roots = [cwd, here.parent, here.parent.parent]
-    for p in list(roots):
-        roots.extend([p / "biofisicaquantiqaCLINE", p / "git_repo", p.parent])
-    out = []
-    seen = set()
-    for r in roots:
-        try:
-            rr = r.resolve()
-        except Exception:
-            rr = r
-        if str(rr) not in seen:
-            seen.add(str(rr))
-            out.append(rr)
-    return out
-
 
 def find_project_root(explicit_root: str | None) -> Path:
     if explicit_root:
         return Path(explicit_root).resolve()
-    for root in candidate_roots():
-        if (root / "H_1JFF.npz").exists():
-            return root
+    # Prioridad: Estructura Tier-0
+    if (PROJECT_ROOT / "outputs_data" / "raw_npz" / "H_1JFF.npz").exists():
+        return PROJECT_ROOT
+    if (PROJECT_ROOT / "H_1JFF.npz").exists():
+        return PROJECT_ROOT
     raise FileNotFoundError("Could not locate H_1JFF.npz. Pass --project-root explicitly.")
 
-
 def load_hamiltonian(project_root: Path) -> Tuple[qt.Qobj, str, List[str]]:
-    npz_path = project_root / "H_1JFF.npz"
+    npz_path = project_root / "outputs_data" / "raw_npz" / "H_1JFF.npz"
+    if not npz_path.exists():
+        npz_path = project_root / "H_1JFF.npz"
     if not npz_path.exists():
         raise FileNotFoundError(f"Missing Hamiltonian file: {npz_path}")
     data = np.load(npz_path, allow_pickle=True)
@@ -84,20 +51,12 @@ def load_hamiltonian(project_root: Path) -> Tuple[qt.Qobj, str, List[str]]:
     H = (H_cm - np.mean(np.diag(H_cm)) * np.eye(H_cm.shape[0])) * CM_TO_RADFS
     return qt.Qobj(H), str(npz_path), labels
 
-
 def site_projectors(n_sites: int) -> List[qt.Qobj]:
     return [qt.basis(n_sites, n) * qt.basis(n_sites, n).dag() for n in range(n_sites)]
-
 
 def initial_state(n_sites: int, site: int) -> qt.Qobj:
     psi = qt.basis(n_sites, site)
     return psi * psi.dag()
-
-
-def sparse_tlist(tmax_fs: float, sample_fs: float) -> np.ndarray:
-    n = int(round(tmax_fs / sample_fs))
-    return np.linspace(0.0, float(tmax_fs), n + 1)
-
 
 def run_heom(H_S: qt.Qobj, coupling_ops: List[qt.Qobj], NC: int, Nk: int, tlist: np.ndarray, rho0: qt.Qobj, label: str) -> Tuple[List[qt.Qobj], float]:
     lam_rad = LAM_CM * CM_TO_RADFS
@@ -110,7 +69,6 @@ def run_heom(H_S: qt.Qobj, coupling_ops: List[qt.Qobj], NC: int, Nk: int, tlist:
     wall = time.time() - t0
     print(f"           finished in {wall:.1f} s", flush=True)
     return result.states, wall
-
 
 def state_metrics(tlist: np.ndarray, states_a: List[qt.Qobj], states_b: List[qt.Qobj]) -> Dict[str, any]:
     dpop_matrix = []
@@ -142,7 +100,6 @@ def state_metrics(tlist: np.ndarray, states_a: List[qt.Qobj], states_b: List[qt.
         }
     }
 
-
 def window_summary(tlist: np.ndarray, metrics: Dict[str, any], windows_fs: List[int]) -> Dict[str, Dict[str, float]]:
     out = {}
     for w in windows_fs:
@@ -154,7 +111,6 @@ def window_summary(tlist: np.ndarray, metrics: Dict[str, any], windows_fs: List[
         }
     return out
 
-
 def build_markdown_summary(payload: Dict) -> str:
     cfg = payload["config"]
     lines = ["# 1JFF NC Validation Summary\n", "## Configuration"]
@@ -162,23 +118,19 @@ def build_markdown_summary(payload: Dict) -> str:
     lines.append(f"- Level: NC={cfg['NC']}, Nk={cfg['Nk']}")
     lines.append(f"- Init site: {cfg['init_site_index']} ({cfg['init_site_label']})")
     lines.append(f"- Horizon: {cfg['tmax_fs']} fs\n")
-    
     lines.append("## Runtimes")
     for name, r in payload["runs"].items():
         lines.append(f"- {name}: NC={r['NC']}, Nk={r['Nk']}, wall={r['wall_s']:.1f} s")
-    
     nc = payload["comparisons"]["NC_stress"]
     lines.append("\n## NC-stress summary")
     lines.append(f"- Max diffs: dPop={nc['full']['dPop_max']:.2e}, dCoh={nc['full']['dCoh_max']:.2e}, dFrob={nc['full']['dFrob_max']:.2e}")
     lines.append(f"- t_dPop_max: {nc['report']['t_dPop_max']} fs (site {nc['report']['site_dPop_max']})")
     lines.append(f"- Convergence ratio r = {payload['comparisons']['ratio_r']:.3f}\n")
-    
     lines.append("| Window | dPop max | dCoh max | dFrob max |")
     lines.append("|---|---:|---:|---:|")
     for window, vals in nc["windows"].items():
         lines.append(f"| {window} | {vals['dPop_max']:.2e} | {vals['dCoh_max']:.2e} | {vals['dFrob_max']:.2e} |")
     return "\n".join(lines) + "\n"
-
 
 def main():
     parser = argparse.ArgumentParser(description="NC-specific 1JFF HEOM validation suite")
@@ -189,31 +141,28 @@ def main():
     parser.add_argument("--tmax", type=float, default=200.0)
     parser.add_argument("--sample", type=float, default=5.0)
     parser.add_argument("--threshold", type=float, default=DEFAULT_THRESHOLD)
-    parser.add_argument("--out-json", type=str, default="jff_medium_validation_suite.json")
-    parser.add_argument("--out-md", type=str, default="jff_medium_validation_suite.md")
+    parser.add_argument("--out-json", type=str, default=str(PROJECT_ROOT / "outputs_data" / "raw_json" / "jff_medium_validation_suite.json"))
+    parser.add_argument("--out-md", type=str, default=str(PROJECT_ROOT / "outputs_data" / "raw_txt+md" / "jff_medium_validation_suite.md"))
     args = parser.parse_args()
 
     project_root = find_project_root(args.project_root)
     H_S, h_source, labels = load_hamiltonian(project_root)
     N = H_S.shape[0]
     init_label = labels[args.site] if args.site < len(labels) else "N/A"
-    tlist = sparse_tlist(args.tmax, args.sample)
+    tlist = np.linspace(0.0, args.tmax, int(args.tmax/args.sample) + 1)
     rho0 = initial_state(N, args.site)
     S_ops = site_projectors(N)
 
     runs = {}
     states_lo, wall_lo = run_heom(H_S, S_ops, args.nc - 1, args.nk, tlist, rho0, "NC-1")
     runs["NC_minus_1"] = {"NC": args.nc - 1, "Nk": args.nk, "wall_s": wall_lo}
-    
     states_mid, wall_mid = run_heom(H_S, S_ops, args.nc, args.nk, tlist, rho0, "NC")
     runs["baseline"] = {"NC": args.nc, "Nk": args.nk, "wall_s": wall_mid}
-    
     states_hi, wall_hi = run_heom(H_S, S_ops, args.nc + 1, args.nk, tlist, rho0, "NC+1")
     runs["NC_stress"] = {"NC": args.nc + 1, "Nk": args.nk, "wall_s": wall_hi}
 
     m_lo_mid = state_metrics(tlist, states_lo, states_mid)
     m_mid_hi = state_metrics(tlist, states_mid, states_hi)
-
     d_lo_mid = float(np.max(m_lo_mid["dFrob"]))
     d_mid_hi = float(np.max(m_mid_hi["dFrob"]))
     ratio_r = d_mid_hi / d_lo_mid if d_lo_mid > 0 else float("nan")
@@ -231,12 +180,19 @@ def main():
         }
     }
 
-    Path(args.out_json).write_text(json.dumps(payload, indent=2))
-    Path(args.out_md).write_text(build_markdown_summary(payload))
-    Path(args.out_json).with_suffix(".txt").write_text(build_markdown_summary(payload))
+    p_json = Path(args.out_json)
+    p_json.parent.mkdir(parents=True, exist_ok=True)
+    p_json.write_text(json.dumps(payload, indent=2))
+    
+    p_md = Path(args.out_md)
+    p_md.parent.mkdir(parents=True, exist_ok=True)
+    p_md.write_text(build_markdown_summary(payload))
+    
+    p_txt = p_md.with_suffix(".txt")
+    p_txt.write_text(build_markdown_summary(payload))
 
     print(f"\nNC Validation Complete. Ratio r = {ratio_r:.3f}")
-    print(f"Max dPop stress (NC+1): {m_mid_hi['report']['final_dPop']:.2e}")
+    print(f"Results saved in outputs_data/")
 
 if __name__ == "__main__":
     main()

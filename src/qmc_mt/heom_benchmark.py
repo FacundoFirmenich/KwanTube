@@ -19,6 +19,12 @@ from __future__ import annotations
 import json, time, pickle
 from pathlib import Path
 import numpy as np
+import sys
+
+# Boilerplate para resolver importaciones y rutas desde la raiz del proyecto
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 import matplotlib
 matplotlib.use("Agg")
@@ -47,8 +53,7 @@ NK    = 1
 T_MAX = 30000.0   # fs
 DT    = 5.0       # fs
 
-ROOT    = Path(r"C:\Users\User\3D Objects\biofisicaquantiqaCLINE")
-FIG_DIR = ROOT / "figures_final"
+FIG_DIR = PROJECT_ROOT / "figures_final"
 FIG_DIR.mkdir(exist_ok=True)
 
 
@@ -221,7 +226,7 @@ def main():
 
     # ---- A: 1JFF full ----
     if not skip_1jff:
-        d = np.load(ROOT / "H_1JFF.npz", allow_pickle=True)
+        d = np.load(PROJECT_ROOT / "outputs_data" / "raw_npz" / "H_1JFF.npz", allow_pickle=True)
         H_cm = d["H_cm1"]; labels = list(d["labels"])
         i0 = labels.index("B:103")
         tlist, P_site, rho_t, elapsed, H_q, rho_t_q, c_ops, lams = run_heom(H_cm, labels, i0, "1JFF_full")
@@ -232,15 +237,15 @@ def main():
         results["1JFF_full"] = A
         save_plot(tlist, P_site, rho_t, labels, i0, "1JFF_full",
                   FIG_DIR / "heom_1JFF_full.png")
-        np.savez(ROOT / "heom_1JFF_full.npz",
+        np.savez(PROJECT_ROOT / "outputs_data" / "raw_npz" / "heom_1JFF_full.npz",
                  t_fs=tlist, P_site=P_site, rho_t=rho_t, labels=np.array(labels))
-        with open(ROOT / "heom_1JFF_full_trajectory.pkl", "wb") as f:
+        with open(PROJECT_ROOT / "outputs_data" / "raw_pkl" / "heom_1JFF_full_trajectory.pkl", "wb") as f:
             pickle.dump({"tlist": tlist, "rho_t": rho_t_q, "H_S": H_q, 
                          "coupling_ops": c_ops, "lam_per_site": lams}, f)
 
     # ---- B: 6DPU fragment ----
     if not skip_6dpu:
-        d = np.load(ROOT / "H_6DPU.npz", allow_pickle=True)
+        d = np.load(PROJECT_ROOT / "outputs_data" / "raw_npz" / "H_6DPU.npz", allow_pickle=True)
         H_cm = d["H_cm1"]; labels = list(d["labels"])
         H_sub, lab_sub, i0_sub, idx = select_fragment(H_cm, labels, "A:346", n_sites=4)
         print(f"\n[6DPU_frag] selected sites: {lab_sub}  (indices {idx})")
@@ -253,9 +258,9 @@ def main():
         results["6DPU_fragment"] = B
         save_plot(tlist, P_site, rho_t, lab_sub, i0_sub, "6DPU_frag",
                   FIG_DIR / "heom_6DPU_frag.png")
-        np.savez(ROOT / "heom_6DPU_frag.npz",
+        np.savez(PROJECT_ROOT / "outputs_data" / "raw_npz" / "heom_6DPU_frag.npz",
                  t_fs=tlist, P_site=P_site, rho_t=rho_t, labels=np.array(lab_sub))
-        with open(ROOT / "heom_6DPU_frag_trajectory.pkl", "wb") as f:
+        with open(PROJECT_ROOT / "outputs_data" / "raw_pkl" / "heom_6DPU_frag_trajectory.pkl", "wb") as f:
             pickle.dump({"tlist": tlist, "rho_t": rho_t_q, "H_S": H_q, 
                          "coupling_ops": c_ops, "lam_per_site": lams}, f)
 
@@ -266,7 +271,7 @@ def main():
         units="times in fs; energies in cm-1 (converted to rad/fs internally)",
     )
 
-    out = ROOT / "heom_summary.json"
+    out = PROJECT_ROOT / "outputs_data" / "raw_json" / "heom_summary.json"
     out.write_text(json.dumps(results, indent=2, default=str))
     print(f"\nwrote {out}")
 

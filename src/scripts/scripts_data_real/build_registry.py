@@ -1,6 +1,12 @@
 """Build compact provenance registry for public-data ingestion artifacts."""
 
 from __future__ import annotations
+import sys
+
+# Boilerplate para resolver importaciones y rutas desde la raiz del proyecto
+PROJECT_ROOT = Path(__file__).resolve().parents[3] # retrocede desde src/scripts/scripts_data_real/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 import csv
 import hashlib
@@ -19,9 +25,9 @@ def sha256_file(path: Path) -> str:
 
 
 def _write_progress(step: str, payload: Dict[str, str]) -> None:
-    out_dir = Path("analysis")
-    out_dir.mkdir(parents=True, exist_ok=True)
-    p = out_dir / "_progress_build_registry.json"
+    progress_dir = PROJECT_ROOT / "outputs_data" / "raw_json"
+    progress_dir.mkdir(parents=True, exist_ok=True)
+    p = progress_dir / "_progress_build_registry.json"
     blob: Dict[str, str] = {
         "script": "build_registry.py",
         "step": step,
@@ -32,8 +38,8 @@ def _write_progress(step: str, payload: Dict[str, str]) -> None:
 
 
 def main() -> None:
-    raw_root = Path("data") / "raw" / "public_api"
-    out_dir = Path("analysis")
+    raw_root = PROJECT_ROOT / "data" / "raw" / "public_api"
+    out_dir = PROJECT_ROOT / "outputs_data" / "raw_csv"
     out_dir.mkdir(parents=True, exist_ok=True)
     rows: List[Dict[str, str]] = []
     print("[build_registry] START")

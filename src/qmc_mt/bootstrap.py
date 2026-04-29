@@ -9,7 +9,7 @@ Bootstrap confidence intervals.
 Validated by empirical coverage of the mean of a Normal sample against
 the nominal 95% level.
 
-Ref: Efron & Tibshirani, An Introduction to the Bootstrap (1993), §14.
+Ref: Efron & Tibshirani, An Introduction to the Bootstrap (1993), Section14.
 """
 from __future__ import annotations
 import numpy as np
@@ -19,8 +19,8 @@ from dataclasses import dataclass
 from typing import Callable
 from scipy.stats import norm
 
-# Boilerplate para resolver importaciones desde la raíz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raíz
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 

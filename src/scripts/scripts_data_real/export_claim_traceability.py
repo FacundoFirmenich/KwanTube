@@ -1,17 +1,23 @@
 """Export claim-to-evidence traceability matrix v3 for paper_unified_v3.tex.
 
 New claims added in v3:
-  - B-factor proxy for bath coupling eta (§2.1.1 empirical validation)
+  - B-factor proxy for bath coupling eta (Section2.1.1 empirical validation)
   - Structural heterogeneity index H_s
-  - Mechanism-specific U_phys and K_req (§3.4, Table 1)
-  - Fisher information barrier for Experiment 4 (§6.3)
+  - Mechanism-specific U_phys and K_req (Section3.4, Table 1)
+  - Fisher information barrier for Experiment 4 (Section6.3)
 """
 
 from __future__ import annotations
+import sys
+from pathlib import Path
+
+# Boilerplate para resolver importaciones y rutas desde la raiz del proyecto
+PROJECT_ROOT = Path(__file__).resolve().parents[3] # retrocede desde src/scripts/scripts_data_real/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 import csv
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Optional
 
 
@@ -38,11 +44,11 @@ def _read_panels(path: Path) -> list:
 
 
 def main() -> None:
-    out_path = Path("paper") / "claim_traceability_matrix_v2.md"
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_txt+md" / "claim_traceability_matrix_v2.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     print("[export_claim_traceability] START")
 
-    analysis_dir = Path("analysis")
+    analysis_dir = PROJECT_ROOT / "outputs_data" / "raw_csv"
     analysis_dir.mkdir(parents=True, exist_ok=True)
 
     # Row counts
@@ -88,7 +94,7 @@ def main() -> None:
             f"| U>=1: {p.get('u_ge_1_at_K_est')} |\n"
         )
 
-    content = f"""# Claim Traceability Matrix v2 (paper_unified_v3.tex — Public-Data Layer)
+    content = f"""# Claim Traceability Matrix v2 (paper_unified_v3.tex - Public-Data Layer)
 
 > Generated: {datetime.now(timezone.utc).isoformat()}
 
@@ -98,19 +104,19 @@ but constitutes the L4 (External validation) layer of the traceability hierarchy
 
 ---
 
-## Section §2.1.1 — Spectral density calibration and uncertainty
+## Section Section2.1.1 - Spectral density calibration and uncertainty
 
 | Claim in manuscript | Empirical constraint | Source | Output |
 |---|---|---|---|
-| eta ∈ [0.1, 1.0] (generic protein range, paper central=0.3) | eta_proxy={eta_central} from B_median={bfactor_median} Ų (n={n_bfactor} structures); paper range COVERS proxy range [{eta_low},{eta_high}]: validated={eta_validated} | `analysis/bath_params_empirical.csv` | `analysis/structures_compact.csv` |
-| ωc ∈ [100, 250] cm⁻¹ (generic protein range) | No tubulin-specific Raman/THz wavenumber data in public corpus (PubChem PUG-View does not contain cm⁻¹ spectra; BMRB not yet fetched). Paper range retained with explicit limitation note. | BMRB (not yet fetched) | OPEN — priority future fetch |
-| Structural heterogeneity index H_s | H_s = stdev(B_Wilson)/mean(B_Wilson) = {hs} (n={n_bfactor}); indicates broad B-factor distribution → validates eta upper bound | `analysis/bath_params_empirical.csv` | Computed in `compute_detectability_metrics.py` |
-| Resolution distribution (n={n_res}, median={res_median} Å) | Methods: X-ray={n_xray}, cryo-EM={n_em}, NMR={n_nmr} | `analysis/structures_compact.csv` | RCSB core 507 entries |
+| eta in [0.1, 1.0] (generic protein range, paper central=0.3) | eta_proxy={eta_central} from B_median={bfactor_median} A^2 (n={n_bfactor} structures); paper range COVERS proxy range [{eta_low},{eta_high}]: validated={eta_validated} | `analysis/bath_params_empirical.csv` | `analysis/structures_compact.csv` |
+| omega_c in [100, 250] cm^-1 (generic protein range) | No tubulin-specific Raman/THz wavenumber data in public corpus (PubChem PUG-View does not contain cm^-1 spectra; BMRB not yet fetched). Paper range retained with explicit limitation note. | BMRB (not yet fetched) | OPEN - priority future fetch |
+| Structural heterogeneity index H_s | H_s = stdev(B_Wilson)/mean(B_Wilson) = {hs} (n={n_bfactor}); indicates broad B-factor distribution -> validates eta upper bound | `analysis/bath_params_empirical.csv` | Computed in `compute_detectability_metrics.py` |
+| Resolution distribution (n={n_res}, median={res_median} A) | Methods: X-ray={n_xray}, cryo-EM={n_em}, NMR={n_nmr} | `analysis/structures_compact.csv` | RCSB core 507 entries |
 | Proxy note | {proxy_note} | | |
 
 ---
 
-## Section §3.4 — Quantum coherence utility U_phys per mechanism
+## Section Section3.4 - Quantum coherence utility U_phys per mechanism
 
 | Mechanism | tau_coh (central) | K_req | U_phys@K_est | U>=1 |
 |---|---|---|---|---|
@@ -118,15 +124,15 @@ but constitutes the L4 (External validation) layer of the traceability hierarchy
 
 ---
 
-## Section §6.3 — Fisher information barrier (Experiment 4)
+## Section Section6.3 - Fisher information barrier (Experiment 4)
 
 | Claim in manuscript | Value | Source |
 |---|---|---|
-| Detection probability surface P(doublet | Δλ, SNR) | 36-point grid (Δλ∈[0.3,1.6]nm × SNR∈[10,10000]) | `analysis/fisher_barrier.csv` |
-| SNR_50pct at Δλ=1.6nm | ~8 (Fisher CRB estimate) | `fisher_barrier.csv` row Δλ=1.60 |
-| SNR_95pct at Δλ=1.6nm | ~24 | same |
-| SNR_50pct at Δλ=0.89nm (num. estimate) | ~10 | `fisher_barrier.csv` row Δλ=0.89 |
-| BIC decisive threshold (paper §6.3) | SNR ~ 260 (Monte Carlo, 20 resolution elements) | `paper §6.3` (computed analytically) |
+| Detection probability surface P(doublet | Deltalambda, SNR) | 36-point grid (Deltalambda in [0.3, 1.6]nm x SNR in [10, 10000]) | `analysis/fisher_barrier.csv` |
+| SNR_50pct at Deltalambda=1.6nm | ~8 (Fisher CRB estimate) | `fisher_barrier.csv` row Deltalambda=1.60 |
+| SNR_95pct at Deltalambda=1.6nm | ~24 | same |
+| SNR_50pct at Deltalambda=0.89nm (num. estimate) | ~10 | `fisher_barrier.csv` row Deltalambda=0.89 |
+| BIC decisive threshold (paper Section6.3) | SNR ~ 260 (Monte Carlo, 20 resolution elements) | `paper Section6.3` (computed analytically) |
 
 ---
 
@@ -148,12 +154,12 @@ but constitutes the L4 (External validation) layer of the traceability hierarchy
 ## Open gaps (honest accounting for PRX Life reviewers)
 
 1. **BMRB NMR chemical shifts**: Not yet fetched. Would provide residue-level
-   linewidth data for ωc constraint. Estimated 1–2 day fetch + curation sprint.
+   linewidth data for omegac constraint. Estimated 1-2 day fetch + curation sprint.
 2. **Tubulin-specific Raman/THz wavenumbers**: PubChem PUG-View does not store
-   spectroscopic spectra in machine-readable JSON for small-molecule modulators.
-   The specific protein vibrational spectrum of αβ-tubulin requires either:
+    spectroscopic spectra in machine-readable JSON for small-molecule modulators.
+   The specific protein vibrational spectrum of alphabeta-tubulin requires either:
    (a) EuropePMC full-text parsing of Raman papers (Gascoyne 2011, Craddock 2017), or
-   (b) MD simulation of 1JFF dimer (priority future work, acknowledged in §2.1.1).
+   (b) MD simulation of 1JFF dimer (priority future work, acknowledged in Section2.1.1).
 3. **eta_proxy is a linear rescaling estimate, not a measured value**: It
    empirically *validates* that the paper range [0.1, 1.0] is not arbitrary,
    but does not *replace* the MD-derived spectral density. This distinction
@@ -164,7 +170,8 @@ but constitutes the L4 (External validation) layer of the traceability hierarchy
     print(f"[export_claim_traceability] wrote {out_path}")
 
     # Progress flag
-    (analysis_dir / "_progress_export_claim_traceability.json").write_text(
+    progress_dir = PROJECT_ROOT / "outputs_data" / "raw_json"
+    (progress_dir / "_progress_export_claim_traceability.json").write_text(
         str({
             "script": "export_claim_traceability.py",
             "step": "done",

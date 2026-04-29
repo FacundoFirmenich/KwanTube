@@ -41,7 +41,7 @@ BABCOCK_2024 = StudyRecord(
     n=None,                                                 # N of replicates not tabulated
     usable_for_logeffect=True,
     provenance=("Table 1, p. 4040 (PDF p. 5): QY-Trp @ 280 nm, "
-                "MT = 17.6 ± 2.1, TuD = 10.6 ± 0.6. Delta method applied."),
+                "MT = 17.6 +/- 2.1, TuD = 10.6 +/- 0.6. Delta method applied."),
     notes=("Effect = ln(QY_MT / QY_TuD). SE via first-order delta method "
            "on independent Gaussian errors of numerator and denominator. "
            "Likely positive instrumental correlation would reduce SE and "
@@ -81,11 +81,11 @@ BANDYOPADHYAY_2013 = StudyRecord(
     scale="none",
     effect=None, se=None, n=None,
     usable_for_logeffect=False,
-    provenance=("§2.6 and Fig. 5, pp. 145-146. Fig. 5f lists dominant "
+    provenance=("Section2.6 and Fig. 5, pp. 145-146. Fig. 5f lists dominant "
                 "peaks {12, 20, 22, 30, 101, 113, 185, 204} MHz as "
                 "'statistically most-occurred', selected from 'thousands "
                 "of noise and actual peaks'."),
-    notes=("No mean ± SE and no observational N tabulated for a "
+    notes=("No mean +/- SE and no observational N tabulated for a "
            "resonant/non-resonant conductance contrast. Mechanistic "
            "evidence only. Does NOT enter any pooled estimator."),
 )
@@ -107,7 +107,7 @@ CRADDOCK_2012 = StudyRecord(
                 "p. 6 (9/47 sites persisted >70% of 5-ns MD; 5/47 all of it; "
                 "estimated Kd 6-16 mM)."),
     notes=("Computational docking + MD, not an observational series. No "
-           "mean ± SE and no N for a binding-shift contrast. Mechanistic "
+           "mean +/- SE and no N for a binding-shift contrast. Mechanistic "
            "evidence only. Does NOT enter any pooled estimator."),
 )
 

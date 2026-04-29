@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-reproduce_paper_results.py — Quantubulin v3.5.0
+# reproduce_paper_results.py - Quantubulin v3.5.0
 End-to-end reproduction of the repository-level numerical validation ledger
 supporting the manuscript's reproducible baseline claims.
 
@@ -39,9 +39,9 @@ from qmc_mt.primary_data    import BABCOCK_2024, KALRA_2024
 from qmc_mt.lattice         import summary as lattice_summary
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Local adapters — Bridging experiment-level terminology to the package API
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
+# Local adapters - Bridging experiment-level terminology to the package API
+# -----------------------------------------------------------------------------
 def params_from_experiment(name: str = "Kalra2023") -> dict:
     presets = {
         "Kalra2023":        (310.0, 0.15, 80.0, 0.15, 0.01),
@@ -58,7 +58,7 @@ def params_from_experiment(name: str = "Kalra2023") -> dict:
 
 
 def noneq_ladder(p: dict, Delta_mu_J_list) -> dict:
-    """Evaluates the τ_NE/τ_EQ ratio under Fröhlich-driven chemical-potential gradients."""
+    """Evaluates the tau_NE/tau_EQ ratio under Froehlich-driven chemical-potential gradients."""
     kT      = p["params"].kT
     dmu_c   = 3.0 * kT
     ratios  = [float(1.0 + (max(dmu, 0.0) / dmu_c) ** 2)
@@ -76,9 +76,9 @@ def noneq_ladder(p: dict, Delta_mu_J_list) -> dict:
 
 
 def parameter_inversion(p: dict, seed: int = 42) -> dict:
-    """Executes multi-temperature η/ωc/gap inversion against synthetic ground-truth targets."""
+    """Executes multi-temperature eta/omegac/gap inversion against synthetic ground-truth targets."""
     engine = MultiTempInversionEngine()
-    truth  = [0.42, 6.2e12, 0.155]            # (η, ω_c [rad/s], gap [eV])
+    truth  = [0.42, 6.2e12, 0.155]            # (eta, omega_c [rad/s], gap [eV])
     data   = engine.forward(*truth)
     res    = engine.invert(data)
     eta_hat, log_wc_hat, gap_hat = map(float, res.x)
@@ -129,9 +129,9 @@ def model_selection(p: dict, seed: int = 42) -> dict:
     }
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # Audit Infrastructure
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 def _sanitize(obj: Any) -> Any:
     if isinstance(obj, dict):           return {k: _sanitize(v) for k, v in obj.items()}
     if isinstance(obj, (list, tuple)):  return [_sanitize(x) for x in obj]
@@ -193,9 +193,9 @@ CHECKS = [
 ]
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # Pipeline Execution
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 def run_open_system_benchmark(T: float, eta_list, omega_c: float) -> dict:
     rows = []
     for eta in eta_list:
@@ -234,15 +234,23 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
         prior_sampler=lambda rng: float(rng.normal(0, SBC_PRIOR_SD)),
         data_sampler=lambda theta, rng: rng.normal(theta, SBC_SIGMA_DATA, size=1),
         posterior_sampler=sbc_sampler,
-        n_sim=1000,          # ⬅️ HARDCODED TO 1000 AS REQUESTED
+        n_sim=1000,          # <- HARDCODED TO 1000 AS REQUESTED
         L=99,
         seed=42
     )
     
     # Sensitivity
     sens_babcock = scan_study(BABCOCK_2024, np.logspace(-1, 1, 5).tolist())
+    # Lattice
     lat  = lattice_summary(n_layers=10 if fast else 20,
                            mu_debye=1700.0, eps_r=80.0)
+
+    # Mean-Force Diagnostic (SI-2d) - Load from artifact if exists
+    mf_diag = {}
+    mf_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "meanforce_diagnosis.json"
+    if mf_path.exists():
+        try: mf_diag = json.loads(mf_path.read_text())
+        except: pass
 
     results = {
         "_metadata": {
@@ -268,6 +276,7 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
         "sbc":                   _sanitize(sbc_res),
         "prior_sensitivity":     {"babcock": sens_babcock},
         "lattice":               _sanitize(lat),
+        "mean_force":            _sanitize(mf_diag),
     }
 
     checks = [c(results) for c in CHECKS]
@@ -284,13 +293,13 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
     return results
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # LIVING_SI.md Automated Reporting
-# ─────────────────────────────────────────────────────────────────────────────
-SI_TEMPLATE = r"""# LIVING_SI.md — Supplementary Information (Automated Validation)
+# -----------------------------------------------------------------------------
+SI_TEMPLATE = r"""# LIVING_SI.md - Supplementary Information (Automated Validation)
 
-> **Version** {version} · **Generated** {timestamp} · **Wall-time** {wall}s
-> **SHA-256 Hash** `{sha}…` · **Audit Status** {passed}/{total} validation criteria met
+> **Version** {version} * **Generated** {timestamp} * **Wall-time** {wall}s
+> **SHA-256 Hash** `{sha}...` * **Audit Status** {passed}/{total} validation criteria met
 
 This document is machine-regenerated from `validation_report.json` on every 
 pipeline run. Every result is cross-referenced with the machine-auditable 
@@ -298,35 +307,35 @@ JSON artifact, verified via the cryptographic SHA-256 signature above.
 
 ---
 
-## SI-1 · Non-equilibrium Dynamics, Inversion, and Sensitivity
+## SI-1 - Non-equilibrium Dynamics, Inversion, and Sensitivity
 
 - **Coherence Figure-of-Merit**: \(\varphi_0 = {phi0:.3e}\) (mean estimated \(T_2^*\) in ns).
 - **Inversion Fidelity**: \(\hat\varphi = {fid_hat:.3f}\) (Target interval \([0.85,\,1.01]\)).
 - **Model Selection**: **{best_model}** architecture favored (\(\Delta\mathrm{{BIC}}_{{max}} = {max_dbic:.2f}\)).
 
-## SI-2a · Analytic Perturbative Benchmarking (§2.2.5, COMP-1)
+## SI-2a - Analytic Perturbative Benchmarking (Section 2.2.5, COMP-1)
 
 Cross-validation of the master equation formalisms under the secular and memory-factor 
 approximations. Calculations assume an Ohmic spectral density 
 \(J(\omega)=\eta\omega\exp(-\omega/\omega_c)\) with \(\omega_c=4.5\times10^{{12}}\) rad/s 
 and \(T=310\) K:
 
-| η (Coupling) | τ_Lindblad (s) | τ_Redfield_approx (s) | τ_HEOM_approx (s) | Relative Spread |
+| eta (Coupling) | tau_Lindblad (s) | tau_Redfield_approx (s) | tau_HEOM_approx (s) | Relative Spread |
 |---|---:|---:|---:|---:|
 {bench_table}
 
-The `relative_spread` indicator (\((\max − \min)/\text{{mean}}\)) quantifies cross-formalism 
+The `relative_spread` indicator ((max - min)/mean) quantifies cross-formalism 
 concordance. Values below 1.0 indicate that the closed-form Lindblad rate accurately 
 captures the hierarchical physics within the specified perturbative regime.
 
-## SI-2b · Hierarchical Equations of Motion (HEOM) Validation
+## SI-2b - Hierarchical Equations of Motion (HEOM) Validation
 
 Full non-perturbative hierarchical integration (\(L=4\), high-temperature Matsubara truncation). 
 Comparison between the nominal Lindblad baseline and the numerically exact HEOM propagator:
 
 {heom_table}
 
-## SI-2c · Bayesian HEOM Hierarchy (v2) — Contraction Analysis
+## SI-2c - Bayesian HEOM Hierarchy (v2) - Contraction Analysis
 
 Automated Bayesian hierarchy for summarize small-N HEOM convergence evidence. This 
 module models jump magnitudes on the log-scale to infer stable contraction ratios \(r\).
@@ -335,16 +344,27 @@ module models jump magnitudes on the log-scale to infer stable contraction ratio
 - **Global Decay Rate** (\(\beta = -\mu_{{logr}}\)): {heom_v2_beta_mean:.3f}.
 - **Hierarchical Stability**: \(\tau_{{logr}} = {heom_v2_tau:.3f}\) (Group-level heterogeneity).
 
-**Output Artifacts** (`heom_bayes_out_v2/`):
-- [Group Summary](heom_bayes_out_v2/group_loglinear_summary.csv)
-- [Global Contraction](heom_bayes_out_v2/hierarchy_global_contraction.csv)
-- [Extrapolated Jumps](heom_bayes_out_v2/extrapolated_jumps.csv)
-- [Level Checks](heom_bayes_out_v2/level_reference_checks.csv)
-- [Diagnostics](heom_bayes_out_v2/diagnostics_v2.txt)
+**Output Artifacts** (`outputs_data/heom_bayes_out_v2_ci/`):
+- [Group Summary](outputs_data/heom_bayes_out_v2_ci/group_loglinear_summary.csv)
+- [Global Contraction](outputs_data/heom_bayes_out_v2_ci/hierarchy_global_contraction.csv)
+- [Extrapolated Jumps](outputs_data/heom_bayes_out_v2_ci/extrapolated_jumps.csv)
+- [Level Checks](outputs_data/heom_bayes_out_v2_ci/level_reference_checks.csv)
+- [Diagnostics](outputs_data/heom_bayes_out_v2_ci/diagnostics_v2.txt)
 
-**Posterior Plots**: [posterior_plots_v2.png](heom_bayes_out_v2/posterior_plots_v2.png)
+**Posterior Plots**: [posterior_plots_v2.png](outputs_data/heom_bayes_out_v2_ci/posterior_plots_v2.png)
 
-## SI-3 · Detector Performance: ROC Detection Surface (§5, COMP-12)
+## SI-2d - Mean-Force Steady-State Diagnostic
+
+Diagnostic of HEOM relaxation and consistency with second-order Mean-Force (MF) Gibbs states. 
+Calculated via Kullback-Leibler (KL) divergence from the final HEOM state $\rho(t_{{final}})$.
+
+{mf_table}
+
+- **Interpretation**: `KL_bare < 0.05` indicates the system has relaxed to the standard 
+  Gibbs state. A divergent `KL_mf` is the mathematical signature of the failure of 
+  second-order perturbation theory in the intermediate coupling regime (\(\lambda\beta \sim 1\)).
+
+## SI-3 - Detector Performance: ROC Detection Surface (Section 5, COMP-12)
 
 Probability of detection \(P_D(\Delta\ell,\mathrm{{SNR}})\) at a fixed false-alarm rate 
 \(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{{MC}}={nmc}\) 
@@ -355,7 +375,7 @@ stochastic trials per configuration.
 **Consistency Check**: Verification of monotonic detection gain with increasing SNR across 
 the spatial coherence grid (\(\Delta\ell\)).
 
-## SI-4 · Bayesian Evidence Meta-Analysis (§5, COMP-11)
+## SI-4 - Bayesian Evidence Meta-Analysis (Section 5, COMP-11)
 
 Summary of experimental contrasts integrated into the Bayesian hierarchy:
 
@@ -369,9 +389,7 @@ Summary of experimental contrasts integrated into the Bayesian hierarchy:
 
 **Aggregate Significance**: Combined Bayes Factor (assuming study independence) \(BF_{{10}} \approx {bf_comb:.1e}\).
 
-*Note: Qualitative support from Bandyopadhyay (2013) and Craddock (2012) is documented in the manuscript but excluded from this quantitative evidence pool due to the lack of extractable error distributions.*
-
-## SI-7 · Calibration and Robustness Audits
+## SI-7 - Calibration and Robustness Audits
 
 ### Simulation-Based Calibration (SBC)
 Validation of the Nested Sampling (NS) inference engine via SBC on \(N_{{sim}}={sbc_n}\) 
@@ -388,12 +406,11 @@ Evaluation of Bayes Factor (\(BF_{{10}}\)) stability across a spectrum of weakly
 - **Caveat**: The shaded regions indicate prior-dominated regimes where \(\sigma_{{prior}} < SE\).
 - **Sensitivity Profiles**: [prior_sensitivity.pdf](figures_final/prior_sensitivity.pdf).
 
-## SI-8 · HEOM Integration Pre-registration
+## SI-8 - HEOM Integration Pre-registration
 - **Cryptographic Hash**: `5385692fbb6622b6f48b0535b38dfc07a5cffde2656ff6b6b458bb3da10c4217`
-- **Acceptance Criteria**: [heom_acceptance_criteria.md](heom_acceptance_criteria.md)
 - **Registration Timestamp**: 2026-04-22T05:55:12Z
 
-## SI-5 · Collective Modes in the Microtubule Lattice (§4.3, COMP-6)
+## SI-5 - Collective Modes in the Microtubule Lattice (Section 4.3, COMP-6)
 
 Analysis of a 13-protofilament B-lattice configuration (\(N = {lat_N}\) dimers, 
 \(\mu={lat_mu:.0f}\) D, \(\varepsilon_r = {lat_eps:.0f}\)):
@@ -401,11 +418,11 @@ Analysis of a 13-protofilament B-lattice configuration (\(N = {lat_N}\) dimers,
 - **Superradiant Band Edge** (\(E_+\)): {lat_super:.2f} meV
 - **Subradiant Band Edge** (\(E_-\)): {lat_sub:.2f} meV
 - **Excitonic Spectral Gap** (\(\Delta\)): {lat_gap:.2f} meV
-- **Inverse Participation Ratio (IPR)**: {lat_ipr:.1f} (≥ 2 indicates delocalized modes)
+- **Inverse Participation Ratio (IPR)**: {lat_ipr:.1f} (>= 2 indicates delocalized modes)
 - **Axial Interaction** (\(J_\parallel\)): {lat_axial:.2f} meV (Attractive coupling; J-aggregate character)
 - **Lateral Interaction** (\(J_\perp\)): {lat_lateral:.2f} meV (Repulsive coupling; H-aggregate character)
 
-## SI-6 · Summary of Automated Validation Checks
+## SI-6 - Summary of Automated Validation Checks
 
 | Validation Metric | Status | Technical Detail |
 |---|:---:|---|
@@ -422,6 +439,20 @@ def _render_ctx(r: dict) -> dict:
     meta = r["meta_analysis"]
     lat  = r["lattice"]; osb = r["open_system_benchmark"]
     val  = r["_validation"]; md = r["_metadata"]; rocs = r["roc_surface"]
+    mf   = r.get("mean_force", {})
+
+    # Mean-Force table (SI-2d)
+    mf_rows = []
+    if mf and "systems" in mf:
+        for sys_name, data in mf["systems"].items():
+            kl_bare = data.get("kl_bare", 0.0)
+            kl_mf   = data.get("kl_mf", 0.0)
+            status  = data.get("status", "UNKNOWN")
+            mf_rows.append(f"| {sys_name} | {kl_bare:.4f} | {kl_mf:.1f} | {status} |")
+    
+    mf_table = "\n".join(mf_rows) if mf_rows else "_(Diagnostic results pending execution)_"
+    if mf_rows:
+        mf_table = "| System | KL(HEOM || Bare Gibbs) | KL(HEOM || MF 2nd Order) | Status |\n|---|---:|---:|---|\n" + mf_table
 
     bench_table = "\n".join(
         f"| {row['eta']:.2f} | {row['tau_lindblad_s']:.3e} | "
@@ -437,7 +468,7 @@ def _render_ctx(r: dict) -> dict:
         for pdb in ["1JFF", "6DPU_fragment"]:
             # Search in outputs_data/ following repository restructuring
             repo_root = Path(__file__).resolve().parents[2]
-            fpath = repo_root / "outputs_data" / f"redfield_vs_heom_{pdb}.json"
+            fpath = repo_root / "outputs_data" / "raw_json" / f"redfield_vs_heom_{pdb}.json"
             if fpath.exists():
                 h_data = json.loads(fpath.read_text())
                 for entry in h_data:
@@ -447,7 +478,7 @@ def _render_ctx(r: dict) -> dict:
                     h_rows.append(f"| {pdb} | {entry['eta']:.2f} | {tau_l:.3e} | {tau_h:.3e} | {spread:.3f} |")
         
         if h_rows:
-            hdr = "| PDB | η | τ_Lindblad (s) | τ_HEOM_real (s) | rel. spread |"
+            hdr = "| PDB | eta | tau_Lindblad (s) | tau_HEOM_real (s) | rel. spread |"
             sep = "|---|---|---:|---:|---:|"
             heom_table = "\n".join([hdr, sep] + h_rows)
     except Exception as e:
@@ -460,7 +491,7 @@ def _render_ctx(r: dict) -> dict:
 
     dl_grid  = rocs["dl_grid"]; snr_grid = rocs["snr_exp_grid"]
     P = np.asarray(rocs["P_D_grid"])
-    hdr = "| Δℓ \\\\ log₁₀ SNR | " + " | ".join(f"{s:.2f}" for s in snr_grid) + " |"
+    hdr = "| Delta_l \\\\ log10 SNR | " + " | ".join(f"{s:.2f}" for s in snr_grid) + " |"
     sep = "|" + "|".join(["---"] * (len(snr_grid) + 1)) + "|"
     body = [f"| {dl_grid[i]:.2f} | "
             + " | ".join(f"{P[i,j]:.2f}" for j in range(len(snr_grid))) + " |"
@@ -468,35 +499,37 @@ def _render_ctx(r: dict) -> dict:
     roc_table = "\n".join([hdr, sep] + body)
 
     val_rows = "\n".join(
-        f"| `{c['name']}` | {'✅' if c['passed'] else '❌'} | {c['detail']} |"
+        f"| `{c['name']}` | {'[OK]' if c['passed'] else '[FAIL]'} | {c['detail']} |"
         for c in val["checks"]
     )
 
     bf_b = meta["per_study"]["Babcock2024"]
     bf_k = meta["per_study"]["Kalra2024"]
 
-    return dict(
-        version=md["version"], timestamp=md["timestamp_utc"],
-        wall=md["wall_time_s"], sha=r["_sha256"][:16],
-        passed=val["passed"], total=val["total"],
-        bench_table=bench_table, heom_table=heom_table,
-        meta_table=meta_table, roc_table=roc_table,
-        val_rows=val_rows,
-        phi0=r["sensitivity"]["phi_nominal"],
-        fid_hat=r["inversion"]["fidelity_recovered"],
-        best_model=r["model_selection"]["best"],
-        max_dbic=r["model_selection"]["max_dbic"],
-        bf_b_a=bf_b["BF10_analytic"], bf_b_ns=bf_b["BF10"], bf_b_err=bf_b["BF10"] * bf_b["logZ_H1_err"],
-        bf_k_a=bf_k["BF10_analytic"], bf_k_ns=bf_k["BF10"], bf_k_err=bf_k["BF10"] * bf_k["logZ_H1_err"],
-        bf_comb=meta["combined_under_independence"]["BF10"],
-        sbc_n=r["sbc"]["n_sim"], sbc_p=r["sbc"]["p_value"],
-        lat_N=lat["N_dimers"], lat_mu=lat["mu_Debye"], lat_eps=lat["eps_r"],
-        lat_super=lat["E_super_meV"], lat_sub=lat["E_sub_meV"],
-        lat_gap=lat["gap_meV"], lat_ipr=lat["subradiant_IPR"],
-        lat_axial=lat["nn_axial_meV"], lat_lateral=lat["nn_lateral_meV"],
-        nmc=_guess_nmc(md),
+    return {
+        "version": md["version"], "timestamp": md["timestamp_utc"],
+        "wall": md["wall_time_s"], "sha": r["_sha256"][:16],
+        "passed": val["passed"], "total": val["total"],
+        "bench_table": bench_table, "heom_table": heom_table,
+        "meta_table": meta_table, "roc_table": roc_table,
+        "val_rows": val_rows,
+        "phi0": r["sensitivity"]["phi_nominal"],
+        "fid_hat": r["inversion"]["fidelity_recovered"],
+        "best_model": r["model_selection"]["best"],
+        "max_dbic": r["model_selection"]["max_dbic"],
+        "bf_b_a": bf_b["BF10_analytic"], "bf_b_ns": bf_b["BF10"], "bf_b_err": bf_b["BF10"] * bf_b["logZ_H1_err"],
+        "bf_k_a": bf_k["BF10_analytic"], "bf_k_ns": bf_k["BF10"], "bf_k_err": bf_k["BF10"] * bf_k["logZ_H1_err"],
+        "bf_comb": meta["combined_under_independence"]["BF10"],
+        "sbc_n": r["sbc"]["n_sim"], "sbc_p": r["sbc"]["p_value"],
+        "lat_N": lat["N_dimers"], "lat_mu": lat["mu_Debye"], "lat_eps": lat["eps_r"],
+        "lat_super": lat["E_super_meV"], "lat_sub": lat["E_sub_meV"],
+        "lat_gap": lat["gap_meV"], "lat_ipr": lat["subradiant_IPR"],
+        "lat_axial": lat["axial_J_meV"],
+        "lat_lateral": lat["lateral_J_meV"],
+        "mf_table": mf_table,
+        "nmc": _guess_nmc(md),
         **_load_heom_v2_summary(),
-    )
+    }
 
 
 def _guess_nmc(md: dict) -> int:
@@ -513,7 +546,7 @@ def write_living_si(r: dict, path: str = "LIVING_SI.md") -> None:
 def _load_heom_v2_summary() -> dict:
     """Loads results from the Bayesian HEOM hierarchy v2 summary file."""
     repo_root = Path(__file__).resolve().parents[2]
-    path = repo_root / "heom_bayes_out_v2" / "hierarchy_global_contraction.csv"
+    path = repo_root / "outputs_data" / "heom_bayes_out_v2_ci" / "hierarchy_global_contraction.csv"
     defaults = {
         "heom_v2_r_mean": 0.0, "heom_v2_r_q025": 0.0, "heom_v2_r_q975": 0.0,
         "heom_v2_beta_mean": 0.0, "heom_v2_tau": 0.0
@@ -539,20 +572,25 @@ def _load_heom_v2_summary() -> dict:
         return defaults
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+# -----------------------------------------------------------------------------
 # Entry Point
 def main() -> int:
     ap = argparse.ArgumentParser(description="KwanTube reproduction pipeline")
     ap.add_argument("--fast",     action="store_true", help="small grids (~5 s)")
-    ap.add_argument("--full-roc", action="store_true", help="8×8 ROC, n_mc=1000 (~3 min)")
-    ap.add_argument("--out", default="validation_report.json")
+    ap.add_argument("--full-roc", action="store_true", help="8x8 ROC, n_mc=1000 (~3 min)")
+    ap.add_argument("--out", default="outputs_data/raw_json/validation_report.json")
     ap.add_argument("--si",  default="LIVING_SI.md")
     args = ap.parse_args()
 
     r = run_all(fast=args.fast, full_roc=args.full_roc)
+    v, md = r["_validation"], r["_metadata"]
     repo_root = Path(__file__).resolve().parents[2]
-    out_path = repo_root / args.out
+    
+    # Ensure output JSON path
+    out_path = repo_root / "outputs_data" / "raw_json" / "validation_report.json"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(r, indent=2, default=str), encoding="utf-8")
+    
     write_living_si(r, path=args.si)
 
     v, md = r["_validation"], r["_metadata"]

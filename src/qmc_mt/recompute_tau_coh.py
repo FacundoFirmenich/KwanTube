@@ -6,11 +6,14 @@ Method:
 This avoids artefacts from initial zero-coherence states.
 """
 import json
+import sys
 import numpy as np
 from pathlib import Path
 
-ROOT = Path(r"C:\Users\User\3D Objects\biofisicaquantiqaCLINE")
-
+# Boilerplate para resolver importaciones desde la raiz del paquete
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
+if str(PROJECT_ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 def tau_coh_from_peak(t, coh):
     """
@@ -35,11 +38,14 @@ def tau_coh_from_peak(t, coh):
 
 def main():
     updates = {}
+    data_found = False
     for pid in ("1JFF", "6DPU"):
-        f = ROOT / f"redfield_{pid}.npz"
+        f = PROJECT_ROOT / "outputs_data" / "raw_npz" / f"redfield_{pid}.npz"
         if not f.exists():
             print(f"[{pid}] skip -- {f.name} not found")
             continue
+        
+        data_found = True
         d = np.load(f, allow_pickle=True)
         t = d["t_fs"]
         coh = d["coh_tot"]
@@ -55,9 +61,13 @@ def main():
         print(f"[{pid}] tau_coh = {tau_str}  ({status})   "
               f"peak at {peak_t:7.1f} fs, value={peak_v:.3e}")
 
-    out = ROOT / "redfield_tau_coh.json"
-    out.write_text(json.dumps(updates, indent=2))
-    print(f"\nwrote {out}")
+    if data_found:
+        out = PROJECT_ROOT / "outputs_data" / "raw_json" / "redfield_tau_coh.json"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(updates, indent=2))
+        print(f"\nwrote {out.resolve()}")
+    else:
+        print("\nError: No se encontraron archivos redfield_*.npz en outputs_data/raw_npz/.")
 
 
 if __name__ == "__main__":

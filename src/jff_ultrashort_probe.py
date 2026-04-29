@@ -1,16 +1,9 @@
-
 """
 jff_ultrashort_probe.py
 
-Probe ultracompacto para validar (NC, Nk) en 1JFF sin freír el PC.
-Diseñado para máquinas saturadas: una corrida baseline y, opcionalmente,
+Probe ultracompacto para validar (NC, Nk) en 1JFF sin freir el PC.
+Disenado para maquinas saturadas: una corrida baseline y, opcionalmente,
 una sola corrida NC+1. No depende de JSON externos si se pasan --nc y --nk.
-
-Uso recomendado:
-    python jff_ultrashort_probe.py --nc 5 --nk 1
-Opcional:
-    python jff_ultrashort_probe.py --nc 5 --nk 1 --with-nc-stress
-    python jff_ultrashort_probe.py --nc 5 --nk 1 --tmax 40 --sample 10
 """
 
 from __future__ import annotations
@@ -32,31 +25,28 @@ T_RADFS = T_K * 0.69503 * CM_TO_RADFS
 
 
 def locate_project_root() -> Path:
+    # La raiz es biofisicaquantiqaCLINE
     here = Path(__file__).resolve().parent
     candidates = [
-        here,
-        here.parent,
+        here.parent, # biofisicaquantiqaCLINE
         Path.cwd(),
-        Path.cwd() / "biofisicaquantiqaCLINE",
-        Path.cwd() / "git_repo",
     ]
     for c in candidates:
-        if (c / "H_1JFF.npz").exists():
+        if (c / "outputs_data").exists():
             return c
-        if (c / "git_repo" / "H_1JFF.npz").exists():
-            return c / "git_repo"
-    return here
+    return candidates[0]
 
 
 def load_hamiltonian(project_root: Path) -> qt.Qobj:
-    candidates = [
-        project_root / "H_1JFF.npz",
-        project_root.parent / "H_1JFF.npz",
-    ]
-    npz_path = next((p for p in candidates if p.exists()), None)
-    if npz_path is None:
+    # Ahora vive en outputs_data/raw_npz/
+    npz_path = project_root / "outputs_data" / "raw_npz" / "H_1JFF.npz"
+    if not npz_path.exists():
+        # Fallback por si acaso
+        npz_path = project_root / "H_1JFF.npz"
+        
+    if not npz_path.exists():
         raise FileNotFoundError(
-            "No encuentro H_1JFF.npz. Busqué en:\n" + "\n".join(str(p) for p in candidates)
+            f"No encuentro H_1JFF.npz en {npz_path}. Ejecute build_hamiltonian.py primero."
         )
     d = np.load(npz_path, allow_pickle=True)
     H_cm = d["H_cm1"]
@@ -142,7 +132,7 @@ def main():
     ap.add_argument("--tmax", type=float, default=40.0, help="ventana corta en fs")
     ap.add_argument("--sample", type=float, default=10.0, help="espaciado de salida en fs")
     ap.add_argument("--site", type=int, default=0, help="sitio inicial")
-    ap.add_argument("--with-nc-stress", action="store_true", help="correr también NC+1")
+    ap.add_argument("--with-nc-stress", action="store_true", help="correr tambien NC+1")
     ap.add_argument("--outfile", type=str, default="jff_ultrashort_probe.json")
     args = ap.parse_args()
 
@@ -197,9 +187,10 @@ def main():
         print("ULTRA-SHORT 1JFF PROBE")
         print(f"baseline only  NC={args.nc}, Nk={args.nk}, wall={w_b:.1f} s, est30ps={estimate_30ps_minutes(w_b, args.tmax):.1f} min")
 
-    with open(args.outfile, "w", encoding="utf-8") as f:
+    out_path = project_root / "outputs_data" / "raw_json" / args.outfile
+    with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)
-    print(f"\nSaved: {args.outfile}")
+    print(f"\nSaved: {out_path}")
 
 
 if __name__ == "__main__":
