@@ -2145,3 +2145,67 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 118.57s)
 [2026-05-05T23:02:08+00:00] [validate_outputs.py] validated=96 bad=0 report=C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\structural\outputs_validation_report.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\outputs_validation_report.json", "script": "validate_outputs.py", "sha256": "813bb85c2b4ca62f6c5e5ac29a67aa335cff8b1f12e989c527c16a84397625c5", "size_bytes": 44125, "status": "ok", "timestamp_utc": "2026-05-05T23:02:08+00:00"}
 {"elapsed_s": 0.635928, "event": "end", "script": "validate_outputs.py", "status": "ok", "timestamp_utc": "2026-05-05T23:02:08+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T14:18:53+00:00"}
+[2026-05-06T14:18:53+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T14:18:53+00:00
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py] 
+================================================================
+KwanTube v3.5.1  -  14/14 checks passed   (wall 116.19s)
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py] SHA-256: a21fb9e7798043c1c4c557160c4d43f4dea2213463206fd932677aaaca7d0eeb
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (BF10=43.3)
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Spectral Gap Delta=961.10 meV
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] lattice_subradiant_delocalized         Subradiant IPR=64.1
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "38d187419e479dd17ed1c258fb41ca02d47dec1ecb1f6db0df7c5b490bc7b5e5", "size_bytes": 22875, "status": "ok", "timestamp_utc": "2026-05-06T14:20:49+00:00"}
+{"elapsed_s": 116.41529, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-06T14:20:49+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\seal_outputs.py", "script": "seal_outputs.py", "status": "running", "timestamp_utc": "2026-05-06T14:20:55+00:00"}
+[2026-05-06T14:20:55+00:00] [seal_outputs.py] [RUN_AUDIT] START script=seal_outputs.py timestamp_utc=2026-05-06T14:20:55+00:00
+[2026-05-06T14:20:55+00:00] [seal_outputs.py] [seal_outputs] Scanning 96 artifacts under C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data
+[2026-05-06T14:20:55+00:00] [seal_outputs.py]   [10/96] OK (no change needed)  metrics_007.npz
+[2026-05-06T14:20:56+00:00] [seal_outputs.py]   [20/96] OK (no change needed)  metrics_017.npz
+[2026-05-06T14:20:56+00:00] [seal_outputs.py]   [30/96] OK (no change needed)  metrics_027.npz
+[2026-05-06T14:20:56+00:00] [seal_outputs.py]   [40/96] OK (no change needed)  window_007.npz
+[2026-05-06T14:20:57+00:00] [seal_outputs.py]   [50/96] OK (no change needed)  window_017.npz
+[2026-05-06T14:20:57+00:00] [seal_outputs.py]   [60/96] OK (no change needed)  window_027.npz
+[2026-05-06T14:20:58+00:00] [seal_outputs.py]   [70/96] OK (no change needed)  redfield_6DPU.npz
+[2026-05-06T14:20:59+00:00] [seal_outputs.py]   [80/96] OK (no change needed)  pade_ckpt_NC3_Nk3.pkl
+[2026-05-06T14:20:59+00:00] [seal_outputs.py]   [90/96] OK (no change needed)  pade_refined_ckpt_NC3_Nk1.pkl
+[2026-05-06T14:20:59+00:00] [seal_outputs.py]   [96/96] OK (no change needed)  pade_refined_ckpt_NC8_Nk1.pkl
+[2026-05-06T14:20:59+00:00] [seal_outputs.py] 
+[seal_outputs] Done.  sealed=0  skipped=96  errors=0
+[2026-05-06T14:21:00+00:00] [seal_outputs.py] 
+[seal_outputs] Final validation: validated=96  bad=0
+[2026-05-06T14:21:00+00:00] [seal_outputs.py]   All artifacts CLEAN.
+{"elapsed_s": 5.363371, "event": "end", "script": "seal_outputs.py", "status": "ok", "timestamp_utc": "2026-05-06T14:21:00+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\audit_lineage.py", "script": "audit_lineage.py", "status": "running", "timestamp_utc": "2026-05-06T14:21:06+00:00"}
+[2026-05-06T14:21:06+00:00] [audit_lineage.py] [RUN_AUDIT] START script=audit_lineage.py timestamp_utc=2026-05-06T14:21:06+00:00
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage] Baseline : KwanTube_repo_backup_estable_28042026
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage] Compared (excl. __pycache__): 73 files
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage]   SAME                    (identical to baseline)         :   2
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage]   UPDATED                 (v3.5.1 legitimate evolution)   :  22
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage]   ADDED                   (new modules / tooling)         :  28
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage]   DEPRECATED_INTENTIONAL  (documented in v3.5.1 release)  :  21
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage] VERDICT  : CLEAN — 2 identical; 22 updated (v3.5.1 evolution); 28 added; 21 deprecated/reorganised (documented). No unexpected deletions.
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-06T14:21:09+00:00] [audit_lineage.py] [audit_lineage] wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\audit\lineage_audit.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\audit\\lineage_audit.json", "script": "audit_lineage.py", "sha256": "4479db680355461bde55101fae566053d2ce029482ac18447e0462e14edc69d4", "size_bytes": 23619, "status": "ok", "timestamp_utc": "2026-05-06T14:21:09+00:00"}
+{"elapsed_s": 3.008414, "event": "end", "script": "audit_lineage.py", "status": "ok", "timestamp_utc": "2026-05-06T14:21:09+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\validate_outputs.py", "script": "validate_outputs.py", "status": "running", "timestamp_utc": "2026-05-06T14:21:14+00:00"}
+[2026-05-06T14:21:14+00:00] [validate_outputs.py] [RUN_AUDIT] START script=validate_outputs.py timestamp_utc=2026-05-06T14:21:14+00:00
+[2026-05-06T14:21:15+00:00] [validate_outputs.py] validated=96 bad=0 report=C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\structural\outputs_validation_report.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\outputs_validation_report.json", "script": "validate_outputs.py", "sha256": "813bb85c2b4ca62f6c5e5ac29a67aa335cff8b1f12e989c527c16a84397625c5", "size_bytes": 44125, "status": "ok", "timestamp_utc": "2026-05-06T14:21:15+00:00"}
+{"elapsed_s": 0.737515, "event": "end", "script": "validate_outputs.py", "status": "ok", "timestamp_utc": "2026-05-06T14:21:15+00:00"}

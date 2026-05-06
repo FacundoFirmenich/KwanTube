@@ -32,13 +32,13 @@ It contains:
 ### Compound Information (PubChem)
 - JSON records for tubulin inhibitors and modulators:
   Epothilone, Methotrexate, Hemiasterlin, Vinorelbine, Colchicine, Taxol, and others
-- Used by: `src/scripts/data/fetch_public_data.py`
+- Used by: `src/scripts/public_data/fetch_public_data.py`
 
 ### Literature Search Summaries (OpenAlex, CrossRef, Europe PMC, RCSB)
 - `fetch_summary.json`: aggregated search results from 4 scientific databases
 - Covers topics: Tau-MT NMR spectroscopy, cancer drug resistance,
   tubulin vibrational modes, UV superradiance in tryptophan networks
-- Used by: `src/scripts/data/curate_compact.py` → `raw_csv/compact/`
+- Used by: `src/scripts/public_data/curate_compact.py` → `raw_csv/compact/`
 
 ### Spectroscopic & Structural Audit
 - 362 tubulin PDB structures with usable B-factor data
@@ -56,7 +56,7 @@ from the original public APIs (RCSB, PubChem, OpenAlex, CrossRef, Europe PMC).
 This is the reproducible-from-scratch path.
 
 ```bash
-python src/scripts/data/fetch_public_data.py
+python src/scripts/public_data/fetch_public_data.py
 ```
 
 ### Option 2 — Manual download from Drive

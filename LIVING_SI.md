@@ -1,7 +1,7 @@
 # LIVING_SI.md - Supplementary Information (Automated Validation)
 
-> **Version** 3.5.0 * **Generated** 2026-05-05T22:19:43Z * **Wall-time** 118.57s
-> **SHA-256 Hash** `751e93d5ae9e3491...` * **Audit Status** 14/14 validation criteria met
+> **Version** 3.5.1 * **Generated** 2026-05-06T14:20:49Z * **Wall-time** 116.19s
+> **SHA-256 Hash** `a21fb9e7798043c1...` * **Audit Status** 14/14 validation criteria met
 
 This document is machine-regenerated from `validation_report.json` on every 
 pipeline run. Every result is cross-referenced with the machine-auditable 
@@ -50,11 +50,11 @@ module models jump magnitudes on the log-scale to infer stable contraction ratio
 - **Hierarchical Stability**: \(\tau_{logr} = 0.266\) (Group-level heterogeneity).
 
 **Output Artifacts**:
-- [Group Summary](outputs_data/raw_csv/group_loglinear_summary.csv)
-- [Global Contraction](outputs_data/raw_csv/hierarchy_global_contraction.csv)
-- [Extrapolated Jumps](outputs_data/raw_csv/extrapolated_jumps.csv)
-- [Level Checks](outputs_data/raw_csv/level_reference_checks.csv)
-- [Diagnostics](outputs_data/raw_txt+md/diagnostics_v2.txt)
+- [Group Summary](outputs_data/raw_csv/heom_+bayesian_analysis/group_loglinear_summary.csv)
+- [Global Contraction](outputs_data/raw_csv/heom_+bayesian_analysis/hierarchy_global_contraction.csv)
+- [Extrapolated Jumps](outputs_data/raw_csv/heom_+bayesian_analysis/extrapolated_jumps.csv)
+- [Level Checks](outputs_data/raw_csv/heom_+bayesian_analysis/level_reference_checks.csv)
+- [Diagnostics](outputs_data/raw_txt+md/reports/diagnostics_v2.txt)
 
 **Posterior Plots**: [posterior_plots_v2.png](outputs_data/figures_final/posterior_plots_v2.png) and [posterior_plots_v2.pdf](outputs_data/figures_final/posterior_plots_v2.pdf)
 
@@ -72,15 +72,14 @@ _(Diagnostic results pending execution)_
 ## SI-3 - Detector Performance: ROC Detection Surface (Section 5, COMP-12)
 
 Probability of detection \(P_D(\Delta\ell,\mathrm{SNR})\) at a fixed false-alarm rate 
-\(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{MC}=500\) 
+\(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{MC}=10\) 
 stochastic trials per configuration.
 
-| Delta_l \\ log10 SNR | 2.00 | 2.57 | 3.13 | 3.70 |
-|---|---|---|---|---|
-| 0.30 | 0.06 | 0.07 | 0.10 | 0.13 |
-| 0.80 | 0.07 | 0.15 | 0.24 | 0.54 |
-| 1.30 | 0.11 | 0.17 | 0.45 | 0.89 |
-| 1.80 | 0.16 | 0.29 | 0.69 | 0.98 |
+| Delta_l \\ log10 SNR | 2.00 | 2.85 | 3.70 |
+|---|---|---|---|
+| 0.30 | 0.00 | 0.00 | 0.10 |
+| 1.05 | 0.10 | 0.10 | 0.80 |
+| 1.80 | 0.00 | 0.50 | 1.00 |
 
 **Consistency Check**: Verification of monotonic detection gain with increasing SNR across 
 the spatial coherence grid (\(\Delta\ell\)).
@@ -123,13 +122,13 @@ Evaluation of Bayes Factor (\(BF_{10}\)) stability across a spectrum of weakly-i
 
 ## SI-5 - Collective Modes in the Microtubule Lattice (Section 4.3, COMP-6)
 
-Analysis of a 13-protofilament B-lattice configuration (\(N = 260\) dimers, 
+Analysis of a 13-protofilament B-lattice configuration (\(N = 130\) dimers, 
 \(\mu=1700\) D, \(\varepsilon_r = 80\)):
 
-- **Superradiant Band Edge** (\(E_+\)): 485.68 meV
-- **Subradiant Band Edge** (\(E_-\)): -485.68 meV
-- **Excitonic Spectral Gap** (\(\Delta\)): 971.37 meV
-- **Inverse Participation Ratio (IPR)**: 122.2 (>= 2 indicates delocalized modes)
+- **Superradiant Band Edge** (\(E_+\)): 480.55 meV
+- **Subradiant Band Edge** (\(E_-\)): -480.55 meV
+- **Excitonic Spectral Gap** (\(\Delta\)): 961.10 meV
+- **Inverse Participation Ratio (IPR)**: 64.1 (>= 2 indicates delocalized modes)
 - **Axial Interaction** (\(J_\parallel\)): -88.08 meV (Attractive coupling; J-aggregate character)
 - **Lateral Interaction** (\(J_\perp\)): 160.36 meV (Repulsive coupling; H-aggregate character)
 
@@ -146,8 +145,8 @@ Analysis of a 13-protofilament B-lattice configuration (\(N = 260\) dimers,
 | `babcock_bf_decisive` | [OK] | Decisive Evidence (BF10=183.3) |
 | `kalra_bf_very_strong` | [OK] | Very Strong Evidence (BF10=43.3) |
 | `sbc_calibrated` | [OK] | NS Calibration p=0.560 |
-| `lattice_gap_positive` | [OK] | Spectral Gap Delta=971.37 meV |
-| `lattice_subradiant_delocalized` | [OK] | Subradiant IPR=122.2 |
+| `lattice_gap_positive` | [OK] | Spectral Gap Delta=961.10 meV |
+| `lattice_subradiant_delocalized` | [OK] | Subradiant IPR=64.1 |
 | `heom_production_extracted` | [OK] | Pur(30ps)=0.21, Disc=26.39% |
 | `heom_non_equilibrium_regime` | [OK] | Terminal purity 0.21 < 0.25 confirms transient dynamics |
 | `heom_redfield_divergence` | [OK] | HEOM-Redfield gap 26.39% exceeds truncation error |
@@ -171,4 +170,4 @@ To mitigate epistemic risk, the pipeline integrates a multi-layered empirical au
 ---
 
 *End of auto-generated Supplementary Information. To regenerate, execute:* 
-`python scripts/reproduce_paper_results.py [--full-roc]`.
+`python src/scripts/validation/reproduce_paper_results.py [--full-roc]`.

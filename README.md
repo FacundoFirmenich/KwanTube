@@ -23,7 +23,7 @@ provenance, licences, and usage instructions.
 The pipeline re-fetches all data automatically from the original open-access APIs:
 
 ```bash
-python src/scripts/data/fetch_public_data.py
+python src/scripts/public_data/fetch_public_data.py
 ```
 
 ---
@@ -42,7 +42,7 @@ python src/scripts/data/fetch_public_data.py
 
 ## Quick Start
 
-### One-shot reproduction (Fases 6–9)
+### One-shot reproduction (Phases 6–9)
 
 The launchers below create or activate a local `.venv`, install dependencies, and run the canonical workflow:
 
@@ -126,12 +126,12 @@ The full pipeline runs in **10 sequential phases**. See [`PIPELINE_MAP.md`](PIPE
 | 2 | `curate_compact.py`, `build_registry.py` | `raw_csv/compact/` |
 | 3 | `pdb_tubulin_analysis.py`, `build_hamiltonian.py` | `H_1JFF.npz`, `H_6DPU.npz` |
 | 4 | `heom_production_driver.py` ⚠️ | `production/window_*.npz` (96 × 30 ps) |
-| 5 | `redfield_tubulin.py`, `recompute_tau_coh.py`, `diagnose_ss_and_meanforce.py` | `raw_json/metrics/` |
-| 6 | `bayesian_heom_hierarchy_v2.py`, `sensitivity.py`, `sbc_report.py` | `raw_csv/heom_+bayesian_analysis/`, `raw_json/metrics/` |
-| 7 | `compute_detectability_metrics.py`, `run_comparative_panels.py`, `export_claim_traceability.py` | `raw_csv/{bath,compact,theory,flags}/` |
-| 8 | `heom_pade_convergence.py`, `audit_lineage.py`, **`reproduce_paper_results.py`** | `raw_json/structural/validation_report.json` |
-| 9 | `assemble_master_results.py`, `generate_paper_figures.py` | `figures_final/` |
-| 10 | `seal_outputs.py`, `validate_outputs.py` | SHA-256 sidecars, `outputs_validation_report.json` |
+| 5 | `fit_heom_kww_relaxation.py` [NUEVO] | KWW fits (beta~0.44 purity) |
+| 6 | `bayesian_heom_hierarchy_v2.py`, `sensitivity.py`, `sbc_report.py` | `raw_json/metrics/` |
+| 7 | `compute_subradiant_decay_spectrum.py` [NUEVO] | Optical subradiance modes |
+| 8 | `heom_pade_convergence.py`, `export_claim_traceability.py` | `raw_txt+md/reports/` |
+| 9 | `audit_lineage.py`, **`reproduce_paper_results.py`** | `validation_report.json`, `LIVING_SI.md` |
+| 10 | `seal_outputs.py`, `validate_outputs.py` | SHA-256 sidecars, Integrity check |
 
 > Phase 4 (HEOM production) is computationally expensive. Pre-computed artifacts are included in the repository; re-execution is only required after Hamiltonian changes.
 
@@ -215,7 +215,7 @@ CI is defined in `.github/workflows/ci.yml` and covers installation, unit tests,
 See [`PIPELINE_MAP.md`](PIPELINE_MAP.md) for the full annotated repository tree and sequential execution guide.
 
 - `src/qmc_mt/` — Core physical and statistical implementations
-- `src/scripts/` — Executable pipeline scripts (data/, analysis/, figures/, heom/, validation/)
+- `src/scripts/` — Executable pipeline scripts (public_data/, analysis/, figures/, heom/, validation/)
 - `config/` — Physical and numerical parameters (`physics_params.yaml`, `numerical_params.yaml`)
 - `outputs_data/` — Validated numerical artifacts (hierarchical v3.5.1 structure)
 - `tests/` — Automated test suite

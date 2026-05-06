@@ -1,6 +1,6 @@
 # PIPELINE_MAP.md — KwanTube v3.5.1
 
-> **Última actualización**: 2026-05-05 | **Arquitectura**: v3.5.1
+> **Última actualización**: 2026-05-06 | **Arquitectura**: v3.5.1 (Final bioRxiv)
 
 ---
 
@@ -12,311 +12,140 @@ KwanTube/
 │   ├── numerical_params.yaml
 │   └── physics_params.yaml
 ├── outputs_data/
-│   ├── figures_final/
-│   ├── production/
+│   ├── figures_final/              # Figuras PNG/PDF publication-ready
+│   ├── production/                 # Ventanas HEOM (000-095)
 │   ├── raw_csv/
-│   │   ├── bath/                       # bath_params_empirical.csv, bath_params_proxy.csv
-│   │   ├── compact/                    # *_compact.csv, data_registry.csv
-│   │   ├── flags/                      # _done_*.flag
-│   │   ├── heom_+bayesian_analysis/    # hierarchy_*.csv, extrapolated_jumps.csv,
-│   │   │                               # heom_bayes_input_current.csv, level_reference_checks.csv
-│   │   └── theory/                     # fisher_barrier.csv
+│   │   ├── bath/                   # bath_params_empirical.csv, bath_params_proxy.csv
+│   │   ├── compact/                # *_compact.csv, data_registry.csv
+│   │   ├── flags/                  # _done_*.flag
+│   │   ├── heom_+bayesian_analysis/# hierarchy_*.csv, heom_bayes_input_current.csv
+│   │   └── theory/                 # fisher_barrier.csv
 │   ├── raw_json/
-│   │   ├── audit/                      # lineage_audit.json
-│   │   ├── metrics/                    # redfield_summary.json, pdb_tubulin_analysis.json,
-│   │   │                               # heom_convergence_summary.json, sensitivity_sobol_final.json,
-│   │   │                               # prior_sensitivity.json, sbc_report.json,
-│   │   │                               # meanforce_diagnosis.json, redfield_tau_coh.json
-│   │   ├── progress/                   # _progress_*.json, _done_fetch_public_data.flag
-│   │   └── structural/                 # outputs_validation_report.json, validation_report.json
-│   ├── raw_npz/                        # H_*.npz, heom_*.npz, window_*.npz
-│   ├── raw_pkl/                        # heom_*.pkl, pade_ckpt_*.pkl, pade_refined_*.pkl
+│   │   ├── audit/                  # lineage_audit.json
+│   │   ├── metrics/                # KWW_fit.json, subradiant_spectrum.json, SBC, Sobol
+│   │   ├── progress/               # _progress_*.json
+│   │   └── structural/             # outputs_validation_report.json
+│   ├── raw_npz/                    # H_*.npz, heom_*.npz, master_results.npz
+│   ├── raw_pkl/                    # heom_*.pkl, pade_ckpt_*.pkl
 │   ├── raw_txt+md/
-│   │   ├── logs/                       # execution_memory.log.txt
-│   │   └── reports/                    # heom_convergence_report.txt, diagnostics_v2.txt,
-│   │                                   # claim_traceability_matrix_v2.md
+│   │   ├── logs/                   # execution_memory.log.txt
+│   │   └── reports/                # diagnostics_v2.txt, claim_traceability_matrix_v2.md
 │   └── verification/
 ├── src/
-│   ├── qmc_mt/                         # Paquete principal (importable)
-│   │   ├── [EJECUTABLES]
-│   │   │   ├── diagnose_ss_and_meanforce.py
-│   │   │   ├── pdb_tubulin_analysis.py
-│   │   │   ├── rank_pairs.py
-│   │   │   ├── recompute_tau_coh.py
-│   │   │   ├── redfield_tubulin.py
-│   │   │   ├── sbc_report.py
-│   │   │   ├── sensitivity.py
-│   │   │   └── sensitivity_priors.py
-│   │   ├── [INFRAESTRUCTURA]
-│   │   │   ├── run_audit.py            # Decorador de auditoría y log
-│   │   │   └── validate_integrity.py   # Motor SHA-256
-│   │   └── [LIBRERÍA INTERNA]
-│   │       ├── bootstrap.py, control_variates.py, core.py
-│   │       ├── inversion.py, lattice.py, meta.py, model_selection.py
-│   │       ├── nested_sampling.py, noneq.py, open_system.py
-│   │       ├── primary_data.py, qmc.py, richardson_fragment.py
-│   │       ├── robust_interp.py, roc.py, rqmc.py, sbc.py
-│   │       └── test_ns_consistency.py  # [TEST]
+│   ├── qmc_mt/                     # Paquete principal (Lógica física y auditoría)
+│   │   ├── run_audit.py            # Log de ejecución centralizado
+│   │   └── validate_integrity.py   # Motor criptográfico SHA-256
 │   └── scripts/
-│       ├── analysis/
+│       ├── analysis/               # Motores de inferencia y post-procesamiento
 │       │   ├── assemble_master_results.py
 │       │   ├── bayesian_heom_hierarchy_v2.py
-│       │   └── extract_heom_production_figure.py
-│       ├── data/
-│       │   ├── _audit_data.py          # [INTERNO]
 │       │   ├── build_hamiltonian.py
-│       │   ├── build_registry.py
 │       │   ├── compute_detectability_metrics.py
-│       │   ├── curate_compact.py
+│       │   ├── compute_subradiant_decay_spectrum.py [NUEVO]
 │       │   ├── export_claim_traceability.py
-│       │   ├── fetch_public_data.py
-│       │   ├── run_comparative_panels.py
-│       │   └── run_pipeline_vscode.py  # [ORQUESTADOR VSCode]
-│       ├── figures/
-│       │   ├── extract_vector_figure.py
+│       │   ├── fit_heom_kww_relaxation.py [NUEVO]
+│       │   └── heom_pade_convergence.py
+│       ├── figures/                # Generación de plots para el paper
 │       │   └── generate_paper_figures.py
-│       ├── heom/
-│       │   ├── heom_acceptance_criteria.md
+│       ├── heom/                   # Drivers de producción HEOM (costosos)
 │       │   └── heom_production_driver.py
-│       └── validation/
+│       ├── public_data/            # Ingestión y curación de datos externos
+│       │   ├── fetch_public_data.py
+│       │   ├── curate_compact.py
+│       │   ├── build_registry.py
+│       │   └── run_pipeline_vscode.py
+│       └── validation/             # Auditoría técnica y reproducción
 │           ├── audit_lineage.py
-│           ├── heom_pade_convergence.py
-│           ├── reproduce_paper_results.py  # PUNTO CANÓNICO
+│           ├── reproduce_paper_results.py
 │           ├── seal_outputs.py
 │           └── validate_outputs.py
-├── tests/
-│   ├── test_bayesian_heom_hierarchy_v2_smoke.py
-│   ├── test_interpolation_integrity.py
-│   ├── test_inversion.py
-│   ├── test_parameter_traceability.py
-│   └── test_physics.py
-├── CITATION.cff, CONTRIBUTING.md, LICENSE
-├── LIVING_SI.md                        # SI auto-generado
-├── PIPELINE_MAP.md                     # Este documento
-├── README.md
-├── RELEASE_RUNBOOK.md
-├── paper.bib / paper.md
-├── pyproject.toml                      # v3.5.1
-├── reproduce_results.bat / .sh / .command / _linux.desktop
-└── requirements.txt
+├── tests/                          # Suite de validación CI
+├── CITATION.cff, README.md, LIVING_SI.md
+└── paper.bib / paper.md            # Manuscrito fuente
 ```
-
-### Archivos legacy — pendientes de eliminación
-
-| Archivo | Motivo |
-|:--------|:-------|
-| `push_biorxiv_final.ps1` | Script de push ad hoc; reemplazado por workflow Git |
-| `do_push_kwantube.ps1` | Ídem; redundante con `git push` estándar |
 
 ---
 
 ## 2. Pipeline de Ejecución Secuencial
 
-### FASE 0 — Instalación
-
+### FASE 1 — Ingestión (Datos Públicos)
 ```bash
-pip install -e .
-# o: pip install -r requirements.txt
+python src/scripts/public_data/fetch_public_data.py
+```
+> **Nota**: Los datos brutos (~1.5 GB) se descargan vía API y se guardan localmente.
+> Ver [`PUBLIC_DATA.md`](PUBLIC_DATA.md) para el link al mirror en Drive.
+
+### FASE 2 — Curación y Registro
+```bash
+python src/scripts/public_data/curate_compact.py
+python src/scripts/public_data/build_registry.py
 ```
 
----
-
-### FASE 1 — Adquisición de Datos Públicos
-
-```bash
-python src/scripts/data/fetch_public_data.py
-```
-
-| Salida | Destino |
-|--------|---------|
-| Progress heartbeat | `raw_json/progress/_progress_fetch_public_data.json` |
-| Done flag | `raw_json/progress/_done_fetch_public_data.flag` |
-
-> **Nota sobre el repositorio de datos públicos**: Los datos descargados (~1.52 GB)
-> no pueden subirse a GitHub por restricciones de tamaño. Están disponibles
-> libremente en:
-> **https://drive.google.com/drive/folders/1DmXBlcdwP7gY-k56RKdNGRvGSRwd5ZzU?usp=sharing**
->
-> El script re-descarga todo desde las APIs originales (RCSB, PubChem, OpenAlex,
-> CrossRef, Europe PMC) de forma completamente reproducible.
-> Ver [`PUBLIC_DATA.md`](PUBLIC_DATA.md) para detalles.
-
----
-
-### FASE 2 — Curación de Tablas Compactas
-
-```bash
-python src/scripts/data/curate_compact.py
-python src/scripts/data/build_registry.py
-```
-
-| Salida | Destino |
-|--------|---------|
-| `structures_compact.csv`, `studies_compact.csv`, `spectral_compact.csv` | `raw_csv/compact/` |
-| `data_registry.csv` | `raw_csv/compact/` |
-
----
-
-### FASE 3 — Análisis PDB y Hamiltoniano
-
+### FASE 3 — Estructura y Hamiltoniano
 ```bash
 python src/qmc_mt/pdb_tubulin_analysis.py
-python src/scripts/data/build_hamiltonian.py
+python src/scripts/analysis/build_hamiltonian.py
 ```
 
-| Salida | Destino |
-|--------|---------|
-| `pdb_tubulin_analysis.json` | `raw_json/metrics/` |
-| `H_1JFF.npz`, `H_6DPU.npz` | `raw_npz/` |
-
----
-
-### FASE 4 — Producción HEOM ⚠️ costosa
-
+### FASE 4 — Producción HEOM (Solo si es necesario)
 ```bash
 python src/scripts/heom/heom_production_driver.py
 ```
 
-| Salida | Destino |
-|--------|---------|
-| `window_000.npz` … `window_095.npz` | `production/` |
-
-> Los artefactos de producción ya están presentes. No re-ejecutar salvo cambio de Hamiltoniano.
-
----
-
-### FASE 5 — Diagnósticos Físicos
-
+### FASE 5 — Dinámica de Relajación (KWW)
 ```bash
-python src/qmc_mt/redfield_tubulin.py
-python src/qmc_mt/recompute_tau_coh.py
-python src/qmc_mt/diagnose_ss_and_meanforce.py
-python src/qmc_mt/rank_pairs.py
+python src/scripts/analysis/fit_heom_kww_relaxation.py
 ```
+*   **Resultados**: $\beta \approx 0.44$ (pureza cuántica), indicando desviación Markoviana.
 
-| Salida | Destino |
-|--------|---------|
-| `redfield_summary.json` | `raw_json/metrics/` |
-| `redfield_tau_coh.json` | `raw_json/metrics/` |
-| `meanforce_diagnosis.json` | `raw_json/metrics/` |
-
----
-
-### FASE 6 — Bayesiano y Sensibilidad
-
+### FASE 6 — Inferencia Bayesiana y Sensibilidad
 ```bash
 python src/scripts/analysis/bayesian_heom_hierarchy_v2.py
 python src/qmc_mt/sensitivity.py
-python src/qmc_mt/sensitivity_priors.py
 python src/qmc_mt/sbc_report.py
 ```
 
-| Salida | Destino |
-|--------|---------|
-| `hierarchy_global_contraction.csv`, `hierarchy_group_shrinkage.csv`, `extrapolated_jumps.csv`, `level_reference_checks.csv` | `raw_csv/heom_+bayesian_analysis/` |
-| `diagnostics_v2.txt` | `raw_txt+md/reports/` |
-| `sensitivity_sobol_final.json`, `prior_sensitivity.json`, `sbc_report.json` | `raw_json/metrics/` |
-
----
-
-### FASE 7 — Detectabilidad y Trazabilidad
-
+### FASE 7 — Coherencia Óptica y Subradiancia
 ```bash
-python src/scripts/data/compute_detectability_metrics.py
-python src/scripts/data/run_comparative_panels.py
-python src/scripts/data/export_claim_traceability.py
+python src/scripts/analysis/compute_subradiant_decay_spectrum.py
+```
+*   **Resultados**: Identificación de modos protegidos ($>77\%$ subradiantes).
+
+### FASE 8 — Trazabilidad y Convergencia
+```bash
+python src/scripts/analysis/export_claim_traceability.py
+python src/scripts/analysis/heom_pade_convergence.py
 ```
 
-| Salida | Destino |
-|--------|---------|
-| `bath_params_empirical.csv` | `raw_csv/bath/` |
-| `metrics_compact.csv`, `metrics_compact_summary.csv`, `comparative_panels_compact.csv` | `raw_csv/compact/` |
-| `fisher_barrier.csv` | `raw_csv/theory/` |
-| `_done_compute_detectability_metrics.flag` | `raw_csv/flags/` |
-| `claim_traceability_matrix_v2.md` | `raw_txt+md/reports/` |
-
----
-
-### FASE 8 — Validación Técnica (punto de entrada canónico)
-
+### FASE 9 — Auditoría Forense y Reproducción
 ```bash
-python src/scripts/validation/heom_pade_convergence.py
 python src/scripts/validation/audit_lineage.py
 python src/scripts/validation/reproduce_paper_results.py --mode paper
 ```
+*   Genera el `LIVING_SI.md` definitivo sincronizado con los datos.
 
-| Salida | Destino |
-|--------|---------|
-| `heom_convergence_summary.json` | `raw_json/metrics/` |
-| `heom_convergence_report.txt` | `raw_txt+md/reports/` |
-| `lineage_audit.json` | `raw_json/audit/` |
-| `validation_report.json` | `raw_json/structural/` |
-| `LIVING_SI.md` | raíz del repo |
-
----
-
-### FASE 9 — Ensamblado y Figuras
-
-```bash
-python src/scripts/analysis/assemble_master_results.py
-python src/scripts/analysis/extract_heom_production_figure.py
-python src/scripts/figures/generate_paper_figures.py
-python src/scripts/figures/extract_vector_figure.py
-```
-
-| Salida | Destino |
-|--------|---------|
-| `master_results.npz` | `production/` |
-| Todas las figuras del manuscrito | `figures_final/` |
-
----
-
-### FASE 10 — Sellado de Integridad
-
+### FASE 10 — Sellado Final (Integridad Criptográfica)
 ```bash
 python src/scripts/validation/seal_outputs.py
 python src/scripts/validation/validate_outputs.py
-# Resultado esperado: validated=96 bad=0
 ```
-
-| Salida | Destino |
-|--------|---------|
-| `*.sha256` (sidecars) | junto a cada `.npz` / `.pkl` |
-| `outputs_validation_report.json` | `raw_json/structural/` |
+*   **Meta**: `validated=96 bad=0`. Este es el estado de "Release Ready".
 
 ---
 
 ## 3. Orquestadores de Conveniencia
 
-| Launcher | Plataforma | Fases cubiertas |
-|:---------|:-----------|:----------------|
-| `reproduce_results.sh` | Linux / macOS | 6 → 9 |
-| `reproduce_results.bat` | Windows | 6 → 9 |
-| `reproduce_results.command` | macOS Finder | 6 → 9 |
-| `reproduce_results_linux.desktop` | Linux DE | 6 → 9 |
-| `src/scripts/data/run_pipeline_vscode.py` | VSCode (cualquier OS) | 1 → 7 |
+| Launcher | Uso |
+|:---------|:----|
+| `src/scripts/public_data/run_pipeline_vscode.py` | Ejecución aislada de Fases 1-3 |
+| `reproduce_results.sh / .bat` | Ejecución del bloque de análisis (5-9) |
 
 ---
 
-## 4. Suite de Tests
+## 4. Suite de Tests (GitHub Actions)
 
-```bash
-pytest tests/ -v
-python src/qmc_mt/test_ns_consistency.py
-```
-
-| Test | Cobertura |
-|:-----|:----------|
-| `test_bayesian_heom_hierarchy_v2_smoke.py` | Smoke test motor Bayesiano |
-| `test_interpolation_integrity.py` | Interpolación robusta |
-| `test_inversion.py` | Inversión de fase cuántica |
-| `test_parameter_traceability.py` | Trazabilidad de parámetros físicos |
-| `test_physics.py` | Constantes y fórmulas físicas |
-| `test_ns_consistency.py` | Motor Nested Sampling |
-
----
-
-*Para regenerar `LIVING_SI.md` y `validation_report.json`:*
-```bash
-python src/scripts/validation/reproduce_paper_results.py --mode paper
-```
+El repositorio mantiene un CI (`ci.yml`) que valida cada push:
+1.  **Unit Tests**: `pytest tests/`
+2.  **SBC Check**: Calibración estadística del motor Bayesiano.
+3.  **Smoke Tests**: Ejecución rápida de `reproduce_paper_results.py --fast`.
+4.  **Integrity**: Verificación de firmas SHA-256 en artefactos críticos.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-# reproduce_paper_results.py - KwanTube v3.5.0
+# reproduce_paper_results.py - KwanTube v3.5.1
 End-to-end reproduction of the repository-level numerical validation ledger
 supporting the manuscript's reproducible baseline claims.
 
@@ -322,7 +322,7 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
 
     results = {
         "_metadata": {
-            "version":       "3.5.0",
+            "version":       "3.5.1",
             "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             "python":        platform.python_version(),
             "platform":      platform.platform(),
@@ -436,11 +436,11 @@ module models jump magnitudes on the log-scale to infer stable contraction ratio
 - **Hierarchical Stability**: \(\tau_{{logr}} = {heom_v2_tau:.3f}\) (Group-level heterogeneity).
 
 **Output Artifacts**:
-- [Group Summary](outputs_data/raw_csv/group_loglinear_summary.csv)
-- [Global Contraction](outputs_data/raw_csv/hierarchy_global_contraction.csv)
-- [Extrapolated Jumps](outputs_data/raw_csv/extrapolated_jumps.csv)
-- [Level Checks](outputs_data/raw_csv/level_reference_checks.csv)
-- [Diagnostics](outputs_data/raw_txt+md/diagnostics_v2.txt)
+- [Group Summary](outputs_data/raw_csv/heom_+bayesian_analysis/group_loglinear_summary.csv)
+- [Global Contraction](outputs_data/raw_csv/heom_+bayesian_analysis/hierarchy_global_contraction.csv)
+- [Extrapolated Jumps](outputs_data/raw_csv/heom_+bayesian_analysis/extrapolated_jumps.csv)
+- [Level Checks](outputs_data/raw_csv/heom_+bayesian_analysis/level_reference_checks.csv)
+- [Diagnostics](outputs_data/raw_txt+md/reports/diagnostics_v2.txt)
 
 **Posterior Plots**: [posterior_plots_v2.png](outputs_data/figures_final/posterior_plots_v2.png) and [posterior_plots_v2.pdf](outputs_data/figures_final/posterior_plots_v2.pdf)
 
@@ -538,7 +538,7 @@ To mitigate epistemic risk, the pipeline integrates a multi-layered empirical au
 ---
 
 *End of auto-generated Supplementary Information. To regenerate, execute:* 
-`python scripts/reproduce_paper_results.py [--full-roc]`.
+`python src/scripts/validation/reproduce_paper_results.py [--full-roc]`.
 """
 
 
