@@ -1,0 +1,8 @@
+{
+  "script": "curate_compact.py",
+  "step": "done",
+  "timestamp_utc": "2026-05-05T07:25:19.254480+00:00",
+  "structures": "507",
+  "studies": "89",
+  "spectral": "249"
+}

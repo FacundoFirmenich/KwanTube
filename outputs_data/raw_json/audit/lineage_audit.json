@@ -1,0 +1,659 @@
+[
+  {
+    "path": "src/qmc_mt/__init__.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "1df6b58829c81132ce06e997e9bffa60ba62c08729615b2eb52855d77d84a204",
+    "backup_sha256": "1df6b58829c81132ce06e997e9bffa60ba62c08729615b2eb52855d77d84a204",
+    "status": "SAME",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/bootstrap.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "c56cdea08835962e7f669e31e2720546f2f855637c4708eb2b658f1deb33c461",
+    "backup_sha256": "e789fbdc0c35f18408adecf7bb1f86126033a59f7ee1f48d21ad7fe9e2d8c60c",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/build_hamiltonian.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "59da26fb89291717cf8ab7aa2d907c947add847b9c723202cf8e02e6bbea01dc",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/control_variates.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "e06be251a6213ae7fe8bbb798c34267afb3575a32ed61d1005727a5525ee1e3b",
+    "backup_sha256": "8be9f9fce9fbf80dbf2ac697ca1d551173a550a080dca78f4481063a5ca3c1ba",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/core.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "12ad5073b8689b5003dca8a5023707007aca25acbc477e83f43fc7fd5e1ca402",
+    "backup_sha256": "12ad5073b8689b5003dca8a5023707007aca25acbc477e83f43fc7fd5e1ca402",
+    "status": "SAME",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/diagnose_ss_and_meanforce.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "cbfd253864eebfcd6903e9c535f407fe3ba1723ef185a9502b871894bc383327",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/heom_bayes_out_v2/diagnostics_v2.txt",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "3e890e9a27715a69c073b365e9643724310c8f3f926c41fbcb9faa3013128582",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/heom_bayes_out_v2/extrapolated_jumps.csv",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "c40585eefd37abcb660ae82aaa6fc74bea4c17f1c49097f76da8a99e27acc06e",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/heom_bayes_out_v2/group_loglinear_summary.csv",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "bd728f593e43b39ccdb3741e5e7d1889904e479699af8ebc20b7794cf0b9b852",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/heom_bayes_out_v2/hierarchy_global_contraction.csv",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "c45f27424468879aaead978e16dcd9edb85ad909b5b05ac4419dea4c371f65f3",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/heom_bayes_out_v2/hierarchy_group_shrinkage.csv",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "f32cfc22327ba4de92845638da7f1da30ac74b49ca839bd09cc6db022c9aa5c5",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/heom_bayes_out_v2/level_reference_checks.csv",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "f6e0889d55b606aee1c4bae36b2dc962e4a278e2bc9482c1a0d66fd7df0be43a",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/heom_bayes_out_v2/posterior_plots_v2.png",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "0dafca3a2e5ef3bda2f452beb1dfa8c3cf449deab28f651d5b2bbca4efcc4353",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/heom_benchmark.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "5740221ff3a44b7df7dcae3440effceb24a3b9075dee85f6c0185bcb3162e11f",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/inversion.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "5ec3fd0fec1f73eaef9853e24f76a053111d3a09958f25fb0e80efae7ccb6324",
+    "backup_sha256": "4937a6a58ff06b9ff985274e0ec4256a5d1efe2ed561e51c39d43fc82534e95a",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/lattice.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "8ab5c787e4d1504a4d97fe76e585039167d1eae720d20eee1ea8adf8122ffeb5",
+    "backup_sha256": "a693362a714cea1559151e40df74cfcea156d9ce3507712b527d7223e700c73d",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/meta.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "bfe310c3df8acca1fd620a8b01088a5c1356caf7b22aa089229df40bcfbf1f09",
+    "backup_sha256": "67fc522330dc57766be2bbfa8c79d2188f8f3ac2d73be18d9c3bcb48897a2e66",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/model_selection.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "9120d00e94dea34bb54b520e6e8fcd777a0f336af4964ee9688a709bb8122d74",
+    "backup_sha256": "5f89aef0b1f933ebacd652383d2f40a56f056c07d580bb3e31ec30d22357a076",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/nested_sampling.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "e9bb9e690b1da6e0ad085cb7e8d06ab4bb4c15323d850a7979cf6d5970fc15f4",
+    "backup_sha256": "dda66fec8c29253298867889c224fb6c1b46b86ef7c86479d0f8a1e94829aee4",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/noneq.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "3360770a6a5d3fd702d690242dd6eb5009a554ea8281604ad7db90cb3d7d97c5",
+    "backup_sha256": "0950cb1a39308ba0977fff896e56d6fafdd7c1c0832f7417c0a5030f60311b49",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/open_system.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "e3ba6ea743ab585a39781f8f4b830d0754bfa7f72f4ea4a239d651cd4ad9500a",
+    "backup_sha256": "c3942f82c7debed6fc7f5607a9791b5ca377ddc8cf1b9a9c45eb27a9f8b7655d",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/pdb_tubulin_analysis.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "d04bcac27dacbeef7d845b9c206485728d8052a9021de425c6b5f79f23713666",
+    "backup_sha256": "db726850e05fd3933b6ad348d025b08cc150a7d55a229ec4c14f533f54e85b9a",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/primary_data.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "349484bdea168a32d0700a229e99ff9744ea1e8497c41adb37f93f7c56bc8a33",
+    "backup_sha256": "fc441ce9371515bf4e6fafbbbac95ccb75655bfcfbe15c7752038cde6c87f6b3",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/qmc.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "aa98031113dc0055ae52115a7faa47f37b68cef3402030a80939e1a8a67ba372",
+    "backup_sha256": "59f5fb4d3920f3bd5a39cbbabd33b03027c8b2d18c9527fca95733125ac827d9",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/rank_pairs.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "1d48cb0a335788a61308522fa1a5a8b32df706ba52b80e494478189b29df5de4",
+    "backup_sha256": "d7a39532bcf0929d2d8860851666fa68bd42a34d1ca5f292d220e1ad3ef5a6dd",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/recompute_tau_coh.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "e06078ec0499e57ef148abdbba69ea896681b11fe361544ddfba411f5b92cde6",
+    "backup_sha256": "6bd723cb38487d8743c6edba078aec804df87e42af8304df53d4905e8c3eac79",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/redfield_tubulin.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "89bd2f60f238881ae51c78c4156a5d9162dd6e14b4d908310dbb5b0bdf95719d",
+    "backup_sha256": "692397713d75fe1741fc64aab6563c1b9e807fcf840a989fbfb85906f121e355",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/richardson_fragment.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "688e55149de657b1b348ad549e0fad9517156ecbd875f5f984329ad6c7963b04",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/robust_interp.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "c1b2573dcd6f99fd1045b9a1d31d2e9596c5100caec68d024e3e2f4253032b42",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/roc.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "5ecabd6b499b955178b1e14556223359561156b8b3b6f2d0137943ae4e5fa616",
+    "backup_sha256": "7a8dd552da30cca88ae203f309b5af91de958d678ef62782f961534d870a9770",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/rqmc.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "53fb581b363f14096dae29d2d5a00f9f042689363c80e707342d5cfd3b142fe9",
+    "backup_sha256": "89be8ed164aecdd73f9ae7eada57df8ce6e5a4cd1ccfb9e45f9866ca1a61aadc",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/run_audit.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "519cfd28672013b1e1bb6794f043f4771e4470bd9e8ad7ac4e8222e73109778f",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/sbc.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "ce784afa651813335ee9b477c5972af4ec886c371b1c9e15f4e0666b7a4978f2",
+    "backup_sha256": "2f79322f02b10e60df97504e3e6a60bdb5463bc21e3e5ec42ef725e1c82f8826",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/sbc_report.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "e73d5864a3b78d4fcb108cdaaff6ea01a6df25565463633e1ca5a53c9c60bd4a",
+    "backup_sha256": "b4d93f580b14fca6e7511ac583ac2bfcc1b05491a6100d9926929be1be3f8c1a",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/sensitivity.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "c4709746a6a1d95a4f98f992cf388b9596d82faf218bb9c200b1259215e76055",
+    "backup_sha256": "d6c79faa5cb1016b733347e2d00a91f1da9c9083c5516841669d7e47ba926b4b",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/sensitivity_priors.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "89b19839544e64ab9383c801adc43ea567f3d1553f8c64065e10277c9864ed64",
+    "backup_sha256": "1ce2dd470c2ded1302ca6f1317e980bb02c28393b59c7530ec356aade79dbf8a",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/test_ns_consistency.py",
+    "current_exists": true,
+    "backup_exists": true,
+    "current_sha256": "887bcb75319b491516a06ca4374e62f4fdd53d47a8e890b04f771fcbf8000a2f",
+    "backup_sha256": "6a49be1eb6f9d68136a2de070b60a2e8c25b1a841f3af900f60bc9040fe90899",
+    "status": "UPDATED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/qmc_mt/validate_integrity.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "1f94f62d83a2b85af3d44864f227b563be18caadf5cb69b1b612dabbc892aad2",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/assemble_master_results.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "e21098f61745c42bfc72262eca9fc43176f6a3950991627069c0b4b47983fc6e",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/bayesian_heom_hierarchy_v2.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "018cc8bce060c5032df4b4178223cc9a431b491998f8dd12b0dfb37123ebc517",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/build_hamiltonian.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "a3671842c168a384543c90e03e377bb483ef4335147427b702a91779051b9afc",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/compute_detectability_metrics.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "f19ffb358fa4685b22574bd7491928dbfc373de2b5a07af91f192b4944a06a85",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/compute_subradiant_decay_spectrum.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "8f7cfa9eeb4a2f92655a549452f4841f06ecf5beefe6d11b0bee931c6c051d75",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/export_claim_traceability.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "40b7c554f2614de3bf00cc17258e5e62fb2c5e728c7f02450a8f4337dc0bc61c",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/extract_heom_production_figure.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "65b1c5b36ac9d8e940a9648fbd1985e46a158de049769556b21cc186e698585e",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/fit_heom_kww_relaxation.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "8b7b48f225b54cd978da9bc5740241bc6e7373801581156067b2ca47b5b8c46b",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/analysis/heom_pade_convergence.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "3cd18bed2813f0d140ed2f5d75dc8d7ecd1cee503c0ef013f231acfaf3580657",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/bayesian_heom_hierarchy_v2.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "b2eae568ebd41e0bf46b44f0f2436a525c9b4874365d11eb792ef91b13add142",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/extract_vector_figure.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "c6b0909d72fb269668032823ffcfd8288897baa630f992081ccaac29fedb11fe",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/figures/generate_paper_figures.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "6dc92f731d31aa5f64a848ab5805bbc945a1b231977af4c9edf5581eb05699dc",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/generate_paper_figures.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "d5ae3d2d6034eb5782a2a8fdd9af7863bae5d7121f9fcf6b155a008dfee15bdc",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/heom/__init__.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "36d31aa5c7f5201d4ea42f2726f2d5a8f1cc5699d105ab50c13fb16d0d7d1b6d",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/heom/heom_acceptance_criteria.md",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "613ed56ec9b4e99075481734168e891e25325e77ccdf85396f2efa6b807ff39d",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/heom/heom_production_driver.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "25c603437c181b4c4f7ddbfec831577101103480cce468b629734b0e9c2a8607",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/public_data/_audit_data.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "aabcb4b5f091b4f5a14848e9ad9b350cd8f4f8fc26dca9bfe739ba8e008b6f20",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/public_data/build_registry.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "23afdf2b74c160e2b19851e43260a226e9d8fee231b7b08f9bf6b47550ee979f",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/public_data/curate_compact.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "a353e08f43748ddb5e51812c04b148bd4c83dfe8e17e008ab5c1461bd42c0c68",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/public_data/fetch_public_data.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "aa3c6f04d8de70f74e11eb75c8758ab652aadb7744be3ded035b6759ac657f62",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/public_data/run_comparative_panels.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "b178cb12a96843ef40852b949115bcd93534f74ed8f2538d8a49faad83bee305",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/public_data/run_pipeline_vscode.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "fab788096cd793c0a79b4a4231e18d3c16d7499bf0e86a8151e3c698674357cb",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/reproduce_paper_results.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "d1d78673837e6a3e07ef81f73fd1d6b52703520fafddad53ba38a11186efec7b",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/scripts_data_real/_audit_data.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "85008df3f3b39bad064e1db0a843262025b4c923500f0026a209912047d75d5e",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/scripts_data_real/build_registry.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "b088e83a1eed004af9a312ec22309c9561712c5027b6cec6465598ffeb488ff9",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/scripts_data_real/compute_detectability_metrics.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "7e314ae3108d2f6bb6dff9d8da9e1921357002a6b0e236aac91f8c6c5b448d5b",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/scripts_data_real/curate_compact.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "701abbd4fb93d446cb776da95e200befcc5935d4c0d1bf2e3df473a01213a11b",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/scripts_data_real/export_claim_traceability.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "da97bb48c27932bd0fa860b60326d2fe20a8503d2ac5b67187fcda81f93eb3b9",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/scripts_data_real/fetch_public_data.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "38f35dc84f9b2d2b392f290860f7bd307a5b48333ea57a56bf9a3d1bcea7bd40",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/scripts_data_real/run_comparative_panels.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "8a4cfa4652f697d67df165e9daa8f58a7f9aabd625e435d6a8e4b8e25d488a7f",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/scripts_data_real/run_pipeline_vscode.py",
+    "current_exists": false,
+    "backup_exists": true,
+    "current_sha256": null,
+    "backup_sha256": "b7b455c0bfbab830afd125dc44def08c926ff082517e647f45890bcc7e5949f8",
+    "status": "DEPRECATED_INTENTIONAL",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/validation/audit_lineage.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "3f488843f0d379eafe9538fa7075a980221533f410140bcfaab9b80d3922ed08",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/validation/reproduce_paper_results.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "30723fd9f3e643511e397f33928902b52abb77b24fb02a1877dc9b4abbe53685",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/validation/seal_outputs.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "2477e7e7cfb97b4d31e24ec81dcee4ffd65a55ae02c9ce307aeb24e491f06e6a",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  },
+  {
+    "path": "src/scripts/validation/validate_outputs.py",
+    "current_exists": true,
+    "backup_exists": false,
+    "current_sha256": "4a92ac4b50034ea4db024c7705f461c3ba04557f4b1f18365054c170c169fb6c",
+    "backup_sha256": null,
+    "status": "ADDED",
+    "relocation_target": null
+  }
+]

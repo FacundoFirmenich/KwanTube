@@ -84,6 +84,14 @@ def bootstrap_ci(
 
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     import json
     rng = np.random.default_rng(0)
     n_trials, n_sample = 10000, 40

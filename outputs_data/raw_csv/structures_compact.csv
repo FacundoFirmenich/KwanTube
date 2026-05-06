@@ -1,508 +1,508 @@
 dataset_id,source_file,entry_id,method,resolution_angstrom,em_resolution_angstrom,wilson_b_estimate,b_factor_type,rfree,rfactor,deposited_atoms
-rcsb::4H6Z,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4H6Z,X-RAY DIFFRACTION,2.701,,54.314,FULL,0.2605,0.2384,2440
-rcsb::8X9P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8X9P,ELECTRON MICROSCOPY,3.54,3.54,,,,,7669
-rcsb::8JJC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8JJC,X-RAY DIFFRACTION,2.76,,70.62,FULL,0.2615,0.2397,17324
-rcsb::4H6U,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4H6U,X-RAY DIFFRACTION,2.4482,,45.638,FULL,0.25,0.2087,2692
-rcsb::4O4H,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4O4H,X-RAY DIFFRACTION,2.1,,33.437,FULL,0.2247,0.1942,18548
-rcsb::3TIG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3TIG,X-RAY DIFFRACTION,2.5,,53.962,FULL,0.2978,0.2498,2434
-rcsb::4YLS,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4YLS,X-RAY DIFFRACTION,2.6,,49.729,FULL,0.2472,0.2154,2628
-rcsb::4TUY,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4TUY,X-RAY DIFFRACTION,2.1,,36.801,FULL,0.22,0.1892,18801
-rcsb::4TV9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4TV9,X-RAY DIFFRACTION,2.0,,44.92,FULL,0.2094,0.1847,18487
-rcsb::4TV8,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4TV8,X-RAY DIFFRACTION,2.103,,50.016,FULL,0.2227,0.1972,18278
-rcsb::3TII,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3TII,X-RAY DIFFRACTION,2.5,,48.671,FULL,0.2852,0.2545,4949
-rcsb::3TIN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3TIN,X-RAY DIFFRACTION,2.9,,56.866,FULL,0.3127,0.2326,2474
-rcsb::4YLR,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4YLR,X-RAY DIFFRACTION,2.55,,47.392,FULL,0.2728,0.2297,2607
-rcsb::5EYL,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5EYL,X-RAY DIFFRACTION,2.41,,45.158,FULL,0.2038,0.1689,2132
-rcsb::4O2B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4O2B,X-RAY DIFFRACTION,2.3,,41.528,FULL,0.2142,0.1846,18288
-rcsb::4O2A,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4O2A,X-RAY DIFFRACTION,2.5,,56.789,FULL,0.2341,0.1981,18043
-rcsb::5IYZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5IYZ,X-RAY DIFFRACTION,1.8,,37.242,FULL,0.2045,0.1721,19140
-rcsb::5J2U,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5J2U,X-RAY DIFFRACTION,2.5,,45.477,FULL,0.2574,0.2255,17931
-rcsb::5J2T,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5J2T,X-RAY DIFFRACTION,2.2,,50.085,FULL,0.2477,0.1998,17918
-rcsb::5EYP,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5EYP,X-RAY DIFFRACTION,1.9,,38.416,FULL,0.2071,0.174,8501
-rcsb::5JH7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5JH7,X-RAY DIFFRACTION,2.25,,54.547,FULL,0.2261,0.1919,18365
-rcsb::5JVD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5JVD,X-RAY DIFFRACTION,2.393,,58.419,FULL,0.2125,0.1795,17817
-rcsb::5LA6,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5LA6,X-RAY DIFFRACTION,2.1,,52.173,FULL,0.2335,0.191,17893
-rcsb::5LXT,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5LXT,X-RAY DIFFRACTION,1.9,,32.828,FULL,0.2091,0.1759,19585
-rcsb::5OV7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5OV7,X-RAY DIFFRACTION,2.402,,54.313,FULL,0.2372,0.1932,17978
-rcsb::5NFZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5NFZ,X-RAY DIFFRACTION,2.1,,42.337,FULL,0.2241,0.1901,18133
-rcsb::5M7E,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5M7E,X-RAY DIFFRACTION,2.046,,41.279,FULL,0.2051,0.1755,18092
-rcsb::5MF4,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5MF4,X-RAY DIFFRACTION,2.3,,59.972,FULL,0.2373,0.1919,17630
-rcsb::5OSK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5OSK,X-RAY DIFFRACTION,2.11,,49.096,FULL,0.233,0.1968,18295
-rcsb::5M7G,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5M7G,X-RAY DIFFRACTION,2.248,,49.38,FULL,0.2201,0.1762,17780
-rcsb::5S4L,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4L,X-RAY DIFFRACTION,2.3,,55.458,FULL,0.238,0.2061,18051
-rcsb::5M8G,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5M8G,X-RAY DIFFRACTION,2.147,,46.05,FULL,0.2082,0.1729,18016
-rcsb::5S4O,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4O,X-RAY DIFFRACTION,2.3,,39.034,FULL,0.2615,0.2167,18110
-rcsb::5S4P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4P,X-RAY DIFFRACTION,2.29,,46.116,FULL,0.2468,0.2087,18036
-rcsb::5S4M,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4M,X-RAY DIFFRACTION,2.15,,55.014,FULL,0.2465,0.2116,18114
-rcsb::5S4N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4N,X-RAY DIFFRACTION,2.53,,70.524,FULL,0.2612,0.2214,17886
-rcsb::5S4Q,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4Q,X-RAY DIFFRACTION,2.59,,52.831,FULL,0.2821,0.2285,18002
-rcsb::5S4X,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4X,X-RAY DIFFRACTION,2.53,,76.427,FULL,0.2483,0.2077,17715
-rcsb::5S4U,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4U,X-RAY DIFFRACTION,2.39,,62.019,FULL,0.2546,0.2144,17972
-rcsb::5S4R,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4R,X-RAY DIFFRACTION,2.35,,63.445,,0.2505,,18021
-rcsb::5S4T,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4T,X-RAY DIFFRACTION,2.27,,59.714,FULL,0.2467,0.2089,18014
-rcsb::5S4S,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4S,X-RAY DIFFRACTION,2.35,,59.552,FULL,0.2843,0.2459,17823
-rcsb::5S4V,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4V,X-RAY DIFFRACTION,2.3,,58.474,,0.2352,,18030
-rcsb::5S4W,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4W,X-RAY DIFFRACTION,2.8,,89.189,FULL,0.2663,0.2249,17762
-rcsb::5S4Y,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4Y,X-RAY DIFFRACTION,2.3,,69.571,FULL,0.2434,0.2082,17833
-rcsb::5S4Z,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S4Z,X-RAY DIFFRACTION,2.1,,46.607,FULL,0.247,0.2106,18279
-rcsb::5S50,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S50,X-RAY DIFFRACTION,3.1,,117.75,FULL,0.2709,0.2123,17660
-rcsb::5S51,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S51,X-RAY DIFFRACTION,2.4,,70.368,FULL,0.249,0.21,17918
-rcsb::5S54,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S54,X-RAY DIFFRACTION,2.4,,68.459,FULL,0.2565,0.2119,17611
-rcsb::5S53,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S53,X-RAY DIFFRACTION,2.75,,76.567,FULL,0.2724,0.2217,17788
-rcsb::5S52,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S52,X-RAY DIFFRACTION,2.83,,78.395,,0.2769,,17783
-rcsb::5S55,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S55,X-RAY DIFFRACTION,2.3,,53.624,,0.2363,0.2076,18038
-rcsb::5S56,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S56,X-RAY DIFFRACTION,2.25,,61.391,FULL,0.2433,0.2096,17990
-rcsb::5S5A,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5A,X-RAY DIFFRACTION,2.35,,60.215,FULL,0.243,0.2098,18052
-rcsb::5S57,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S57,X-RAY DIFFRACTION,2.45,,72.184,FULL,0.2472,0.2136,17775
-rcsb::5S5C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5C,X-RAY DIFFRACTION,2.4,,61.333,FULL,0.2463,0.2127,18011
-rcsb::5S5D,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5D,X-RAY DIFFRACTION,1.9,,43.124,FULL,0.2301,0.2032,18569
-rcsb::5S58,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S58,X-RAY DIFFRACTION,2.3,,57.207,FULL,0.2499,0.2134,17979
-rcsb::5S5G,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5G,X-RAY DIFFRACTION,2.69,,40.618,FULL,0.2678,0.2172,17986
-rcsb::5S5E,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5E,X-RAY DIFFRACTION,2.67,,60.1,FULL,0.2253,0.1876,17985
-rcsb::5S5B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5B,X-RAY DIFFRACTION,2.3,,57.385,FULL,0.2478,0.214,18033
-rcsb::5S5H,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5H,X-RAY DIFFRACTION,2.5,,71.981,FULL,0.2725,0.2221,17838
-rcsb::5S59,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S59,X-RAY DIFFRACTION,2.6,,76.595,FULL,0.2701,0.2223,17804
-rcsb::5S5F,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5F,X-RAY DIFFRACTION,2.24,,24.316,,0.264,,18085
-rcsb::5S5I,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5I,X-RAY DIFFRACTION,2.49,,66.95,FULL,0.2617,0.2181,17952
-rcsb::5S5J,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5J,X-RAY DIFFRACTION,2.25,,54.625,FULL,0.2419,0.2076,18046
-rcsb::5S5K,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5K,X-RAY DIFFRACTION,2.41,,68.296,FULL,0.252,0.2223,17780
-rcsb::5S5L,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5L,X-RAY DIFFRACTION,2.25,,51.234,FULL,0.2364,0.2071,18052
-rcsb::5S5M,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5M,X-RAY DIFFRACTION,2.7,,83.913,FULL,0.2691,0.2184,17728
-rcsb::5S5N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5N,X-RAY DIFFRACTION,2.9,,81.017,FULL,0.2747,0.2296,17708
-rcsb::5S5S,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5S,X-RAY DIFFRACTION,2.36,,40.968,FULL,0.2568,0.2161,18046
-rcsb::5S5T,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5T,X-RAY DIFFRACTION,2.53,,50.403,,0.2468,,18016
-rcsb::5S5O,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5O,X-RAY DIFFRACTION,2.3,,55.164,FULL,0.2372,0.2051,18008
-rcsb::5S5R,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5R,X-RAY DIFFRACTION,2.3,,60.56,FULL,0.2478,0.2111,18056
-rcsb::5S5U,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5U,X-RAY DIFFRACTION,2.5,,71.107,FULL,0.2615,0.2162,17892
-rcsb::5S5Q,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5Q,X-RAY DIFFRACTION,2.05,,48.387,FULL,0.2471,0.2158,18077
-rcsb::5S5P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5P,X-RAY DIFFRACTION,2.79,,88.738,FULL,0.2691,0.2277,17742
-rcsb::5S5X,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5X,X-RAY DIFFRACTION,2.32,,57.29,FULL,0.2504,0.2172,18032
-rcsb::5S5W,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5W,X-RAY DIFFRACTION,2.35,,60.947,FULL,0.2683,0.2271,18042
-rcsb::5S5V,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5V,X-RAY DIFFRACTION,2.7,,79.536,FULL,0.2664,0.2181,17819
-rcsb::5S5Y,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5Y,X-RAY DIFFRACTION,2.26,,55.341,FULL,0.2375,0.2071,18009
-rcsb::5S5Z,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S5Z,X-RAY DIFFRACTION,2.55,,68.904,FULL,0.2544,0.2137,17811
-rcsb::5S60,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S60,X-RAY DIFFRACTION,2.3,,52.106,FULL,0.2319,0.1981,18342
-rcsb::5S61,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S61,X-RAY DIFFRACTION,1.95,,42.709,FULL,0.2428,0.2172,18159
-rcsb::5S62,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S62,X-RAY DIFFRACTION,2.75,,82.456,FULL,0.27,0.2144,17742
-rcsb::5S63,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S63,X-RAY DIFFRACTION,2.6,,65.499,FULL,0.2727,0.2186,17866
-rcsb::5S64,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S64,X-RAY DIFFRACTION,2.75,,82.482,FULL,0.2671,0.219,17772
-rcsb::5S65,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S65,X-RAY DIFFRACTION,2.25,,50.793,FULL,0.2402,0.2108,18071
-rcsb::5S66,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S66,X-RAY DIFFRACTION,2.1,,52.304,FULL,0.2539,0.2252,17842
-rcsb::6FJF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6FJF,X-RAY DIFFRACTION,2.402,,47.692,FULL,0.2584,0.2023,18138
-rcsb::6FKJ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6FKJ,X-RAY DIFFRACTION,2.148,,42.978,FULL,0.2085,0.1769,18235
-rcsb::5S67,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5S67,X-RAY DIFFRACTION,2.1,,52.381,FULL,0.2412,0.2153,18048
-rcsb::6FII,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6FII,X-RAY DIFFRACTION,2.405,,53.58,FULL,0.2187,0.1714,18212
-rcsb::6GJ4,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6GJ4,X-RAY DIFFRACTION,2.4,,55.425,FULL,0.2426,0.1997,17645
-rcsb::6FKL,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6FKL,X-RAY DIFFRACTION,2.098,,40.169,FULL,0.2174,0.1797,18310
-rcsb::6GZE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6GZE,X-RAY DIFFRACTION,2.49,,64.197,FULL,0.2188,0.2165,16797
-rcsb::6TDE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6TDE,X-RAY DIFFRACTION,2.286,,60.165,,0.2512,,15022
-rcsb::6TIY,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6TIY,X-RAY DIFFRACTION,2.293,,43.951,FULL,0.2285,0.1964,15210
-rcsb::6TH4,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6TH4,X-RAY DIFFRACTION,2.121,,50.126,FULL,0.2379,0.204,14923
-rcsb::6HX8,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6HX8,X-RAY DIFFRACTION,2.402,,63.901,FULL,0.2435,0.2002,17739
-rcsb::7Z2N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7Z2N,X-RAY DIFFRACTION,2.17,,47.576,,0.2086,,18229
-rcsb::6LSM,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6LSM,X-RAY DIFFRACTION,2.751,,55.268,FULL,0.2305,0.1876,17751
-rcsb::7Z2P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7Z2P,X-RAY DIFFRACTION,2.0,,36.06,,0.2016,,18432
-rcsb::6QTN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6QTN,X-RAY DIFFRACTION,1.9,,42.356,FULL,0.2155,0.1899,18288
-rcsb::6QQN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6QQN,X-RAY DIFFRACTION,2.301,,56.903,FULL,0.2438,0.1965,17550
-rcsb::6TIS,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6TIS,X-RAY DIFFRACTION,2.3,,42.01,,0.2185,0.185,15255
-rcsb::8CGZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CGZ,X-RAY DIFFRACTION,2.527,,77.17,FULL,0.1995,0.2011,14545
-rcsb::8R67,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8R67,X-RAY DIFFRACTION,2.2,,52.965,FULL,0.2281,0.1937,18309
-rcsb::6S9E,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6S9E,X-RAY DIFFRACTION,2.25,,48.741,FULL,0.2319,0.2068,17701
-rcsb::6SES,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6SES,X-RAY DIFFRACTION,2.0,,42.111,FULL,0.2118,0.2094,18460
-rcsb::8A0L,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8A0L,X-RAY DIFFRACTION,1.9981,,44.295,FULL,0.2336,0.1973,18367
-rcsb::8C0F,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8C0F,X-RAY DIFFRACTION,2.1005,,47.624,FULL,0.2261,0.196,18221
-rcsb::9EDT,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9EDT,ELECTRON MICROSCOPY,3.7,3.7,,,,,13091
-rcsb::8R6O,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8R6O,X-RAY DIFFRACTION,2.2,,49.641,FULL,0.2314,0.2055,17687
-rcsb::9EEB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9EEB,ELECTRON MICROSCOPY,3.7,3.7,,,,,12531
-rcsb::9EDR,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9EDR,ELECTRON MICROSCOPY,3.8,3.8,,,,,21378
-rcsb::5M8D,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5M8D,X-RAY DIFFRACTION,2.25,,45.133,FULL,0.2131,0.175,18103
-rcsb::5LYJ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5LYJ,X-RAY DIFFRACTION,2.397,,60.213,FULL,0.2193,0.1939,17669
-rcsb::5LOV,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5LOV,X-RAY DIFFRACTION,2.4,,64.741,FULL,0.2456,0.1983,17273
-rcsb::4O4J,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4O4J,X-RAY DIFFRACTION,2.2,,38.958,FULL,0.2409,0.2037,18124
-rcsb::5SB3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SB3,X-RAY DIFFRACTION,2.2,,45.773,FULL,0.2224,0.1921,18179
-rcsb::5NG1,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5NG1,X-RAY DIFFRACTION,2.2,,46.093,FULL,0.2223,0.1762,18369
-rcsb::5NQU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5NQU,X-RAY DIFFRACTION,1.8,,28.898,FULL,0.2054,0.1792,8632
-rcsb::5SB4,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SB4,X-RAY DIFFRACTION,2.5,,53.341,FULL,0.226,0.1935,17804
-rcsb::5SB5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SB5,X-RAY DIFFRACTION,2.31,,42.492,FULL,0.219,0.1883,18255
-rcsb::5SB6,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SB6,X-RAY DIFFRACTION,2.3,,49.873,FULL,0.231,0.1959,17910
-rcsb::5SB8,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SB8,X-RAY DIFFRACTION,2.3,,50.046,FULL,0.2286,0.1917,18053
-rcsb::5SB7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SB7,X-RAY DIFFRACTION,2.1,,41.943,FULL,0.2347,0.2032,18445
-rcsb::5SBA,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SBA,X-RAY DIFFRACTION,2.25,,46.712,FULL,0.2266,0.1837,18426
-rcsb::5SB9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SB9,X-RAY DIFFRACTION,2.5,,52.27,,0.2282,0.1959,17725
-rcsb::5SBB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SBB,X-RAY DIFFRACTION,2.25,,44.396,,0.2068,,18500
-rcsb::5SBC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SBC,X-RAY DIFFRACTION,2.32,,51.79,FULL,0.2284,0.1866,18388
-rcsb::7WU7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7WU7,ELECTRON MICROSCOPY,3.85,3.85,,,,,67031
-rcsb::7X0S,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7X0S,ELECTRON MICROSCOPY,3.1,3.1,,,,,68346
-rcsb::7Z7D,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7Z7D,X-RAY DIFFRACTION,2.0,,41.208,,0.2289,,18556
-rcsb::5SBE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SBE,X-RAY DIFFRACTION,2.75,,62.943,FULL,0.2249,0.1902,17938
-rcsb::6GX7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6GX7,X-RAY DIFFRACTION,3.19,,95.223,,0.2171,,20341
-rcsb::6Y6D,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6Y6D,X-RAY DIFFRACTION,2.2,,50.942,FULL,0.2263,0.1869,18029
-rcsb::6FJM,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6FJM,X-RAY DIFFRACTION,2.1,,46.066,FULL,0.2145,0.1828,18537
-rcsb::7JFR,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7JFR,X-RAY DIFFRACTION,2.35,,56.734,FULL,0.2615,0.2351,17953
-rcsb::5SBD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5SBD,X-RAY DIFFRACTION,2.25,,42.642,FULL,0.213,0.1791,18528
-rcsb::7ZX2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7ZX2,X-RAY DIFFRACTION,2.5,,54.148,FULL,0.1988,0.1974,17266
-rcsb::8B7A,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8B7A,X-RAY DIFFRACTION,2.25,,51.162,FULL,0.1847,0.181,18429
-rcsb::8B7B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8B7B,X-RAY DIFFRACTION,2.25,,49.695,FULL,0.224,0.1836,18314
-rcsb::8B7C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8B7C,X-RAY DIFFRACTION,1.9,,39.52,,0.1896,,18822
-rcsb::8CL9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CL9,X-RAY DIFFRACTION,2.5,,29.187,FULL,0.2407,0.186,8117
-rcsb::8BDE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8BDE,X-RAY DIFFRACTION,1.902,,41.706,FULL,0.1986,0.1959,18429
-rcsb::8CLC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CLC,X-RAY DIFFRACTION,2.7,,66.649,FULL,0.2275,0.1884,17569
-rcsb::8BDF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8BDF,X-RAY DIFFRACTION,1.95,,43.096,FULL,0.2199,0.192,18392
-rcsb::6V5V,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6V5V,ELECTRON MICROSCOPY,3.8,3.8,,,,,2979
-rcsb::1H7C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1H7C,X-RAY DIFFRACTION,1.8,,,,0.2617,0.2101,1008
-rcsb::8BDG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8BDG,X-RAY DIFFRACTION,2.35,,56.885,,0.189,,17628
-rcsb::4EB6,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4EB6,X-RAY DIFFRACTION,3.47,,119.162,FULL,0.2809,0.2319,14918
-rcsb::6KPP,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6KPP,X-RAY DIFFRACTION,2.74524106157,,45.351,FULL,0.2329,0.1946,17583
-rcsb::6JZC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6JZC,X-RAY DIFFRACTION,2.201,,36.826,FULL,0.2152,0.1832,5020
-rcsb::4O4I,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4O4I,X-RAY DIFFRACTION,2.4,,46.228,FULL,0.2165,0.1903,18304
-rcsb::4U3J,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4U3J,X-RAY DIFFRACTION,2.81,,43.843,FULL,0.2572,0.218,8524
-rcsb::6GF3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6GF3,X-RAY DIFFRACTION,2.4,,63.877,FULL,0.2534,0.2013,17309
-rcsb::6TIU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6TIU,X-RAY DIFFRACTION,3.571,,110.866,FULL,0.2681,0.2388,14668
-rcsb::6TIZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6TIZ,X-RAY DIFFRACTION,2.197,,36.244,FULL,0.2186,0.1827,15487
-rcsb::7AU5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7AU5,X-RAY DIFFRACTION,2.2,,51.823,FULL,0.2145,0.1804,18583
-rcsb::7CNM,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7CNM,X-RAY DIFFRACTION,2.44,,35.622,FULL,0.2127,0.2056,17919
-rcsb::7CNN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7CNN,X-RAY DIFFRACTION,2.5,,38.11,,0.2093,,18183
-rcsb::7DAD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7DAD,X-RAY DIFFRACTION,2.85,,51.132,FULL,0.227,0.1799,17890
-rcsb::7DAE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7DAE,X-RAY DIFFRACTION,2.394,,36.475,FULL,0.2239,0.1766,18508
-rcsb::7DB9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7DB9,X-RAY DIFFRACTION,2.845,,49.553,,0.2128,,17750
-rcsb::7DAF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7DAF,X-RAY DIFFRACTION,2.4,,36.103,FULL,0.2214,0.1746,18541
-rcsb::7DBC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7DBC,X-RAY DIFFRACTION,2.4,,47.149,FULL,0.2335,0.1982,17950
-rcsb::8A9Z,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8A9Z,X-RAY DIFFRACTION,2.294,,52.764,FULL,0.2361,0.1956,17786
-rcsb::9FYD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9FYD,X-RAY DIFFRACTION,2.3,,55.147,FULL,0.2363,0.201,17954
-rcsb::9IM5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9IM5,X-RAY DIFFRACTION,2.86,,59.915,FULL,0.2481,0.2116,17217
-rcsb::6F7C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6F7C,X-RAY DIFFRACTION,2.002,,45.146,FULL,0.2468,0.2162,17679
-rcsb::7DBD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7DBD,X-RAY DIFFRACTION,3.094,,65.64,FULL,0.2437,0.1908,17563
-rcsb::7DBB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7DBB,X-RAY DIFFRACTION,2.805,,52.282,FULL,0.2286,0.1733,17733
-rcsb::8A9T,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8A9T,X-RAY DIFFRACTION,2.304,,53.929,FULL,0.2358,0.1946,17683
-rcsb::7DBA,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7DBA,X-RAY DIFFRACTION,2.461,,43.724,FULL,0.2293,0.1895,18135
-rcsb::9EDS,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9EDS,ELECTRON MICROSCOPY,3.8,3.8,,,,,20957
-rcsb::2WBE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2WBE,ELECTRON MICROSCOPY,9.4,9.4,,,,,9385
-rcsb::1SA0,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1SA0,X-RAY DIFFRACTION,3.58,,,,0.24852,0.23252,14074
-rcsb::4PK2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4PK2,X-RAY DIFFRACTION,1.35,,11.711,FULL,0.1694,0.1332,1961
-rcsb::1SA1,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1SA1,X-RAY DIFFRACTION,4.2,,,,0.25935,0.20643,14180
-rcsb::3RYC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3RYC,X-RAY DIFFRACTION,2.1,,34.964,FULL,0.2137,0.1827,15686
-rcsb::1TUB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1TUB,ELECTRON CRYSTALLOGRAPHY,3.7,,143.975,FULL,,,6907
-rcsb::6XER,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6XER,X-RAY DIFFRACTION,2.5,,57.98,FULL,0.2248,0.1709,14606
-rcsb::3HKB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3HKB,X-RAY DIFFRACTION,3.65,,150.164,PARTIAL,0.2819,0.2462,14125
-rcsb::4NFM,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4NFM,X-RAY DIFFRACTION,2.12,,45.962,FULL,0.2467,0.2067,2377
-rcsb::7CNO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7CNO,X-RAY DIFFRACTION,2.5,,38.239,FULL,0.2385,0.1885,18166
-rcsb::4O4L,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4O4L,X-RAY DIFFRACTION,2.2,,53.688,FULL,0.2283,0.1937,18663
-rcsb::4PK3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4PK3,X-RAY DIFFRACTION,1.347,,13.51,FULL,0.1762,0.1507,1943
-rcsb::5LXS,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5LXS,X-RAY DIFFRACTION,2.2,,36.732,FULL,0.2278,0.1891,18850
-rcsb::5ZXH,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5ZXH,X-RAY DIFFRACTION,2.8,,42.76,FULL,0.2543,0.2102,17367
-rcsb::6LSN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6LSN,X-RAY DIFFRACTION,2.445,,45.225,FULL,0.2219,0.1783,18041
-rcsb::7TRG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TRG,ELECTRON MICROSCOPY,3.0,3.0,,,,,33714
-rcsb::7TTN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TTN,ELECTRON MICROSCOPY,3.3,3.3,,,,,34563
-rcsb::7TTT,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TTT,ELECTRON MICROSCOPY,2.9,2.9,,,,,35180
-rcsb::7TUB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TUB,ELECTRON MICROSCOPY,3.6,3.6,,,,,35877
-rcsb::7VMG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7VMG,X-RAY DIFFRACTION,2.39,,52.197,FULL,0.2498,0.2124,17851
-rcsb::7VMJ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7VMJ,X-RAY DIFFRACTION,2.9,,64.027,,0.2476,,17608
-rcsb::1QSD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1QSD,X-RAY DIFFRACTION,2.2,,,,0.297,0.211,1837
-rcsb::9PMK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9PMK,ELECTRON MICROSCOPY,2.84,2.84,,,,,10060
-rcsb::7VMK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7VMK,X-RAY DIFFRACTION,2.5,,37.516,FULL,0.2309,0.1938,17937
-rcsb::3E22,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3E22,X-RAY DIFFRACTION,3.8,,140.064,PARTIAL,0.2939,0.2398,14154
-rcsb::1Z2B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1Z2B,X-RAY DIFFRACTION,4.1,,197.483,PARTIAL,0.2771,0.2117,14173
-rcsb::3HKC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3HKC,X-RAY DIFFRACTION,3.8,,172.426,FULL,0.3016,0.2643,14145
-rcsb::3HKD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3HKD,X-RAY DIFFRACTION,3.7,,152.497,,0.3095,,14223
-rcsb::3HKE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3HKE,X-RAY DIFFRACTION,3.6,,133.621,PARTIAL,0.2607,0.2255,14244
-rcsb::3R4V,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3R4V,X-RAY DIFFRACTION,1.67,,25.408,FULL,0.2251,0.1781,2831
-rcsb::3RYF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3RYF,X-RAY DIFFRACTION,2.52,,50.359,FULL,0.2227,0.1789,15301
-rcsb::3RYH,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3RYH,X-RAY DIFFRACTION,2.8,,60.664,,0.2182,,15107
-rcsb::3RYI,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3RYI,X-RAY DIFFRACTION,2.4,,47.585,FULL,0.2105,0.1767,15541
-rcsb::3UT5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3UT5,X-RAY DIFFRACTION,2.73,,66.603,FULL,0.2414,0.2008,15107
-rcsb::4DRX,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4DRX,X-RAY DIFFRACTION,2.22,,35.936,FULL,0.1965,0.1607,16036
-rcsb::4I55,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4I55,X-RAY DIFFRACTION,2.2,,45.652,FULL,0.2056,0.1663,18606
-rcsb::6XES,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6XES,X-RAY DIFFRACTION,2.32,,41.647,,0.2126,,14870
-rcsb::5AJ8,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5AJ8,X-RAY DIFFRACTION,2.2,,17.99,FULL,0.2072,0.1693,2997
-rcsb::5MIO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5MIO,X-RAY DIFFRACTION,3.19,,77.472,FULL,0.2657,0.2241,10421
-rcsb::5W3F,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5W3F,ELECTRON MICROSCOPY,3.7,3.7,,,,,6842
-rcsb::6XET,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6XET,X-RAY DIFFRACTION,2.6,,42.973,,0.2109,,14792
-rcsb::7LXB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7LXB,ELECTRON MICROSCOPY,3.26,3.26,,,,,54280
-rcsb::7M18,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7M18,ELECTRON MICROSCOPY,3.38,3.38,,,,,54064
-rcsb::7TTD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TTD,X-RAY DIFFRACTION,2.27,,38.405,FULL,0.2268,0.1758,14686
-rcsb::7TTE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TTE,X-RAY DIFFRACTION,2.7,,74.946,,0.2189,,14586
-rcsb::6JCJ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6JCJ,X-RAY DIFFRACTION,2.5,,33.663,FULL,0.2807,0.2422,17423
-rcsb::7TTF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TTF,X-RAY DIFFRACTION,2.1,,37.465,FULL,0.235,0.1927,14849
-rcsb::7U0F,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7U0F,ELECTRON MICROSCOPY,3.53,3.53,,,,,16569
-rcsb::8CLB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CLB,X-RAY DIFFRACTION,3.0,,67.266,FULL,0.2161,0.1724,17543
-rcsb::8DIQ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8DIQ,X-RAY DIFFRACTION,2.395,,44.588,FULL,0.2099,0.1826,17666
-rcsb::8CLE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CLE,X-RAY DIFFRACTION,3.2,,69.454,FULL,0.2491,0.2054,17579
-rcsb::8YRK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8YRK,X-RAY DIFFRACTION,2.74,,59.786,FULL,0.2251,0.173,17720
-rcsb::9EOJ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9EOJ,ELECTRON MICROSCOPY,17.0,17.0,,,,,117778
-rcsb::9IMO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9IMO,X-RAY DIFFRACTION,2.75,,79.093,FULL,0.2528,0.2111,17053
-rcsb::9U9Q,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9U9Q,X-RAY DIFFRACTION,2.93,,51.924,FULL,0.257,0.2064,17577
-rcsb::9C13,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9C13,ELECTRON MICROSCOPY,2.89,2.89,,,,,15708
-rcsb::1Z5W,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1Z5W,X-RAY DIFFRACTION,3.0,,38.44,FULL,0.3,0.2424,3110
-rcsb::3J1T,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3J1T,ELECTRON MICROSCOPY,9.7,9.7,,,,,8091
-rcsb::3J1U,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3J1U,ELECTRON MICROSCOPY,9.7,9.7,,,,,8089
-rcsb::3RB8,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3RB8,X-RAY DIFFRACTION,2.6,,50.796,FULL,0.2371,0.1654,2462
-rcsb::3DU7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3DU7,X-RAY DIFFRACTION,4.1,,181.902,PARTIAL,0.2713,0.2165,14258
-rcsb::3N2G,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3N2G,X-RAY DIFFRACTION,4.0,,168.487,PARTIAL,0.2516,0.2375,14220
-rcsb::4GS4,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4GS4,X-RAY DIFFRACTION,2.112,,33.684,FULL,0.2534,0.23,1535
-rcsb::3N2K,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3N2K,X-RAY DIFFRACTION,4.0,,162.726,FULL,0.2664,0.2533,14225
-rcsb::4B6W,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4B6W,X-RAY DIFFRACTION,2.35,,36.566,FULL,0.2178,0.1712,788
-rcsb::4I4T,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4I4T,X-RAY DIFFRACTION,1.8,,33.116,FULL,0.2,0.1684,19745
-rcsb::4IHJ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4IHJ,X-RAY DIFFRACTION,2.0,,36.197,FULL,0.2155,0.1672,18737
-rcsb::4IIJ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4IIJ,X-RAY DIFFRACTION,2.6,,61.489,FULL,0.2418,0.201,16921
-rcsb::4YJ3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4YJ3,X-RAY DIFFRACTION,3.75,,80.647,FULL,0.2804,0.2442,17035
-rcsb::4YJ2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4YJ2,X-RAY DIFFRACTION,2.6,,62.875,FULL,0.2359,0.1963,17335
-rcsb::4ZI7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4ZI7,X-RAY DIFFRACTION,2.51,,48.854,FULL,0.2423,0.1907,17939
-rcsb::4ZHQ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4ZHQ,X-RAY DIFFRACTION,2.55,,37.122,FULL,0.2464,0.1916,17988
-rcsb::5BMV,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5BMV,X-RAY DIFFRACTION,2.5,,48.029,FULL,0.2363,0.1923,17912
-rcsb::5LP6,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5LP6,X-RAY DIFFRACTION,2.9,,83.238,,0.2717,,17547
-rcsb::6AGK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6AGK,X-RAY DIFFRACTION,2.8,,45.039,FULL,0.2608,0.2134,17398
-rcsb::6EG5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6EG5,X-RAY DIFFRACTION,2.45,,35.475,FULL,0.2379,0.1996,18509
-rcsb::6D88,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6D88,X-RAY DIFFRACTION,2.853,,50.959,FULL,0.2447,0.192,17530
-rcsb::6N47,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6N47,X-RAY DIFFRACTION,2.6,,39.841,FULL,0.2449,0.2052,17917
-rcsb::6NNG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6NNG,X-RAY DIFFRACTION,2.397,,35.574,,0.214,,17861
-rcsb::6O5M,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6O5M,X-RAY DIFFRACTION,2.3,,29.836,FULL,0.2236,0.1911,17881
-rcsb::6O5N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6O5N,X-RAY DIFFRACTION,3.003,,57.326,FULL,0.2444,0.2021,17476
-rcsb::6TF9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6TF9,ELECTRON MICROSCOPY,4.8,4.8,,,,,120053
-rcsb::6X1C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6X1C,X-RAY DIFFRACTION,2.9,,45.363,FULL,0.2094,0.1723,17509
-rcsb::6X1E,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6X1E,X-RAY DIFFRACTION,2.9,,46.995,FULL,0.2235,0.1702,17543
-rcsb::6X1F,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6X1F,X-RAY DIFFRACTION,2.7,,36.907,FULL,0.2315,0.185,17676
-rcsb::7E4Z,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7E4Z,X-RAY DIFFRACTION,2.69,,45.04,FULL,0.2317,0.1956,18166
-rcsb::7LZ7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7LZ7,X-RAY DIFFRACTION,2.8,,41.969,,0.196,,17560
-rcsb::7LZ8,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7LZ8,X-RAY DIFFRACTION,2.92,,71.264,FULL,0.2252,0.1867,16797
-rcsb::7SJ7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7SJ7,ELECTRON MICROSCOPY,3.8,3.8,,,,,41056
-rcsb::7SJA,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7SJA,ELECTRON MICROSCOPY,3.8,3.8,,,,,40920
-rcsb::7X3J,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7X3J,ELECTRON MICROSCOPY,4.2,4.2,,,,,63188
-rcsb::7YSN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YSN,ELECTRON MICROSCOPY,3.5,3.5,,,,,6844
-rcsb::7YHN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YHN,X-RAY DIFFRACTION,2.6,,67.365,FULL,0.27,0.2272,13868
-rcsb::8CLD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CLD,X-RAY DIFFRACTION,3.2,,62.486,FULL,0.2419,0.2074,17497
-rcsb::8CLF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CLF,X-RAY DIFFRACTION,2.7,,-9.946,,0.2281,,17633
-rcsb::8QAU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8QAU,ELECTRON MICROSCOPY,3.54,3.54,,,,,10137
-rcsb::8YEM,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8YEM,X-RAY DIFFRACTION,2.74,,57.46,,0.2868,,17399
-rcsb::8YEU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8YEU,X-RAY DIFFRACTION,3.05,,64.471,FULL,0.2679,0.2151,17430
-rcsb::8YER,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8YER,X-RAY DIFFRACTION,2.71,,55.733,FULL,0.2838,0.2217,17432
-rcsb::8YTX,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8YTX,X-RAY DIFFRACTION,2.53,,52.802,FULL,0.2662,0.2218,16820
-rcsb::8YU9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8YU9,X-RAY DIFFRACTION,3.25,,84.353,FULL,0.2863,0.2053,17059
-rcsb::8YUA,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8YUA,X-RAY DIFFRACTION,2.37,,47.63,,0.2684,,17156
-rcsb::9U6A,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9U6A,X-RAY DIFFRACTION,1.92,,25.256,FULL,0.2231,0.1835,8438
-rcsb::9PM9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9PM9,ELECTRON MICROSCOPY,2.75,2.75,,,,,2515
-rcsb::9F3B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9F3B,ELECTRON MICROSCOPY,3.6,3.6,,,,,41106
-rcsb::9H9R,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9H9R,ELECTRON MICROSCOPY,8.2,8.2,,,,,128163
-rcsb::3CB2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3CB2,X-RAY DIFFRACTION,2.303,,24.205,FULL,0.2391,0.1863,7012
-rcsb::3J7I,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3J7I,ELECTRON MICROSCOPY,8.9,8.9,,,,,6515
-rcsb::1Z5V,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1Z5V,X-RAY DIFFRACTION,2.71,,42.899,FULL,0.2947,0.2374,3195
-rcsb::4B5O,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4B5O,X-RAY DIFFRACTION,1.05,,10.294,FULL,0.1586,0.1321,2331
-rcsb::4B6M,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4B6M,X-RAY DIFFRACTION,1.59,,12.819,FULL,0.239,0.2005,1548
-rcsb::4I50,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4I50,X-RAY DIFFRACTION,2.3,,50.304,FULL,0.25,0.1965,17656
-rcsb::6I2I,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6I2I,ELECTRON MICROSCOPY,3.6,3.6,,,,,6830
-rcsb::4ZOL,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4ZOL,X-RAY DIFFRACTION,2.5,,41.78,FULL,0.2309,0.1759,18159
-rcsb::5W3J,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5W3J,ELECTRON MICROSCOPY,4.0,4.0,,,,,6913
-rcsb::5KX5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5KX5,X-RAY DIFFRACTION,2.5,,54.766,FULL,0.2696,0.2144,17802
-rcsb::5XAF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5XAF,X-RAY DIFFRACTION,2.551,,65.543,FULL,0.2575,0.2098,18303
-rcsb::5Z4P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5Z4P,X-RAY DIFFRACTION,2.5,,61.26,FULL,0.2866,0.2228,17477
-rcsb::5XAG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5XAG,X-RAY DIFFRACTION,2.56,,65.74,FULL,0.256,0.212,17705
-rcsb::6K9V,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6K9V,X-RAY DIFFRACTION,2.543,,39.835,FULL,0.2557,0.2256,17921
-rcsb::6O61,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6O61,X-RAY DIFFRACTION,2.599,,41.826,FULL,0.2477,0.2071,17165
-rcsb::6V6S,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6V6S,ELECTRON MICROSCOPY,4.3,4.3,,,,,106422
-rcsb::6WVR,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6WVR,ELECTRON MICROSCOPY,2.9,2.9,,,,,13698
-rcsb::6PC4,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6PC4,X-RAY DIFFRACTION,2.602,,43.238,,0.2335,0.1919,17742
-rcsb::6Y4M,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6Y4M,X-RAY DIFFRACTION,3.34,,68.636,FULL,0.2318,0.2078,17766
-rcsb::6ZWB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6ZWB,X-RAY DIFFRACTION,1.747,,23.161,FULL,0.2339,0.186,8683
-rcsb::6ZWC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6ZWC,X-RAY DIFFRACTION,2.04,,26.685,FULL,0.2794,0.2258,8235
-rcsb::6Y4N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6Y4N,X-RAY DIFFRACTION,2.852,,57.802,FULL,0.2228,0.1831,18400
-rcsb::7ANZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7ANZ,ELECTRON MICROSCOPY,3.6,3.6,,,,,16751
-rcsb::7E4P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7E4P,X-RAY DIFFRACTION,2.4,,35.864,FULL,0.2316,0.2182,18225
-rcsb::7YSO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YSO,ELECTRON MICROSCOPY,3.6,3.6,,,,,6810
-rcsb::7WZ3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7WZ3,ELECTRON MICROSCOPY,4.1,4.1,,,,,58551
-rcsb::7YSP,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YSP,ELECTRON MICROSCOPY,3.9,3.9,,,,,6810
-rcsb::7Z01,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7Z01,X-RAY DIFFRACTION,1.82,,24.355,FULL,0.2536,0.2053,8268
-rcsb::7Z02,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7Z02,X-RAY DIFFRACTION,2.36,,41.251,FULL,0.2583,0.2066,8029
-rcsb::8CLA,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CLA,X-RAY DIFFRACTION,2.0,,23.487,FULL,0.2044,0.1739,8413
-rcsb::9C6R,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9C6R,ELECTRON MICROSCOPY,3.2,3.2,,,,,55352
-rcsb::7YZ3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YZ3,X-RAY DIFFRACTION,1.8,,37.958,FULL,0.2156,0.1844,8358
-rcsb::8Q62,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8Q62,ELECTRON MICROSCOPY,3.72,3.72,,,,,115764
-rcsb::9GMY,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9GMY,X-RAY DIFFRACTION,1.97,,39.724,,0.1958,,18956
-rcsb::9GNU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9GNU,X-RAY DIFFRACTION,2.2,,43.522,FULL,0.2068,0.1645,18510
-rcsb::9O6I,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9O6I,X-RAY DIFFRACTION,2.51,,51.966,FULL,0.2435,0.2108,14453
-rcsb::2E4H,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2E4H,SOLUTION NMR,,,,,,,633
-rcsb::2LL2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2LL2,SOLUTION NMR,,,,,,,191
-rcsb::3RIP,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3RIP,X-RAY DIFFRACTION,2.3,,49.409,,0.236,,4843
-rcsb::4DUI,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4DUI,X-RAY DIFFRACTION,1.16,,10.114,FULL,0.1442,0.1175,1501
-rcsb::7L05,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7L05,X-RAY DIFFRACTION,2.21,,29.403,FULL,0.2172,0.1895,18587
-rcsb::3MXZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3MXZ,X-RAY DIFFRACTION,1.599,,16.008,,0.1982,,1008
-rcsb::5H7O,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5H7O,X-RAY DIFFRACTION,2.8,,48.864,FULL,0.2547,0.2159,17517
-rcsb::5JCO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5JCO,ELECTRON MICROSCOPY,4.0,4.0,,,,,40512
-rcsb::5NQT,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5NQT,X-RAY DIFFRACTION,2.15,,55.498,FULL,0.2286,0.1849,8022
-rcsb::5XLT,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5XLT,X-RAY DIFFRACTION,2.813,,49.561,FULL,0.25,0.2094,17615
-rcsb::6B0C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6B0C,ELECTRON MICROSCOPY,3.51,3.51,,,,,16438
-rcsb::6BR1,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6BR1,X-RAY DIFFRACTION,2.304,,31.541,FULL,0.2356,0.1945,18160
-rcsb::6U0H,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6U0H,ELECTRON MICROSCOPY,4.3,4.3,,,,,6769
-rcsb::6BRF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6BRF,X-RAY DIFFRACTION,2.5,,36.762,FULL,0.2376,0.1882,17949
-rcsb::6BRY,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6BRY,X-RAY DIFFRACTION,2.7,,41.564,FULL,0.2399,0.1934,17748
-rcsb::6BS2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6BS2,X-RAY DIFFRACTION,2.65,,41.431,FULL,0.2353,0.1821,17619
-rcsb::6I5C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6I5C,X-RAY DIFFRACTION,2.95,,75.825,,0.2197,,17896
-rcsb::7E4Q,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7E4Q,X-RAY DIFFRACTION,2.501,,50.83,FULL,0.255,0.2131,17931
-rcsb::7M20,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7M20,ELECTRON MICROSCOPY,3.84,3.84,,,,,60705
-rcsb::7E4R,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7E4R,X-RAY DIFFRACTION,2.597,,43.382,FULL,0.2708,0.2291,17814
-rcsb::7E4Y,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7E4Y,X-RAY DIFFRACTION,2.708,,55.629,FULL,0.2426,0.1988,17649
-rcsb::7PJF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7PJF,X-RAY DIFFRACTION,1.862,,29.219,FULL,0.2172,0.1822,8262
-rcsb::7EN3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EN3,X-RAY DIFFRACTION,2.643,,40.599,,0.2271,,17798
-rcsb::7QUC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QUC,ELECTRON MICROSCOPY,3.2,3.2,,,,,6680
-rcsb::7QJD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJD,ELECTRON MICROSCOPY,7.1,7.1,,,,,124666
-rcsb::7QUD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QUD,ELECTRON MICROSCOPY,3.47,3.47,,,,,6696
-rcsb::7PJE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7PJE,X-RAY DIFFRACTION,1.75,,30.478,FULL,0.2153,0.1832,16359
-rcsb::7SJ8,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7SJ8,ELECTRON MICROSCOPY,3.6,3.6,,,,,41056
-rcsb::7SJ9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7SJ9,ELECTRON MICROSCOPY,3.8,3.8,,,,,43240
-rcsb::7TNT,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TNT,ELECTRON MICROSCOPY,9.3,9.3,,,,,119808
-rcsb::7YLW,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YLW,ELECTRON MICROSCOPY,3.39,3.39,,,,,70338
-rcsb::8VT7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8VT7,ELECTRON MICROSCOPY,2.66,2.66,,,,,13590
-rcsb::8CLG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CLG,X-RAY DIFFRACTION,2.8,,61.168,,0.2436,,18083
-rcsb::9F3R,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9F3R,ELECTRON MICROSCOPY,4.3,4.3,,,,,43264
-rcsb::9F6T,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9F6T,ELECTRON MICROSCOPY,3.5,3.5,,,,,6574
-rcsb::9F6U,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9F6U,ELECTRON MICROSCOPY,3.6,3.6,,,,,6570
-rcsb::7YZ6,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YZ6,X-RAY DIFFRACTION,2.1,,33.306,FULL,0.2193,0.1688,8646
-rcsb::9F6V,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9F6V,ELECTRON MICROSCOPY,3.5,3.5,,,,,6610
-rcsb::9MLF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9MLF,X-RAY DIFFRACTION,2.4,,37.242,FULL,0.2321,0.1978,14678
-rcsb::9U6D,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9U6D,X-RAY DIFFRACTION,2.54,,39.923,FULL,0.2384,0.2088,17679
-rcsb::2L3L,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2L3L,SOLUTION NMR,,,,,,,926
-rcsb::4B5P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4B5P,X-RAY DIFFRACTION,1.6,,25.104,FULL,0.2208,0.183,3520
-rcsb::6LS4,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6LS4,X-RAY DIFFRACTION,2.4,,58.249,FULL,0.2401,0.2214,14402
-rcsb::6S8K,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6S8K,X-RAY DIFFRACTION,1.52,,23.203,FULL,0.2028,0.1776,9012
-rcsb::5CYA,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5CYA,X-RAY DIFFRACTION,2.0,,33.586,,0.2383,0.203,2744
-rcsb::6S8L,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6S8L,X-RAY DIFFRACTION,1.801,,15.989,FULL,0.2682,0.2178,8691
-rcsb::6V6C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6V6C,ELECTRON MICROSCOPY,4.5,4.5,,,,,4007
-rcsb::5GON,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5GON,X-RAY DIFFRACTION,2.48,,36.419,FULL,0.2564,0.2051,17847
-rcsb::5VJC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5VJC,X-RAY DIFFRACTION,2.0,,31.084,FULL,0.2199,0.1904,4386
-rcsb::7EVG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVG,X-RAY DIFFRACTION,2.48,,45.003,FULL,0.2572,0.2114,3416
-rcsb::7QJ5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ5,ELECTRON MICROSCOPY,8.7,8.7,,,,,126600
-rcsb::7NVN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7NVN,ELECTRON MICROSCOPY,3.0,3.0,,,,,69139
-rcsb::7YZ2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YZ2,X-RAY DIFFRACTION,2.2,,36.833,FULL,0.3332,0.2851,8210
-rcsb::7YZ5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YZ5,X-RAY DIFFRACTION,2.11,,34.582,FULL,0.2307,0.1736,8198
-rcsb::7YYY,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YYY,X-RAY DIFFRACTION,2.2,,33.153,,0.3924,,8217
-rcsb::7YYZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YYZ,X-RAY DIFFRACTION,2.2,,30.588,,0.3959,,8228
-rcsb::7YZ0,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YZ0,X-RAY DIFFRACTION,2.2,,28.062,FULL,0.3627,0.3046,8262
-rcsb::7YZ1,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7YZ1,X-RAY DIFFRACTION,2.2,,26.423,FULL,0.3514,0.3019,8274
-rcsb::8VRD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8VRD,ELECTRON MICROSCOPY,7.0,7.0,,,,,67053
-rcsb::8VRJ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8VRJ,ELECTRON MICROSCOPY,7.7,7.7,,,,,121890
-rcsb::9C6S,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9C6S,ELECTRON MICROSCOPY,3.52,3.52,,,,,61137
-rcsb::9EOK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9EOK,ELECTRON MICROSCOPY,23.0,23.0,,,,,143457
-rcsb::9I8N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9I8N,ELECTRON MICROSCOPY,4.6,4.6,,,,,129788
-rcsb::9G3Z,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9G3Z,ELECTRON MICROSCOPY,4.3,4.3,,,,,78332
-rcsb::9IXB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9IXB,X-RAY DIFFRACTION,3.48,,91.241,FULL,0.2657,0.2215,15844
-rcsb::9M1I,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9M1I,ELECTRON MICROSCOPY,2.48,2.48,,,,,13518
-rcsb::9M1J,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9M1J,ELECTRON MICROSCOPY,2.14,2.14,,,,,16686
-rcsb::1T0Y,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1T0Y,SOLUTION NMR,,,,,,,694
-rcsb::2XSM,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2XSM,X-RAY DIFFRACTION,5.5,,257.792,,,,6438
-rcsb::9YMG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9YMG,X-RAY DIFFRACTION,2.406,,48.822,FULL,0.2379,0.1926,21620
-rcsb::3J2U,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3J2U,ELECTRON MICROSCOPY,10.8,10.8,,,,,15575
-rcsb::4ICU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4ICU,X-RAY DIFFRACTION,2.4,,38.808,,0.26349,0.20698,2838
-rcsb::4LNU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4LNU,X-RAY DIFFRACTION,2.19,,38.208,FULL,0.2012,0.1652,11209
-rcsb::4CQI,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4CQI,X-RAY DIFFRACTION,1.9,,21.998,FULL,0.2253,0.1908,956
-rcsb::4ICV,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4ICV,X-RAY DIFFRACTION,1.45,,17.506,FULL,0.2061,0.2011,892
-rcsb::8ASN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8ASN,X-RAY DIFFRACTION,2.571,,55.912,FULL,0.2625,0.2325,26206
-rcsb::7C1M,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7C1M,SOLUTION NMR,,,,,,,600
-rcsb::8WMO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8WMO,X-RAY DIFFRACTION,2.89,,71.887,FULL,0.2662,0.2237,16707
-rcsb::9F3H,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9F3H,ELECTRON MICROSCOPY,4.3,4.3,,,,,41100
-rcsb::5FNV,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5FNV,X-RAY DIFFRACTION,2.61,,65.854,FULL,0.227,0.1935,17276
-rcsb::9F8G,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9F8G,X-RAY DIFFRACTION,2.2,,31.407,FULL,0.2231,0.1901,8502
-rcsb::5NJH,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5NJH,X-RAY DIFFRACTION,2.394,,50.875,FULL,0.2385,0.2196,17810
-rcsb::9G3X,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9G3X,ELECTRON MICROSCOPY,4.5,4.5,,,,,22320
-rcsb::7QWS,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QWS,ELECTRON MICROSCOPY,3.4,3.4,,,,,137913
-rcsb::8QV3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8QV3,ELECTRON MICROSCOPY,8.2,8.2,,,,,33813
-rcsb::1WHG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1WHG,SOLUTION NMR,,,,,,,843
-rcsb::2YUH,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2YUH,SOLUTION NMR,,,,,,,1402
-rcsb::1TVK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1TVK,ELECTRON CRYSTALLOGRAPHY,2.89,2.89,49.834,FULL,0.3029,0.3139,6672
-rcsb::1JFF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1JFF,ELECTRON CRYSTALLOGRAPHY,3.5,,,,0.2966,,6702
-rcsb::6J4P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6J4P,X-RAY DIFFRACTION,1.599,,11.848,FULL,0.1892,0.1652,2891
-rcsb::6J4Q,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6J4Q,X-RAY DIFFRACTION,2.7,,40.407,FULL,0.2462,0.1828,9379
-rcsb::6J4S,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6J4S,X-RAY DIFFRACTION,2.8,,38.544,FULL,0.229,0.1713,2400
-rcsb::6J4U,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6J4U,X-RAY DIFFRACTION,1.998,,39.485,FULL,0.2036,0.1705,2489
-rcsb::6V69,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6V69,ELECTRON MICROSCOPY,4.2,4.2,,,,,8353
-rcsb::5JQG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5JQG,X-RAY DIFFRACTION,2.24,,39.184,FULL,0.2182,0.1895,17646
-rcsb::6J4O,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6J4O,X-RAY DIFFRACTION,2.3,,27.953,FULL,0.2221,0.1816,2583
-rcsb::6BBN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6BBN,X-RAY DIFFRACTION,3.514,,117.006,FULL,0.2881,0.2434,17794
-rcsb::6V6B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6V6B,ELECTRON MICROSCOPY,3.8,3.8,,,,,9115
-rcsb::7QJC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJC,ELECTRON MICROSCOPY,16.1,16.1,,,,,125323
-rcsb::7Z2B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7Z2B,ELECTRON MICROSCOPY,3.3,3.3,,,,,9124
-rcsb::6J4V,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6J4V,X-RAY DIFFRACTION,2.1,,33.939,FULL,0.2012,0.1695,2621
-rcsb::7Z2C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7Z2C,ELECTRON MICROSCOPY,4.1,4.1,,,,,9483
-rcsb::8OU0,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8OU0,ELECTRON MICROSCOPY,3.5,3.5,,,,,8139
-rcsb::9I8M,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9I8M,ELECTRON MICROSCOPY,4.3,4.3,,,,,37358
-rcsb::9G3Y,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9G3Y,ELECTRON MICROSCOPY,6.8,6.8,,,,,82406
-rcsb::9M1K,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9M1K,ELECTRON MICROSCOPY,2.45,2.45,,,,,14281
-rcsb::5NM5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5NM5,X-RAY DIFFRACTION,2.05,,55.717,FULL,0.2588,0.2079,7934
-rcsb::6J8F,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6J8F,X-RAY DIFFRACTION,2.283,,41.231,FULL,0.2351,0.2108,2185
-rcsb::7X4N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7X4N,X-RAY DIFFRACTION,2.88,,43.545,FULL,0.2989,0.212,10394
-rcsb::7TR3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7TR3,ELECTRON MICROSCOPY,3.9,3.9,,,,,10222
-rcsb::7Z2A,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7Z2A,ELECTRON MICROSCOPY,4.3,4.3,,,,,9479
-rcsb::4FFB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4FFB,X-RAY DIFFRACTION,2.882,,46.739,FULL,0.2702,0.2116,8535
-rcsb::9F3S,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9F3S,ELECTRON MICROSCOPY,4.2,4.2,,,,,43258
-rcsb::4U9Z,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4U9Z,X-RAY DIFFRACTION,1.802,,20.395,FULL,0.2582,0.2175,1666
-rcsb::4U9Y,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4U9Y,X-RAY DIFFRACTION,2.201,,22.419,,0.2257,,1674
-rcsb::9G40,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9G40,ELECTRON MICROSCOPY,4.3,4.3,,,,,12443
-rcsb::5XLZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5XLZ,X-RAY DIFFRACTION,2.298,,32.252,FULL,0.2488,0.2225,18379
-rcsb::9M1L,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9M1L,ELECTRON MICROSCOPY,2.55,2.55,,,,,21090
-rcsb::1V6E,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1V6E,SOLUTION NMR,,,,,,,710
-rcsb::3J6P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3J6P,ELECTRON MICROSCOPY,8.2,8.2,,,,,7563
-rcsb::1WJN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,1WJN,SOLUTION NMR,,,,,,,747
-rcsb::5ITZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5ITZ,X-RAY DIFFRACTION,2.2,,34.491,FULL,0.2174,0.1806,8279
-rcsb::7EVH,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVH,X-RAY DIFFRACTION,2.5,,37.557,FULL,0.2456,0.1999,3407
-rcsb::7F1B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7F1B,X-RAY DIFFRACTION,2.4,,51.658,FULL,0.2585,0.2095,3333
-rcsb::5EIB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5EIB,X-RAY DIFFRACTION,2.1,,25.385,FULL,0.2223,0.1779,8684
-rcsb::7QJ2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ2,ELECTRON MICROSCOPY,8.6,8.6,,,,,69095
-rcsb::7QJE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJE,ELECTRON MICROSCOPY,7.8,7.8,,,,,31312
-rcsb::7QJ3,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ3,ELECTRON MICROSCOPY,7.6,7.6,,,,,69053
-rcsb::7QJ4,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ4,ELECTRON MICROSCOPY,9.0,9.0,,,,,87259
-rcsb::8AHM,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8AHM,X-RAY DIFFRACTION,2.42,,53.974,FULL,0.2404,0.1994,17626
-rcsb::8CLH,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8CLH,X-RAY DIFFRACTION,2.5,,-7.489,FULL,0.2406,0.187,17922
-rcsb::5O7A,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5O7A,X-RAY DIFFRACTION,2.495,,58.132,FULL,0.2559,0.2051,16982
-rcsb::8VRK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8VRK,ELECTRON MICROSCOPY,8.5,8.5,,,,,121890
-rcsb::7QJ0,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ0,ELECTRON MICROSCOPY,5.32,5.32,,,,,50927
-rcsb::8WMU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8WMU,X-RAY DIFFRACTION,2.7,,39.91,FULL,0.2453,0.1973,17170
-rcsb::9M1M,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9M1M,ELECTRON MICROSCOPY,2.21,2.21,,,,,22547
-rcsb::9DXE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9DXE,ELECTRON MICROSCOPY,3.3,3.3,,,,,13502
-rcsb::9M1N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9M1N,ELECTRON MICROSCOPY,2.24,2.24,,,,,19585
-rcsb::9QVN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9QVN,ELECTRON MICROSCOPY,4.7,4.7,,,,,87756
-rcsb::7EVK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVK,X-RAY DIFFRACTION,1.75,,21.029,,0.1769,,3905
-rcsb::7EVE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVE,X-RAY DIFFRACTION,2.0,,20.697,FULL,0.253,0.2117,3537
-rcsb::9H9Q,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9H9Q,ELECTRON MICROSCOPY,3.6,3.6,,,,,36618
-rcsb::7QUQ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QUQ,ELECTRON MICROSCOPY,2.6,2.6,,,,,19095
-rcsb::7EVB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVB,X-RAY DIFFRACTION,1.62,,17.199,FULL,0.1774,0.1531,3934
-rcsb::4HNA,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4HNA,X-RAY DIFFRACTION,3.19,,62.547,FULL,0.2233,0.1998,10607
-rcsb::7EVD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVD,X-RAY DIFFRACTION,1.45,,14.852,FULL,0.1762,0.152,3964
-rcsb::7EVI,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVI,X-RAY DIFFRACTION,1.55,,14.1,,0.1714,,3989
-rcsb::3QNZ,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3QNZ,X-RAY DIFFRACTION,2.2,,31.153,,0.2002,,3330
-rcsb::7QJ9,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ9,ELECTRON MICROSCOPY,8.1,8.1,,,,,91535
-rcsb::3VWE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3VWE,X-RAY DIFFRACTION,1.956,,24.113,FULL,0.2261,0.1819,1636
-rcsb::6MZE,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6MZE,X-RAY DIFFRACTION,3.6,,81.365,FULL,0.2456,0.2047,77878
-rcsb::6MZF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6MZF,X-RAY DIFFRACTION,4.4,,82.656,FULL,0.2681,0.2398,78030
-rcsb::6MZG,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6MZG,X-RAY DIFFRACTION,3.208,,46.602,FULL,0.2367,0.178,36853
-rcsb::7QJA,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJA,ELECTRON MICROSCOPY,9.2,9.2,,,,,109569
-rcsb::7QJB,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJB,ELECTRON MICROSCOPY,9.2,9.2,,,,,108374
-rcsb::9QVM,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9QVM,ELECTRON MICROSCOPY,6.8,6.8,,,,,88888
-rcsb::9DXC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9DXC,ELECTRON MICROSCOPY,3.1,3.1,,,,,13502
-rcsb::7EVC,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVC,X-RAY DIFFRACTION,1.25,,9.96,FULL,0.1871,0.1716,3994
-rcsb::7F1A,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7F1A,X-RAY DIFFRACTION,1.9,,32.782,FULL,0.2199,0.1804,3655
-rcsb::6H9B,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6H9B,X-RAY DIFFRACTION,2.75,,80.739,FULL,0.2359,0.1897,15108
-rcsb::3VWD,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3VWD,X-RAY DIFFRACTION,1.25,,9.943,FULL,0.1716,0.151,1881
-rcsb::8QV2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8QV2,ELECTRON MICROSCOPY,9.2,9.2,,,,,255200
-rcsb::2KJ6,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2KJ6,SOLUTION NMR,,,,,,,764
-rcsb::6T59,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,6T59,ELECTRON MICROSCOPY,3.11,3.11,,,,,143047
-rcsb::7AC5,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7AC5,X-RAY DIFFRACTION,2.26,,41.04,FULL,0.2547,0.2187,8018
-rcsb::7QJ6,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ6,ELECTRON MICROSCOPY,7.8,7.8,,,,,91575
-rcsb::7QJ7,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ7,ELECTRON MICROSCOPY,8.7,8.7,,,,,109579
-rcsb::7QJ1,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ1,ELECTRON MICROSCOPY,7.0,7.0,,,,,50899
-rcsb::7QJ8,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7QJ8,ELECTRON MICROSCOPY,8.7,8.7,,,,,108354
-rcsb::2JRF,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2JRF,SOLUTION NMR,,,,,,,1348
-rcsb::5FM1,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5FM1,ELECTRON MICROSCOPY,8.0,8.0,,,,,16938
-rcsb::8VA2,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8VA2,ELECTRON MICROSCOPY,4.5,4.5,,,,,13430
-rcsb::4ABO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4ABO,ELECTRON MICROSCOPY,8.6,8.6,,,,,27996
-rcsb::9H9P,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,9H9P,ELECTRON MICROSCOPY,4.5,4.5,,,,,16352
-rcsb::8C5C,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8C5C,ELECTRON MICROSCOPY,5.3,5.3,,,,,178971
-rcsb::7EVL,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,7EVL,X-RAY DIFFRACTION,2.15,,42.115,FULL,0.2431,0.2038,3422
-rcsb::2P4N,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2P4N,ELECTRON MICROSCOPY,9.0,9.0,,,,,9264
-rcsb::2XRP,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2XRP,ELECTRON MICROSCOPY,8.2,8.2,,,,,27756
-rcsb::5EFK,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,5EFK,X-RAY DIFFRACTION,1.82,,16.32,FULL,0.1858,0.1597,3116
-rcsb::2KJR,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,2KJR,SOLUTION NMR,,,,,,,725
-rcsb::3DCO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3DCO,ELECTRON MICROSCOPY,11.0,11.0,,,,,8977
-rcsb::8BPO,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,8BPO,ELECTRON MICROSCOPY,2.8,2.8,,,,,143326
-rcsb::4ATU,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4ATU,ELECTRON MICROSCOPY,8.3,8.3,,,,,27840
-rcsb::4ATX,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4ATX,ELECTRON MICROSCOPY,8.2,8.2,,,,,9183
-rcsb::3JAW,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,3JAW,ELECTRON MICROSCOPY,3.9,3.9,,,,,13632
-rcsb::4NFN,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4NFN,X-RAY DIFFRACTION,1.42,,16.564,,0.2125,,2579
-rcsb::4AQV,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4AQV,ELECTRON MICROSCOPY,9.7,9.7,,,,,1354
-rcsb::4AQW,data\raw\public_api\20260425T115542Z\rcsb_tubulin_core_entries.json,4AQW,ELECTRON MICROSCOPY,9.5,9.5,,,,,1311
+rcsb::8X9P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8X9P,ELECTRON MICROSCOPY,3.54,3.54,,,,,7669
+rcsb::4H6Z,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4H6Z,X-RAY DIFFRACTION,2.701,,54.314,FULL,0.2605,0.2384,2440
+rcsb::8JJC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8JJC,X-RAY DIFFRACTION,2.76,,70.62,FULL,0.2615,0.2397,17324
+rcsb::4H6U,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4H6U,X-RAY DIFFRACTION,2.4482,,45.638,FULL,0.25,0.2087,2692
+rcsb::5EYL,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5EYL,X-RAY DIFFRACTION,2.41,,45.158,FULL,0.2038,0.1689,2132
+rcsb::4O4H,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4O4H,X-RAY DIFFRACTION,2.1,,33.437,FULL,0.2247,0.1942,18548
+rcsb::4YLS,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4YLS,X-RAY DIFFRACTION,2.6,,49.729,FULL,0.2472,0.2154,2628
+rcsb::4YLR,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4YLR,X-RAY DIFFRACTION,2.55,,47.392,FULL,0.2728,0.2297,2607
+rcsb::3TIG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3TIG,X-RAY DIFFRACTION,2.5,,53.962,FULL,0.2978,0.2498,2434
+rcsb::3TII,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3TII,X-RAY DIFFRACTION,2.5,,48.671,FULL,0.2852,0.2545,4949
+rcsb::4TV8,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4TV8,X-RAY DIFFRACTION,2.103,,50.016,FULL,0.2227,0.1972,18278
+rcsb::4TUY,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4TUY,X-RAY DIFFRACTION,2.1,,36.801,FULL,0.22,0.1892,18801
+rcsb::4TV9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4TV9,X-RAY DIFFRACTION,2.0,,44.92,FULL,0.2094,0.1847,18487
+rcsb::4O2B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4O2B,X-RAY DIFFRACTION,2.3,,41.528,FULL,0.2142,0.1846,18288
+rcsb::3TIN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3TIN,X-RAY DIFFRACTION,2.9,,56.866,FULL,0.3127,0.2326,2474
+rcsb::4O2A,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4O2A,X-RAY DIFFRACTION,2.5,,56.789,FULL,0.2341,0.1981,18043
+rcsb::5EYP,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5EYP,X-RAY DIFFRACTION,1.9,,38.416,FULL,0.2071,0.174,8501
+rcsb::5IYZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5IYZ,X-RAY DIFFRACTION,1.8,,37.242,FULL,0.2045,0.1721,19140
+rcsb::5J2T,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5J2T,X-RAY DIFFRACTION,2.2,,50.085,FULL,0.2477,0.1998,17918
+rcsb::5J2U,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5J2U,X-RAY DIFFRACTION,2.5,,45.477,FULL,0.2574,0.2255,17931
+rcsb::5JH7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5JH7,X-RAY DIFFRACTION,2.25,,54.547,FULL,0.2261,0.1919,18365
+rcsb::5JVD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5JVD,X-RAY DIFFRACTION,2.393,,58.419,FULL,0.2125,0.1795,17817
+rcsb::5M7G,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5M7G,X-RAY DIFFRACTION,2.248,,49.38,FULL,0.2201,0.1762,17780
+rcsb::5LA6,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5LA6,X-RAY DIFFRACTION,2.1,,52.173,FULL,0.2335,0.191,17893
+rcsb::5M8G,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5M8G,X-RAY DIFFRACTION,2.147,,46.05,FULL,0.2082,0.1729,18016
+rcsb::5M7E,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5M7E,X-RAY DIFFRACTION,2.046,,41.279,FULL,0.2051,0.1755,18092
+rcsb::5LXT,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5LXT,X-RAY DIFFRACTION,1.9,,32.828,FULL,0.2091,0.1759,19585
+rcsb::5MF4,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5MF4,X-RAY DIFFRACTION,2.3,,59.972,FULL,0.2373,0.1919,17630
+rcsb::5NFZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5NFZ,X-RAY DIFFRACTION,2.1,,42.337,FULL,0.2241,0.1901,18133
+rcsb::5S4L,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4L,X-RAY DIFFRACTION,2.3,,55.458,FULL,0.238,0.2061,18051
+rcsb::5OSK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5OSK,X-RAY DIFFRACTION,2.11,,49.096,FULL,0.233,0.1968,18295
+rcsb::5OV7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5OV7,X-RAY DIFFRACTION,2.402,,54.313,FULL,0.2372,0.1932,17978
+rcsb::5S4N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4N,X-RAY DIFFRACTION,2.53,,70.524,FULL,0.2612,0.2214,17886
+rcsb::5S4M,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4M,X-RAY DIFFRACTION,2.15,,55.014,FULL,0.2465,0.2116,18114
+rcsb::5S4O,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4O,X-RAY DIFFRACTION,2.3,,39.034,FULL,0.2615,0.2167,18110
+rcsb::5S4P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4P,X-RAY DIFFRACTION,2.29,,46.116,FULL,0.2468,0.2087,18036
+rcsb::5S4Q,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4Q,X-RAY DIFFRACTION,2.59,,52.831,FULL,0.2821,0.2285,18002
+rcsb::5S4R,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4R,X-RAY DIFFRACTION,2.35,,63.445,,0.2505,,18021
+rcsb::5S4S,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4S,X-RAY DIFFRACTION,2.35,,59.552,FULL,0.2843,0.2459,17823
+rcsb::5S4W,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4W,X-RAY DIFFRACTION,2.8,,89.189,FULL,0.2663,0.2249,17762
+rcsb::5S4T,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4T,X-RAY DIFFRACTION,2.27,,59.714,FULL,0.2467,0.2089,18014
+rcsb::5S4U,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4U,X-RAY DIFFRACTION,2.39,,62.019,FULL,0.2546,0.2144,17972
+rcsb::5S4Y,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4Y,X-RAY DIFFRACTION,2.3,,69.571,FULL,0.2434,0.2082,17833
+rcsb::5S4V,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4V,X-RAY DIFFRACTION,2.3,,58.474,,0.2352,,18030
+rcsb::5S4X,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4X,X-RAY DIFFRACTION,2.53,,76.427,FULL,0.2483,0.2077,17715
+rcsb::5S4Z,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S4Z,X-RAY DIFFRACTION,2.1,,46.607,FULL,0.247,0.2106,18279
+rcsb::5S50,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S50,X-RAY DIFFRACTION,3.1,,117.75,FULL,0.2709,0.2123,17660
+rcsb::5S51,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S51,X-RAY DIFFRACTION,2.4,,70.368,FULL,0.249,0.21,17918
+rcsb::5S52,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S52,X-RAY DIFFRACTION,2.83,,78.395,,0.2769,,17783
+rcsb::5S53,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S53,X-RAY DIFFRACTION,2.75,,76.567,FULL,0.2724,0.2217,17788
+rcsb::5S54,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S54,X-RAY DIFFRACTION,2.4,,68.459,FULL,0.2565,0.2119,17611
+rcsb::5S56,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S56,X-RAY DIFFRACTION,2.25,,61.391,FULL,0.2433,0.2096,17990
+rcsb::5S55,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S55,X-RAY DIFFRACTION,2.3,,53.624,,0.2363,0.2076,18038
+rcsb::5S57,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S57,X-RAY DIFFRACTION,2.45,,72.184,FULL,0.2472,0.2136,17775
+rcsb::5S59,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S59,X-RAY DIFFRACTION,2.6,,76.595,FULL,0.2701,0.2223,17804
+rcsb::5S58,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S58,X-RAY DIFFRACTION,2.3,,57.207,FULL,0.2499,0.2134,17979
+rcsb::5S5D,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5D,X-RAY DIFFRACTION,1.9,,43.124,FULL,0.2301,0.2032,18569
+rcsb::5S5A,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5A,X-RAY DIFFRACTION,2.35,,60.215,FULL,0.243,0.2098,18052
+rcsb::5S5B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5B,X-RAY DIFFRACTION,2.3,,57.385,FULL,0.2478,0.214,18033
+rcsb::5S5E,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5E,X-RAY DIFFRACTION,2.67,,60.1,FULL,0.2253,0.1876,17985
+rcsb::5S5F,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5F,X-RAY DIFFRACTION,2.24,,24.316,,0.264,,18085
+rcsb::5S5G,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5G,X-RAY DIFFRACTION,2.69,,40.618,FULL,0.2678,0.2172,17986
+rcsb::5S5H,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5H,X-RAY DIFFRACTION,2.5,,71.981,FULL,0.2725,0.2221,17838
+rcsb::5S5C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5C,X-RAY DIFFRACTION,2.4,,61.333,FULL,0.2463,0.2127,18011
+rcsb::5S5I,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5I,X-RAY DIFFRACTION,2.49,,66.95,FULL,0.2617,0.2181,17952
+rcsb::5S5J,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5J,X-RAY DIFFRACTION,2.25,,54.625,FULL,0.2419,0.2076,18046
+rcsb::5S5L,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5L,X-RAY DIFFRACTION,2.25,,51.234,FULL,0.2364,0.2071,18052
+rcsb::5S5K,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5K,X-RAY DIFFRACTION,2.41,,68.296,FULL,0.252,0.2223,17780
+rcsb::5S5M,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5M,X-RAY DIFFRACTION,2.7,,83.913,FULL,0.2691,0.2184,17728
+rcsb::5S5N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5N,X-RAY DIFFRACTION,2.9,,81.017,FULL,0.2747,0.2296,17708
+rcsb::5S5O,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5O,X-RAY DIFFRACTION,2.3,,55.164,FULL,0.2372,0.2051,18008
+rcsb::5S5S,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5S,X-RAY DIFFRACTION,2.36,,40.968,FULL,0.2568,0.2161,18046
+rcsb::5S5Q,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5Q,X-RAY DIFFRACTION,2.05,,48.387,FULL,0.2471,0.2158,18077
+rcsb::5S5P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5P,X-RAY DIFFRACTION,2.79,,88.738,FULL,0.2691,0.2277,17742
+rcsb::5S5R,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5R,X-RAY DIFFRACTION,2.3,,60.56,FULL,0.2478,0.2111,18056
+rcsb::5S5T,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5T,X-RAY DIFFRACTION,2.53,,50.403,,0.2468,,18016
+rcsb::5S5U,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5U,X-RAY DIFFRACTION,2.5,,71.107,FULL,0.2615,0.2162,17892
+rcsb::5S5V,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5V,X-RAY DIFFRACTION,2.7,,79.536,FULL,0.2664,0.2181,17819
+rcsb::5S5W,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5W,X-RAY DIFFRACTION,2.35,,60.947,FULL,0.2683,0.2271,18042
+rcsb::5S5X,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5X,X-RAY DIFFRACTION,2.32,,57.29,FULL,0.2504,0.2172,18032
+rcsb::5S5Z,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5Z,X-RAY DIFFRACTION,2.55,,68.904,FULL,0.2544,0.2137,17811
+rcsb::5S5Y,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S5Y,X-RAY DIFFRACTION,2.26,,55.341,FULL,0.2375,0.2071,18009
+rcsb::5S60,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S60,X-RAY DIFFRACTION,2.3,,52.106,FULL,0.2319,0.1981,18342
+rcsb::5S62,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S62,X-RAY DIFFRACTION,2.75,,82.456,FULL,0.27,0.2144,17742
+rcsb::5S61,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S61,X-RAY DIFFRACTION,1.95,,42.709,FULL,0.2428,0.2172,18159
+rcsb::5S63,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S63,X-RAY DIFFRACTION,2.6,,65.499,FULL,0.2727,0.2186,17866
+rcsb::5S64,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S64,X-RAY DIFFRACTION,2.75,,82.482,FULL,0.2671,0.219,17772
+rcsb::5S65,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S65,X-RAY DIFFRACTION,2.25,,50.793,FULL,0.2402,0.2108,18071
+rcsb::6FII,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6FII,X-RAY DIFFRACTION,2.405,,53.58,FULL,0.2187,0.1714,18212
+rcsb::5S67,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S67,X-RAY DIFFRACTION,2.1,,52.381,FULL,0.2412,0.2153,18048
+rcsb::5S66,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5S66,X-RAY DIFFRACTION,2.1,,52.304,FULL,0.2539,0.2252,17842
+rcsb::6FKJ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6FKJ,X-RAY DIFFRACTION,2.148,,42.978,FULL,0.2085,0.1769,18235
+rcsb::6FJF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6FJF,X-RAY DIFFRACTION,2.402,,47.692,FULL,0.2584,0.2023,18138
+rcsb::6GJ4,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6GJ4,X-RAY DIFFRACTION,2.4,,55.425,FULL,0.2426,0.1997,17645
+rcsb::6FKL,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6FKL,X-RAY DIFFRACTION,2.098,,40.169,FULL,0.2174,0.1797,18310
+rcsb::6GZE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6GZE,X-RAY DIFFRACTION,2.49,,64.197,FULL,0.2188,0.2165,16797
+rcsb::6TDE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6TDE,X-RAY DIFFRACTION,2.286,,60.165,,0.2512,,15022
+rcsb::6HX8,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6HX8,X-RAY DIFFRACTION,2.402,,63.901,FULL,0.2435,0.2002,17739
+rcsb::6LSM,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6LSM,X-RAY DIFFRACTION,2.751,,55.268,FULL,0.2305,0.1876,17751
+rcsb::6QQN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6QQN,X-RAY DIFFRACTION,2.301,,56.903,FULL,0.2438,0.1965,17550
+rcsb::6TH4,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6TH4,X-RAY DIFFRACTION,2.121,,50.126,FULL,0.2379,0.204,14923
+rcsb::6TIS,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6TIS,X-RAY DIFFRACTION,2.3,,42.01,,0.2185,0.185,15255
+rcsb::8CGZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CGZ,X-RAY DIFFRACTION,2.527,,77.17,FULL,0.1995,0.2011,14545
+rcsb::7Z2P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7Z2P,X-RAY DIFFRACTION,2.0,,36.06,,0.2016,,18432
+rcsb::7Z2N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7Z2N,X-RAY DIFFRACTION,2.17,,47.576,,0.2086,,18229
+rcsb::6TIY,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6TIY,X-RAY DIFFRACTION,2.293,,43.951,FULL,0.2285,0.1964,15210
+rcsb::6S9E,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6S9E,X-RAY DIFFRACTION,2.25,,48.741,FULL,0.2319,0.2068,17701
+rcsb::6QTN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6QTN,X-RAY DIFFRACTION,1.9,,42.356,FULL,0.2155,0.1899,18288
+rcsb::6SES,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6SES,X-RAY DIFFRACTION,2.0,,42.111,FULL,0.2118,0.2094,18460
+rcsb::8R67,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8R67,X-RAY DIFFRACTION,2.2,,52.965,FULL,0.2281,0.1937,18309
+rcsb::8A0L,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8A0L,X-RAY DIFFRACTION,1.9981,,44.295,FULL,0.2336,0.1973,18367
+rcsb::8C0F,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8C0F,X-RAY DIFFRACTION,2.1005,,47.624,FULL,0.2261,0.196,18221
+rcsb::8R6O,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8R6O,X-RAY DIFFRACTION,2.2,,49.641,FULL,0.2314,0.2055,17687
+rcsb::9EDT,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9EDT,ELECTRON MICROSCOPY,3.7,3.7,,,,,13091
+rcsb::9EEB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9EEB,ELECTRON MICROSCOPY,3.7,3.7,,,,,12531
+rcsb::9EDR,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9EDR,ELECTRON MICROSCOPY,3.8,3.8,,,,,21378
+rcsb::5NQU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5NQU,X-RAY DIFFRACTION,1.8,,28.898,FULL,0.2054,0.1792,8632
+rcsb::4O4J,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4O4J,X-RAY DIFFRACTION,2.2,,38.958,FULL,0.2409,0.2037,18124
+rcsb::5LOV,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5LOV,X-RAY DIFFRACTION,2.4,,64.741,FULL,0.2456,0.1983,17273
+rcsb::5SB3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SB3,X-RAY DIFFRACTION,2.2,,45.773,FULL,0.2224,0.1921,18179
+rcsb::5LYJ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5LYJ,X-RAY DIFFRACTION,2.397,,60.213,FULL,0.2193,0.1939,17669
+rcsb::5SB4,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SB4,X-RAY DIFFRACTION,2.5,,53.341,FULL,0.226,0.1935,17804
+rcsb::5M8D,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5M8D,X-RAY DIFFRACTION,2.25,,45.133,FULL,0.2131,0.175,18103
+rcsb::5NG1,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5NG1,X-RAY DIFFRACTION,2.2,,46.093,FULL,0.2223,0.1762,18369
+rcsb::5SB5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SB5,X-RAY DIFFRACTION,2.31,,42.492,FULL,0.219,0.1883,18255
+rcsb::5SB7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SB7,X-RAY DIFFRACTION,2.1,,41.943,FULL,0.2347,0.2032,18445
+rcsb::5SB6,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SB6,X-RAY DIFFRACTION,2.3,,49.873,FULL,0.231,0.1959,17910
+rcsb::5SB8,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SB8,X-RAY DIFFRACTION,2.3,,50.046,FULL,0.2286,0.1917,18053
+rcsb::5SBA,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SBA,X-RAY DIFFRACTION,2.25,,46.712,FULL,0.2266,0.1837,18426
+rcsb::5SB9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SB9,X-RAY DIFFRACTION,2.5,,52.27,,0.2282,0.1959,17725
+rcsb::5SBB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SBB,X-RAY DIFFRACTION,2.25,,44.396,,0.2068,,18500
+rcsb::5SBC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SBC,X-RAY DIFFRACTION,2.32,,51.79,FULL,0.2284,0.1866,18388
+rcsb::5SBD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SBD,X-RAY DIFFRACTION,2.25,,42.642,FULL,0.213,0.1791,18528
+rcsb::7WU7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7WU7,ELECTRON MICROSCOPY,3.85,3.85,,,,,67031
+rcsb::7X0S,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7X0S,ELECTRON MICROSCOPY,3.1,3.1,,,,,68346
+rcsb::5SBE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5SBE,X-RAY DIFFRACTION,2.75,,62.943,FULL,0.2249,0.1902,17938
+rcsb::6F7C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6F7C,X-RAY DIFFRACTION,2.002,,45.146,FULL,0.2468,0.2162,17679
+rcsb::7ZX2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7ZX2,X-RAY DIFFRACTION,2.5,,54.148,FULL,0.1988,0.1974,17266
+rcsb::7Z7D,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7Z7D,X-RAY DIFFRACTION,2.0,,41.208,,0.2289,,18556
+rcsb::6FJM,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6FJM,X-RAY DIFFRACTION,2.1,,46.066,FULL,0.2145,0.1828,18537
+rcsb::6GX7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6GX7,X-RAY DIFFRACTION,3.19,,95.223,,0.2171,,20341
+rcsb::7JFR,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7JFR,X-RAY DIFFRACTION,2.35,,56.734,FULL,0.2615,0.2351,17953
+rcsb::6Y6D,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6Y6D,X-RAY DIFFRACTION,2.2,,50.942,FULL,0.2263,0.1869,18029
+rcsb::8B7A,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8B7A,X-RAY DIFFRACTION,2.25,,51.162,FULL,0.1847,0.181,18429
+rcsb::8B7B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8B7B,X-RAY DIFFRACTION,2.25,,49.695,FULL,0.224,0.1836,18314
+rcsb::8B7C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8B7C,X-RAY DIFFRACTION,1.9,,39.52,,0.1896,,18822
+rcsb::8CL9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CL9,X-RAY DIFFRACTION,2.5,,29.187,FULL,0.2407,0.186,8117
+rcsb::8CLC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CLC,X-RAY DIFFRACTION,2.7,,66.649,FULL,0.2275,0.1884,17569
+rcsb::8BDE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8BDE,X-RAY DIFFRACTION,1.902,,41.706,FULL,0.1986,0.1959,18429
+rcsb::6V5V,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6V5V,ELECTRON MICROSCOPY,3.8,3.8,,,,,2979
+rcsb::8BDF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8BDF,X-RAY DIFFRACTION,1.95,,43.096,FULL,0.2199,0.192,18392
+rcsb::1H7C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1H7C,X-RAY DIFFRACTION,1.8,,,,0.2617,0.2101,1008
+rcsb::8BDG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8BDG,X-RAY DIFFRACTION,2.35,,56.885,,0.189,,17628
+rcsb::6JZC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6JZC,X-RAY DIFFRACTION,2.201,,36.826,FULL,0.2152,0.1832,5020
+rcsb::6KPP,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6KPP,X-RAY DIFFRACTION,2.74524106157,,45.351,FULL,0.2329,0.1946,17583
+rcsb::4U3J,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4U3J,X-RAY DIFFRACTION,2.81,,43.843,FULL,0.2572,0.218,8524
+rcsb::6GF3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6GF3,X-RAY DIFFRACTION,2.4,,63.877,FULL,0.2534,0.2013,17309
+rcsb::4EB6,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4EB6,X-RAY DIFFRACTION,3.47,,119.162,FULL,0.2809,0.2319,14918
+rcsb::6TIU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6TIU,X-RAY DIFFRACTION,3.571,,110.866,FULL,0.2681,0.2388,14668
+rcsb::4O4I,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4O4I,X-RAY DIFFRACTION,2.4,,46.228,FULL,0.2165,0.1903,18304
+rcsb::6TIZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6TIZ,X-RAY DIFFRACTION,2.197,,36.244,FULL,0.2186,0.1827,15487
+rcsb::7AU5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7AU5,X-RAY DIFFRACTION,2.2,,51.823,FULL,0.2145,0.1804,18583
+rcsb::7CNN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7CNN,X-RAY DIFFRACTION,2.5,,38.11,,0.2093,,18183
+rcsb::7DBC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7DBC,X-RAY DIFFRACTION,2.4,,47.149,FULL,0.2335,0.1982,17950
+rcsb::7CNM,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7CNM,X-RAY DIFFRACTION,2.44,,35.622,FULL,0.2127,0.2056,17919
+rcsb::7DAD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7DAD,X-RAY DIFFRACTION,2.85,,51.132,FULL,0.227,0.1799,17890
+rcsb::7DAE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7DAE,X-RAY DIFFRACTION,2.394,,36.475,FULL,0.2239,0.1766,18508
+rcsb::7DAF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7DAF,X-RAY DIFFRACTION,2.4,,36.103,FULL,0.2214,0.1746,18541
+rcsb::7DB9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7DB9,X-RAY DIFFRACTION,2.845,,49.553,,0.2128,,17750
+rcsb::9FYD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9FYD,X-RAY DIFFRACTION,2.3,,55.147,FULL,0.2363,0.201,17954
+rcsb::7DBA,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7DBA,X-RAY DIFFRACTION,2.461,,43.724,FULL,0.2293,0.1895,18135
+rcsb::7DBB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7DBB,X-RAY DIFFRACTION,2.805,,52.282,FULL,0.2286,0.1733,17733
+rcsb::9IM5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9IM5,X-RAY DIFFRACTION,2.86,,59.915,FULL,0.2481,0.2116,17217
+rcsb::9EDS,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9EDS,ELECTRON MICROSCOPY,3.8,3.8,,,,,20957
+rcsb::8A9T,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8A9T,X-RAY DIFFRACTION,2.304,,53.929,FULL,0.2358,0.1946,17683
+rcsb::7DBD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7DBD,X-RAY DIFFRACTION,3.094,,65.64,FULL,0.2437,0.1908,17563
+rcsb::8A9Z,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8A9Z,X-RAY DIFFRACTION,2.294,,52.764,FULL,0.2361,0.1956,17786
+rcsb::1SA0,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1SA0,X-RAY DIFFRACTION,3.58,,,,0.24852,0.23252,14074
+rcsb::2WBE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2WBE,ELECTRON MICROSCOPY,9.4,9.4,,,,,9385
+rcsb::1SA1,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1SA1,X-RAY DIFFRACTION,4.2,,,,0.25935,0.20643,14180
+rcsb::1TUB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1TUB,ELECTRON CRYSTALLOGRAPHY,3.7,,143.975,FULL,,,6907
+rcsb::4PK2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4PK2,X-RAY DIFFRACTION,1.35,,11.711,FULL,0.1694,0.1332,1961
+rcsb::3HKB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3HKB,X-RAY DIFFRACTION,3.65,,150.164,PARTIAL,0.2819,0.2462,14125
+rcsb::4NFM,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4NFM,X-RAY DIFFRACTION,2.12,,45.962,FULL,0.2467,0.2067,2377
+rcsb::3RYC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3RYC,X-RAY DIFFRACTION,2.1,,34.964,FULL,0.2137,0.1827,15686
+rcsb::4O4L,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4O4L,X-RAY DIFFRACTION,2.2,,53.688,FULL,0.2283,0.1937,18663
+rcsb::6XER,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6XER,X-RAY DIFFRACTION,2.5,,57.98,FULL,0.2248,0.1709,14606
+rcsb::7CNO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7CNO,X-RAY DIFFRACTION,2.5,,38.239,FULL,0.2385,0.1885,18166
+rcsb::4PK3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4PK3,X-RAY DIFFRACTION,1.347,,13.51,FULL,0.1762,0.1507,1943
+rcsb::7TRG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TRG,ELECTRON MICROSCOPY,3.0,3.0,,,,,33714
+rcsb::5ZXH,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5ZXH,X-RAY DIFFRACTION,2.8,,42.76,FULL,0.2543,0.2102,17367
+rcsb::5LXS,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5LXS,X-RAY DIFFRACTION,2.2,,36.732,FULL,0.2278,0.1891,18850
+rcsb::7TTN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TTN,ELECTRON MICROSCOPY,3.3,3.3,,,,,34563
+rcsb::6LSN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6LSN,X-RAY DIFFRACTION,2.445,,45.225,FULL,0.2219,0.1783,18041
+rcsb::7TTT,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TTT,ELECTRON MICROSCOPY,2.9,2.9,,,,,35180
+rcsb::7TUB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TUB,ELECTRON MICROSCOPY,3.6,3.6,,,,,35877
+rcsb::7VMJ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7VMJ,X-RAY DIFFRACTION,2.9,,64.027,,0.2476,,17608
+rcsb::7VMG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7VMG,X-RAY DIFFRACTION,2.39,,52.197,FULL,0.2498,0.2124,17851
+rcsb::9PMK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9PMK,ELECTRON MICROSCOPY,2.84,2.84,,,,,10060
+rcsb::1QSD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1QSD,X-RAY DIFFRACTION,2.2,,,,0.297,0.211,1837
+rcsb::7VMK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7VMK,X-RAY DIFFRACTION,2.5,,37.516,FULL,0.2309,0.1938,17937
+rcsb::1Z2B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1Z2B,X-RAY DIFFRACTION,4.1,,197.483,PARTIAL,0.2771,0.2117,14173
+rcsb::3E22,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3E22,X-RAY DIFFRACTION,3.8,,140.064,PARTIAL,0.2939,0.2398,14154
+rcsb::3HKC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3HKC,X-RAY DIFFRACTION,3.8,,172.426,FULL,0.3016,0.2643,14145
+rcsb::3HKD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3HKD,X-RAY DIFFRACTION,3.7,,152.497,,0.3095,,14223
+rcsb::3HKE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3HKE,X-RAY DIFFRACTION,3.6,,133.621,PARTIAL,0.2607,0.2255,14244
+rcsb::3R4V,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3R4V,X-RAY DIFFRACTION,1.67,,25.408,FULL,0.2251,0.1781,2831
+rcsb::3RYF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3RYF,X-RAY DIFFRACTION,2.52,,50.359,FULL,0.2227,0.1789,15301
+rcsb::3RYI,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3RYI,X-RAY DIFFRACTION,2.4,,47.585,FULL,0.2105,0.1767,15541
+rcsb::3RYH,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3RYH,X-RAY DIFFRACTION,2.8,,60.664,,0.2182,,15107
+rcsb::3UT5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3UT5,X-RAY DIFFRACTION,2.73,,66.603,FULL,0.2414,0.2008,15107
+rcsb::4DRX,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4DRX,X-RAY DIFFRACTION,2.22,,35.936,FULL,0.1965,0.1607,16036
+rcsb::5AJ8,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5AJ8,X-RAY DIFFRACTION,2.2,,17.99,FULL,0.2072,0.1693,2997
+rcsb::4I55,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4I55,X-RAY DIFFRACTION,2.2,,45.652,FULL,0.2056,0.1663,18606
+rcsb::5W3F,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5W3F,ELECTRON MICROSCOPY,3.7,3.7,,,,,6842
+rcsb::5MIO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5MIO,X-RAY DIFFRACTION,3.19,,77.472,FULL,0.2657,0.2241,10421
+rcsb::6XES,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6XES,X-RAY DIFFRACTION,2.32,,41.647,,0.2126,,14870
+rcsb::6XET,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6XET,X-RAY DIFFRACTION,2.6,,42.973,,0.2109,,14792
+rcsb::7LXB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7LXB,ELECTRON MICROSCOPY,3.26,3.26,,,,,54280
+rcsb::7M18,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7M18,ELECTRON MICROSCOPY,3.38,3.38,,,,,54064
+rcsb::7TTD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TTD,X-RAY DIFFRACTION,2.27,,38.405,FULL,0.2268,0.1758,14686
+rcsb::7TTE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TTE,X-RAY DIFFRACTION,2.7,,74.946,,0.2189,,14586
+rcsb::7TTF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TTF,X-RAY DIFFRACTION,2.1,,37.465,FULL,0.235,0.1927,14849
+rcsb::6JCJ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6JCJ,X-RAY DIFFRACTION,2.5,,33.663,FULL,0.2807,0.2422,17423
+rcsb::7U0F,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7U0F,ELECTRON MICROSCOPY,3.53,3.53,,,,,16569
+rcsb::8CLB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CLB,X-RAY DIFFRACTION,3.0,,67.266,FULL,0.2161,0.1724,17543
+rcsb::8CLE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CLE,X-RAY DIFFRACTION,3.2,,69.454,FULL,0.2491,0.2054,17579
+rcsb::8DIQ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8DIQ,X-RAY DIFFRACTION,2.395,,44.588,FULL,0.2099,0.1826,17666
+rcsb::8YRK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8YRK,X-RAY DIFFRACTION,2.74,,59.786,FULL,0.2251,0.173,17720
+rcsb::9C13,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9C13,ELECTRON MICROSCOPY,2.89,2.89,,,,,15708
+rcsb::9EOJ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9EOJ,ELECTRON MICROSCOPY,17.0,17.0,,,,,117778
+rcsb::9IMO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9IMO,X-RAY DIFFRACTION,2.75,,79.093,FULL,0.2528,0.2111,17053
+rcsb::1Z5W,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1Z5W,X-RAY DIFFRACTION,3.0,,38.44,FULL,0.3,0.2424,3110
+rcsb::9U9Q,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9U9Q,X-RAY DIFFRACTION,2.93,,51.924,FULL,0.257,0.2064,17577
+rcsb::3J1T,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3J1T,ELECTRON MICROSCOPY,9.7,9.7,,,,,8091
+rcsb::3J1U,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3J1U,ELECTRON MICROSCOPY,9.7,9.7,,,,,8089
+rcsb::3RB8,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3RB8,X-RAY DIFFRACTION,2.6,,50.796,FULL,0.2371,0.1654,2462
+rcsb::4GS4,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4GS4,X-RAY DIFFRACTION,2.112,,33.684,FULL,0.2534,0.23,1535
+rcsb::3DU7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3DU7,X-RAY DIFFRACTION,4.1,,181.902,PARTIAL,0.2713,0.2165,14258
+rcsb::3N2G,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3N2G,X-RAY DIFFRACTION,4.0,,168.487,PARTIAL,0.2516,0.2375,14220
+rcsb::3N2K,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3N2K,X-RAY DIFFRACTION,4.0,,162.726,FULL,0.2664,0.2533,14225
+rcsb::4B6W,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4B6W,X-RAY DIFFRACTION,2.35,,36.566,FULL,0.2178,0.1712,788
+rcsb::4I4T,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4I4T,X-RAY DIFFRACTION,1.8,,33.116,FULL,0.2,0.1684,19745
+rcsb::4IHJ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4IHJ,X-RAY DIFFRACTION,2.0,,36.197,FULL,0.2155,0.1672,18737
+rcsb::4IIJ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4IIJ,X-RAY DIFFRACTION,2.6,,61.489,FULL,0.2418,0.201,16921
+rcsb::4YJ2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4YJ2,X-RAY DIFFRACTION,2.6,,62.875,FULL,0.2359,0.1963,17335
+rcsb::4YJ3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4YJ3,X-RAY DIFFRACTION,3.75,,80.647,FULL,0.2804,0.2442,17035
+rcsb::4ZI7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4ZI7,X-RAY DIFFRACTION,2.51,,48.854,FULL,0.2423,0.1907,17939
+rcsb::4ZHQ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4ZHQ,X-RAY DIFFRACTION,2.55,,37.122,FULL,0.2464,0.1916,17988
+rcsb::5BMV,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5BMV,X-RAY DIFFRACTION,2.5,,48.029,FULL,0.2363,0.1923,17912
+rcsb::5LP6,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5LP6,X-RAY DIFFRACTION,2.9,,83.238,,0.2717,,17547
+rcsb::6AGK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6AGK,X-RAY DIFFRACTION,2.8,,45.039,FULL,0.2608,0.2134,17398
+rcsb::6D88,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6D88,X-RAY DIFFRACTION,2.853,,50.959,FULL,0.2447,0.192,17530
+rcsb::6EG5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6EG5,X-RAY DIFFRACTION,2.45,,35.475,FULL,0.2379,0.1996,18509
+rcsb::6N47,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6N47,X-RAY DIFFRACTION,2.6,,39.841,FULL,0.2449,0.2052,17917
+rcsb::6TF9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6TF9,ELECTRON MICROSCOPY,4.8,4.8,,,,,120053
+rcsb::6NNG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6NNG,X-RAY DIFFRACTION,2.397,,35.574,,0.214,,17861
+rcsb::6O5M,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6O5M,X-RAY DIFFRACTION,2.3,,29.836,FULL,0.2236,0.1911,17881
+rcsb::6O5N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6O5N,X-RAY DIFFRACTION,3.003,,57.326,FULL,0.2444,0.2021,17476
+rcsb::6X1C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6X1C,X-RAY DIFFRACTION,2.9,,45.363,FULL,0.2094,0.1723,17509
+rcsb::6X1E,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6X1E,X-RAY DIFFRACTION,2.9,,46.995,FULL,0.2235,0.1702,17543
+rcsb::6X1F,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6X1F,X-RAY DIFFRACTION,2.7,,36.907,FULL,0.2315,0.185,17676
+rcsb::7LZ8,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7LZ8,X-RAY DIFFRACTION,2.92,,71.264,FULL,0.2252,0.1867,16797
+rcsb::7LZ7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7LZ7,X-RAY DIFFRACTION,2.8,,41.969,,0.196,,17560
+rcsb::7SJ7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7SJ7,ELECTRON MICROSCOPY,3.8,3.8,,,,,41056
+rcsb::7X3J,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7X3J,ELECTRON MICROSCOPY,4.2,4.2,,,,,63188
+rcsb::7SJA,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7SJA,ELECTRON MICROSCOPY,3.8,3.8,,,,,40920
+rcsb::7YSN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YSN,ELECTRON MICROSCOPY,3.5,3.5,,,,,6844
+rcsb::7E4Z,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7E4Z,X-RAY DIFFRACTION,2.69,,45.04,FULL,0.2317,0.1956,18166
+rcsb::8CLD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CLD,X-RAY DIFFRACTION,3.2,,62.486,FULL,0.2419,0.2074,17497
+rcsb::8CLF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CLF,X-RAY DIFFRACTION,2.7,,-9.946,,0.2281,,17633
+rcsb::8QAU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8QAU,ELECTRON MICROSCOPY,3.54,3.54,,,,,10137
+rcsb::7YHN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YHN,X-RAY DIFFRACTION,2.6,,67.365,FULL,0.27,0.2272,13868
+rcsb::8YEM,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8YEM,X-RAY DIFFRACTION,2.74,,57.46,,0.2868,,17399
+rcsb::8YER,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8YER,X-RAY DIFFRACTION,2.71,,55.733,FULL,0.2838,0.2217,17432
+rcsb::8YEU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8YEU,X-RAY DIFFRACTION,3.05,,64.471,FULL,0.2679,0.2151,17430
+rcsb::8YTX,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8YTX,X-RAY DIFFRACTION,2.53,,52.802,FULL,0.2662,0.2218,16820
+rcsb::9F3B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9F3B,ELECTRON MICROSCOPY,3.6,3.6,,,,,41106
+rcsb::9PM9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9PM9,ELECTRON MICROSCOPY,2.75,2.75,,,,,2515
+rcsb::9H9R,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9H9R,ELECTRON MICROSCOPY,8.2,8.2,,,,,128163
+rcsb::9U6A,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9U6A,X-RAY DIFFRACTION,1.92,,25.256,FULL,0.2231,0.1835,8438
+rcsb::8YU9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8YU9,X-RAY DIFFRACTION,3.25,,84.353,FULL,0.2863,0.2053,17059
+rcsb::1Z5V,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1Z5V,X-RAY DIFFRACTION,2.71,,42.899,FULL,0.2947,0.2374,3195
+rcsb::3CB2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3CB2,X-RAY DIFFRACTION,2.303,,24.205,FULL,0.2391,0.1863,7012
+rcsb::8YUA,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8YUA,X-RAY DIFFRACTION,2.37,,47.63,,0.2684,,17156
+rcsb::4B5O,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4B5O,X-RAY DIFFRACTION,1.05,,10.294,FULL,0.1586,0.1321,2331
+rcsb::3J7I,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3J7I,ELECTRON MICROSCOPY,8.9,8.9,,,,,6515
+rcsb::4I50,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4I50,X-RAY DIFFRACTION,2.3,,50.304,FULL,0.25,0.1965,17656
+rcsb::4B6M,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4B6M,X-RAY DIFFRACTION,1.59,,12.819,FULL,0.239,0.2005,1548
+rcsb::5KX5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5KX5,X-RAY DIFFRACTION,2.5,,54.766,FULL,0.2696,0.2144,17802
+rcsb::4ZOL,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4ZOL,X-RAY DIFFRACTION,2.5,,41.78,FULL,0.2309,0.1759,18159
+rcsb::5W3J,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5W3J,ELECTRON MICROSCOPY,4.0,4.0,,,,,6913
+rcsb::6I2I,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6I2I,ELECTRON MICROSCOPY,3.6,3.6,,,,,6830
+rcsb::5XAF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5XAF,X-RAY DIFFRACTION,2.551,,65.543,FULL,0.2575,0.2098,18303
+rcsb::6V6S,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6V6S,ELECTRON MICROSCOPY,4.3,4.3,,,,,106422
+rcsb::5XAG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5XAG,X-RAY DIFFRACTION,2.56,,65.74,FULL,0.256,0.212,17705
+rcsb::5Z4P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5Z4P,X-RAY DIFFRACTION,2.5,,61.26,FULL,0.2866,0.2228,17477
+rcsb::6WVR,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6WVR,ELECTRON MICROSCOPY,2.9,2.9,,,,,13698
+rcsb::6K9V,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6K9V,X-RAY DIFFRACTION,2.543,,39.835,FULL,0.2557,0.2256,17921
+rcsb::6O61,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6O61,X-RAY DIFFRACTION,2.599,,41.826,FULL,0.2477,0.2071,17165
+rcsb::6PC4,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6PC4,X-RAY DIFFRACTION,2.602,,43.238,,0.2335,0.1919,17742
+rcsb::6ZWB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6ZWB,X-RAY DIFFRACTION,1.747,,23.161,FULL,0.2339,0.186,8683
+rcsb::6ZWC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6ZWC,X-RAY DIFFRACTION,2.04,,26.685,FULL,0.2794,0.2258,8235
+rcsb::6Y4M,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6Y4M,X-RAY DIFFRACTION,3.34,,68.636,FULL,0.2318,0.2078,17766
+rcsb::7E4P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7E4P,X-RAY DIFFRACTION,2.4,,35.864,FULL,0.2316,0.2182,18225
+rcsb::6Y4N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6Y4N,X-RAY DIFFRACTION,2.852,,57.802,FULL,0.2228,0.1831,18400
+rcsb::7WZ3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7WZ3,ELECTRON MICROSCOPY,4.1,4.1,,,,,58551
+rcsb::7YSP,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YSP,ELECTRON MICROSCOPY,3.9,3.9,,,,,6810
+rcsb::7YSO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YSO,ELECTRON MICROSCOPY,3.6,3.6,,,,,6810
+rcsb::7ANZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7ANZ,ELECTRON MICROSCOPY,3.6,3.6,,,,,16751
+rcsb::7YZ3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YZ3,X-RAY DIFFRACTION,1.8,,37.958,FULL,0.2156,0.1844,8358
+rcsb::7Z01,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7Z01,X-RAY DIFFRACTION,1.82,,24.355,FULL,0.2536,0.2053,8268
+rcsb::8CLA,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CLA,X-RAY DIFFRACTION,2.0,,23.487,FULL,0.2044,0.1739,8413
+rcsb::9C6R,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9C6R,ELECTRON MICROSCOPY,3.2,3.2,,,,,55352
+rcsb::8Q62,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8Q62,ELECTRON MICROSCOPY,3.72,3.72,,,,,115764
+rcsb::9O6I,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9O6I,X-RAY DIFFRACTION,2.51,,51.966,FULL,0.2435,0.2108,14453
+rcsb::7L05,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7L05,X-RAY DIFFRACTION,2.21,,29.403,FULL,0.2172,0.1895,18587
+rcsb::2E4H,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2E4H,SOLUTION NMR,,,,,,,633
+rcsb::9GMY,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9GMY,X-RAY DIFFRACTION,1.97,,39.724,,0.1958,,18956
+rcsb::3RIP,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3RIP,X-RAY DIFFRACTION,2.3,,49.409,,0.236,,4843
+rcsb::2LL2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2LL2,SOLUTION NMR,,,,,,,191
+rcsb::4DUI,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4DUI,X-RAY DIFFRACTION,1.16,,10.114,FULL,0.1442,0.1175,1501
+rcsb::9GNU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9GNU,X-RAY DIFFRACTION,2.2,,43.522,FULL,0.2068,0.1645,18510
+rcsb::3MXZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3MXZ,X-RAY DIFFRACTION,1.599,,16.008,,0.1982,,1008
+rcsb::5H7O,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5H7O,X-RAY DIFFRACTION,2.8,,48.864,FULL,0.2547,0.2159,17517
+rcsb::5JCO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5JCO,ELECTRON MICROSCOPY,4.0,4.0,,,,,40512
+rcsb::7Z02,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7Z02,X-RAY DIFFRACTION,2.36,,41.251,FULL,0.2583,0.2066,8029
+rcsb::5NQT,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5NQT,X-RAY DIFFRACTION,2.15,,55.498,FULL,0.2286,0.1849,8022
+rcsb::5XLT,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5XLT,X-RAY DIFFRACTION,2.813,,49.561,FULL,0.25,0.2094,17615
+rcsb::6U0H,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6U0H,ELECTRON MICROSCOPY,4.3,4.3,,,,,6769
+rcsb::7E4Y,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7E4Y,X-RAY DIFFRACTION,2.708,,55.629,FULL,0.2426,0.1988,17649
+rcsb::6BRY,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6BRY,X-RAY DIFFRACTION,2.7,,41.564,FULL,0.2399,0.1934,17748
+rcsb::6BRF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6BRF,X-RAY DIFFRACTION,2.5,,36.762,FULL,0.2376,0.1882,17949
+rcsb::6B0C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6B0C,ELECTRON MICROSCOPY,3.51,3.51,,,,,16438
+rcsb::6I5C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6I5C,X-RAY DIFFRACTION,2.95,,75.825,,0.2197,,17896
+rcsb::6BS2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6BS2,X-RAY DIFFRACTION,2.65,,41.431,FULL,0.2353,0.1821,17619
+rcsb::6BR1,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6BR1,X-RAY DIFFRACTION,2.304,,31.541,FULL,0.2356,0.1945,18160
+rcsb::7E4R,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7E4R,X-RAY DIFFRACTION,2.597,,43.382,FULL,0.2708,0.2291,17814
+rcsb::7M20,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7M20,ELECTRON MICROSCOPY,3.84,3.84,,,,,60705
+rcsb::7E4Q,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7E4Q,X-RAY DIFFRACTION,2.501,,50.83,FULL,0.255,0.2131,17931
+rcsb::7PJF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7PJF,X-RAY DIFFRACTION,1.862,,29.219,FULL,0.2172,0.1822,8262
+rcsb::7QJD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJD,ELECTRON MICROSCOPY,7.1,7.1,,,,,124666
+rcsb::7EN3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EN3,X-RAY DIFFRACTION,2.643,,40.599,,0.2271,,17798
+rcsb::7QUC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QUC,ELECTRON MICROSCOPY,3.2,3.2,,,,,6680
+rcsb::7PJE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7PJE,X-RAY DIFFRACTION,1.75,,30.478,FULL,0.2153,0.1832,16359
+rcsb::7QUD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QUD,ELECTRON MICROSCOPY,3.47,3.47,,,,,6696
+rcsb::7SJ8,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7SJ8,ELECTRON MICROSCOPY,3.6,3.6,,,,,41056
+rcsb::7TNT,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TNT,ELECTRON MICROSCOPY,9.3,9.3,,,,,119808
+rcsb::7SJ9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7SJ9,ELECTRON MICROSCOPY,3.8,3.8,,,,,43240
+rcsb::8CLG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CLG,X-RAY DIFFRACTION,2.8,,61.168,,0.2436,,18083
+rcsb::7YLW,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YLW,ELECTRON MICROSCOPY,3.39,3.39,,,,,70338
+rcsb::8VT7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8VT7,ELECTRON MICROSCOPY,2.66,2.66,,,,,13590
+rcsb::9F6T,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9F6T,ELECTRON MICROSCOPY,3.5,3.5,,,,,6574
+rcsb::9F6U,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9F6U,ELECTRON MICROSCOPY,3.6,3.6,,,,,6570
+rcsb::9F3R,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9F3R,ELECTRON MICROSCOPY,4.3,4.3,,,,,43264
+rcsb::7YZ6,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YZ6,X-RAY DIFFRACTION,2.1,,33.306,FULL,0.2193,0.1688,8646
+rcsb::9U6D,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9U6D,X-RAY DIFFRACTION,2.54,,39.923,FULL,0.2384,0.2088,17679
+rcsb::9F6V,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9F6V,ELECTRON MICROSCOPY,3.5,3.5,,,,,6610
+rcsb::9MLF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9MLF,X-RAY DIFFRACTION,2.4,,37.242,FULL,0.2321,0.1978,14678
+rcsb::2L3L,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2L3L,SOLUTION NMR,,,,,,,926
+rcsb::4B5P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4B5P,X-RAY DIFFRACTION,1.6,,25.104,FULL,0.2208,0.183,3520
+rcsb::6S8K,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6S8K,X-RAY DIFFRACTION,1.52,,23.203,FULL,0.2028,0.1776,9012
+rcsb::6V6C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6V6C,ELECTRON MICROSCOPY,4.5,4.5,,,,,4007
+rcsb::6S8L,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6S8L,X-RAY DIFFRACTION,1.801,,15.989,FULL,0.2682,0.2178,8691
+rcsb::7EVG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVG,X-RAY DIFFRACTION,2.48,,45.003,FULL,0.2572,0.2114,3416
+rcsb::5CYA,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5CYA,X-RAY DIFFRACTION,2.0,,33.586,,0.2383,0.203,2744
+rcsb::7NVN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7NVN,ELECTRON MICROSCOPY,3.0,3.0,,,,,69139
+rcsb::7QJ5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ5,ELECTRON MICROSCOPY,8.7,8.7,,,,,126600
+rcsb::5GON,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5GON,X-RAY DIFFRACTION,2.48,,36.419,FULL,0.2564,0.2051,17847
+rcsb::5VJC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5VJC,X-RAY DIFFRACTION,2.0,,31.084,FULL,0.2199,0.1904,4386
+rcsb::6LS4,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6LS4,X-RAY DIFFRACTION,2.4,,58.249,FULL,0.2401,0.2214,14402
+rcsb::7YYY,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YYY,X-RAY DIFFRACTION,2.2,,33.153,,0.3924,,8217
+rcsb::7YYZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YYZ,X-RAY DIFFRACTION,2.2,,30.588,,0.3959,,8228
+rcsb::7YZ0,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YZ0,X-RAY DIFFRACTION,2.2,,28.062,FULL,0.3627,0.3046,8262
+rcsb::7YZ1,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YZ1,X-RAY DIFFRACTION,2.2,,26.423,FULL,0.3514,0.3019,8274
+rcsb::7YZ5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YZ5,X-RAY DIFFRACTION,2.11,,34.582,FULL,0.2307,0.1736,8198
+rcsb::7YZ2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7YZ2,X-RAY DIFFRACTION,2.2,,36.833,FULL,0.3332,0.2851,8210
+rcsb::8VRD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8VRD,ELECTRON MICROSCOPY,7.0,7.0,,,,,67053
+rcsb::9C6S,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9C6S,ELECTRON MICROSCOPY,3.52,3.52,,,,,61137
+rcsb::8VRJ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8VRJ,ELECTRON MICROSCOPY,7.7,7.7,,,,,121890
+rcsb::9G3Z,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9G3Z,ELECTRON MICROSCOPY,4.3,4.3,,,,,78332
+rcsb::9I8N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9I8N,ELECTRON MICROSCOPY,4.6,4.6,,,,,129788
+rcsb::9IXB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9IXB,X-RAY DIFFRACTION,3.48,,91.241,FULL,0.2657,0.2215,15844
+rcsb::9EOK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9EOK,ELECTRON MICROSCOPY,23.0,23.0,,,,,143457
+rcsb::9M1I,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9M1I,ELECTRON MICROSCOPY,2.48,2.48,,,,,13518
+rcsb::9M1J,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9M1J,ELECTRON MICROSCOPY,2.14,2.14,,,,,16686
+rcsb::9YMG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9YMG,X-RAY DIFFRACTION,2.406,,48.822,FULL,0.2379,0.1926,21620
+rcsb::1T0Y,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1T0Y,SOLUTION NMR,,,,,,,694
+rcsb::2XSM,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2XSM,X-RAY DIFFRACTION,5.5,,257.792,,,,6438
+rcsb::3J2U,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3J2U,ELECTRON MICROSCOPY,10.8,10.8,,,,,15575
+rcsb::4ICU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4ICU,X-RAY DIFFRACTION,2.4,,38.808,,0.26349,0.20698,2838
+rcsb::4LNU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4LNU,X-RAY DIFFRACTION,2.19,,38.208,FULL,0.2012,0.1652,11209
+rcsb::4CQI,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4CQI,X-RAY DIFFRACTION,1.9,,21.998,FULL,0.2253,0.1908,956
+rcsb::4ICV,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4ICV,X-RAY DIFFRACTION,1.45,,17.506,FULL,0.2061,0.2011,892
+rcsb::7C1M,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7C1M,SOLUTION NMR,,,,,,,600
+rcsb::8WMO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8WMO,X-RAY DIFFRACTION,2.89,,71.887,FULL,0.2662,0.2237,16707
+rcsb::9F3H,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9F3H,ELECTRON MICROSCOPY,4.3,4.3,,,,,41100
+rcsb::8ASN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8ASN,X-RAY DIFFRACTION,2.571,,55.912,FULL,0.2625,0.2325,26206
+rcsb::9F8G,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9F8G,X-RAY DIFFRACTION,2.2,,31.407,FULL,0.2231,0.1901,8502
+rcsb::5FNV,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5FNV,X-RAY DIFFRACTION,2.61,,65.854,FULL,0.227,0.1935,17276
+rcsb::5NJH,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5NJH,X-RAY DIFFRACTION,2.394,,50.875,FULL,0.2385,0.2196,17810
+rcsb::7QWS,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QWS,ELECTRON MICROSCOPY,3.4,3.4,,,,,137913
+rcsb::9G3X,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9G3X,ELECTRON MICROSCOPY,4.5,4.5,,,,,22320
+rcsb::8QV3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8QV3,ELECTRON MICROSCOPY,8.2,8.2,,,,,33813
+rcsb::1WHG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1WHG,SOLUTION NMR,,,,,,,843
+rcsb::2YUH,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2YUH,SOLUTION NMR,,,,,,,1402
+rcsb::1JFF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1JFF,ELECTRON CRYSTALLOGRAPHY,3.5,,,,0.2966,,6702
+rcsb::1TVK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1TVK,ELECTRON CRYSTALLOGRAPHY,2.89,2.89,49.834,FULL,0.3029,0.3139,6672
+rcsb::6J4S,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6J4S,X-RAY DIFFRACTION,2.8,,38.544,FULL,0.229,0.1713,2400
+rcsb::6J4U,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6J4U,X-RAY DIFFRACTION,1.998,,39.485,FULL,0.2036,0.1705,2489
+rcsb::6V69,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6V69,ELECTRON MICROSCOPY,4.2,4.2,,,,,8353
+rcsb::5JQG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5JQG,X-RAY DIFFRACTION,2.24,,39.184,FULL,0.2182,0.1895,17646
+rcsb::6BBN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6BBN,X-RAY DIFFRACTION,3.514,,117.006,FULL,0.2881,0.2434,17794
+rcsb::6J4O,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6J4O,X-RAY DIFFRACTION,2.3,,27.953,FULL,0.2221,0.1816,2583
+rcsb::6J4Q,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6J4Q,X-RAY DIFFRACTION,2.7,,40.407,FULL,0.2462,0.1828,9379
+rcsb::6J4P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6J4P,X-RAY DIFFRACTION,1.599,,11.848,FULL,0.1892,0.1652,2891
+rcsb::7QJC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJC,ELECTRON MICROSCOPY,16.1,16.1,,,,,125323
+rcsb::6V6B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6V6B,ELECTRON MICROSCOPY,3.8,3.8,,,,,9115
+rcsb::7Z2B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7Z2B,ELECTRON MICROSCOPY,3.3,3.3,,,,,9124
+rcsb::6J4V,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6J4V,X-RAY DIFFRACTION,2.1,,33.939,FULL,0.2012,0.1695,2621
+rcsb::7Z2C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7Z2C,ELECTRON MICROSCOPY,4.1,4.1,,,,,9483
+rcsb::8OU0,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8OU0,ELECTRON MICROSCOPY,3.5,3.5,,,,,8139
+rcsb::9G3Y,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9G3Y,ELECTRON MICROSCOPY,6.8,6.8,,,,,82406
+rcsb::9I8M,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9I8M,ELECTRON MICROSCOPY,4.3,4.3,,,,,37358
+rcsb::9M1K,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9M1K,ELECTRON MICROSCOPY,2.45,2.45,,,,,14281
+rcsb::5NM5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5NM5,X-RAY DIFFRACTION,2.05,,55.717,FULL,0.2588,0.2079,7934
+rcsb::7TR3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7TR3,ELECTRON MICROSCOPY,3.9,3.9,,,,,10222
+rcsb::6J8F,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6J8F,X-RAY DIFFRACTION,2.283,,41.231,FULL,0.2351,0.2108,2185
+rcsb::4FFB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4FFB,X-RAY DIFFRACTION,2.882,,46.739,FULL,0.2702,0.2116,8535
+rcsb::7Z2A,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7Z2A,ELECTRON MICROSCOPY,4.3,4.3,,,,,9479
+rcsb::7X4N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7X4N,X-RAY DIFFRACTION,2.88,,43.545,FULL,0.2989,0.212,10394
+rcsb::9F3S,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9F3S,ELECTRON MICROSCOPY,4.2,4.2,,,,,43258
+rcsb::9G40,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9G40,ELECTRON MICROSCOPY,4.3,4.3,,,,,12443
+rcsb::4U9Y,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4U9Y,X-RAY DIFFRACTION,2.201,,22.419,,0.2257,,1674
+rcsb::4U9Z,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4U9Z,X-RAY DIFFRACTION,1.802,,20.395,FULL,0.2582,0.2175,1666
+rcsb::5XLZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5XLZ,X-RAY DIFFRACTION,2.298,,32.252,FULL,0.2488,0.2225,18379
+rcsb::9M1L,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9M1L,ELECTRON MICROSCOPY,2.55,2.55,,,,,21090
+rcsb::1V6E,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1V6E,SOLUTION NMR,,,,,,,710
+rcsb::1WJN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,1WJN,SOLUTION NMR,,,,,,,747
+rcsb::3J6P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3J6P,ELECTRON MICROSCOPY,8.2,8.2,,,,,7563
+rcsb::5ITZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5ITZ,X-RAY DIFFRACTION,2.2,,34.491,FULL,0.2174,0.1806,8279
+rcsb::7EVH,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVH,X-RAY DIFFRACTION,2.5,,37.557,FULL,0.2456,0.1999,3407
+rcsb::5O7A,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5O7A,X-RAY DIFFRACTION,2.495,,58.132,FULL,0.2559,0.2051,16982
+rcsb::5EIB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5EIB,X-RAY DIFFRACTION,2.1,,25.385,FULL,0.2223,0.1779,8684
+rcsb::7QJ2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ2,ELECTRON MICROSCOPY,8.6,8.6,,,,,69095
+rcsb::7QJ3,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ3,ELECTRON MICROSCOPY,7.6,7.6,,,,,69053
+rcsb::7QJ4,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ4,ELECTRON MICROSCOPY,9.0,9.0,,,,,87259
+rcsb::7QJE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJE,ELECTRON MICROSCOPY,7.8,7.8,,,,,31312
+rcsb::8AHM,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8AHM,X-RAY DIFFRACTION,2.42,,53.974,FULL,0.2404,0.1994,17626
+rcsb::8CLH,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8CLH,X-RAY DIFFRACTION,2.5,,-7.489,FULL,0.2406,0.187,17922
+rcsb::8VRK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8VRK,ELECTRON MICROSCOPY,8.5,8.5,,,,,121890
+rcsb::7F1B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7F1B,X-RAY DIFFRACTION,2.4,,51.658,FULL,0.2585,0.2095,3333
+rcsb::7QJ0,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ0,ELECTRON MICROSCOPY,5.32,5.32,,,,,50927
+rcsb::8WMU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8WMU,X-RAY DIFFRACTION,2.7,,39.91,FULL,0.2453,0.1973,17170
+rcsb::9DXE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9DXE,ELECTRON MICROSCOPY,3.3,3.3,,,,,13502
+rcsb::9M1M,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9M1M,ELECTRON MICROSCOPY,2.21,2.21,,,,,22547
+rcsb::9M1N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9M1N,ELECTRON MICROSCOPY,2.24,2.24,,,,,19585
+rcsb::9QVN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9QVN,ELECTRON MICROSCOPY,4.7,4.7,,,,,87756
+rcsb::7EVE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVE,X-RAY DIFFRACTION,2.0,,20.697,FULL,0.253,0.2117,3537
+rcsb::7EVK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVK,X-RAY DIFFRACTION,1.75,,21.029,,0.1769,,3905
+rcsb::7QUQ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QUQ,ELECTRON MICROSCOPY,2.6,2.6,,,,,19095
+rcsb::9H9Q,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9H9Q,ELECTRON MICROSCOPY,3.6,3.6,,,,,36618
+rcsb::4HNA,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4HNA,X-RAY DIFFRACTION,3.19,,62.547,FULL,0.2233,0.1998,10607
+rcsb::7EVD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVD,X-RAY DIFFRACTION,1.45,,14.852,FULL,0.1762,0.152,3964
+rcsb::3QNZ,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3QNZ,X-RAY DIFFRACTION,2.2,,31.153,,0.2002,,3330
+rcsb::3VWE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3VWE,X-RAY DIFFRACTION,1.956,,24.113,FULL,0.2261,0.1819,1636
+rcsb::6MZF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6MZF,X-RAY DIFFRACTION,4.4,,82.656,FULL,0.2681,0.2398,78030
+rcsb::6MZE,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6MZE,X-RAY DIFFRACTION,3.6,,81.365,FULL,0.2456,0.2047,77878
+rcsb::7EVI,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVI,X-RAY DIFFRACTION,1.55,,14.1,,0.1714,,3989
+rcsb::6MZG,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6MZG,X-RAY DIFFRACTION,3.208,,46.602,FULL,0.2367,0.178,36853
+rcsb::7QJ9,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ9,ELECTRON MICROSCOPY,8.1,8.1,,,,,91535
+rcsb::7EVB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVB,X-RAY DIFFRACTION,1.62,,17.199,FULL,0.1774,0.1531,3934
+rcsb::7QJA,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJA,ELECTRON MICROSCOPY,9.2,9.2,,,,,109569
+rcsb::9DXC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9DXC,ELECTRON MICROSCOPY,3.1,3.1,,,,,13502
+rcsb::7QJB,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJB,ELECTRON MICROSCOPY,9.2,9.2,,,,,108374
+rcsb::9QVM,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9QVM,ELECTRON MICROSCOPY,6.8,6.8,,,,,88888
+rcsb::7EVC,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVC,X-RAY DIFFRACTION,1.25,,9.96,FULL,0.1871,0.1716,3994
+rcsb::7F1A,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7F1A,X-RAY DIFFRACTION,1.9,,32.782,FULL,0.2199,0.1804,3655
+rcsb::3VWD,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3VWD,X-RAY DIFFRACTION,1.25,,9.943,FULL,0.1716,0.151,1881
+rcsb::6H9B,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6H9B,X-RAY DIFFRACTION,2.75,,80.739,FULL,0.2359,0.1897,15108
+rcsb::7QJ1,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ1,ELECTRON MICROSCOPY,7.0,7.0,,,,,50899
+rcsb::8QV2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8QV2,ELECTRON MICROSCOPY,9.2,9.2,,,,,255200
+rcsb::2KJ6,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2KJ6,SOLUTION NMR,,,,,,,764
+rcsb::6T59,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,6T59,ELECTRON MICROSCOPY,3.11,3.11,,,,,143047
+rcsb::7AC5,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7AC5,X-RAY DIFFRACTION,2.26,,41.04,FULL,0.2547,0.2187,8018
+rcsb::7QJ6,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ6,ELECTRON MICROSCOPY,7.8,7.8,,,,,91575
+rcsb::7QJ7,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ7,ELECTRON MICROSCOPY,8.7,8.7,,,,,109579
+rcsb::2JRF,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2JRF,SOLUTION NMR,,,,,,,1348
+rcsb::7QJ8,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7QJ8,ELECTRON MICROSCOPY,8.7,8.7,,,,,108354
+rcsb::5FM1,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5FM1,ELECTRON MICROSCOPY,8.0,8.0,,,,,16938
+rcsb::8VA2,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8VA2,ELECTRON MICROSCOPY,4.5,4.5,,,,,13430
+rcsb::4ABO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4ABO,ELECTRON MICROSCOPY,8.6,8.6,,,,,27996
+rcsb::7EVL,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,7EVL,X-RAY DIFFRACTION,2.15,,42.115,FULL,0.2431,0.2038,3422
+rcsb::9H9P,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,9H9P,ELECTRON MICROSCOPY,4.5,4.5,,,,,16352
+rcsb::8C5C,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8C5C,ELECTRON MICROSCOPY,5.3,5.3,,,,,178971
+rcsb::2P4N,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2P4N,ELECTRON MICROSCOPY,9.0,9.0,,,,,9264
+rcsb::2XRP,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2XRP,ELECTRON MICROSCOPY,8.2,8.2,,,,,27756
+rcsb::5EFK,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,5EFK,X-RAY DIFFRACTION,1.82,,16.32,FULL,0.1858,0.1597,3116
+rcsb::3DCO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3DCO,ELECTRON MICROSCOPY,11.0,11.0,,,,,8977
+rcsb::8BPO,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,8BPO,ELECTRON MICROSCOPY,2.8,2.8,,,,,143326
+rcsb::4ATU,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4ATU,ELECTRON MICROSCOPY,8.3,8.3,,,,,27840
+rcsb::2KJR,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,2KJR,SOLUTION NMR,,,,,,,725
+rcsb::3JAW,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,3JAW,ELECTRON MICROSCOPY,3.9,3.9,,,,,13632
+rcsb::4ATX,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4ATX,ELECTRON MICROSCOPY,8.2,8.2,,,,,9183
+rcsb::4NFN,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4NFN,X-RAY DIFFRACTION,1.42,,16.564,,0.2125,,2579
+rcsb::4AQW,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4AQW,ELECTRON MICROSCOPY,9.5,9.5,,,,,1311
+rcsb::4AQV,C:\Users\User\3D Objects\biofisicaquantiqaCLINE\data_downloaded_public_repos\raw\public_api\20260425T112023Z\rcsb_tubulin_core_entries.json,4AQV,ELECTRON MICROSCOPY,9.7,9.7,,,,,1354

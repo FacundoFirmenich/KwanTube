@@ -1,0 +1,27 @@
+version: "3.9"
+
+# KwanTube docker-compose.yml
+# Runs the full reproducibility pipeline in an isolated container.
+#
+# Quick start:
+#   docker compose up --build
+#
+# The outputs_data/ directory is bind-mounted so all generated artifacts
+# (figures, reports, JSON ledgers) are written directly to your local filesystem.
+
+services:
+  kwantube:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: kwantube:3.5.1
+    container_name: kwantube_reproduce
+    volumes:
+      # Bind-mount outputs so results persist after the container exits
+      - ./outputs_data:/app/outputs_data
+      # Optional: mount paper directory if figures need to be co-located
+      # - ./paper:/app/paper
+    environment:
+      - PYTHONUNBUFFERED=1
+    # Uncomment to override the default reproduction command:
+    # command: python src/scripts/validation/reproduce_paper_results.py --mode paper

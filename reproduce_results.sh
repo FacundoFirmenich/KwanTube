@@ -29,16 +29,21 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 echo "[KwanTube] Running Bayesian HEOM hierarchy v2 analysis..."
-python scripts/bayesian_heom_hierarchy_v2.py src/heom_bayes_input_current.csv --output-dir heom_bayes_out_v2 --draws 20000
+python src/scripts/analysis/bayesian_heom_hierarchy_v2.py
 
 echo "[KwanTube] Reproducing manuscript-level results..."
-python scripts/reproduce_paper_results.py --mode paper
+python src/scripts/validation/reproduce_paper_results.py --mode paper
 
 echo "[KwanTube] Generating manuscript figures..."
-python scripts/generate_paper_figures.py
+python src/scripts/figures/generate_paper_figures.py
+python src/scripts/analysis/extract_heom_production_figure.py
+
+echo "[KwanTube] Sealing integrity ledger..."
+python src/scripts/validation/seal_outputs.py
+python src/scripts/validation/validate_outputs.py
 
 echo "[KwanTube] Done."
-echo "[KwanTube] Outputs: figures_final/ and validation_report.json."
+echo "[KwanTube] Outputs: outputs_data/figures_final/ | validation: outputs_data/raw_json/structural/"
 
 read -n 1 -s -r -p "Press any key to close..."
 echo

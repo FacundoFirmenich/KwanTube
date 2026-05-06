@@ -15,7 +15,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-JSON_PATH = PROJECT_ROOT / "outputs_data" / "raw_json" / "pdb_tubulin_analysis.json"
+JSON_PATH = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "pdb_tubulin_analysis.json"
 
 def load():
     return json.loads(JSON_PATH.read_text())
@@ -81,6 +81,14 @@ def compare_structures(pid1: str, pid2: str, data: dict, n: int = 10):
         print(f"{pair:<20}  {g1:>10.3f}  {g2:>10.3f}  {marca}")
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     try:
         data = load()
         for pid in ("1JFF", "1TUB", "6DPU"):

@@ -1,9 +1,0 @@
-{
-  "engine": "nested_sampling.py",
-  "n_simulations": 400,
-  "n_post_samples_per_sim": 99,
-  "chi2_stat": 13.7,
-  "p_value": 0.8008904220449287,
-  "is_calibrated_at_0.05": true,
-  "interpretation": "Muestreo estad\u00edsticamente consistente"
-}

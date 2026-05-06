@@ -4,14 +4,15 @@ authors:
 - family-names: "Firmenich"
   given-names: "Facundo"
   affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
+  orcid: "https://orcid.org/0009-0002-6578-3811"
 - family-names: "Firmenich"
   given-names: "Pau"
-  affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
+  affiliation: "Centro de Estudios del Sur (CEDESUR)"
 - family-names: "Firmenich"
   given-names: "León"
-  affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
-title: "KwanTube v3.5.0: Hierarchical Quantum Pipeline & Automated Validation Ledger"
-version: 3.5.0
+  affiliation: "Centro de Estudios del Sur (CEDESUR)"
+title: "KwanTube v3.5.1: Hierarchical Quantum Pipeline & Automated Validation Ledger"
+version: 3.5.1
 doi: 10.5281/zenodo.19744600
 date-released: 2026-03-26
 url: "https://github.com/FacundoFirmenich/KwanTube"
@@ -20,10 +21,15 @@ preferred-citation:
   authors:
   - family-names: "Firmenich"
     given-names: "Facundo"
+    affiliation: "Centro de Estudios del Sur (CEDESUR) & Universidad Nacional Arturo Jauretche (UNAJ)"
+    orcid: "https://orcid.org/0009-0002-6578-3811"
   - family-names: "Firmenich"
     given-names: "Pau"
+    affiliation: "Centro de Estudios del Sur (CEDESUR)"
   - family-names: "Firmenich"
     given-names: "León"
-  title: "The equilibrium-to-functionality gap in tubulin quantum dynamics: open-system constraints and falsifiable non-equilibrium tests"
+    affiliation: "Centro de Estudios del Sur (CEDESUR)"
+  title: "The equilibrium-to-functionality gap in tubulin quantum dynamics: open-system constraints, length-gated Fröhlich dynamics, and falsifiable tests"
   year: 2026
   url: "https://github.com/FacundoFirmenich/KwanTube"
+  doi: 10.5281/zenodo.19744600

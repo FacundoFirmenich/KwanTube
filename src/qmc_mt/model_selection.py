@@ -85,5 +85,13 @@ def bic_analysis(n_realizations: int = 25, rng_seed: int = 42, effective_points:
     return snr_levels, np.array(delta_bic)
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     snr, dbic = bic_analysis()
     print(f"Max BIC Difference: {dbic[-1]:.2e}")

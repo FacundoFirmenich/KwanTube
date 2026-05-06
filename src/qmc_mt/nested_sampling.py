@@ -101,6 +101,14 @@ def nested_sample(
     )
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     import math
     # Test: N(0, 1) likelihood with U[-10, 10] prior.
     # Z = integral from -10 to 10 (1/sqrt(2*pi)) exp(-x^2/2) (1/20) dx approx 1/20 = 0.05

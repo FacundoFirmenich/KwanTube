@@ -1,0 +1,48 @@
+{
+  "script": "compute_subradiant_decay_spectrum.py",
+  "version": "1.0.0",
+  "generated_utc": "2026-05-05T22:08:56.086610+00:00",
+  "project_root": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube",
+  "free_space_caveat": "Collective decay rates are computed using the free-space dyadic Green's function. In the actual MT geometry (layered dielectric cylinder: inner lumen eps~80, protein wall eps~2-4, outer water eps~80), local field effects and leaky-wave contributions would redistribute these rates. Modes identified as subradiant here represent an UPPER BOUND on protection; true subradiance requires the formalism of dipole emission in microcylinders.",
+  "geometry": {
+    "n_layers": 20,
+    "n_protofilaments": 13,
+    "n_sites": 260,
+    "axial_spacing_nm": 4.0,
+    "seam_rise_nm": 0.92,
+    "radius_nm": 10.692923846311631,
+    "dipole_orientation": "tangential",
+    "seed": 42
+  },
+  "hamiltonian": {
+    "j_axial_mev": -88.08,
+    "j_lateral_mev": 160.36,
+    "spectral_gap_mev": 971.3981421645501,
+    "energy_min_mev": -485.699071082275,
+    "energy_max_mev": 485.69907108227505,
+    "ipr_max": 175.515440025772,
+    "ipr_min": 75.94897756554384,
+    "ipr_mean": 113.35916519097863
+  },
+  "radiative_matrix": {
+    "wavelength_nm": 280.0,
+    "refractive_index": 1.33,
+    "gamma_eigenvalue_min": -9.025967715204155e-14,
+    "gamma_eigenvalue_max": 104.16037142585817
+  },
+  "mode_classification": {
+    "n_subradiant_gamma_lt_0p1": 201,
+    "n_superradiant_gamma_gt_10": 5,
+    "n_intermediate": 54,
+    "fraction_subradiant": 0.7730769230769231,
+    "fraction_superradiant": 0.019230769230769232,
+    "mean_h_gamma": 1.0,
+    "median_h_gamma": 0.005220023129262539
+  },
+  "outputs": {
+    "csv": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_csv\\subradiant_modes.csv",
+    "figure_png": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\figures_final\\subradiant_spectrum.png",
+    "figure_pdf": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\figures_final\\subradiant_spectrum.pdf"
+  },
+  "elapsed_seconds": 8.959272623062134
+}

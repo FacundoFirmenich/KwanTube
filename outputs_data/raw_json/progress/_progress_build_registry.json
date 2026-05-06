@@ -1,0 +1,7 @@
+{
+  "script": "build_registry.py",
+  "step": "done",
+  "timestamp_utc": "2026-05-05T07:24:15.500184+00:00",
+  "rows": "171",
+  "output": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_csv\\data_registry.csv"
+}

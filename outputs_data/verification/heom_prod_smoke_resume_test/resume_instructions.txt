@@ -1,0 +1,2 @@
+Resume command:
+python "C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\src\scripts\compact_nuevo.py" --resume --run-tag smoke_resume_test --nc 1 --nk 1 --atol 1e-10 --rtol 1e-08 --target-ps 0.002 --window-ps 0.001 --dt-fs 1.0

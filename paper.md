@@ -1,5 +1,5 @@
 ---
-title: 'Quantubulin: A calibrated framework for tracing quantum decoherence in microtubule proteins'
+title: 'KwanTube: A calibrated framework for tracing quantum decoherence in microtubule proteins'
 tags:
   - Python
   - biophysics
@@ -24,7 +24,7 @@ bibliography: paper.bib
 
 # Summary
 
-`Quantubulin` is an open-source Python package for reproducible modelling and validation of decoherence-focused calculations in microtubule-inspired open quantum systems. The software provides a practical computational stack for rate calculations, parameter inversion, sensitivity analysis, model comparison, and reproducible report generation. It is designed to support transparent, testable workflows rather than narrative-only claims.
+`KwanTube` is an open-source Python package for reproducible modelling and validation of decoherence-focused calculations in microtubule-inspired open quantum systems. The software provides a practical computational stack for rate calculations, parameter inversion, sensitivity analysis, model comparison, and reproducible report generation. It is designed to support transparent, testable workflows rather than narrative-only claims.
 
 In the current release (`v3.5.0`), the repository also includes a small-$N$ Bayesian convergence layer for HEOM ledgers (`src/scripts/bayesian_heom_hierarchy_v2.py`). This layer summarizes already-computed convergence evidence through hierarchical contraction modelling and is intended for methods/supplementary validation.
 

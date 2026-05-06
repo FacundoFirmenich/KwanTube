@@ -1,0 +1,2 @@
+Resume command:
+python "C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\src\scripts\compact_nuevo.py" --resume --run-tag nc7_nk1_i5_survival --nc 7 --nk 1 --atol 1e-10 --rtol 1e-08 --target-ps 30.0 --window-ps 1.0 --dt-fs 10.0

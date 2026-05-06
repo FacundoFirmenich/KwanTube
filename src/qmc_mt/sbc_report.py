@@ -30,7 +30,7 @@ L_POST     = 99        # <- 99 muestras posteriores
 N_BINS     = 20        # <- 20 bins (dof=19)
 SEED       = 42        # <- Reproducibilidad
 CONFIDENCE = 0.95      # <- Nivel de confianza 95%
-FIG_DIR    = PROJECT_ROOT / "figures_final"
+FIG_DIR    = PROJECT_ROOT / "outputs_data" / "figures_final"
 # ============================================
 
 def prior_sampler(rng: np.random.Generator) -> float:
@@ -129,7 +129,7 @@ def run_sbc_report(n_sim: int = N_SIM) -> dict:
         }
     }
 
-    report_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "sbc_report.json"
+    report_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "sbc_report.json"
     report_path.parent.mkdir(parents=True, exist_ok=True)
     with open(report_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
@@ -162,6 +162,14 @@ def _get_interpretation(chi2: float, p_value: float, lower: float, upper: float)
         return "WELL_CALIBRATED - consistent with uniform ranks"
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     import argparse
     parser = argparse.ArgumentParser(description="Generate SBC report for KwanTube")
     parser.add_argument("--n-sim", type=int, default=N_SIM, 

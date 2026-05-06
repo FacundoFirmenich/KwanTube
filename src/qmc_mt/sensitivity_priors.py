@@ -67,8 +67,8 @@ def run_sensitivity():
     ax.grid(True, which="both", ls="-", alpha=0.2)
 
     fig.tight_layout()
-    out_dir = PROJECT_ROOT / "figures_final"
-    out_dir.mkdir(exist_ok=True)
+    out_dir = PROJECT_ROOT / "outputs_data" / "figures_final"
+    out_dir.mkdir(parents=True, exist_ok=True)
     for ext in ("png", "pdf"):
         fig.savefig(out_dir / f"prior_sensitivity.{ext}", dpi=600)
     plt.close()
@@ -91,16 +91,24 @@ def run_sensitivity():
         }
     }
     
-    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "prior_sensitivity.json"
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "prior_sensitivity.json"
     with open(out_path, "w") as f:
         json.dump(summary, f, indent=2)
         
     return summary
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     report = run_sensitivity()
-    out_dir = PROJECT_ROOT / "figures_final"
-    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "prior_sensitivity.json"
+    out_dir = PROJECT_ROOT / "outputs_data" / "figures_final"
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "prior_sensitivity.json"
     
     print("\n=== RESUMEN DE SENSIBILIDAD DEL PRIOR ===")
     print(f"Babcock 2024: BF10 min={report['babcock']['min_bf']:.1f}, max={report['babcock']['max_bf']:.1f}")
@@ -111,4 +119,4 @@ if __name__ == "__main__":
     status_k = "SI" if report["kalra"]["remains_decisive_kalra"] else "NO"
     print(f"   -> Es robusto (>10):  {status_k}")
     
-    print(f"\nResultados guardados en: {out_path} y {out_dir}/prior_sensitivity.png")
+    print(f"\nResultados guardados en: {out_path} y {out_dir}/prior_sensitivity.[png,pdf]")

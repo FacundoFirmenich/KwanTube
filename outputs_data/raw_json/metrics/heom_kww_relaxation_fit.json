@@ -1,0 +1,406 @@
+{
+  "script": "fit_heom_kww_relaxation.py",
+  "version": "1.1.0",
+  "generated_utc": "2026-05-05T18:18:07.057610+00:00",
+  "project_root": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube",
+  "important_interpretation_note": "The 30 ps master_results.npz layer contains populations only; its fitted purity is population-diagonal purity, not full density-matrix purity. Full quantum purity is reported only for pickle datasets containing rho_t. A stretched exponent beta < 1 indicates deviation from simple Markovian kinetics and is presented as a lower-bound descriptor of non-Markovian relaxation complexity, not as evidence of a glassy bath.",
+  "density_pickle_warning": "",
+  "datasets": [
+    {
+      "source": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\master_results.npz",
+      "sha256": "a437429b1ce512a9251ad43f5bf5fdb3401f57b743b7a8c2c5d1659266605f73",
+      "n_sites": 8,
+      "n_times": 3001,
+      "final_time_fs": 30000.0,
+      "data_layer": "population_diagonal_production_30ps",
+      "init_site_index": 5,
+      "trace_min": 0.9999999999999944,
+      "trace_max": 1.0000000000000033
+    },
+    {
+      "source": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\heom_1JFF.pkl",
+      "sha256": "80aba9aeebfa2d8c03be156508b728d36386197ad4370f88bd6f22a29cab337a",
+      "n_times": 6001,
+      "final_time_fs": 30000.0,
+      "data_layer": "full_density_pickle",
+      "init_site_index": 5
+    }
+  ],
+  "fits": [
+    {
+      "metric": "population_diagonal_purity",
+      "data_layer": "population_diagonal_production_30ps",
+      "n_points": 3001,
+      "fit_start_fs": 0.0,
+      "fit_end_fs": 30000.0,
+      "parameters": {
+        "y_inf": 0.2007843334435634,
+        "amplitude": 0.9470216350149263,
+        "tau_fs": 1346.0313349187318,
+        "tau_ps": 1.3460313349187318,
+        "beta": 0.4450306739780861
+      },
+      "stderr": {
+        "y_inf": 0.0007794952472652276,
+        "amplitude": 0.006111264660669395,
+        "tau_fs": 18.263436736589476,
+        "beta": 0.0032703472038583025
+      },
+      "bootstrap_ci95": {
+        "y_inf": [
+          0.19882981640625513,
+          0.2021362185211109
+        ],
+        "amplitude": [
+          0.9344795041659651,
+          0.9607882638862951
+        ],
+        "tau_fs": [
+          1314.596182997392,
+          1377.930287290457
+        ],
+        "beta": [
+          0.4380711844844413,
+          0.4514510166078226
+        ]
+      },
+      "fit_quality": {
+        "rmse": 0.009667010506915414,
+        "r2": 0.9926391852512213,
+        "aic": -19319.02600773551,
+        "bic": -19294.999204353746
+      },
+      "status": "ok",
+      "warning": "Residual bootstrap intervals are exploratory for autocorrelated HEOM time series."
+    },
+    {
+      "metric": "participation_ratio",
+      "data_layer": "population_diagonal_production_30ps",
+      "n_points": 3001,
+      "fit_start_fs": 0.0,
+      "fit_end_fs": 30000.0,
+      "parameters": {
+        "y_inf": 12.006317182455971,
+        "amplitude": -11.453743781022428,
+        "tau_fs": 190852.5405961391,
+        "tau_ps": 190.8525405961391,
+        "beta": 0.41889801294413825
+      },
+      "stderr": {
+        "y_inf": 0.6164367306389517,
+        "amplitude": 0.6336226657817935,
+        "tau_fs": 34982.062220973574,
+        "beta": 0.006710338791523922
+      },
+      "bootstrap_ci95": {
+        "y_inf": [
+          11.090026237158888,
+          12.022307963010533
+        ],
+        "amplitude": [
+          -11.45374378105453,
+          -10.50471116963956
+        ],
+        "tau_fs": [
+          144180.06969697794,
+          191993.0145332912
+        ],
+        "beta": [
+          0.41639591739765663,
+          0.43007748306060856
+        ]
+      },
+      "fit_quality": {
+        "rmse": 0.045683910071920866,
+        "r2": 0.9972238750294935,
+        "aic": -9997.75766360549,
+        "bic": -9973.730860223728
+      },
+      "status": "ok",
+      "warning": "Residual bootstrap intervals are exploratory for autocorrelated HEOM time series."
+    },
+    {
+      "metric": "initial_site_population",
+      "data_layer": "population_diagonal_production_30ps",
+      "n_points": 3001,
+      "fit_start_fs": 0.0,
+      "fit_end_fs": 30000.0,
+      "parameters": {
+        "y_inf": 0.30402254550771596,
+        "amplitude": 0.8038665191276926,
+        "tau_fs": 3033.842873503995,
+        "tau_ps": 3.0338428735039953,
+        "beta": 0.46241258227515714
+      },
+      "stderr": {
+        "y_inf": 0.0014770998407774732,
+        "amplitude": 0.005335208282144775,
+        "tau_fs": 29.997878871785087,
+        "beta": 0.003914631176508077
+      },
+      "bootstrap_ci95": {
+        "y_inf": [
+          0.30078621063958616,
+          0.3064221647206665
+        ],
+        "amplitude": [
+          0.7946411603014146,
+          0.8138486742203781
+        ],
+        "tau_fs": [
+          2975.060199962138,
+          3085.4466467555812
+        ],
+        "beta": [
+          0.45513327727452796,
+          0.4698430639490156
+        ]
+      },
+      "fit_quality": {
+        "rmse": 0.00874832078578173,
+        "r2": 0.9941830796207424,
+        "aic": -19918.36975407664,
+        "bic": -19894.342950694878
+      },
+      "status": "ok",
+      "warning": "Residual bootstrap intervals are exploratory for autocorrelated HEOM time series."
+    },
+    {
+      "metric": "population_shannon_entropy",
+      "data_layer": "population_diagonal_production_30ps",
+      "n_points": 3001,
+      "fit_start_fs": 0.0,
+      "fit_end_fs": 30000.0,
+      "parameters": {
+        "y_inf": 1.9046341502121604,
+        "amplitude": -2.196315348131137,
+        "tau_fs": 2700.9290329777177,
+        "tau_ps": 2.700929032977718,
+        "beta": 0.37008068578875536
+      },
+      "stderr": {
+        "y_inf": 0.004226835574580273,
+        "amplitude": 0.01337077031447,
+        "tau_fs": 26.71241684260619,
+        "beta": 0.0027424352850997417
+      },
+      "bootstrap_ci95": {
+        "y_inf": [
+          1.897877553779554,
+          1.914193816042682
+        ],
+        "amplitude": [
+          -2.2239323983920314,
+          -2.1725334826431855
+        ],
+        "tau_fs": [
+          2647.096677293286,
+          2751.895650138492
+        ],
+        "beta": [
+          0.3647316263683583,
+          0.3754327905146084
+        ]
+      },
+      "fit_quality": {
+        "rmse": 0.015283864107974644,
+        "r2": 0.9966417579946321,
+        "aic": -16569.63868238656,
+        "bic": -16545.6118790048
+      },
+      "status": "ok",
+      "warning": "Residual bootstrap intervals are exploratory for autocorrelated HEOM time series."
+    },
+    {
+      "metric": "quantum_purity",
+      "data_layer": "full_density_pickle",
+      "n_points": 6001,
+      "fit_start_fs": 0.0,
+      "fit_end_fs": 30000.0,
+      "parameters": {
+        "y_inf": 0.19661640205381975,
+        "amplitude": 1.0162452080635116,
+        "tau_fs": 1169.5616231003692,
+        "tau_ps": 1.1695616231003692,
+        "beta": 0.4427413727968408
+      },
+      "stderr": {
+        "y_inf": 0.000526661528240078,
+        "amplitude": 0.004972205024325501,
+        "tau_fs": 12.426166245755754,
+        "beta": 0.002377955618686304
+      },
+      "bootstrap_ci95": {
+        "y_inf": [
+          0.19554182403382336,
+          0.1976727445742681
+        ],
+        "amplitude": [
+          1.0047386367461917,
+          1.0268711863649407
+        ],
+        "tau_fs": [
+          1146.2930183840601,
+          1196.216129085896
+        ],
+        "beta": [
+          0.437854137342216,
+          0.44717383903207575
+        ]
+      },
+      "fit_quality": {
+        "rmse": 0.0101431715148224,
+        "r2": 0.9923389070897662,
+        "aic": -38062.53631827974,
+        "bic": -38035.73759267578
+      },
+      "status": "ok",
+      "warning": "Residual bootstrap intervals are exploratory for autocorrelated HEOM time series."
+    },
+    {
+      "metric": "l1_coherence",
+      "data_layer": "full_density_pickle",
+      "n_points": 6001,
+      "fit_start_fs": 0.0,
+      "fit_end_fs": 30000.0,
+      "parameters": {
+        "y_inf": 0.1416278049334632,
+        "amplitude": 0.25902409285689537,
+        "tau_fs": 1777.4758154540527,
+        "tau_ps": 1.7774758154540526,
+        "beta": 1.112707629281681
+      },
+      "stderr": {
+        "y_inf": 0.00013115943799630263,
+        "amplitude": 0.001450986385721774,
+        "tau_fs": 13.134900890805232,
+        "beta": 0.010917512190687607
+      },
+      "bootstrap_ci95": {
+        "y_inf": [
+          0.14133018153059995,
+          0.14184903415115102
+        ],
+        "amplitude": [
+          0.2554937314922564,
+          0.2611898879848803
+        ],
+        "tau_fs": [
+          1753.0175018818009,
+          1807.4778622239712
+        ],
+        "beta": [
+          1.0930944051479086,
+          1.143329070312257
+        ]
+      },
+      "fit_quality": {
+        "rmse": 0.008808783522857295,
+        "r2": 0.9594665500271047,
+        "aic": -39755.4348687172,
+        "bic": -39728.63614311325
+      },
+      "status": "ok",
+      "warning": "Residual bootstrap intervals are exploratory for autocorrelated HEOM time series."
+    },
+    {
+      "metric": "density_diagonal_purity",
+      "data_layer": "full_density_pickle",
+      "n_points": 6001,
+      "fit_start_fs": 0.0,
+      "fit_end_fs": 30000.0,
+      "parameters": {
+        "y_inf": 0.19277209785908245,
+        "amplitude": 0.9886976437820237,
+        "tau_fs": 1186.8680897602608,
+        "tau_ps": 1.1868680897602608,
+        "beta": 0.4358947651564236
+      },
+      "stderr": {
+        "y_inf": 0.0005329548154179382,
+        "amplitude": 0.004807304475903818,
+        "tau_fs": 12.537083701470877,
+        "beta": 0.0023320826777611697
+      },
+      "bootstrap_ci95": {
+        "y_inf": [
+          0.19173282549610748,
+          0.19385832471541484
+        ],
+        "amplitude": [
+          0.9779503795218605,
+          0.9988606669490979
+        ],
+        "tau_fs": [
+          1164.4845390205808,
+          1213.7565338588886
+        ],
+        "beta": [
+          0.4309396541918177,
+          0.44039582666049654
+        ]
+      },
+      "fit_quality": {
+        "rmse": 0.009599736362279265,
+        "r2": 0.9927224741275406,
+        "aic": -38723.42748154003,
+        "bic": -38696.62875593607
+      },
+      "status": "ok",
+      "warning": "Residual bootstrap intervals are exploratory for autocorrelated HEOM time series."
+    },
+    {
+      "metric": "density_initial_site_population",
+      "data_layer": "full_density_pickle",
+      "n_points": 6001,
+      "fit_start_fs": 0.0,
+      "fit_end_fs": 30000.0,
+      "parameters": {
+        "y_inf": 0.2710577072670309,
+        "amplitude": 0.8888359523572856,
+        "tau_fs": 2808.2938190270434,
+        "tau_ps": 2.8082938190270434,
+        "beta": 0.4118486528120282
+      },
+      "stderr": {
+        "y_inf": 0.0016850697652934217,
+        "amplitude": 0.005948412536448373,
+        "tau_fs": 28.465454613729772,
+        "beta": 0.003397086964080988
+      },
+      "bootstrap_ci95": {
+        "y_inf": [
+          0.2681476587411077,
+          0.2741672891116158
+        ],
+        "amplitude": [
+          0.876716607840988,
+          0.8998974603457315
+        ],
+        "tau_fs": [
+          2758.7942871529244,
+          2865.7331367922443
+        ],
+        "beta": [
+          0.4050768205858884,
+          0.4187491351443507
+        ]
+      },
+      "fit_quality": {
+        "rmse": 0.010642875439128775,
+        "r2": 0.9915716882742357,
+        "aic": -37485.360456132315,
+        "bic": -37458.56173052836
+      },
+      "status": "ok",
+      "warning": "Residual bootstrap intervals are exploratory for autocorrelated HEOM time series."
+    }
+  ],
+  "outputs": {
+    "json": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\heom_kww_relaxation_fit.json",
+    "csv": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_csv\\heom_kww_relaxation_timeseries.csv",
+    "figure_png": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\figures_final\\heom_kww_relaxation.png",
+    "figure_pdf": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\figures_final\\heom_kww_relaxation.pdf"
+  },
+  "elapsed_seconds": 46.14669346809387
+}

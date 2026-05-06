@@ -1,0 +1,26 @@
+{
+  "t_fs": 2.0,
+  "window_index": 2,
+  "nc": 1,
+  "nk": 1,
+  "atol": 1e-10,
+  "rtol": 1e-08,
+  "wall_history": [
+    0.005915499998081941,
+    0.0036370000016177073
+  ],
+  "last_completed_window": 1,
+  "target_fs": 2.0,
+  "window_fs": 1.0,
+  "completed_fraction": 1.0,
+  "last_window": {
+    "window_npz": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_smoke_resume_test\\windows\\window_001.npz",
+    "metrics_npz": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_smoke_resume_test\\metrics\\metrics_001.npz",
+    "purity_final": 0.9997650914045869,
+    "participation_ratio_final": 1.000234963790427,
+    "entropy_final": 0.0012303103984861732,
+    "wall_s": 0.0036370000016177073
+  },
+  "resume_command_file": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_smoke_resume_test\\resume_instructions.txt",
+  "updated_utc": "2026-04-30T02:02:20Z"
+}

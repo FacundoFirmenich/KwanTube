@@ -1,0 +1,674 @@
+[
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\checkpoint.ados.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\checkpoint.ados.npz.sha256",
+    "sha256": "252a12be013519cbab1778106a9873d24094f5f865971497dd789477301b97f3",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\master_results.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\master_results.npz.sha256",
+    "sha256": "a437429b1ce512a9251ad43f5bf5fdb3401f57b743b7a8c2c5d1659266605f73",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_000.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_000.npz.sha256",
+    "sha256": "40e29b8bbc8a9fec482f46d5574f909182005f1b85bea574fbb5cd743b19019b",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_001.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_001.npz.sha256",
+    "sha256": "38fea411e0a0c9e7aa2742900645395c612891d9529660f6e5445b2746d246b9",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_002.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_002.npz.sha256",
+    "sha256": "e386380a71d756dba32fdda27609aa8550bf0f42c74745de048346bbbfdad2f9",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_003.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_003.npz.sha256",
+    "sha256": "c3838bc029279753e4abb865f8e4bc66d19f0bc1a0a29f30224ebaccbc8a42ce",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_004.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_004.npz.sha256",
+    "sha256": "6cc10b3e2ec79ce1f0dbc944d4fadcab6deb8a09a53ae07853fb27a33dafebc6",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_005.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_005.npz.sha256",
+    "sha256": "63a76a0ae3b9271908ff2ceeacf0321f427bdde6045bca33d9d2d7d7e9f7afe5",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_006.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_006.npz.sha256",
+    "sha256": "1a4828cfae62e0e916dc5fb96c05cbdaad7bcb3247846f25a67926a05d8069cd",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_007.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_007.npz.sha256",
+    "sha256": "5ece228e4ef85154d53d0486e59e988c249765b4408ac8aaf4d73ca6d9ac430a",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_008.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_008.npz.sha256",
+    "sha256": "09e8b6df906170c38eb907d2eac7ac825a9a3169c4bceb6f02da476987faa4d6",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_009.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_009.npz.sha256",
+    "sha256": "6f005f17cedcb201c0fd2fa1fa3c0efb7ceb07b7d3e8a9a8f2df5914a12a666d",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_010.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_010.npz.sha256",
+    "sha256": "c988a3bc57bc38f3e0886fa4e9172c45020965b0edc714018f0b147a59eae9e1",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_011.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_011.npz.sha256",
+    "sha256": "d9fac1dbe6f0ea4c61dc4456b6baf27a952406db3b31ebae64bacb56e5610b87",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_012.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_012.npz.sha256",
+    "sha256": "47474e2b6bb351312b31ef7161154e1a2a0fff682b723e8db3230032090abdfb",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_013.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_013.npz.sha256",
+    "sha256": "01336e558fc29ed01d61b8b831d04c6e8cff9a255ddf753b63c3314e5d3d5d00",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_014.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_014.npz.sha256",
+    "sha256": "73c31a3c2d435be0f14719a7ace77594fb979905c4597a28193a0af9e30fee4d",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_015.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_015.npz.sha256",
+    "sha256": "9510b571e262e4c7f0f5e2110297b64f4f2d7bcd5bfb6a14d1babb8e776d341f",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_016.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_016.npz.sha256",
+    "sha256": "34c631c82fba652695b65d2bb463595ddf0990238c735a1b490ccfe568ac7639",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_017.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_017.npz.sha256",
+    "sha256": "7b325b611d0da4e14588cd65d377f5a2030a51c0e19bca39bdff71dca2b5130b",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_018.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_018.npz.sha256",
+    "sha256": "f3f5f0ecee3267bfc44e55d94656886e6edb6d4c7ebf3f988967348ae5492d06",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_019.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_019.npz.sha256",
+    "sha256": "e1a4a34902850f480a2e8f0f7a172716ceaac6aa4228b165943ff02945ca36ad",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_020.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_020.npz.sha256",
+    "sha256": "96d6d6c97ddeae273e88ce2d1048fbaad58e5cfaa03b7b9a0c9872f0f23dca37",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_021.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_021.npz.sha256",
+    "sha256": "5d841bb0617ca06d1a3ff5e3327c8a7579bf6eec4725eda4bf8b438fcf9f66e9",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_022.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_022.npz.sha256",
+    "sha256": "72adc93f09de9995f14278d0b7e66430c4d97f340a5f5646e3a0e7b7de6288ee",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_023.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_023.npz.sha256",
+    "sha256": "4d939914ee41619f8dc2a2d2457bffdef9cb177daf53d5b9e41e7578f15746e1",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_024.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_024.npz.sha256",
+    "sha256": "ce6cbfbcc9426a2dee6811e8d092144b302d00a626eb45ceae827fd802e154a3",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_025.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_025.npz.sha256",
+    "sha256": "c7ca4c7d289cff393715035803b1774b88055165abb1bdec8c04e4eee031218f",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_026.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_026.npz.sha256",
+    "sha256": "acfa17ff0f701f745b39b06663803ac0ceb9db15ab9018751c26a025df2b480d",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_027.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_027.npz.sha256",
+    "sha256": "9e54b5ec38a61085c29f1d81a295cf987fc48f6332986c486e6157fb19ad5869",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_028.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_028.npz.sha256",
+    "sha256": "e86d3e15806651ef00e5bb5a8f8e349ea58e7288243aa3fcbe1899b40de5e908",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_029.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\metrics\\metrics_029.npz.sha256",
+    "sha256": "04ca8a780f3875d46826720d436791fd6e5cd1f260df51fa8174fe3712173794",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_000.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_000.npz.sha256",
+    "sha256": "05c582a551b9cd301697b723605a273da6f44d17e74238778b40763eaa561631",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_001.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_001.npz.sha256",
+    "sha256": "7f93821c49af2f5c2aa22412ee1b44ec5ee05168d54e4bec3ea1afc3f8e70c80",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_002.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_002.npz.sha256",
+    "sha256": "8ed1fc697936e56de0bbfe3b4f439adfa17561a4b2ccf2864ec956436e58417c",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_003.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_003.npz.sha256",
+    "sha256": "156a863c8c60c1f46cc22057f435aac01ca351bf163cfeb797db09bfba676fd6",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_004.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_004.npz.sha256",
+    "sha256": "0d54183353eefa3a16de3d3353bf03e99ddab2be5262a50913be34f3e3ecde90",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_005.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_005.npz.sha256",
+    "sha256": "390051309cd6fe186ffa2087c712f3075ab89906eb6827976f9e4d57a8dbaf7a",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_006.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_006.npz.sha256",
+    "sha256": "28bffbb854b881da48345e3b1bc2eebc8af284aa13a5bc9f1162bb9078702f10",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_007.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_007.npz.sha256",
+    "sha256": "21d7ca727fa783bfb09a3c918fc6b1ce996d136ba4fedc504d95e0528e075df8",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_008.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_008.npz.sha256",
+    "sha256": "90655cf5682812b7485e9f54ac84f88ea2efb44249a7ad90b552372715a6637a",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_009.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_009.npz.sha256",
+    "sha256": "b8ea1a1504a54e4749bdb7682f89a75a4f26a4c67bd9a277db6bc152371ca562",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_010.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_010.npz.sha256",
+    "sha256": "a021678487a09afac63de08cfd2a1146cec9c1e8fc3de5a60807f2fd6cdf1392",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_011.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_011.npz.sha256",
+    "sha256": "dd565bcf0c65bb565da14b7f3f16873b357da6306d7c15389d9a1d6f94314fa1",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_012.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_012.npz.sha256",
+    "sha256": "c3ee5628df5776133bd6da8c0fcb9648765ea4514c38f482302b0145f25f4f5b",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_013.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_013.npz.sha256",
+    "sha256": "ed8fae4a5c629b3e1374cd30b7309e7c0045af0c9b6164825ec16fafd6b0baa7",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_014.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_014.npz.sha256",
+    "sha256": "cc180aab3b14c78377c9310177375c5bc6827eb14da24946b665cb315ef19650",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_015.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_015.npz.sha256",
+    "sha256": "9668fcfc169c178e7d56539d421207d15284dc20c217dda913967ef71f708ad2",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_016.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_016.npz.sha256",
+    "sha256": "fcb0aef3830886bc176554324fd1108a77996fdbd13f68a208fa30dcce26feaf",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_017.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_017.npz.sha256",
+    "sha256": "54e4e67b4b19c91ded012c81c83d8ef860f6ff2eb1003933ef07230bbf4b7079",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_018.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_018.npz.sha256",
+    "sha256": "841c5f20038697583d57e6a9bcae45ab26544bf8681d134eba37e1164e3ae22c",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_019.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_019.npz.sha256",
+    "sha256": "d7ab097f5a7cf0cddd23b5234c08acdd161dd1a50cc6601736dad9d51e662eb6",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_020.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_020.npz.sha256",
+    "sha256": "78fdbd6d668abf061a800dda68a8e8a078d651c7180e915758a0081d63a94db6",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_021.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_021.npz.sha256",
+    "sha256": "61e17307266f39ad7608d2872b4a59974e91f984b8ea5fe0a2903f9012c21816",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_022.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_022.npz.sha256",
+    "sha256": "d5fe76540da5bfe7aa7cbff44b25c69143f3b4bda5fdebe6022f3b0fefd27fef",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_023.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_023.npz.sha256",
+    "sha256": "ff225da73e3f9e2a2149dfe0c3d432adce74b033c4ef4f800fb2dee3cf5cf234",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_024.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_024.npz.sha256",
+    "sha256": "97456989aea4c2ab74bd33a73d9fd27f98748d76823dcad7a8ad46bcc32d8e37",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_025.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_025.npz.sha256",
+    "sha256": "02c26be720ce5221ec480b5249bff4bfc1417a0a350511814437d49b04c2b882",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_026.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_026.npz.sha256",
+    "sha256": "f3dbe9b8ec86844b657022aa0d1641a3577f247fd7df124bb6ac63cef2260d9e",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_027.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_027.npz.sha256",
+    "sha256": "4f86c042957eaa128a0a841bc0398e0637870eafade84343cea2e1e8bd24b1c7",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_028.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_028.npz.sha256",
+    "sha256": "00f70e2da51a9b1dac98cd510041e09e3e6438bba68855fdfb11b50521bd50e4",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_029.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\production\\heom_prod_nc7_nk1_i5_survival\\windows\\window_029.npz.sha256",
+    "sha256": "26b1ecdf246148f0811cfb03ace8ff6b8c28aacd17709732255cdc72fb95d087",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\H_1JFF.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\H_1JFF.npz.sha256",
+    "sha256": "60c8ebdc93da5c1c121b524e1c87f619844712e12e495fce456198f219ff9d46",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\H_6DPU.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\H_6DPU.npz.sha256",
+    "sha256": "48274ffb8297ed3b02c8e310d713a9d462b1939d5984e8970a09dba424919520",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\heom_1JFF_full.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\heom_1JFF_full.npz.sha256",
+    "sha256": "1313dc88e155c94d8ffa65e05297655bf44cd0412aee14df2ea48989a0715906",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\heom_6DPU_frag.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\heom_6DPU_frag.npz.sha256",
+    "sha256": "e45ce24168b5abc4b3a2c9c9c774a0bbd7b6f5d5f80f65d314375d421d878446",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\jff_calib_data.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\jff_calib_data.npz.sha256",
+    "sha256": "9674a080ff458f0a5d5eb784bf5063c6e111efef495deeb83a90f1b9c84846a3",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\master_results.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\master_results.npz.sha256",
+    "sha256": "a437429b1ce512a9251ad43f5bf5fdb3401f57b743b7a8c2c5d1659266605f73",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\redfield_1JFF.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\redfield_1JFF.npz.sha256",
+    "sha256": "ac877f518186d46504bfd964b9100af26a916bef673540e06a99588ac42bb534",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\redfield_6DPU.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\redfield_6DPU.npz.sha256",
+    "sha256": "9f764248c6a7bf74a45595a13a8d1a6a3018e2524352d4823b3f1b1d04c357d7",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\checkpoint.ados.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\checkpoint.ados.npz.sha256",
+    "sha256": "73ef133d3556d2d79b59622aa033897ecb559075ecf4e8d5caba77f439188d39",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\metrics\\metrics_000.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\metrics\\metrics_000.npz.sha256",
+    "sha256": "da7bd7b967ad579f9b04fd7e720c932918325e1b2fa4185d972a9145e79d6af2",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\metrics\\metrics_001.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\metrics\\metrics_001.npz.sha256",
+    "sha256": "9ad880c29199b69c0e264bbae7f90aa983a1d23605e1dacd20b5d4e3b2b6e7a2",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\windows\\window_000.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\windows\\window_000.npz.sha256",
+    "sha256": "79cdc5feaff9c06ef0cb51fc98115c8e76bdf5142b943ab290ea1a2183577bb9",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\windows\\window_001.npz",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\verification\\heom_prod_smoke_resume_test\\windows\\window_001.npz.sha256",
+    "sha256": "570f8fc23ac059de2625b855a190751d9f00e8268f6760110394f4a092dddf1d",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\heom_1JFF.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\heom_1JFF.pkl.sha256",
+    "sha256": "80aba9aeebfa2d8c03be156508b728d36386197ad4370f88bd6f22a29cab337a",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\heom_6DPU.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\heom_6DPU.pkl.sha256",
+    "sha256": "e48018937e25d6812ff3bd8af7dadafd975a8c766421ac3e9824b3304c096ace",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC3_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC3_Nk1.pkl.sha256",
+    "sha256": "98dbf230a8e99304e0e7be47ab345edf8077c9c893f8d0e3bb18b88ad17bb908",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC3_Nk2.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC3_Nk2.pkl.sha256",
+    "sha256": "ae5c05fc42c67579e595f52fc17a559cec9cd37e1c8a693cfc1a5f8071478f93",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC3_Nk3.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC3_Nk3.pkl.sha256",
+    "sha256": "437a541ccc6a106dc47c72b35d72debf157a16b59096c8496121dd0c8ac18b99",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC3_Nk4.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC3_Nk4.pkl.sha256",
+    "sha256": "de9220abbcc7e6452b54b1084a214a29950f5c46ac70a7d6b261c2082bb6ef5e",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC4_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC4_Nk1.pkl.sha256",
+    "sha256": "439d49b71bda43e76cbcbc3e3b2c475256ab4e3ed180fcd7267b5fe1fa315c74",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC4_Nk2.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC4_Nk2.pkl.sha256",
+    "sha256": "d381b2a830b463c2a56586bd0f02012ea9ee839dbb8e1813fcd2ae7855a2796e",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC4_Nk3.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC4_Nk3.pkl.sha256",
+    "sha256": "e6090a1fdf55cf6e86402a8c26adb8b1c6d45cfd1178b73dfe776c6544a758df",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC4_Nk4.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC4_Nk4.pkl.sha256",
+    "sha256": "e07463782c18fd8a80f84da36cb35c50cb7fa0bb8be54728751dbaf0b3e8bb67",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC5_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC5_Nk1.pkl.sha256",
+    "sha256": "ab5926f643fb97f1ca18550f9a66eeb41894223559d78ec1db37a4462473bc90",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC5_Nk2.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC5_Nk2.pkl.sha256",
+    "sha256": "937d39dd38d19fbf8076c42bef33158e9b922a5f968d555d5994dba514f35bb9",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC5_Nk3.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC5_Nk3.pkl.sha256",
+    "sha256": "c6db5bbb9fb4b4b81f3eaa9bee0d5422d5942b7303ff3bcd6bcf752a3d735633",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC5_Nk4.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_ckpt_NC5_Nk4.pkl.sha256",
+    "sha256": "7bbd6b9c04e9cd1527d512cab800d3ba0d5ff0a91f39ac40fe4705657ad69c27",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC3_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC3_Nk1.pkl.sha256",
+    "sha256": "4e9c76c5f58380e4aa806558e9b263e8f9d5b9d2838ff3dd13f64d156da422f8",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC4_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC4_Nk1.pkl.sha256",
+    "sha256": "ad69ed4f63b42b9308025fd3e04ee98872bc61d2be7cf07f140653d18c0d3042",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC5_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC5_Nk1.pkl.sha256",
+    "sha256": "c0fbcf674dd358fc37731b19a64f3a982b48af2ea1c57c022024b0a1a573d1ab",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC5_Nk2.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC5_Nk2.pkl.sha256",
+    "sha256": "1ddb764f4b1700cdb21a56c3fcf0d0ad40b886f99b6901a7aec025487722c398",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC6_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC6_Nk1.pkl.sha256",
+    "sha256": "3deac8d1e01b00aaece8773acdf3b3df020449ff18a9215c560cbec565f08dcf",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC7_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC7_Nk1.pkl.sha256",
+    "sha256": "053e2a73b326910c04cd53107dcef0263d254e82c332f4a9f11b8bdf356fe7f2",
+    "status": "ok",
+    "message": "checksum verified"
+  },
+  {
+    "path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC8_Nk1.pkl",
+    "sidecar": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC8_Nk1.pkl.sha256",
+    "sha256": "0698dfb21d94f96f852e12eb4f1d410336945b91403ec4ac6a1d0cea004175cc",
+    "status": "ok",
+    "message": "checksum verified"
+  }
+]

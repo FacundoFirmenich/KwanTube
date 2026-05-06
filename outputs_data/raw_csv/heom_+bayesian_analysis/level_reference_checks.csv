@@ -1,0 +1,2 @@
+group,observable,time_fs,n_points,reference,last_nc,last_value,delta_last_mean,delta_last_q50
+fragment6dpu_site0_population_level@500fs,site0_population_level,500.0,2,0.486315,8,0.486348,3.237159338412277e-05,3.111056239554766e-05

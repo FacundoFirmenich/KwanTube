@@ -1,6 +1,6 @@
 # Repository Release Runbook
 
-This runbook specifies the canonical sequence for validating the Quantubulin repository prior to an official release or manuscript submission.
+This runbook specifies the canonical sequence for validating the KwanTube repository prior to an official release or manuscript submission.
 
 ## 1. Environment Setup
 

@@ -55,6 +55,14 @@ class TestNestedSamplingConsistency(unittest.TestCase):
         self.assertTrue(run_stress_test(KALRA_2024, prior_sd=120.0, n_seeds=5))
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     # Optional verbose stress mode when run as script.
     babcock_ok = run_stress_test(BABCOCK_2024, prior_sd=1.0)
     kalra_ok = run_stress_test(KALRA_2024, prior_sd=120.0)

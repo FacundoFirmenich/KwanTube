@@ -84,6 +84,14 @@ def roc_surface(dl_grid, snr_exp_grid, n_mc: int = 100,
 
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     dl_vals = [0.5, 1.0, 1.5, 2.0]
     snr_exp_vals = [2.0, 2.5, 3.0, 3.5]
     

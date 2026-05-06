@@ -1,0 +1,7 @@
+Bayesian HEOM hierarchy v2 diagnostics
+draws=10000
+n_groups=5
+n_jump_groups=4
+thresholds=[0.01, 0.005]
+csv_dir=C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_csv\heom_+bayesian_analysis
+fig_dir=C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final

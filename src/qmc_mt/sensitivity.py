@@ -8,15 +8,15 @@ import sys
 import json
 from pathlib import Path
 
-# Boilerplate para resolver importaciones desde la raiz del paquete
-PROJECT_ROOT = Path(__file__).resolve().parents[2] # retrocede desde src/qmc_mt/ a la raiz
+# Boilerplate for package-level imports resolution
+PROJECT_ROOT = Path(__file__).resolve().parents[2] # back from src/qmc_mt/ to root
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from qmc_mt.core import (TubulinDimer, ExperimentalParameters, DecoherenceModel, const)
 
 
-def sobol_indices(n_samples: int = 2048, seed: int = 42):
+def sobol_indices(n_samples: int = 50000, seed: int = 42):
     """
     Compatibility adapter expected by `reproduce_paper_results.py`.
 
@@ -24,8 +24,8 @@ def sobol_indices(n_samples: int = 2048, seed: int = 42):
     T2* summary statistics, derived from the bootstrap estimator implemented
     in this module.
     """
-    # Reuse existing robust routine with a lightweight bootstrap by default
-    n_boot = 30 if n_samples <= 3000 else 60
+    # Use 200 bootstrap iterations for Tier-0 reporting
+    n_boot = 200
     rep = sobol_indices_bootstrap(n_samples=int(n_samples), n_boot=int(n_boot))
 
     params = [r["parameter"] for r in rep["results"]]
@@ -56,9 +56,9 @@ def sobol_indices(n_samples: int = 2048, seed: int = 42):
         "T2_ps_range": [float(np.min(t2_ps)), float(np.max(t2_ps))],
     }
 
-def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
+def sobol_indices_bootstrap(n_samples: int = 50000, n_boot: int = 200):
     """
-    Realiza un analisis de Sobol (Saltelli) con bootstrapping para IC 95%.
+    Executes Sobol sensitivity analysis (Saltelli) with bootstrapping for 95% CI.
     """
     dimer = TubulinDimer()
     rng = np.random.default_rng(42)
@@ -66,16 +66,16 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
     params_names = ['eta', 'omega_c', 'Temperature', 'f_prot']
 
     def model(x):
-        # Evaluacion vectorizada o en batch del modelo de decoherencia
+        # Vectorized or batch evaluation of the decoherence model
         y = np.zeros(len(x))
         for i in range(len(x)):
             eta, wc, temp, f_prot = x[i]
             p = ExperimentalParameters(temperature=temp)
             m = DecoherenceModel(dimer, p, protection_factor=f_prot, eta=eta, omega_c=wc)
-            y[i] = 1e12 / m.get_all_rates()['total_dephasing'] # T2 en ps
+            y[i] = 1e12 / m.get_all_rates()['total_dephasing'] # T2 in ps
         return y
 
-    # 1. Generar matrices A y B (Quasi-Monte Carlo Sobol seria ideal, usamos Uniforme por ahora)
+    # 1. Generate A and B matrices
     A = rng.uniform(0, 1, (n_samples, dim))
     B = rng.uniform(0, 1, (n_samples, dim))
     
@@ -90,7 +90,7 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
     A_s, B_s = scale(A), scale(B)
     yA, yB = model(A_s), model(B_s)
     
-    # Matrices Ci para cada parametro
+    # Ci matrices for each parameter
     yCi = []
     for i in range(dim):
         Ci = A_s.copy()
@@ -101,14 +101,14 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
         var_y = np.var(np.concatenate([ya, yb]))
         s1, st = [], []
         for i in range(dim):
-            # Estimador de Saltelli/Jansen
+            # Saltelli/Jansen estimator
             s1_i = (np.mean(yb * (yci_list[i] - ya))) / var_y
             st_i = (np.mean((ya - yci_list[i])**2)) / (2 * var_y)
             s1.append(s1_i)
             st.append(st_i)
         return np.array(s1), np.array(st)
 
-    # 2. Bootstrap para intervalos de confianza
+    # 2. Bootstrap for confidence intervals (95%)
     boot_s1 = np.zeros((n_boot, dim))
     boot_st = np.zeros((n_boot, dim))
     
@@ -118,7 +118,7 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
         s1, st = compute_indices(yA[idx], yB[idx], [y[idx] for y in yCi])
         boot_s1[b], boot_st[b] = s1, st
 
-    # 3. Consolidar resultados
+    # 3. Consolidate results
     s1_mu = np.mean(boot_s1, axis=0)
     s1_lo = np.percentile(boot_s1, 2.5, axis=0)
     s1_hi = np.percentile(boot_s1, 97.5, axis=0)
@@ -143,18 +143,27 @@ def sobol_indices_bootstrap(n_samples: int = 10000, n_boot: int = 100):
     }
 
 if __name__ == "__main__":
-    print("Iniciando analisis de Sobol de alta precision (Saltelli + Bootstrap)...")
-    summary = sobol_indices_bootstrap(n_samples=5000, n_boot=100) # 5k para balancear tiempo
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
+    print(f"Starting high-precision Sobol analysis (Saltelli + Bootstrap n=200)...")
+    summary = sobol_indices_bootstrap(n_samples=50000, n_boot=200) 
     
-    print("\n=== REPORTE DE SENSIBILIDAD (CON IC 95%) ===")
+    print("\n=== SENSITIVITY REPORT (95% CI) ===")
     for p in summary["results"]:
         print(f"{p['parameter']:12}: S1={p['S1']['mean']:.4f} [{p['S1']['ci95'][0]:.4f}, {p['S1']['ci95'][1]:.4f}] | "
               f"ST={p['ST']['mean']:.4f} [{p['ST']['ci95'][0]:.4f}, {p['ST']['ci95'][1]:.4f}]")
     
     if summary["is_one_parameter_dominated"]:
-        print("\nVEREDICTO: The model is effectively one-parameter-dominated (eta) in the present regime.")
+        print("\nVERDICT: The model is effectively one-parameter-dominated (eta).")
     
-    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "sensitivity_sobol_final.json"
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "sensitivity_sobol_final.json"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w") as f:
         json.dump(summary, f, indent=2)
-    print(f"\nResultados guardados en: {out_path}")
+    print(f"\nResults saved to: {out_path}")

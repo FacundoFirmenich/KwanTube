@@ -59,6 +59,14 @@ def simulation_based_calibration(
     )
 
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     tau2, sigma2 = 4.0, 1.0
     def prior(rng): return float(rng.normal(0.0, np.sqrt(tau2)))
     def data(theta, rng): return rng.normal(theta, np.sqrt(sigma2), size=1)

@@ -247,6 +247,14 @@ def _validate_kappa2_isotropic(n: int = 200_000, seed: int = 0) -> float:
 
 # ------------------------------------------------------------------ main
 if __name__ == "__main__":
+    from pathlib import Path as _RunAuditPath
+    import sys as _run_audit_sys
+    for _run_audit_parent in _RunAuditPath(__file__).resolve().parents:
+        if (_run_audit_parent / "qmc_mt" / "run_audit.py").exists():
+            _run_audit_sys.path.insert(0, str(_run_audit_parent))
+            break
+    from qmc_mt.run_audit import install_run_audit as _install_run_audit
+    _install_run_audit(__file__)
     cache = Path(tempfile.gettempdir()) / "qmc_mt_pdb_cache"
     targets = ["1JFF", "1TUB", "6DPU"]
     if "--with-3j6f" in sys.argv:
@@ -276,6 +284,6 @@ if __name__ == "__main__":
             results[pid] = {"error": repr(e)}
             print(f"[{pid}] ERROR: {e}", file=sys.stderr)
 
-    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "pdb_tubulin_analysis.json"
+    out_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "pdb_tubulin_analysis.json"
     out_path.write_text(json.dumps(results, indent=2, default=float))
     print(f"\nwrote {out_path.resolve()}")
