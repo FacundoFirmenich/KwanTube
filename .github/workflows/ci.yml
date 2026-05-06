@@ -30,12 +30,12 @@ jobs:
 
       - name: Bayesian HEOM v2 smoke
         run: |
-          python src/scripts/bayesian_heom_hierarchy_v2.py src/heom_bayes_input_current.csv --output-dir heom_bayes_out_v2_ci --draws 4000
+          python src/scripts/analysis/bayesian_heom_hierarchy_v2.py outputs_data/raw_csv/heom_+bayesian_analysis/heom_bayes_input_current.csv --output-dir heom_bayes_out_v2_ci --draws 400
 
       - name: Reproducibility smoke
         run: |
-          python src/scripts/reproduce_paper_results.py --fast
+          python src/scripts/validation/reproduce_paper_results.py --fast
 
       - name: Figures smoke
         run: |
-          python src/scripts/generate_paper_figures.py
+          python src/scripts/figures/generate_paper_figures.py
