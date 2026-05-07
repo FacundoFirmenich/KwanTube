@@ -132,13 +132,13 @@
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\sensitivity_priors.py", "script": "sensitivity_priors.py", "status": "running", "timestamp_utc": "2026-04-30T11:52:08+00:00"}
 [2026-04-30T11:52:08+00:00] [sensitivity_priors.py] [RUN_AUDIT] START script=sensitivity_priors.py timestamp_utc=2026-04-30T11:52:08+00:00
 [2026-04-30T11:52:08+00:00] [sensitivity_priors.py] Iniciando Analisis de Sensibilidad de Priors...
-[2026-04-30T11:52:22+00:00] [sensitivity_priors.py] 
+[2026-04-30T11:52:22+00:00] [sensitivity_priors.py]
 === RESUMEN DE SENSIBILIDAD DEL PRIOR ===
 [2026-04-30T11:52:22+00:00] [sensitivity_priors.py] Babcock 2024: BF10 min=12.5, max=266.7
 [2026-04-30T11:52:22+00:00] [sensitivity_priors.py]    -> Es robusto (>100): NO
 [2026-04-30T11:52:22+00:00] [sensitivity_priors.py] Kalra 2024:   BF10 min=2.8, max=53.5
 [2026-04-30T11:52:22+00:00] [sensitivity_priors.py]    -> Es robusto (>10):  SI
-[2026-04-30T11:52:22+00:00] [sensitivity_priors.py] 
+[2026-04-30T11:52:22+00:00] [sensitivity_priors.py]
 Resultados guardados en: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\prior_sensitivity.json y C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final/prior_sensitivity.[png,pdf]
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\prior_sensitivity.json", "script": "sensitivity_priors.py", "sha256": "1fea996e004891bcfa6ac78e64cc2b477c59364c162a7c6d7d20b99e304eba7b", "size_bytes": 1845, "status": "ok", "timestamp_utc": "2026-04-30T11:52:23+00:00"}
 {"elapsed_s": 14.8678, "event": "end", "script": "sensitivity_priors.py", "status": "ok", "timestamp_utc": "2026-04-30T11:52:23+00:00"}
@@ -168,7 +168,7 @@ Resultados guardados en: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTub
 [2026-04-30T12:15:04+00:00] [sbc_report.py]   [OK] Saved C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\sbc_calibration_ns.png
 [2026-04-30T12:15:06+00:00] [sbc_report.py]   [OK] Saved C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\sbc_calibration_ns.pdf
 [2026-04-30T12:15:06+00:00] [sbc_report.py]   [OK] Saved C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\sbc_report.json
-[2026-04-30T12:15:06+00:00] [sbc_report.py] 
+[2026-04-30T12:15:06+00:00] [sbc_report.py]
 ============================================================
 [2026-04-30T12:15:06+00:00] [sbc_report.py] SBC CALIBRATION SUMMARY
 [2026-04-30T12:15:06+00:00] [sbc_report.py] ============================================================
@@ -217,7 +217,7 @@ Resultados guardados en: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTub
 [2026-04-30T12:25:34+00:00] [inversion.py] [RUN_AUDIT] START script=inversion.py timestamp_utc=2026-04-30T12:25:34+00:00
 [2026-04-30T12:25:34+00:00] [inversion.py] TRUTH (Multi-T): eta=0.42, wc=6.20e+12
 [2026-04-30T12:25:34+00:00] [inversion.py] Data Vector (Center, FWHM @ [280, 295, 310] K): [155.          63.98438147  67.37957696  70.77632568]
-[2026-04-30T12:25:36+00:00] [inversion.py] 
+[2026-04-30T12:25:36+00:00] [inversion.py]
 RECOVERED (Multi-T):
 [2026-04-30T12:25:36+00:00] [inversion.py]   eta: 0.4200 (Err: 1.5869e-12)
 [2026-04-30T12:25:36+00:00] [inversion.py]   wc: 6.20e+12 (Err: 2.3893e+03)
@@ -296,7 +296,7 @@ RECOVERED (Multi-T):
 [2026-04-30T12:31:50+00:00] [pdb_tubulin_analysis.py] [1JFF] ELECTRON CRYSTALLOGRAPHY  res=3.5  nTrp=  8  <kappa^2>=0.606  r_min=15.24 A  pairs (r < 40 A) = 14
 [2026-04-30T12:31:52+00:00] [pdb_tubulin_analysis.py] [1TUB] ELECTRON CRYSTALLOGRAPHY  res=3.7  nTrp=  8  <kappa^2>=0.817  r_min=15.35 A  pairs (r < 40 A) = 16
 [2026-04-30T12:31:58+00:00] [pdb_tubulin_analysis.py] [6DPU] ELECTRON MICROSCOPY   res=3.1  nTrp= 48  <kappa^2>=0.646  r_min=14.00 A  pairs (r < 40 A) = 102
-[2026-04-30T12:31:58+00:00] [pdb_tubulin_analysis.py] 
+[2026-04-30T12:31:58+00:00] [pdb_tubulin_analysis.py]
 wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\pdb_tubulin_analysis.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\pdb_tubulin_analysis.json", "script": "pdb_tubulin_analysis.py", "sha256": "e92d2b59631bcf82cdd58de1bd39c0641a443da8415bdbb7240ad86abfbb74ca", "size_bytes": 79832, "status": "ok", "timestamp_utc": "2026-04-30T12:31:58+00:00"}
 {"elapsed_s": 10.190997, "event": "end", "script": "pdb_tubulin_analysis.py", "status": "ok", "timestamp_utc": "2026-04-30T12:31:58+00:00"}
@@ -390,7 +390,7 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 {"elapsed_s": 0.169668, "event": "end", "script": "qmc.py", "status": "ok", "timestamp_utc": "2026-04-30T12:33:38+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\rank_pairs.py", "script": "rank_pairs.py", "status": "running", "timestamp_utc": "2026-04-30T12:34:41+00:00"}
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] [RUN_AUDIT] START script=rank_pairs.py timestamp_utc=2026-04-30T12:34:41+00:00
-[2026-04-30T12:34:41+00:00] [rank_pairs.py] 
+[2026-04-30T12:34:41+00:00] [rank_pairs.py]
 === 1JFF  (nTrp=8, <kappa2>=0.606) ===
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] rank  pair                     r(A)  kappa2    G(A^-6) *1e9   tipo
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    1  B:103-B:407             15.24   0.898          71.649  intra
@@ -403,7 +403,7 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    8  B:21-B:407              33.94   0.638           0.417  intra
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    9  A:21-A:388              26.25   0.061           0.188  intra
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]   10  A:407-B:21              25.70   0.044           0.154  inter
-[2026-04-30T12:34:41+00:00] [rank_pairs.py] 
+[2026-04-30T12:34:41+00:00] [rank_pairs.py]
 === 1TUB  (nTrp=8, <kappa2>=0.817) ===
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] rank  pair                     r(A)  kappa2    G(A^-6) *1e9   tipo
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    1  B:21-B:103              24.63   3.403          15.249  intra
@@ -416,7 +416,7 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    8  B:21-B:407              34.36   2.325           1.412  intra
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    9  A:21-A:388              26.39   0.410           1.214  intra
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]   10  B:103-B:407             16.39   0.016           0.812  intra
-[2026-04-30T12:34:41+00:00] [rank_pairs.py] 
+[2026-04-30T12:34:41+00:00] [rank_pairs.py]
 === 6DPU  (nTrp=48, <kappa2>=0.646) ===
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] rank  pair                     r(A)  kappa2    G(A^-6) *1e9   tipo
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    1  C:346-D:407             14.00   1.315         174.873  inter
@@ -429,12 +429,12 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    8  D:346-L:407             15.60   1.377          95.599  inter
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]    9  C:407-I:346             15.61   1.380          95.395  inter
 [2026-04-30T12:34:41+00:00] [rank_pairs.py]   10  L:346-L:388             16.85   1.629          71.147  intra
-[2026-04-30T12:34:41+00:00] [rank_pairs.py] 
+[2026-04-30T12:34:41+00:00] [rank_pairs.py]
 --- balance intra-cadena vs inter-cadena (suma de G) ---
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] [1JFF] peso FRET intra-cadena =  55.6%   inter-cadena =  44.4%
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] [1TUB] peso FRET intra-cadena =  48.8%   inter-cadena =  51.2%
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] [6DPU] peso FRET intra-cadena =  40.8%   inter-cadena =  59.2%
-[2026-04-30T12:34:41+00:00] [rank_pairs.py] 
+[2026-04-30T12:34:41+00:00] [rank_pairs.py]
 === top-10 de 1JFF - aparecen en 1TUB ===
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] pair                    G1(*1e9)    G2(*1e9)    ratio
 [2026-04-30T12:34:41+00:00] [rank_pairs.py] B:103-B:407               71.649       0.812     0.01
@@ -452,16 +452,16 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-04-30T12:35:38+00:00] [recompute_tau_coh.py] [RUN_AUDIT] START script=recompute_tau_coh.py timestamp_utc=2026-04-30T12:35:38+00:00
 [2026-04-30T12:35:38+00:00] [recompute_tau_coh.py] [1JFF] tau_coh =   1240.0 fs  (measured)   peak at    42.0 fs, value=4.294e-01
 [2026-04-30T12:35:38+00:00] [recompute_tau_coh.py] [6DPU] tau_coh =    N/A     (no_decay_in_window)   peak at   198.0 fs, value=3.472e-01
-[2026-04-30T12:35:38+00:00] [recompute_tau_coh.py] 
+[2026-04-30T12:35:38+00:00] [recompute_tau_coh.py]
 wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\redfield_tau_coh.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\redfield_tau_coh.json", "script": "recompute_tau_coh.py", "sha256": "6b87f0fd3020e34bddbb1c00ac2c7bff43da42c7fe38023f1cfc2f961967d166", "size_bytes": 373, "status": "ok", "timestamp_utc": "2026-04-30T12:35:38+00:00"}
 {"elapsed_s": 0.13285, "event": "end", "script": "recompute_tau_coh.py", "status": "ok", "timestamp_utc": "2026-04-30T12:35:38+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\roc.py", "script": "roc.py", "status": "running", "timestamp_utc": "2026-04-30T12:36:40+00:00"}
 [2026-04-30T12:36:40+00:00] [roc.py] [RUN_AUDIT] START script=roc.py timestamp_utc=2026-04-30T12:36:40+00:00
-[2026-04-30T12:36:40+00:00] [roc.py] 
+[2026-04-30T12:36:40+00:00] [roc.py]
 === NEYMAN-PEARSON DETECTION POWER SURFACE (alpha=0.05) ===
 [2026-04-30T12:36:40+00:00] [roc.py] Metrica: Probabilidad de Deteccion (1 - beta)
-[2026-04-30T12:36:40+00:00] [roc.py] 
+[2026-04-30T12:36:40+00:00] [roc.py]
 Eje X: log10(SNR) ->    2.0     2.5     3.0     3.5
 [2026-04-30T12:36:40+00:00] [roc.py] -------------------------------------------------------
 [2026-04-30T12:36:40+00:00] [roc.py] dl=0.5 |  0.055   0.100   0.115   0.215
@@ -507,21 +507,21 @@ Eje X: log10(SNR) ->    2.0     2.5     3.0     3.5
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\sensitivity.py", "script": "sensitivity.py", "status": "running", "timestamp_utc": "2026-04-30T12:39:21+00:00"}
 [2026-04-30T12:39:21+00:00] [sensitivity.py] [RUN_AUDIT] START script=sensitivity.py timestamp_utc=2026-04-30T12:39:21+00:00
 [2026-04-30T12:39:21+00:00] [sensitivity.py] Starting high-precision Sobol analysis (Saltelli + Bootstrap n=200)...
-[2026-04-30T12:40:17+00:00] [sensitivity.py] 
+[2026-04-30T12:40:17+00:00] [sensitivity.py]
 === SENSITIVITY REPORT (95% CI) ===
 [2026-04-30T12:40:17+00:00] [sensitivity.py] eta         : S1=1.0275 [0.9339, 1.1132] | ST=0.9957 [0.9685, 1.0223]
 [2026-04-30T12:40:17+00:00] [sensitivity.py] omega_c     : S1=-0.0005 [-0.0008, -0.0001] | ST=0.0000 [0.0000, 0.0000]
 [2026-04-30T12:40:17+00:00] [sensitivity.py] Temperature : S1=0.0064 [0.0017, 0.0109] | ST=0.0041 [0.0038, 0.0043]
 [2026-04-30T12:40:17+00:00] [sensitivity.py] f_prot      : S1=0.0000 [-0.0000, 0.0000] | ST=0.0000 [0.0000, 0.0000]
-[2026-04-30T12:40:17+00:00] [sensitivity.py] 
+[2026-04-30T12:40:17+00:00] [sensitivity.py]
 VERDICT: The model is effectively one-parameter-dominated (eta).
-[2026-04-30T12:40:17+00:00] [sensitivity.py] 
+[2026-04-30T12:40:17+00:00] [sensitivity.py]
 Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\sensitivity_sobol_final.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\sensitivity_sobol_final.json", "script": "sensitivity.py", "sha256": "af8befec8fccba632a682e951933be88d5274cd25166190cfeed52b72acc5d07", "size_bytes": 1559, "status": "ok", "timestamp_utc": "2026-04-30T12:40:17+00:00"}
 {"elapsed_s": 55.786836, "event": "end", "script": "sensitivity.py", "status": "ok", "timestamp_utc": "2026-04-30T12:40:17+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\test_ns_consistency.py", "script": "test_ns_consistency.py", "status": "running", "timestamp_utc": "2026-04-30T12:41:10+00:00"}
 [2026-04-30T12:41:10+00:00] [test_ns_consistency.py] [RUN_AUDIT] START script=test_ns_consistency.py timestamp_utc=2026-04-30T12:41:10+00:00
-[2026-04-30T12:41:10+00:00] [test_ns_consistency.py] 
+[2026-04-30T12:41:10+00:00] [test_ns_consistency.py]
 --- Stress Test: Babcock2024 (prior_sd=1.0) ---
 [2026-04-30T12:41:10+00:00] [test_ns_consistency.py]   Seed  0: NS=  184.0 | AN=  183.3 | Dev= 0.06 sigma | OK
 [2026-04-30T12:41:10+00:00] [test_ns_consistency.py]   Seed  1: NS=  171.6 | AN=  183.3 | Dev= 0.94 sigma | OK
@@ -544,12 +544,12 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-04-30T12:41:12+00:00] [test_ns_consistency.py]   Seed 18: NS=  198.3 | AN=  183.3 | Dev= 1.15 sigma | OK
 [2026-04-30T12:41:12+00:00] [test_ns_consistency.py]   Seed 19: NS=  190.9 | AN=  183.3 | Dev= 0.60 sigma | OK
 [2026-04-30T12:41:13+00:00] [test_ns_consistency.py]   Seed 20: NS=  174.8 | AN=  183.3 | Dev= 0.68 sigma | OK
-[2026-04-30T12:41:13+00:00] [test_ns_consistency.py] 
+[2026-04-30T12:41:13+00:00] [test_ns_consistency.py]
 Summary for Babcock2024:
 [2026-04-30T12:41:13+00:00] [test_ns_consistency.py]   Success Rate (<3 sigma): 100%
 [2026-04-30T12:41:13+00:00] [test_ns_consistency.py]   Mean deviation:      0.86 sigma
 [2026-04-30T12:41:13+00:00] [test_ns_consistency.py]   Max deviation:       2.10 sigma
-[2026-04-30T12:41:13+00:00] [test_ns_consistency.py] 
+[2026-04-30T12:41:13+00:00] [test_ns_consistency.py]
 --- Stress Test: Kalra2024 (prior_sd=120.0) ---
 [2026-04-30T12:41:13+00:00] [test_ns_consistency.py]   Seed  0: NS=   44.4 | AN=   43.3 | Dev= 0.37 sigma | OK
 [2026-04-30T12:41:13+00:00] [test_ns_consistency.py]   Seed  1: NS=   40.9 | AN=   43.3 | Dev= 0.89 sigma | OK
@@ -572,12 +572,12 @@ Summary for Babcock2024:
 [2026-04-30T12:41:14+00:00] [test_ns_consistency.py]   Seed 18: NS=   47.2 | AN=   43.3 | Dev= 1.30 sigma | OK
 [2026-04-30T12:41:15+00:00] [test_ns_consistency.py]   Seed 19: NS=   43.3 | AN=   43.3 | Dev= 0.00 sigma | OK
 [2026-04-30T12:41:15+00:00] [test_ns_consistency.py]   Seed 20: NS=   42.6 | AN=   43.3 | Dev= 0.26 sigma | OK
-[2026-04-30T12:41:15+00:00] [test_ns_consistency.py] 
+[2026-04-30T12:41:15+00:00] [test_ns_consistency.py]
 Summary for Kalra2024:
 [2026-04-30T12:41:15+00:00] [test_ns_consistency.py]   Success Rate (<3 sigma): 100%
 [2026-04-30T12:41:15+00:00] [test_ns_consistency.py]   Mean deviation:      0.85 sigma
 [2026-04-30T12:41:15+00:00] [test_ns_consistency.py]   Max deviation:       1.63 sigma
-[2026-04-30T12:41:15+00:00] [test_ns_consistency.py] 
+[2026-04-30T12:41:15+00:00] [test_ns_consistency.py]
 [VERDICT] NS vs Analytic consistency: PASSED.
 {"elapsed_s": 5.174731, "event": "end", "script": "test_ns_consistency.py", "status": "ok", "timestamp_utc": "2026-04-30T12:41:15+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\bayesian_heom_hierarchy_v2.py", "script": "bayesian_heom_hierarchy_v2.py", "status": "running", "timestamp_utc": "2026-04-30T12:42:54+00:00"}
@@ -599,7 +599,7 @@ Summary for Kalra2024:
 [2026-04-30T12:57:28+00:00] [generate_paper_figures.py] Fig 2: Signatures...
 [2026-04-30T12:57:37+00:00] [generate_paper_figures.py] Fig 3: Frohlich...
 [2026-04-30T12:57:43+00:00] [generate_paper_figures.py] Fig 4: Scaling...
-[2026-04-30T12:57:46+00:00] [generate_paper_figures.py] 
+[2026-04-30T12:57:46+00:00] [generate_paper_figures.py]
 Visual excellence v3.5.1: OK. Figures saved in C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final
 {"elapsed_s": 22.15081, "event": "end", "script": "generate_paper_figures.py", "status": "ok", "timestamp_utc": "2026-04-30T12:57:46+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validate_outputs.py", "script": "validate_outputs.py", "status": "running", "timestamp_utc": "2026-04-30T13:01:29+00:00"}
@@ -640,7 +640,7 @@ Visual excellence v3.5.1: OK. Figures saved in C:\Users\User\3D Objects\biofisic
 {"elapsed_s": 88.619504, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-04-30T13:28:39+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-04-30T13:30:42+00:00"}
 [2026-04-30T13:30:42+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-04-30T13:30:42+00:00
-[2026-04-30T13:32:17+00:00] [reproduce_paper_results.py] 
+[2026-04-30T13:32:17+00:00] [reproduce_paper_results.py]
 ================================================================
 KwanTube v3.5.0  -  11/11 checks passed   (wall 94.4s)
 [2026-04-30T13:32:17+00:00] [reproduce_paper_results.py] SHA-256: 8f78a339a719df640229f4430e9e76c8a49e91d925cafe92a59ae2870914999b
@@ -662,7 +662,7 @@ KwanTube v3.5.0  -  11/11 checks passed   (wall 94.4s)
 {"elapsed_s": 94.527, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-04-30T13:32:17+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-04-30T13:53:57+00:00"}
 [2026-04-30T13:53:57+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-04-30T13:53:57+00:00
-[2026-04-30T13:55:24+00:00] [reproduce_paper_results.py] 
+[2026-04-30T13:55:24+00:00] [reproduce_paper_results.py]
 ================================================================
 KwanTube v3.5.0  -  11/11 checks passed   (wall 86.46s)
 [2026-04-30T13:55:24+00:00] [reproduce_paper_results.py] SHA-256: 97d73db23e0dbe10e9490618405b286d7b4fee42a54800caf71ed792a21668f5
@@ -685,15 +685,15 @@ KwanTube v3.5.0  -  11/11 checks passed   (wall 86.46s)
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\sensitivity.py", "script": "sensitivity.py", "status": "running", "timestamp_utc": "2026-04-30T17:03:07+00:00"}
 [2026-04-30T17:03:07+00:00] [sensitivity.py] [RUN_AUDIT] START script=sensitivity.py timestamp_utc=2026-04-30T17:03:07+00:00
 [2026-04-30T17:03:07+00:00] [sensitivity.py] Starting high-precision Sobol analysis (Saltelli + Bootstrap n=200)...
-[2026-04-30T17:13:56+00:00] [sensitivity.py] 
+[2026-04-30T17:13:56+00:00] [sensitivity.py]
 === SENSITIVITY REPORT (95% CI) ===
 [2026-04-30T17:13:56+00:00] [sensitivity.py] eta         : S1=0.9859 [0.9518, 1.0149] | ST=0.9996 [0.9898, 1.0084]
 [2026-04-30T17:13:56+00:00] [sensitivity.py] omega_c     : S1=0.0000 [-0.0001, 0.0001] | ST=0.0000 [0.0000, 0.0000]
 [2026-04-30T17:13:56+00:00] [sensitivity.py] Temperature : S1=0.0025 [0.0013, 0.0039] | ST=0.0042 [0.0041, 0.0043]
 [2026-04-30T17:13:56+00:00] [sensitivity.py] f_prot      : S1=0.0000 [-0.0000, 0.0000] | ST=0.0000 [0.0000, 0.0000]
-[2026-04-30T17:13:56+00:00] [sensitivity.py] 
+[2026-04-30T17:13:56+00:00] [sensitivity.py]
 VERDICT: The model is effectively one-parameter-dominated (eta).
-[2026-04-30T17:13:56+00:00] [sensitivity.py] 
+[2026-04-30T17:13:56+00:00] [sensitivity.py]
 Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\sensitivity_sobol_final.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\sensitivity_sobol_final.json", "script": "sensitivity.py", "sha256": "3028144a0b165ed94a781b91cb2a32c3686bb44344953eaeb3115e632e464a94", "size_bytes": 1564, "status": "ok", "timestamp_utc": "2026-04-30T17:13:57+00:00"}
 {"elapsed_s": 651.868807, "event": "end", "script": "sensitivity.py", "status": "ok", "timestamp_utc": "2026-04-30T17:13:57+00:00"}
@@ -760,7 +760,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 {"elapsed_s": 69.869979, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-04T22:37:31+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-04T22:39:45+00:00"}
 [2026-05-04T22:39:45+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-04T22:39:45+00:00
-[2026-05-04T22:40:54+00:00] [reproduce_paper_results.py] 
+[2026-05-04T22:40:54+00:00] [reproduce_paper_results.py]
 ================================================================
 KwanTube v3.5.0  -  14/14 checks passed   (wall 69.02s)
 [2026-05-04T22:40:54+00:00] [reproduce_paper_results.py] SHA-256: 4a0bbd261a5d67cb4e8bc3200723b5a80209e8e7572421c372bfee24062857b8
@@ -839,9 +839,9 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 69.02s)
 [2026-05-05T00:59:53+00:00] [seal_outputs.py]   [94/96] SEALED  pade_refined_ckpt_NC6_Nk1.pkl  sha256=3deac8d1e01b00aa...
 [2026-05-05T00:59:53+00:00] [seal_outputs.py]   [95/96] SEALED  pade_refined_ckpt_NC7_Nk1.pkl  sha256=db0e299649b0e7a3...
 [2026-05-05T00:59:53+00:00] [seal_outputs.py]   [96/96] SEALED  pade_refined_ckpt_NC8_Nk1.pkl  sha256=0698dfb21d94f96f...
-[2026-05-05T00:59:53+00:00] [seal_outputs.py] 
+[2026-05-05T00:59:53+00:00] [seal_outputs.py]
 [seal_outputs] Done.  sealed=28  skipped=68  errors=0
-[2026-05-05T00:59:54+00:00] [seal_outputs.py] 
+[2026-05-05T00:59:54+00:00] [seal_outputs.py]
 [seal_outputs] Final validation: validated=96  bad=0
 [2026-05-05T00:59:54+00:00] [seal_outputs.py]   All artifacts CLEAN.
 {"elapsed_s": 1.395098, "event": "end", "script": "seal_outputs.py", "status": "ok", "timestamp_utc": "2026-05-05T00:59:54+00:00"}
@@ -894,11 +894,11 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 69.02s)
 {"elapsed_s": 0.249626, "event": "end", "script": "control_variates.py", "status": "ok", "timestamp_utc": "2026-05-05T05:01:48+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\diagnose_ss_and_meanforce.py", "script": "diagnose_ss_and_meanforce.py", "status": "running", "timestamp_utc": "2026-05-05T05:03:52+00:00"}
 [2026-05-05T05:03:52+00:00] [diagnose_ss_and_meanforce.py] [RUN_AUDIT] START script=diagnose_ss_and_meanforce.py timestamp_utc=2026-05-05T05:03:52+00:00
-[2026-05-05T05:03:52+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:52+00:00] [diagnose_ss_and_meanforce.py]
 ============================================================
 [2026-05-05T05:03:52+00:00] [diagnose_ss_and_meanforce.py]   1JFF
 [2026-05-05T05:03:52+00:00] [diagnose_ss_and_meanforce.py] ============================================================
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [Pickle diag]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   H_S dims:      [[8], [8]]  shape: (8, 8)
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   H_S norm:      5.2635e+01 rad/fs
@@ -912,29 +912,29 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 69.02s)
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Q[5] norm=1.000e+00  lam=3.5000e+01  ||Q^2||=1.000e+00  ||Q^2 - I||=7.000e+00
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Q[6] norm=1.000e+00  lam=3.5000e+01  ||Q^2||=1.000e+00  ||Q^2 - I||=7.000e+00
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Q[7] norm=1.000e+00  lam=3.5000e+01  ||Q^2||=1.000e+00  ||Q^2 - I||=7.000e+00
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [Computing rho_meanforce_2nd_order...]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]     [MF diag] ||corr1|| = 2.8000e+02  ||corr2|| = 3.7047e+00  ||H_S|| = 5.2635e+01  f_corr = 4.7935e+01
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [SS convergence]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   drift_rate_per_fs = 1.6131e-05
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   t_end_fs          = 30000.0
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   verdict           = NOT_STEADY
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [KL divergences at t=30000 fs]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   KL(rho_HEOM || rho_bare_Gibbs)     = 0.3809 nats
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   KL(rho_HEOM || rho_meanforce_2nd)  = 18.5254 nats
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   KL(rho_bare || rho_meanforce_2nd)  = 18.2809 nats
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [Verdict]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Best reference: rho_bare  (KL=0.3809)
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Threshold:      KL < 0.05
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Status:         FAIL
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
 ============================================================
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   6DPU
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] ============================================================
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [Pickle diag]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   H_S dims:      [[4], [4]]  shape: (4, 4)
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   H_S norm:      2.6382e+01 rad/fs
@@ -944,25 +944,25 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 69.02s)
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Q[1] norm=1.000e+00  lam=3.5000e+01  ||Q^2||=1.000e+00  ||Q^2 - I||=3.000e+00
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Q[2] norm=1.000e+00  lam=3.5000e+01  ||Q^2||=1.000e+00  ||Q^2 - I||=3.000e+00
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Q[3] norm=1.000e+00  lam=3.5000e+01  ||Q^2||=1.000e+00  ||Q^2 - I||=3.000e+00
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [Computing rho_meanforce_2nd_order...]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]     [MF diag] ||corr1|| = 1.4000e+02  ||corr2|| = 3.6844e+00  ||H_S|| = 2.6382e+01  f_corr = 4.7935e+01
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [SS convergence]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   drift_rate_per_fs = 5.4809e-06
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   t_end_fs          = 30000.0
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   verdict           = STEADY
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [KL divergences at t=30000 fs]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   KL(rho_HEOM || rho_bare_Gibbs)     = 0.0094 nats
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   KL(rho_HEOM || rho_meanforce_2nd)  = 28.0408 nats
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   KL(rho_bare || rho_meanforce_2nd)  = 28.0890 nats
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
   [Verdict]
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Best reference: rho_bare  (KL=0.0094)
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Threshold:      KL < 0.05
 [2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]   Status:         PASS
-[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py] 
+[2026-05-05T05:03:53+00:00] [diagnose_ss_and_meanforce.py]
 OK. Resultados guardados en: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\meanforce_diagnosis.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\meanforce_diagnosis.json", "script": "diagnose_ss_and_meanforce.py", "sha256": "64854c9daca2fdd81b71ef3238c72034d809718a9b7c359a16bb613c5c44052e", "size_bytes": 494, "status": "ok", "timestamp_utc": "2026-05-05T05:03:53+00:00"}
 {"elapsed_s": 0.692971, "event": "end", "script": "diagnose_ss_and_meanforce.py", "status": "ok", "timestamp_utc": "2026-05-05T05:03:53+00:00"}
@@ -970,7 +970,7 @@ OK. Resultados guardados en: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\Kwa
 [2026-05-05T05:05:09+00:00] [inversion.py] [RUN_AUDIT] START script=inversion.py timestamp_utc=2026-05-05T05:05:09+00:00
 [2026-05-05T05:05:09+00:00] [inversion.py] TRUTH (Multi-T): eta=0.42, wc=6.20e+12
 [2026-05-05T05:05:09+00:00] [inversion.py] Data Vector (Center, FWHM @ [280, 295, 310] K): [155.          63.98438147  67.37957696  70.77632568]
-[2026-05-05T05:05:10+00:00] [inversion.py] 
+[2026-05-05T05:05:10+00:00] [inversion.py]
 RECOVERED (Multi-T):
 [2026-05-05T05:05:10+00:00] [inversion.py]   eta: 0.4200 (Err: 1.5869e-12)
 [2026-05-05T05:05:10+00:00] [inversion.py]   wc: 6.20e+12 (Err: 2.3893e+03)
@@ -1049,7 +1049,7 @@ RECOVERED (Multi-T):
 [2026-05-05T05:10:14+00:00] [pdb_tubulin_analysis.py] [1JFF] ELECTRON CRYSTALLOGRAPHY  res=3.5  nTrp=  8  <kappa^2>=0.606  r_min=15.24 A  pairs (r < 40 A) = 14
 [2026-05-05T05:10:16+00:00] [pdb_tubulin_analysis.py] [1TUB] ELECTRON CRYSTALLOGRAPHY  res=3.7  nTrp=  8  <kappa^2>=0.817  r_min=15.35 A  pairs (r < 40 A) = 16
 [2026-05-05T05:10:22+00:00] [pdb_tubulin_analysis.py] [6DPU] ELECTRON MICROSCOPY   res=3.1  nTrp= 48  <kappa^2>=0.646  r_min=14.00 A  pairs (r < 40 A) = 102
-[2026-05-05T05:10:22+00:00] [pdb_tubulin_analysis.py] 
+[2026-05-05T05:10:22+00:00] [pdb_tubulin_analysis.py]
 wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\pdb_tubulin_analysis.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\pdb_tubulin_analysis.json", "script": "pdb_tubulin_analysis.py", "sha256": "e92d2b59631bcf82cdd58de1bd39c0641a443da8415bdbb7240ad86abfbb74ca", "size_bytes": 79832, "status": "ok", "timestamp_utc": "2026-05-05T05:10:22+00:00"}
 {"elapsed_s": 10.881285, "event": "end", "script": "pdb_tubulin_analysis.py", "status": "ok", "timestamp_utc": "2026-05-05T05:10:22+00:00"}
@@ -1143,7 +1143,7 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 {"elapsed_s": 0.381312, "event": "end", "script": "qmc.py", "status": "ok", "timestamp_utc": "2026-05-05T05:17:48+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\rank_pairs.py", "script": "rank_pairs.py", "status": "running", "timestamp_utc": "2026-05-05T05:18:12+00:00"}
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] [RUN_AUDIT] START script=rank_pairs.py timestamp_utc=2026-05-05T05:18:12+00:00
-[2026-05-05T05:18:12+00:00] [rank_pairs.py] 
+[2026-05-05T05:18:12+00:00] [rank_pairs.py]
 === 1JFF  (nTrp=8, <kappa2>=0.606) ===
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] rank  pair                     r(A)  kappa2    G(A^-6) *1e9   tipo
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    1  B:103-B:407             15.24   0.898          71.649  intra
@@ -1156,7 +1156,7 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    8  B:21-B:407              33.94   0.638           0.417  intra
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    9  A:21-A:388              26.25   0.061           0.188  intra
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]   10  A:407-B:21              25.70   0.044           0.154  inter
-[2026-05-05T05:18:12+00:00] [rank_pairs.py] 
+[2026-05-05T05:18:12+00:00] [rank_pairs.py]
 === 1TUB  (nTrp=8, <kappa2>=0.817) ===
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] rank  pair                     r(A)  kappa2    G(A^-6) *1e9   tipo
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    1  B:21-B:103              24.63   3.403          15.249  intra
@@ -1169,7 +1169,7 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    8  B:21-B:407              34.36   2.325           1.412  intra
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    9  A:21-A:388              26.39   0.410           1.214  intra
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]   10  B:103-B:407             16.39   0.016           0.812  intra
-[2026-05-05T05:18:12+00:00] [rank_pairs.py] 
+[2026-05-05T05:18:12+00:00] [rank_pairs.py]
 === 6DPU  (nTrp=48, <kappa2>=0.646) ===
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] rank  pair                     r(A)  kappa2    G(A^-6) *1e9   tipo
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    1  C:346-D:407             14.00   1.315         174.873  inter
@@ -1182,12 +1182,12 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    8  D:346-L:407             15.60   1.377          95.599  inter
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]    9  C:407-I:346             15.61   1.380          95.395  inter
 [2026-05-05T05:18:12+00:00] [rank_pairs.py]   10  L:346-L:388             16.85   1.629          71.147  intra
-[2026-05-05T05:18:12+00:00] [rank_pairs.py] 
+[2026-05-05T05:18:12+00:00] [rank_pairs.py]
 --- balance intra-cadena vs inter-cadena (suma de G) ---
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] [1JFF] peso FRET intra-cadena =  55.6%   inter-cadena =  44.4%
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] [1TUB] peso FRET intra-cadena =  48.8%   inter-cadena =  51.2%
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] [6DPU] peso FRET intra-cadena =  40.8%   inter-cadena =  59.2%
-[2026-05-05T05:18:12+00:00] [rank_pairs.py] 
+[2026-05-05T05:18:12+00:00] [rank_pairs.py]
 === top-10 de 1JFF - aparecen en 1TUB ===
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] pair                    G1(*1e9)    G2(*1e9)    ratio
 [2026-05-05T05:18:12+00:00] [rank_pairs.py] B:103-B:407               71.649       0.812     0.01
@@ -1205,19 +1205,19 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-05-05T05:19:00+00:00] [recompute_tau_coh.py] [RUN_AUDIT] START script=recompute_tau_coh.py timestamp_utc=2026-05-05T05:19:00+00:00
 [2026-05-05T05:19:00+00:00] [recompute_tau_coh.py] [1JFF] tau_coh =   1240.0 fs  (measured)   peak at    42.0 fs, value=4.294e-01
 [2026-05-05T05:19:00+00:00] [recompute_tau_coh.py] [6DPU] tau_coh =    N/A     (no_decay_in_window)   peak at   198.0 fs, value=3.472e-01
-[2026-05-05T05:19:00+00:00] [recompute_tau_coh.py] 
+[2026-05-05T05:19:00+00:00] [recompute_tau_coh.py]
 wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\redfield_tau_coh.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\redfield_tau_coh.json", "script": "recompute_tau_coh.py", "sha256": "6b87f0fd3020e34bddbb1c00ac2c7bff43da42c7fe38023f1cfc2f961967d166", "size_bytes": 373, "status": "ok", "timestamp_utc": "2026-05-05T05:19:00+00:00"}
 {"elapsed_s": 0.153236, "event": "end", "script": "recompute_tau_coh.py", "status": "ok", "timestamp_utc": "2026-05-05T05:19:00+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\redfield_tubulin.py", "script": "redfield_tubulin.py", "status": "running", "timestamp_utc": "2026-05-05T05:19:26+00:00"}
 [2026-05-05T05:19:26+00:00] [redfield_tubulin.py] [RUN_AUDIT] START script=redfield_tubulin.py timestamp_utc=2026-05-05T05:19:26+00:00
-[2026-05-05T05:19:26+00:00] [redfield_tubulin.py] 
+[2026-05-05T05:19:26+00:00] [redfield_tubulin.py]
 [1JFF] validaciones:
 [2026-05-05T05:19:26+00:00] [redfield_tubulin.py]   V_Trace_1         = 3.77e-15   OK
 [2026-05-05T05:19:26+00:00] [redfield_tubulin.py]   V_Hermitian       = 6.94e-17   OK
 [2026-05-05T05:19:26+00:00] [redfield_tubulin.py]   V_Boltz_SS        = 0.0381      OK
 [2026-05-05T05:19:26+00:00] [redfield_tubulin.py]   V_Detail_Bal      = 1.15e-15   OK
-[2026-05-05T05:19:26+00:00] [redfield_tubulin.py] 
+[2026-05-05T05:19:26+00:00] [redfield_tubulin.py]
 [1JFF] observables:
 [2026-05-05T05:19:26+00:00] [redfield_tubulin.py]   sitio inicial          = B:103
 [2026-05-05T05:19:26+00:00] [redfield_tubulin.py]   tau_transfer (1/e)     =    894.0 fs
@@ -1238,7 +1238,7 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-05-05T05:20:33+00:00] [richardson_fragment.py] Error truncacion NC=8: 3.39e-03 (0.34%)
 [2026-05-05T05:20:33+00:00] [richardson_fragment.py] Error truncacion NC=7: 8.84e-03 (0.88%)
 [2026-05-05T05:20:33+00:00] [richardson_fragment.py] Error proyectado NC=9: 1.30e-03 (0.13%)
-[2026-05-05T05:20:33+00:00] [richardson_fragment.py] 
+[2026-05-05T05:20:33+00:00] [richardson_fragment.py]
 ----------------------------------------
 [2026-05-05T05:20:33+00:00] [richardson_fragment.py]   ESTADO ASINTOTICO (Richardson)
 [2026-05-05T05:20:33+00:00] [richardson_fragment.py] ----------------------------------------
@@ -1248,20 +1248,20 @@ wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_
 [2026-05-05T05:20:33+00:00] [richardson_fragment.py]   Asintota:  0.541791
 [2026-05-05T05:20:33+00:00] [richardson_fragment.py]   Correccion total desde NC=8: 5.54e-02
 {"elapsed_s": 2.462138, "event": "end", "script": "richardson_fragment.py", "status": "ok", "timestamp_utc": "2026-05-05T05:20:33+00:00"}
-[2026-05-05T05:24:26+00:00] [redfield_tubulin.py] 
+[2026-05-05T05:24:26+00:00] [redfield_tubulin.py]
 [6DPU] validaciones:
 [2026-05-05T05:24:26+00:00] [redfield_tubulin.py]   V_Trace_1         = 2.66e-15   OK
 [2026-05-05T05:24:26+00:00] [redfield_tubulin.py]   V_Hermitian       = 1.73e-16   OK
 [2026-05-05T05:24:26+00:00] [redfield_tubulin.py]   V_Boltz_SS        = 1.5997      WARN
 [2026-05-05T05:24:26+00:00] [redfield_tubulin.py]   V_Detail_Bal      = 1.26e-14   OK
-[2026-05-05T05:24:26+00:00] [redfield_tubulin.py] 
+[2026-05-05T05:24:26+00:00] [redfield_tubulin.py]
 [6DPU] observables:
 [2026-05-05T05:24:26+00:00] [redfield_tubulin.py]   sitio inicial          = A:346
 [2026-05-05T05:24:26+00:00] [redfield_tubulin.py]   tau_transfer (1/e)     =     83.0 fs
 [2026-05-05T05:24:26+00:00] [redfield_tubulin.py]   tau_coherencia (1/e peak)=   4802.0 fs
 [2026-05-05T05:24:26+00:00] [redfield_tubulin.py]   avg IPR (delocaliz)    =     1.08
 [2026-05-05T05:24:30+00:00] [redfield_tubulin.py]   figures -> redfield_6DPU.[png, pdf] in C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final/
-[2026-05-05T05:24:30+00:00] [redfield_tubulin.py] 
+[2026-05-05T05:24:30+00:00] [redfield_tubulin.py]
 resumen -> redfield_summary.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\redfield_summary.json", "script": "redfield_tubulin.py", "sha256": "31fb2459159bbf843ffce6e409f90f315f4787d83bff1e254afd4b2ca1410abb", "size_bytes": 435, "status": "ok", "timestamp_utc": "2026-05-05T05:24:30+00:00"}
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_npz\\redfield_1JFF.npz", "script": "redfield_tubulin.py", "sha256": "ac877f518186d46504bfd964b9100af26a916bef673540e06a99588ac42bb534", "size_bytes": 401996, "status": "ok", "timestamp_utc": "2026-05-05T05:24:30+00:00"}
@@ -1269,10 +1269,10 @@ resumen -> redfield_summary.json
 {"elapsed_s": 304.886368, "event": "end", "script": "redfield_tubulin.py", "status": "ok", "timestamp_utc": "2026-05-05T05:24:30+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\roc.py", "script": "roc.py", "status": "running", "timestamp_utc": "2026-05-05T05:25:43+00:00"}
 [2026-05-05T05:25:43+00:00] [roc.py] [RUN_AUDIT] START script=roc.py timestamp_utc=2026-05-05T05:25:43+00:00
-[2026-05-05T05:25:43+00:00] [roc.py] 
+[2026-05-05T05:25:43+00:00] [roc.py]
 === NEYMAN-PEARSON DETECTION POWER SURFACE (alpha=0.05) ===
 [2026-05-05T05:25:43+00:00] [roc.py] Metrica: Probabilidad de Deteccion (1 - beta)
-[2026-05-05T05:25:43+00:00] [roc.py] 
+[2026-05-05T05:25:43+00:00] [roc.py]
 Eje X: log10(SNR) ->    2.0     2.5     3.0     3.5
 [2026-05-05T05:25:43+00:00] [roc.py] -------------------------------------------------------
 [2026-05-05T05:25:43+00:00] [roc.py] dl=0.5 |  0.055   0.100   0.115   0.215
@@ -1341,7 +1341,7 @@ Eje X: log10(SNR) ->    2.0     2.5     3.0     3.5
 [2026-05-05T05:29:01+00:00] [sbc_report.py]   [OK] Saved C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\sbc_calibration_ns.png
 [2026-05-05T05:29:02+00:00] [sbc_report.py]   [OK] Saved C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\sbc_calibration_ns.pdf
 [2026-05-05T05:29:02+00:00] [sbc_report.py]   [OK] Saved C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\sbc_report.json
-[2026-05-05T05:29:02+00:00] [sbc_report.py] 
+[2026-05-05T05:29:02+00:00] [sbc_report.py]
 ============================================================
 [2026-05-05T05:29:02+00:00] [sbc_report.py] SBC CALIBRATION SUMMARY
 [2026-05-05T05:29:02+00:00] [sbc_report.py] ============================================================
@@ -1357,13 +1357,13 @@ Eje X: log10(SNR) ->    2.0     2.5     3.0     3.5
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\sensitivity_priors.py", "script": "sensitivity_priors.py", "status": "running", "timestamp_utc": "2026-05-05T05:29:55+00:00"}
 [2026-05-05T05:29:55+00:00] [sensitivity_priors.py] [RUN_AUDIT] START script=sensitivity_priors.py timestamp_utc=2026-05-05T05:29:55+00:00
 [2026-05-05T05:29:55+00:00] [sensitivity_priors.py] Iniciando Analisis de Sensibilidad de Priors...
-[2026-05-05T05:30:09+00:00] [sensitivity_priors.py] 
+[2026-05-05T05:30:09+00:00] [sensitivity_priors.py]
 === RESUMEN DE SENSIBILIDAD DEL PRIOR ===
 [2026-05-05T05:30:09+00:00] [sensitivity_priors.py] Babcock 2024: BF10 min=12.5, max=266.7
 [2026-05-05T05:30:09+00:00] [sensitivity_priors.py]    -> Es robusto (>100): NO
 [2026-05-05T05:30:09+00:00] [sensitivity_priors.py] Kalra 2024:   BF10 min=2.8, max=53.5
 [2026-05-05T05:30:09+00:00] [sensitivity_priors.py]    -> Es robusto (>10):  SI
-[2026-05-05T05:30:09+00:00] [sensitivity_priors.py] 
+[2026-05-05T05:30:09+00:00] [sensitivity_priors.py]
 Resultados guardados en: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\prior_sensitivity.json y C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final/prior_sensitivity.[png,pdf]
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\prior_sensitivity.json", "script": "sensitivity_priors.py", "sha256": "1fea996e004891bcfa6ac78e64cc2b477c59364c162a7c6d7d20b99e304eba7b", "size_bytes": 1845, "status": "ok", "timestamp_utc": "2026-05-05T05:30:09+00:00"}
 {"elapsed_s": 13.744142, "event": "end", "script": "sensitivity_priors.py", "status": "ok", "timestamp_utc": "2026-05-05T05:30:09+00:00"}
@@ -1372,7 +1372,7 @@ Resultados guardados en: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTub
 [2026-05-05T05:30:40+00:00] [sensitivity.py] Starting high-precision Sobol analysis (Saltelli + Bootstrap n=200)...
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\test_ns_consistency.py", "script": "test_ns_consistency.py", "status": "running", "timestamp_utc": "2026-05-05T05:31:17+00:00"}
 [2026-05-05T05:31:17+00:00] [test_ns_consistency.py] [RUN_AUDIT] START script=test_ns_consistency.py timestamp_utc=2026-05-05T05:31:17+00:00
-[2026-05-05T05:31:17+00:00] [test_ns_consistency.py] 
+[2026-05-05T05:31:17+00:00] [test_ns_consistency.py]
 --- Stress Test: Babcock2024 (prior_sd=1.0) ---
 [2026-05-05T05:31:17+00:00] [test_ns_consistency.py]   Seed  0: NS=  184.0 | AN=  183.3 | Dev= 0.06 sigma | OK
 [2026-05-05T05:31:17+00:00] [test_ns_consistency.py]   Seed  1: NS=  171.6 | AN=  183.3 | Dev= 0.94 sigma | OK
@@ -1395,12 +1395,12 @@ Resultados guardados en: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTub
 [2026-05-05T05:31:20+00:00] [test_ns_consistency.py]   Seed 18: NS=  198.3 | AN=  183.3 | Dev= 1.15 sigma | OK
 [2026-05-05T05:31:20+00:00] [test_ns_consistency.py]   Seed 19: NS=  190.9 | AN=  183.3 | Dev= 0.60 sigma | OK
 [2026-05-05T05:31:20+00:00] [test_ns_consistency.py]   Seed 20: NS=  174.8 | AN=  183.3 | Dev= 0.68 sigma | OK
-[2026-05-05T05:31:20+00:00] [test_ns_consistency.py] 
+[2026-05-05T05:31:20+00:00] [test_ns_consistency.py]
 Summary for Babcock2024:
 [2026-05-05T05:31:20+00:00] [test_ns_consistency.py]   Success Rate (<3 sigma): 100%
 [2026-05-05T05:31:20+00:00] [test_ns_consistency.py]   Mean deviation:      0.86 sigma
 [2026-05-05T05:31:20+00:00] [test_ns_consistency.py]   Max deviation:       2.10 sigma
-[2026-05-05T05:31:20+00:00] [test_ns_consistency.py] 
+[2026-05-05T05:31:20+00:00] [test_ns_consistency.py]
 --- Stress Test: Kalra2024 (prior_sd=120.0) ---
 [2026-05-05T05:31:20+00:00] [test_ns_consistency.py]   Seed  0: NS=   44.4 | AN=   43.3 | Dev= 0.37 sigma | OK
 [2026-05-05T05:31:20+00:00] [test_ns_consistency.py]   Seed  1: NS=   40.9 | AN=   43.3 | Dev= 0.89 sigma | OK
@@ -1423,12 +1423,12 @@ Summary for Babcock2024:
 [2026-05-05T05:31:22+00:00] [test_ns_consistency.py]   Seed 18: NS=   47.2 | AN=   43.3 | Dev= 1.30 sigma | OK
 [2026-05-05T05:31:22+00:00] [test_ns_consistency.py]   Seed 19: NS=   43.3 | AN=   43.3 | Dev= 0.00 sigma | OK
 [2026-05-05T05:31:22+00:00] [test_ns_consistency.py]   Seed 20: NS=   42.6 | AN=   43.3 | Dev= 0.26 sigma | OK
-[2026-05-05T05:31:22+00:00] [test_ns_consistency.py] 
+[2026-05-05T05:31:22+00:00] [test_ns_consistency.py]
 Summary for Kalra2024:
 [2026-05-05T05:31:22+00:00] [test_ns_consistency.py]   Success Rate (<3 sigma): 100%
 [2026-05-05T05:31:22+00:00] [test_ns_consistency.py]   Mean deviation:      0.85 sigma
 [2026-05-05T05:31:22+00:00] [test_ns_consistency.py]   Max deviation:       1.63 sigma
-[2026-05-05T05:31:22+00:00] [test_ns_consistency.py] 
+[2026-05-05T05:31:22+00:00] [test_ns_consistency.py]
 [VERDICT] NS vs Analytic consistency: PASSED.
 {"elapsed_s": 5.372056, "event": "end", "script": "test_ns_consistency.py", "status": "ok", "timestamp_utc": "2026-05-05T05:31:22+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\validate_integrity.py", "script": "validate_integrity.py", "status": "running", "timestamp_utc": "2026-05-05T05:32:02+00:00"}
@@ -1530,15 +1530,15 @@ Summary for Kalra2024:
 [2026-05-05T05:32:03+00:00] [validate_integrity.py] [ok] C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_pkl\pade_refined_ckpt_NC7_Nk1.pkl
 [2026-05-05T05:32:03+00:00] [validate_integrity.py] [ok] C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_pkl\pade_refined_ckpt_NC8_Nk1.pkl
 {"elapsed_s": 0.710093, "event": "end", "script": "validate_integrity.py", "status": "ok", "timestamp_utc": "2026-05-05T05:32:03+00:00"}
-[2026-05-05T05:40:58+00:00] [sensitivity.py] 
+[2026-05-05T05:40:58+00:00] [sensitivity.py]
 === SENSITIVITY REPORT (95% CI) ===
 [2026-05-05T05:40:58+00:00] [sensitivity.py] eta         : S1=0.9859 [0.9518, 1.0149] | ST=0.9996 [0.9898, 1.0084]
 [2026-05-05T05:40:58+00:00] [sensitivity.py] omega_c     : S1=0.0000 [-0.0001, 0.0001] | ST=0.0000 [0.0000, 0.0000]
 [2026-05-05T05:40:58+00:00] [sensitivity.py] Temperature : S1=0.0025 [0.0013, 0.0039] | ST=0.0042 [0.0041, 0.0043]
 [2026-05-05T05:40:58+00:00] [sensitivity.py] f_prot      : S1=0.0000 [-0.0000, 0.0000] | ST=0.0000 [0.0000, 0.0000]
-[2026-05-05T05:40:58+00:00] [sensitivity.py] 
+[2026-05-05T05:40:58+00:00] [sensitivity.py]
 VERDICT: The model is effectively one-parameter-dominated (eta).
-[2026-05-05T05:40:58+00:00] [sensitivity.py] 
+[2026-05-05T05:40:58+00:00] [sensitivity.py]
 Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\sensitivity_sobol_final.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\sensitivity_sobol_final.json", "script": "sensitivity.py", "sha256": "3028144a0b165ed94a781b91cb2a32c3686bb44344953eaeb3115e632e464a94", "size_bytes": 1564, "status": "ok", "timestamp_utc": "2026-05-05T05:40:58+00:00"}
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_txt+md\\execution_memory.log.txt", "script": "sensitivity.py", "sha256": "afc6b0bf216f31c2aacd5d934d401a7536039601421de29197552117083753d0", "size_bytes": 387, "status": "ok", "timestamp_utc": "2026-05-05T05:40:58+00:00"}
@@ -1556,7 +1556,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py] PROJECT_ROOT resuelto: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py] YAML de parámetros:    C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\config\physics_params.yaml (existe)
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py] self-check prefactor: V(kappa^2=4, r=10Å, mu=2D, epsilon=1) = 403.20 cm^-1  OK
-[2026-05-05T05:46:18+00:00] [build_hamiltonian.py] 
+[2026-05-05T05:46:18+00:00] [build_hamiltonian.py]
 === Hamiltoniano 1JFF ===
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]   N sitios            = 8
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]   N acoplamientos     = 14
@@ -1571,7 +1571,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]      A:407-B:346   r=15.30 Å  kappa^2=0.797  |V|= 25.13 cm^-1
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]      A:346-A:388   r=17.92 Å  kappa^2=0.469  |V|= 12.00 cm^-1
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]   guardado: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_npz\H_1JFF.npz (status=written, sha256=60c8ebdc93da5c1c...)
-[2026-05-05T05:46:18+00:00] [build_hamiltonian.py] 
+[2026-05-05T05:46:18+00:00] [build_hamiltonian.py]
 === Hamiltoniano 6DPU ===
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]   N sitios            = 48
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]   N acoplamientos     = 102
@@ -1586,7 +1586,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]      E:346-F:407   r=14.01 Å  kappa^2=1.312  |V|= 41.98 cm^-1
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]      A:346-B:407   r=14.00 Å  kappa^2=1.306  |V|= 41.95 cm^-1
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py]   guardado: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_npz\H_6DPU.npz (status=written, sha256=48274ffb8297ed3b...)
-[2026-05-05T05:46:18+00:00] [build_hamiltonian.py] 
+[2026-05-05T05:46:18+00:00] [build_hamiltonian.py]
 --- resumen ---
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py] Generados H_1JFF.npz (dímero alphabeta, 8 sitios) y H_6DPU.npz (red MT, 48 sitios).
 [2026-05-05T05:46:18+00:00] [build_hamiltonian.py] Parámetros leídos desde: config/physics_params.yaml
@@ -1683,7 +1683,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py] PROJECT_ROOT resuelto: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py] YAML de parámetros:    C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\config\physics_params.yaml (existe)
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py] self-check prefactor: V(kappa^2=4, r=10Å, mu=2D, epsilon=1) = 403.20 cm^-1  OK
-[2026-05-05T07:06:19+00:00] [build_hamiltonian.py] 
+[2026-05-05T07:06:19+00:00] [build_hamiltonian.py]
 === Hamiltoniano 1JFF ===
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]   N sitios            = 8
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]   N acoplamientos     = 14
@@ -1698,7 +1698,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]      A:407-B:346   r=15.30 Å  kappa^2=0.797  |V|= 25.13 cm^-1
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]      A:346-A:388   r=17.92 Å  kappa^2=0.469  |V|= 12.00 cm^-1
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]   guardado: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_npz\H_1JFF.npz (status=written, sha256=60c8ebdc93da5c1c...)
-[2026-05-05T07:06:19+00:00] [build_hamiltonian.py] 
+[2026-05-05T07:06:19+00:00] [build_hamiltonian.py]
 === Hamiltoniano 6DPU ===
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]   N sitios            = 48
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]   N acoplamientos     = 102
@@ -1713,7 +1713,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]      E:346-F:407   r=14.01 Å  kappa^2=1.312  |V|= 41.98 cm^-1
 [2026-05-05T07:06:19+00:00] [build_hamiltonian.py]      A:346-B:407   r=14.00 Å  kappa^2=1.306  |V|= 41.95 cm^-1
 [2026-05-05T07:06:20+00:00] [build_hamiltonian.py]   guardado: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_npz\H_6DPU.npz (status=written, sha256=48274ffb8297ed3b...)
-[2026-05-05T07:06:20+00:00] [build_hamiltonian.py] 
+[2026-05-05T07:06:20+00:00] [build_hamiltonian.py]
 --- resumen ---
 [2026-05-05T07:06:20+00:00] [build_hamiltonian.py] Generados H_1JFF.npz (dímero alphabeta, 8 sitios) y H_6DPU.npz (red MT, 48 sitios).
 [2026-05-05T07:06:20+00:00] [build_hamiltonian.py] Parámetros leídos desde: config/physics_params.yaml
@@ -1773,7 +1773,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T07:12:35+00:00] [heom_pade_convergence.py] [RUN_AUDIT] START script=heom_pade_convergence.py timestamp_utc=2026-05-05T07:12:35+00:00
 [2026-05-05T07:12:35+00:00] [heom_pade_convergence.py] --- Iniciando Auditoria de Convergencia ---
 [2026-05-05T07:12:35+00:00] [heom_pade_convergence.py] Sitio inicial: A:346 | Fragmento: [np.str_('A:346'), np.str_('A:388'), np.str_('B:103'), np.str_('B:407')]
-[2026-05-05T07:12:35+00:00] [heom_pade_convergence.py] 
+[2026-05-05T07:12:35+00:00] [heom_pade_convergence.py]
 > Corriendo Sweep_NC3 (NC=3, Nk=1)...
 [2026-05-05T07:12:35+00:00] [heom_pade_convergence.py] 10.0%. Run time:   0.01s. Est. time left: 00:00:00:00
 [2026-05-05T07:12:35+00:00] [heom_pade_convergence.py] 20.0%. Run time:   0.03s. Est. time left: 00:00:00:00
@@ -1788,7 +1788,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T07:12:36+00:00] [heom_pade_convergence.py] Total run time:   0.15s
 [2026-05-05T07:12:36+00:00] [heom_pade_convergence.py]   Completado en 0.15s
 [2026-05-05T07:12:36+00:00] [heom_pade_convergence.py]   Final Diag: [0.36882213 0.05005156 0.05322041 0.52790591]
-[2026-05-05T07:12:36+00:00] [heom_pade_convergence.py] 
+[2026-05-05T07:12:36+00:00] [heom_pade_convergence.py]
 > Corriendo Sweep_NC5 (NC=5, Nk=1)...
 [2026-05-05T07:12:36+00:00] [heom_pade_convergence.py] 10.0%. Run time:   0.17s. Est. time left: 00:00:00:01
 [2026-05-05T07:12:36+00:00] [heom_pade_convergence.py] 20.0%. Run time:   0.41s. Est. time left: 00:00:00:01
@@ -1803,7 +1803,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T07:12:39+00:00] [heom_pade_convergence.py] Total run time:   3.30s
 [2026-05-05T07:12:39+00:00] [heom_pade_convergence.py]   Completado en 3.30s
 [2026-05-05T07:12:39+00:00] [heom_pade_convergence.py]   Final Diag: [0.39105066 0.04593909 0.06246872 0.50054153]
-[2026-05-05T07:12:39+00:00] [heom_pade_convergence.py] 
+[2026-05-05T07:12:39+00:00] [heom_pade_convergence.py]
 > Corriendo Sweep_NC7 (NC=7, Nk=1)...
 [2026-05-05T07:12:41+00:00] [heom_pade_convergence.py] 10.0%. Run time:   1.54s. Est. time left: 00:00:00:13
 [2026-05-05T07:12:44+00:00] [heom_pade_convergence.py] 20.0%. Run time:   4.46s. Est. time left: 00:00:00:17
@@ -1818,7 +1818,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T07:13:08+00:00] [heom_pade_convergence.py] Total run time:  27.93s
 [2026-05-05T07:13:08+00:00] [heom_pade_convergence.py]   Completado en 27.94s
 [2026-05-05T07:13:08+00:00] [heom_pade_convergence.py]   Final Diag: [0.39721478 0.04623945 0.06247326 0.49407252]
-[2026-05-05T07:13:08+00:00] [heom_pade_convergence.py] 
+[2026-05-05T07:13:08+00:00] [heom_pade_convergence.py]
 > Corriendo Validation_Nk2 (NC=5, Nk=2)...
 [2026-05-05T07:13:12+00:00] [heom_pade_convergence.py] 10.0%. Run time:   3.93s. Est. time left: 00:00:00:35
 [2026-05-05T07:13:17+00:00] [heom_pade_convergence.py] 20.0%. Run time:   8.56s. Est. time left: 00:00:00:34
@@ -1833,7 +1833,7 @@ Results saved to: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outpu
 [2026-05-05T07:13:52+00:00] [heom_pade_convergence.py] Total run time:  43.22s
 [2026-05-05T07:13:52+00:00] [heom_pade_convergence.py]   Completado en 43.23s
 [2026-05-05T07:13:52+00:00] [heom_pade_convergence.py]   Final Diag: [0.39107513 0.04593593 0.06246027 0.50052867]
-[2026-05-05T07:13:52+00:00] [heom_pade_convergence.py] 
+[2026-05-05T07:13:52+00:00] [heom_pade_convergence.py]
 Resultados guardados en outputs_data/
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\heom_convergence_summary.json", "script": "heom_pade_convergence.py", "sha256": "de080f3d8dc6569d11ae39de9ce14c00e8e3b7139287dc0776ae98d8feb54d71", "size_bytes": 4194, "status": "ok", "timestamp_utc": "2026-05-05T07:13:52+00:00"}
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_pkl\\pade_refined_ckpt_NC3_Nk1.pkl", "script": "heom_pade_convergence.py", "sha256": "4e9c76c5f58380e4aa806558e9b263e8f9d5b9d2838ff3dd13f64d156da422f8", "size_bytes": 17912, "status": "ok", "timestamp_utc": "2026-05-05T07:13:52+00:00"}
@@ -1848,7 +1848,7 @@ Resultados guardados en outputs_data/
 [2026-05-05T07:21:30+00:00] [generate_paper_figures.py] Fig 2: Signatures...
 [2026-05-05T07:21:39+00:00] [generate_paper_figures.py] Fig 3: Frohlich...
 [2026-05-05T07:21:47+00:00] [generate_paper_figures.py] Fig 4: Scaling...
-[2026-05-05T07:21:49+00:00] [generate_paper_figures.py] 
+[2026-05-05T07:21:49+00:00] [generate_paper_figures.py]
 Visual excellence v3.5.1: OK. Figures saved in C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final
 {"elapsed_s": 23.803337, "event": "end", "script": "generate_paper_figures.py", "status": "ok", "timestamp_utc": "2026-05-05T07:21:49+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\public_data\\build_registry.py", "script": "build_registry.py", "status": "running", "timestamp_utc": "2026-05-05T07:24:15+00:00"}
@@ -1909,7 +1909,7 @@ Visual excellence v3.5.1: OK. Figures saved in C:\Users\User\3D Objects\biofisic
 {"elapsed_s": 2.126954, "event": "end", "script": "audit_lineage.py", "status": "ok", "timestamp_utc": "2026-05-05T07:26:44+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-05T07:33:06+00:00"}
 [2026-05-05T07:33:06+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-05T07:33:06+00:00
-[2026-05-05T07:34:41+00:00] [reproduce_paper_results.py] 
+[2026-05-05T07:34:41+00:00] [reproduce_paper_results.py]
 ================================================================
 KwanTube v3.5.0  -  14/14 checks passed   (wall 95.58s)
 [2026-05-05T07:34:41+00:00] [reproduce_paper_results.py] SHA-256: db28fe155413e6396c5b64e78952d16ea4d7f19326266ef889649f6ddcf364c1
@@ -2015,9 +2015,9 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 95.58s)
 [2026-05-05T08:05:25+00:00] [seal_outputs.py]   [93/96] SEALED  pade_refined_ckpt_NC5_Nk2.pkl  sha256=1ddb764f4b1700cd...
 [2026-05-05T08:05:25+00:00] [seal_outputs.py]   [95/96] SEALED  pade_refined_ckpt_NC7_Nk1.pkl  sha256=053e2a73b326910c...
 [2026-05-05T08:05:26+00:00] [seal_outputs.py]   [96/96] OK (no change needed)  pade_refined_ckpt_NC8_Nk1.pkl
-[2026-05-05T08:05:26+00:00] [seal_outputs.py] 
+[2026-05-05T08:05:26+00:00] [seal_outputs.py]
 [seal_outputs] Done.  sealed=4  skipped=92  errors=0
-[2026-05-05T08:05:26+00:00] [seal_outputs.py] 
+[2026-05-05T08:05:26+00:00] [seal_outputs.py]
 [seal_outputs] Final validation: validated=96  bad=0
 [2026-05-05T08:05:26+00:00] [seal_outputs.py]   All artifacts CLEAN.
 {"elapsed_s": 3.823495, "event": "end", "script": "seal_outputs.py", "status": "ok", "timestamp_utc": "2026-05-05T08:05:26+00:00"}
@@ -2083,7 +2083,7 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 95.58s)
 {"elapsed_s": 9.605837, "event": "end", "script": "compute_subradiant_decay_spectrum.py", "status": "ok", "timestamp_utc": "2026-05-05T22:08:56+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-05T22:17:44+00:00"}
 [2026-05-05T22:17:44+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-05T22:17:44+00:00
-[2026-05-05T22:19:43+00:00] [reproduce_paper_results.py] 
+[2026-05-05T22:19:43+00:00] [reproduce_paper_results.py]
 ================================================================
 KwanTube v3.5.0  -  14/14 checks passed   (wall 118.57s)
 [2026-05-05T22:19:43+00:00] [reproduce_paper_results.py] SHA-256: 751e93d5ae9e3491ef3071c6ca6f463dd0ab98c5f6ba362fe2781216e9971c99
@@ -2134,9 +2134,9 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 118.57s)
 [2026-05-05T22:52:22+00:00] [seal_outputs.py]   [80/96] OK (no change needed)  pade_ckpt_NC3_Nk3.pkl
 [2026-05-05T22:52:23+00:00] [seal_outputs.py]   [90/96] OK (no change needed)  pade_refined_ckpt_NC3_Nk1.pkl
 [2026-05-05T22:52:23+00:00] [seal_outputs.py]   [96/96] OK (no change needed)  pade_refined_ckpt_NC8_Nk1.pkl
-[2026-05-05T22:52:23+00:00] [seal_outputs.py] 
+[2026-05-05T22:52:23+00:00] [seal_outputs.py]
 [seal_outputs] Done.  sealed=0  skipped=96  errors=0
-[2026-05-05T22:52:24+00:00] [seal_outputs.py] 
+[2026-05-05T22:52:24+00:00] [seal_outputs.py]
 [seal_outputs] Final validation: validated=96  bad=0
 [2026-05-05T22:52:24+00:00] [seal_outputs.py]   All artifacts CLEAN.
 {"elapsed_s": 5.858801, "event": "end", "script": "seal_outputs.py", "status": "ok", "timestamp_utc": "2026-05-05T22:52:25+00:00"}
@@ -2147,7 +2147,7 @@ KwanTube v3.5.0  -  14/14 checks passed   (wall 118.57s)
 {"elapsed_s": 0.635928, "event": "end", "script": "validate_outputs.py", "status": "ok", "timestamp_utc": "2026-05-05T23:02:08+00:00"}
 {"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T14:18:53+00:00"}
 [2026-05-06T14:18:53+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T14:18:53+00:00
-[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py] 
+[2026-05-06T14:20:49+00:00] [reproduce_paper_results.py]
 ================================================================
 KwanTube v3.5.1  -  14/14 checks passed   (wall 116.19s)
 [2026-05-06T14:20:49+00:00] [reproduce_paper_results.py] SHA-256: a21fb9e7798043c1c4c557160c4d43f4dea2213463206fd932677aaaca7d0eeb
@@ -2183,9 +2183,9 @@ KwanTube v3.5.1  -  14/14 checks passed   (wall 116.19s)
 [2026-05-06T14:20:59+00:00] [seal_outputs.py]   [80/96] OK (no change needed)  pade_ckpt_NC3_Nk3.pkl
 [2026-05-06T14:20:59+00:00] [seal_outputs.py]   [90/96] OK (no change needed)  pade_refined_ckpt_NC3_Nk1.pkl
 [2026-05-06T14:20:59+00:00] [seal_outputs.py]   [96/96] OK (no change needed)  pade_refined_ckpt_NC8_Nk1.pkl
-[2026-05-06T14:20:59+00:00] [seal_outputs.py] 
+[2026-05-06T14:20:59+00:00] [seal_outputs.py]
 [seal_outputs] Done.  sealed=0  skipped=96  errors=0
-[2026-05-06T14:21:00+00:00] [seal_outputs.py] 
+[2026-05-06T14:21:00+00:00] [seal_outputs.py]
 [seal_outputs] Final validation: validated=96  bad=0
 [2026-05-06T14:21:00+00:00] [seal_outputs.py]   All artifacts CLEAN.
 {"elapsed_s": 5.363371, "event": "end", "script": "seal_outputs.py", "status": "ok", "timestamp_utc": "2026-05-06T14:21:00+00:00"}
@@ -2209,3 +2209,638 @@ KwanTube v3.5.1  -  14/14 checks passed   (wall 116.19s)
 [2026-05-06T14:21:15+00:00] [validate_outputs.py] validated=96 bad=0 report=C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\structural\outputs_validation_report.json
 {"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\outputs_validation_report.json", "script": "validate_outputs.py", "sha256": "813bb85c2b4ca62f6c5e5ac29a67aa335cff8b1f12e989c527c16a84397625c5", "size_bytes": 44125, "status": "ok", "timestamp_utc": "2026-05-06T14:21:15+00:00"}
 {"elapsed_s": 0.737515, "event": "end", "script": "validate_outputs.py", "status": "ok", "timestamp_utc": "2026-05-06T14:21:15+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T18:21:09+00:00"}
+[2026-05-06T18:21:09+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T18:21:09+00:00
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T18:45:38+00:00"}
+[2026-05-06T18:45:38+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T18:45:38+00:00
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T19:06:27+00:00"}
+[2026-05-06T19:06:27+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T19:06:27+00:00
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\lattice.py", "script": "lattice.py", "status": "running", "timestamp_utc": "2026-05-06T19:45:08+00:00"}
+[2026-05-06T19:45:08+00:00] [lattice.py] [RUN_AUDIT] START script=lattice.py timestamp_utc=2026-05-06T19:45:08+00:00
+[2026-05-06T19:45:08+00:00] [lattice.py] --- LATTICE BASELINE (N=130) ---
+[2026-05-06T19:45:08+00:00] [lattice.py]
+--- LATTICE EXTENSION (N=260) ---
+{"elapsed_s": 0.640643, "event": "end", "script": "lattice.py", "status": "ok", "timestamp_utc": "2026-05-06T19:45:09+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\qmc_mt\\lattice.py", "script": "lattice.py", "status": "running", "timestamp_utc": "2026-05-06T23:27:03+00:00"}
+[2026-05-06T23:27:03+00:00] [lattice.py] [RUN_AUDIT] START script=lattice.py timestamp_utc=2026-05-06T23:27:03+00:00
+[2026-05-06T23:27:03+00:00] [lattice.py] --- LATTICE N130 ---
+[2026-05-06T23:27:03+00:00] [lattice.py]
+[2026-05-06T23:27:03+00:00] [lattice.py] --- LATTICE N260 ---
+[2026-05-06T23:27:03+00:00] [lattice.py]
+[2026-05-06T23:27:03+00:00] [lattice.py] --- LATTICE N520 ---
+[2026-05-06T23:27:03+00:00] [lattice.py]
+[2026-05-06T23:27:03+00:00] [lattice.py] --- LATTICE FAMILY COMPARISON ---
+{"elapsed_s": 0.333754, "event": "end", "script": "lattice.py", "status": "ok", "timestamp_utc": "2026-05-06T23:27:03+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T23:27:17+00:00"}
+[2026-05-06T23:27:17+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T23:27:17+00:00
+[2026-05-06T23:28:43+00:00] [reproduce_paper_results.py] Traceback (most recent call last):
+[2026-05-06T23:28:43+00:00] [reproduce_paper_results.py]   File "C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\src\scripts\validation\reproduce_paper_results.py", line 1122, in <module>
+    sys.exit(main())
+             ~~~~^^
+[2026-05-06T23:28:43+00:00] [reproduce_paper_results.py]   File "C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\src\scripts\validation\reproduce_paper_results.py", line 1079, in main
+    r = run_all(fast=args.fast, full_roc=args.full_roc)
+[2026-05-06T23:28:43+00:00] [reproduce_paper_results.py]   File "C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\src\scripts\validation\reproduce_paper_results.py", line 665, in run_all
+    si_preview = _render_si_text(results)
+[2026-05-06T23:28:43+00:00] [reproduce_paper_results.py]   File "C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\src\scripts\validation\reproduce_paper_results.py", line 1025, in _render_si_text
+    return SI_TEMPLATE.format(**_render_ctx(r))
+                                ~~~~~~~~~~~^^^
+[2026-05-06T23:28:43+00:00] [reproduce_paper_results.py]   File "C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\src\scripts\validation\reproduce_paper_results.py", line 985, in _render_ctx
+    "sha": r["_sha256"][:16],
+           ~^^^^^^^^^^^
+[2026-05-06T23:28:43+00:00] [reproduce_paper_results.py] KeyError: '_sha256'
+{"elapsed_s": 85.745385, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-06T23:28:43+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T23:29:02+00:00"}
+[2026-05-06T23:29:02+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T23:29:02+00:00
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  17/18 checks passed   (wall 88.48s)
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py] SHA-256: 0a9a6a6a58b2efbc428c1e481b8a16894eaa4c38cce224341742a65173cbd6c5
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [FAIL] lattice_radiative_family_complete      N130=missing, N260=ok, N520=missing
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-06T23:30:31+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "869185f221a478f56d45415a6760fbd4bbb5b3072339f8941b410273f4fd0752", "size_bytes": 31126, "status": "ok", "timestamp_utc": "2026-05-06T23:30:31+00:00"}
+{"elapsed_s": 88.668937, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-06T23:30:31+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\analysis\\compute_subradiant_decay_spectrum.py", "script": "compute_subradiant_decay_spectrum.py", "status": "running", "timestamp_utc": "2026-05-06T23:31:11+00:00"}
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py timestamp_utc=2026-05-06T23:31:11+00:00
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building B-lattice: 13 pf x 40 layers = 520 sites, radius=10.69 nm, orientation=tangential
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building tight-binding Hamiltonian: J_axial=-88.08 meV, J_lateral=160.36 meV
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\analysis\\compute_subradiant_decay_spectrum.py", "script": "compute_subradiant_decay_spectrum.py", "status": "running", "timestamp_utc": "2026-05-06T23:31:11+00:00"}
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py timestamp_utc=2026-05-06T23:31:11+00:00
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building B-lattice: 13 pf x 10 layers = 130 sites, radius=10.69 nm, orientation=tangential
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building tight-binding Hamiltonian: J_axial=-88.08 meV, J_lateral=160.36 meV
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Hamiltonian: spectral gap=961.12 meV, IPR max=79.0, IPR min=43.8
+[2026-05-06T23:31:11+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building radiative matrix (130x130): lambda=280 nm, n=1.33
+[2026-05-06T23:31:12+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Radiative rates: sub (Gamma<0.1): 92/130, super (Gamma>10): 2/130
+[2026-05-06T23:31:12+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Gamma eigenvalue range: [-8.353e-14, 59.53] x Gamma0
+[2026-05-06T23:31:12+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Hamiltonian: spectral gap=974.28 meV, IPR max=348.1, IPR min=171.4
+[2026-05-06T23:31:12+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building radiative matrix (520x520): lambda=280 nm, n=1.33
+[2026-05-06T23:31:17+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Radiative rates: sub (Gamma<0.1): 441/520, super (Gamma>10): 6/520
+[2026-05-06T23:31:17+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Gamma eigenvalue range: [-8.845e-14, 138.3] x Gamma0
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Figures saved: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum_N130.png / .pdf
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py] SUBRADIANT DECAY SPECTRUM COMPLETE
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   Sites           : 130
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   Spectral gap    : 961.12 meV
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   IPR (max/mean)  : 79.0 / 59.2
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   Subradiant modes (Gamma<0.1*Gamma0) : 92/130 (70.8%)
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   Superradiant modes (Gamma>10*Gamma0): 2/130 (1.5%)
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   CAVEAT: Collective decay rates are computed using the free-space dyadic Green's function. In the a...
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   JSON  : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum_N130.json
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] spectral_gap_meV=961.1234
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] subradiant_fraction=0.7077
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] JSON -> C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum_N130.json
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   CSV   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_csv\subradiant_modes_N130.csv
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   FIG   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum_N130.png
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py]   Time  : 10.7 s
+[2026-05-06T23:31:22+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] END status=ok n_sites=130 n_sub=92 n_super=2 elapsed=10.7s output=subradiant_decay_spectrum_N130.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\subradiant_decay_spectrum_N130.json", "script": "compute_subradiant_decay_spectrum.py", "sha256": "cc95b317cd94350525f048c8b0d7672aa0624233fb58e787b26582e57f7ae5fc", "size_bytes": 2348, "status": "ok", "timestamp_utc": "2026-05-06T23:31:22+00:00"}
+{"elapsed_s": 11.005368, "event": "end", "script": "compute_subradiant_decay_spectrum.py", "status": "ok", "timestamp_utc": "2026-05-06T23:31:22+00:00"}
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Figures saved: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum_N520.png / .pdf
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py] SUBRADIANT DECAY SPECTRUM COMPLETE
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   Sites           : 520
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   Spectral gap    : 974.28 meV
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   IPR (max/mean)  : 348.1 / 223.5
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   Subradiant modes (Gamma<0.1*Gamma0) : 441/520 (84.8%)
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   Superradiant modes (Gamma>10*Gamma0): 6/520 (1.2%)
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   CAVEAT: Collective decay rates are computed using the free-space dyadic Green's function. In the a...
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   JSON  : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum_N520.json
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] spectral_gap_meV=974.2818
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] subradiant_fraction=0.8481
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] JSON -> C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum_N520.json
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   CSV   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_csv\subradiant_modes_N520.csv
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   FIG   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum_N520.png
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py]   Time  : 14.8 s
+[2026-05-06T23:31:26+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] END status=ok n_sites=520 n_sub=441 n_super=6 elapsed=14.8s output=subradiant_decay_spectrum_N520.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\subradiant_decay_spectrum_N130.json", "script": "compute_subradiant_decay_spectrum.py", "sha256": "cc95b317cd94350525f048c8b0d7672aa0624233fb58e787b26582e57f7ae5fc", "size_bytes": 2348, "status": "ok", "timestamp_utc": "2026-05-06T23:31:26+00:00"}
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\subradiant_decay_spectrum_N520.json", "script": "compute_subradiant_decay_spectrum.py", "sha256": "073d63897ae66941fea44eb4aa38ddeebc725722877975f933ec278f3201b191", "size_bytes": 2339, "status": "ok", "timestamp_utc": "2026-05-06T23:31:26+00:00"}
+{"elapsed_s": 14.966142, "event": "end", "script": "compute_subradiant_decay_spectrum.py", "status": "ok", "timestamp_utc": "2026-05-06T23:31:26+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T23:31:42+00:00"}
+[2026-05-06T23:31:42+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T23:31:42+00:00
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  18/18 checks passed   (wall 92.89s)
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py] SHA-256: 7ff58fcf597918dc7c0dd1a11f8ed868d063c1769cb5b403a6b301aff6cb85e2
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-06T23:33:14+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-06T23:33:15+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-06T23:33:15+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-06T23:33:15+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-06T23:33:15+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-06T23:33:15+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-06T23:33:15+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-06T23:33:15+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-06T23:33:15+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "c75be17c10c6fde573381b3658b2ebd11cd221700c2d4400ea7777caf8becd7a", "size_bytes": 32047, "status": "ok", "timestamp_utc": "2026-05-06T23:33:15+00:00"}
+{"elapsed_s": 93.094322, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-06T23:33:15+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-06T23:55:16+00:00"}
+[2026-05-06T23:55:16+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-06T23:55:16+00:00
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  18/18 checks passed   (wall 86.41s)
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py] SHA-256: 04319b30657792efb023a8a39f964d11ce920c1adbe71bbf4088aa0cf4201ea6
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-06T23:56:42+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "010601d8a79ba1a52fa45650554e2cb5771fe82d43732977b0c9331d464843e2", "size_bytes": 32047, "status": "ok", "timestamp_utc": "2026-05-06T23:56:42+00:00"}
+{"elapsed_s": 86.576528, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-06T23:56:42+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-07T00:06:06+00:00"}
+[2026-05-07T00:06:06+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-07T00:06:06+00:00
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  18/19 checks passed   (wall 91.03s)
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py] SHA-256: f37ad0ea648be36e129fb88d27958a6b7f8ebe6d3f744ed78b527584fd8e3c23
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py]   [FAIL] validation_ledger_self_consistent      Ledger self-check failed: pending_tokens
+[2026-05-07T00:07:37+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "7b56b777e6b3b84bd5f061b69b2d3ebc21e1588f2591e52a295f813d5e60fe7b", "size_bytes": 32208, "status": "ok", "timestamp_utc": "2026-05-07T00:07:37+00:00"}
+{"elapsed_s": 91.215379, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-07T00:07:37+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-07T00:08:01+00:00"}
+[2026-05-07T00:08:01+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-07T00:08:01+00:00
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  19/19 checks passed   (wall 91.79s)
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py] SHA-256: 9e1809af5bb9f20e37661db7a641b1b0fc1fa7e92f73fdca7ff1365ca0ef3bb3
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py]   [OK] validation_ledger_self_consistent      Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed across 18 upstream checks
+[2026-05-07T00:09:33+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "46d6b3f976f279a8147c1306d9dd0b4e4a06e99e39dda6da5e5920835e3c0c15", "size_bytes": 32293, "status": "ok", "timestamp_utc": "2026-05-07T00:09:33+00:00"}
+{"elapsed_s": 91.983369, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-07T00:09:33+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-07T00:09:54+00:00"}
+[2026-05-07T00:09:54+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-07T00:09:54+00:00
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  19/19 checks passed   (wall 95.12s)
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py] SHA-256: 7dba24eea7083fc57d302d5e13dbbff8bf5e2e48a7b366af7a3de0efaa415451
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py]   [OK] validation_ledger_self_consistent      Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed for the upstream validation set
+[2026-05-07T00:11:29+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "df391d767832180baf6a8f14038997e06825fe69298f323d1bb4ef0fbd37f1c5", "size_bytes": 32299, "status": "ok", "timestamp_utc": "2026-05-07T00:11:29+00:00"}
+{"elapsed_s": 95.319343, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-07T00:11:29+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-07T01:13:21+00:00"}
+[2026-05-07T01:13:21+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-07T01:13:21+00:00
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  20/20 checks passed   (wall 87.02s)
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py] SHA-256: 2239cd5ca1a3af9841b00e811ee0f8d09654c536451d326c8f5582bee3803a08
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.038e-05
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] sobol_canonical_precision              Sobol canonical precision N=50000, bootstrap=200, CI=0.95
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py]   [OK] validation_ledger_self_consistent      Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed for the upstream validation set
+[2026-05-07T01:14:48+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "8ce3277322ae78b2b41030fba05b61cc24de742e1425f9503a57cdf2254a12ab", "size_bytes": 33419, "status": "ok", "timestamp_utc": "2026-05-07T01:14:48+00:00"}
+{"elapsed_s": 87.264795, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-07T01:14:48+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-07T01:15:21+00:00"}
+[2026-05-07T01:15:21+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-07T01:15:21+00:00
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  20/20 checks passed   (wall 36.7s)
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py] SHA-256: baf7082a1d6c07dfe46a6ad8f655fffde58000fedc8dfbb1ff3fbb7eb98d770e
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] sobol_canonical_precision              Sobol canonical precision N=50000, bootstrap=200, CI=0.95
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py]   [OK] validation_ledger_self_consistent      Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed for the upstream validation set
+[2026-05-07T01:15:57+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "060ead4fa140923de7bf611e95c4f0c92f85000529e9afc83f67ccc5f2130ab9", "size_bytes": 33419, "status": "ok", "timestamp_utc": "2026-05-07T01:15:58+00:00"}
+{"elapsed_s": 36.875072, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-07T01:15:58+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\audit_lineage.py", "script": "audit_lineage.py", "status": "running", "timestamp_utc": "2026-05-07T02:19:28+00:00"}
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [RUN_AUDIT] START script=audit_lineage.py timestamp_utc=2026-05-07T02:19:28+00:00
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage] Baseline : KwanTube_repo_backup_estable_28042026
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage] Compared (excl. __pycache__): 73 files
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage] ──────────────────────────────────────────────────────────────
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage]   SAME                    (identical to baseline)         :   2
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage]   UPDATED                 (v3.5.1 legitimate evolution)   :  22
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage]   ADDED                   (new modules / tooling)         :  28
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage]   DEPRECATED_INTENTIONAL  (documented in v3.5.1 release)  :  21
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage] ──────────────────────────────────────────────────────────────
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage] VERDICT  : CLEAN — 2 identical; 22 updated (v3.5.1 evolution); 28 added; 21 deprecated/reorganised (documented). No unexpected deletions.
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage] ──────────────────────────────────────────────────────────────
+[2026-05-07T02:19:28+00:00] [audit_lineage.py] [audit_lineage] wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\audit\lineage_audit.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\audit\\lineage_audit.json", "script": "audit_lineage.py", "sha256": "c03003d260e3c480864034b9614486a85042d009e6506b0b1bce543ec21975e5", "size_bytes": 23619, "status": "ok", "timestamp_utc": "2026-05-07T02:19:28+00:00"}
+{"elapsed_s": 0.703249, "event": "end", "script": "audit_lineage.py", "status": "ok", "timestamp_utc": "2026-05-07T02:19:28+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-07T02:20:04+00:00"}
+[2026-05-07T02:20:04+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-07T02:20:04+00:00
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  20/20 checks passed   (wall 33.84s)
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py] SHA-256: 8a414bacff8231534088eeffd191948e989ccc335e7147c8dff508fc031ae825
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] sobol_canonical_precision              Sobol canonical precision N=50000, bootstrap=200, CI=0.95
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py]   [OK] validation_ledger_self_consistent      Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed for the upstream validation set
+[2026-05-07T02:20:38+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "d001c2a93af359e12c700bf78d922c672797659d81e812fa9b04146125dc7671", "size_bytes": 33840, "status": "ok", "timestamp_utc": "2026-05-07T02:20:39+00:00"}
+{"elapsed_s": 34.411701, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-07T02:20:39+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\seal_outputs.py", "script": "seal_outputs.py", "status": "running", "timestamp_utc": "2026-05-07T02:24:56+00:00"}
+[2026-05-07T02:24:56+00:00] [seal_outputs.py] [RUN_AUDIT] START script=seal_outputs.py timestamp_utc=2026-05-07T02:24:56+00:00
+[2026-05-07T02:24:56+00:00] [seal_outputs.py] [seal_outputs] Scanning 96 artifacts under C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data
+[2026-05-07T02:24:56+00:00] [seal_outputs.py]   [10/96] OK (no change needed)  metrics_007.npz
+[2026-05-07T02:24:56+00:00] [seal_outputs.py]   [20/96] OK (no change needed)  metrics_017.npz
+[2026-05-07T02:24:56+00:00] [seal_outputs.py]   [30/96] OK (no change needed)  metrics_027.npz
+[2026-05-07T02:24:56+00:00] [seal_outputs.py]   [40/96] OK (no change needed)  window_007.npz
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]   [50/96] OK (no change needed)  window_017.npz
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]   [60/96] OK (no change needed)  window_027.npz
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]   [70/96] OK (no change needed)  redfield_6DPU.npz
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]   [80/96] OK (no change needed)  pade_ckpt_NC3_Nk3.pkl
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]   [90/96] OK (no change needed)  pade_refined_ckpt_NC3_Nk1.pkl
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]   [96/96] OK (no change needed)  pade_refined_ckpt_NC8_Nk1.pkl
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]
+[seal_outputs] Done.  sealed=0  skipped=96  errors=0
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]
+[seal_outputs] Final validation: validated=96  bad=0
+[2026-05-07T02:24:57+00:00] [seal_outputs.py]   All artifacts CLEAN.
+{"elapsed_s": 1.117569, "event": "end", "script": "seal_outputs.py", "status": "ok", "timestamp_utc": "2026-05-07T02:24:57+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\validate_outputs.py", "script": "validate_outputs.py", "status": "running", "timestamp_utc": "2026-05-07T02:25:48+00:00"}
+[2026-05-07T02:25:48+00:00] [validate_outputs.py] [RUN_AUDIT] START script=validate_outputs.py timestamp_utc=2026-05-07T02:25:48+00:00
+[2026-05-07T02:25:48+00:00] [validate_outputs.py] validated=96 bad=0 report=C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\structural\outputs_validation_report.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\outputs_validation_report.json", "script": "validate_outputs.py", "sha256": "813bb85c2b4ca62f6c5e5ac29a67aa335cff8b1f12e989c527c16a84397625c5", "size_bytes": 44125, "status": "ok", "timestamp_utc": "2026-05-07T02:25:48+00:00"}
+{"elapsed_s": 0.626837, "event": "end", "script": "validate_outputs.py", "status": "ok", "timestamp_utc": "2026-05-07T02:25:48+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\analysis\\compute_subradiant_decay_spectrum.py", "script": "compute_subradiant_decay_spectrum.py", "status": "running", "timestamp_utc": "2026-05-07T18:42:42+00:00"}
+[2026-05-07T18:42:42+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py timestamp_utc=2026-05-07T18:42:42+00:00
+[2026-05-07T18:42:42+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py
+[2026-05-07T18:42:42+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building B-lattice: 13 pf x 10 layers = 130 sites, radius=10.69 nm, orientation=tangential
+[2026-05-07T18:42:42+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building tight-binding Hamiltonian: J_axial=-88.08 meV, J_lateral=160.36 meV
+[2026-05-07T18:42:42+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Hamiltonian: spectral gap=961.12 meV, IPR max=79.0, IPR min=43.8
+[2026-05-07T18:42:42+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building radiative matrix (130x130): lambda=280 nm, n=1.33
+[2026-05-07T18:42:42+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Radiative rates: sub (Gamma<0.1): 92/130, super (Gamma>10): 2/130
+[2026-05-07T18:42:42+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Gamma eigenvalue range: [-8.353e-14, 59.53] x Gamma0
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Figures saved: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum_N130.png / .pdf
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py] SUBRADIANT DECAY SPECTRUM COMPLETE
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   Sites           : 130
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   Spectral gap    : 961.12 meV
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   IPR (max/mean)  : 79.0 / 59.2
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   Subradiant modes (Gamma<0.1*Gamma0) : 92/130 (70.8%)
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   Superradiant modes (Gamma>10*Gamma0): 2/130 (1.5%)
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   CAVEAT: Collective decay rates are computed using the free-space dyadic Green's function. In the a...
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   JSON  : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum_N130.json
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] spectral_gap_meV=961.1234
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] subradiant_fraction=0.7077
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] JSON -> C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum_N130.json
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   CSV   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_csv\subradiant_modes_N130.csv
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   FIG   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum_N130.png
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py]   Time  : 7.7 s
+[2026-05-07T18:42:50+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] END status=ok n_sites=130 n_sub=92 n_super=2 elapsed=7.7s output=subradiant_decay_spectrum_N130.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\subradiant_decay_spectrum_N130.json", "script": "compute_subradiant_decay_spectrum.py", "sha256": "5ea1045a8e85dbf9d09e130dac03749455e9f4a805b8664dea1a2617591ed334", "size_bytes": 2346, "status": "ok", "timestamp_utc": "2026-05-07T18:42:50+00:00"}
+{"elapsed_s": 7.836157, "event": "end", "script": "compute_subradiant_decay_spectrum.py", "status": "ok", "timestamp_utc": "2026-05-07T18:42:50+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\analysis\\compute_subradiant_decay_spectrum.py", "script": "compute_subradiant_decay_spectrum.py", "status": "running", "timestamp_utc": "2026-05-07T18:42:53+00:00"}
+[2026-05-07T18:42:53+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py timestamp_utc=2026-05-07T18:42:53+00:00
+[2026-05-07T18:42:53+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py
+[2026-05-07T18:42:53+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building B-lattice: 13 pf x 20 layers = 260 sites, radius=10.69 nm, orientation=tangential
+[2026-05-07T18:42:53+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building tight-binding Hamiltonian: J_axial=-88.08 meV, J_lateral=160.36 meV
+[2026-05-07T18:42:53+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Hamiltonian: spectral gap=971.40 meV, IPR max=175.5, IPR min=75.9
+[2026-05-07T18:42:53+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building radiative matrix (260x260): lambda=280 nm, n=1.33
+[2026-05-07T18:42:54+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Radiative rates: sub (Gamma<0.1): 201/260, super (Gamma>10): 5/260
+[2026-05-07T18:42:54+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Gamma eigenvalue range: [-9.026e-14, 104.2] x Gamma0
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Figures saved: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum.png / .pdf
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py] SUBRADIANT DECAY SPECTRUM COMPLETE
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   Sites           : 260
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   Spectral gap    : 971.40 meV
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   IPR (max/mean)  : 175.5 / 113.4
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   Subradiant modes (Gamma<0.1*Gamma0) : 201/260 (77.3%)
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   Superradiant modes (Gamma>10*Gamma0): 5/260 (1.9%)
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   CAVEAT: Collective decay rates are computed using the free-space dyadic Green's function. In the a...
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   JSON  : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum.json
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] spectral_gap_meV=971.3981
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] subradiant_fraction=0.7731
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] JSON -> C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum.json
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   CSV   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_csv\subradiant_modes.csv
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   FIG   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum.png
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py]   Time  : 5.8 s
+[2026-05-07T18:42:59+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] END status=ok n_sites=260 n_sub=201 n_super=5 elapsed=5.8s output=subradiant_decay_spectrum.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\subradiant_decay_spectrum.json", "script": "compute_subradiant_decay_spectrum.py", "sha256": "e12fcd4f510592f678f0373b006d994bb295f5ed8fcc71f99ef38092cda3fb2e", "size_bytes": 2338, "status": "ok", "timestamp_utc": "2026-05-07T18:42:59+00:00"}
+{"elapsed_s": 6.00782, "event": "end", "script": "compute_subradiant_decay_spectrum.py", "status": "ok", "timestamp_utc": "2026-05-07T18:42:59+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\analysis\\compute_subradiant_decay_spectrum.py", "script": "compute_subradiant_decay_spectrum.py", "status": "running", "timestamp_utc": "2026-05-07T18:43:02+00:00"}
+[2026-05-07T18:43:02+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py timestamp_utc=2026-05-07T18:43:02+00:00
+[2026-05-07T18:43:02+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] START script=compute_subradiant_decay_spectrum.py
+[2026-05-07T18:43:02+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building B-lattice: 13 pf x 40 layers = 520 sites, radius=10.69 nm, orientation=tangential
+[2026-05-07T18:43:02+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building tight-binding Hamiltonian: J_axial=-88.08 meV, J_lateral=160.36 meV
+[2026-05-07T18:43:02+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Hamiltonian: spectral gap=974.28 meV, IPR max=348.1, IPR min=171.4
+[2026-05-07T18:43:02+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Building radiative matrix (520x520): lambda=280 nm, n=1.33
+[2026-05-07T18:43:05+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Radiative rates: sub (Gamma<0.1): 441/520, super (Gamma>10): 6/520
+[2026-05-07T18:43:05+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Gamma eigenvalue range: [-8.845e-14, 138.3] x Gamma0
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py] [INFO] Figures saved: C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum_N520.png / .pdf
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py] SUBRADIANT DECAY SPECTRUM COMPLETE
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py] ==============================================================================
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   Sites           : 520
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   Spectral gap    : 974.28 meV
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   IPR (max/mean)  : 348.1 / 223.5
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   Subradiant modes (Gamma<0.1*Gamma0) : 441/520 (84.8%)
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   Superradiant modes (Gamma>10*Gamma0): 6/520 (1.2%)
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   CAVEAT: Collective decay rates are computed using the free-space dyadic Green's function. In the a...
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   JSON  : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum_N520.json
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] spectral_gap_meV=974.2818
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] subradiant_fraction=0.8481
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py] [compute_subradiant_decay_spectrum] JSON -> C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\metrics\subradiant_decay_spectrum_N520.json
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   CSV   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_csv\subradiant_modes_N520.csv
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   FIG   : C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\figures_final\subradiant_spectrum_N520.png
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py]   Time  : 8.3 s
+[2026-05-07T18:43:11+00:00] [compute_subradiant_decay_spectrum.py] [RUN_AUDIT] END status=ok n_sites=520 n_sub=441 n_super=6 elapsed=8.3s output=subradiant_decay_spectrum_N520.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\metrics\\subradiant_decay_spectrum_N520.json", "script": "compute_subradiant_decay_spectrum.py", "sha256": "3b010b858f06b6eb73cfc5db021c80ee4d1699a4587debb9a96e7eac81d885a6", "size_bytes": 2350, "status": "ok", "timestamp_utc": "2026-05-07T18:43:11+00:00"}
+{"elapsed_s": 8.462051, "event": "end", "script": "compute_subradiant_decay_spectrum.py", "status": "ok", "timestamp_utc": "2026-05-07T18:43:11+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\audit_lineage.py", "script": "audit_lineage.py", "status": "running", "timestamp_utc": "2026-05-07T18:43:29+00:00"}
+[2026-05-07T18:43:29+00:00] [audit_lineage.py] [RUN_AUDIT] START script=audit_lineage.py timestamp_utc=2026-05-07T18:43:29+00:00
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage] Baseline : KwanTube_repo_backup_estable_28042026
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage] Compared (excl. __pycache__): 73 files
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage]   SAME                    (identical to baseline)         :   2
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage]   UPDATED                 (v3.5.1 legitimate evolution)   :  22
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage]   ADDED                   (new modules / tooling)         :  28
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage]   DEPRECATED_INTENTIONAL  (documented in v3.5.1 release)  :  21
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage] VERDICT  : CLEAN — 2 identical; 22 updated (v3.5.1 evolution); 28 added; 21 deprecated/reorganised (documented). No unexpected deletions.
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-07T18:43:30+00:00] [audit_lineage.py] [audit_lineage] wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\audit\lineage_audit.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\audit\\lineage_audit.json", "script": "audit_lineage.py", "sha256": "4637c9eafe593832870bae4b0a77d80bb826aad927b21ecf458d41f1c32fad39", "size_bytes": 23619, "status": "ok", "timestamp_utc": "2026-05-07T18:43:30+00:00"}
+{"elapsed_s": 0.75644, "event": "end", "script": "audit_lineage.py", "status": "ok", "timestamp_utc": "2026-05-07T18:43:30+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-07T18:43:34+00:00"}
+[2026-05-07T18:43:34+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-07T18:43:34+00:00
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]
+================================================================
+KwanTube v3.5.1  -  20/20 checks passed   (wall 31.49s)
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py] SHA-256: b6cbe477048a7fba976174282c7c5bf035f6528c4a906ff5c58f55dde0976aeb
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+================================================================
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] sobol_canonical_precision              Sobol canonical precision N=50000, bootstrap=200, CI=0.95
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py]   [OK] validation_ledger_self_consistent      Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed for the upstream validation set
+[2026-05-07T18:44:06+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "6342a0d818c62d2c6abd687c1bdf0ebaab8914d8e01b809ecd76903524eff46a", "size_bytes": 33856, "status": "ok", "timestamp_utc": "2026-05-07T18:44:06+00:00"}
+{"elapsed_s": 31.650149, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-07T18:44:06+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\seal_outputs.py", "script": "seal_outputs.py", "status": "running", "timestamp_utc": "2026-05-07T18:44:09+00:00"}
+[2026-05-07T18:44:09+00:00] [seal_outputs.py] [RUN_AUDIT] START script=seal_outputs.py timestamp_utc=2026-05-07T18:44:09+00:00
+[2026-05-07T18:44:09+00:00] [seal_outputs.py] [seal_outputs] Scanning 96 artifacts under C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data
+[2026-05-07T18:44:09+00:00] [seal_outputs.py]   [10/96] OK (no change needed)  metrics_007.npz
+[2026-05-07T18:44:09+00:00] [seal_outputs.py]   [20/96] OK (no change needed)  metrics_017.npz
+[2026-05-07T18:44:10+00:00] [seal_outputs.py]   [30/96] OK (no change needed)  metrics_027.npz
+[2026-05-07T18:44:10+00:00] [seal_outputs.py]   [40/96] OK (no change needed)  window_007.npz
+[2026-05-07T18:44:10+00:00] [seal_outputs.py]   [50/96] OK (no change needed)  window_017.npz
+[2026-05-07T18:44:10+00:00] [seal_outputs.py]   [60/96] OK (no change needed)  window_027.npz
+[2026-05-07T18:44:11+00:00] [seal_outputs.py]   [70/96] OK (no change needed)  redfield_6DPU.npz
+[2026-05-07T18:44:11+00:00] [seal_outputs.py]   [80/96] OK (no change needed)  pade_ckpt_NC3_Nk3.pkl
+[2026-05-07T18:44:12+00:00] [seal_outputs.py]   [90/96] OK (no change needed)  pade_refined_ckpt_NC3_Nk1.pkl
+[2026-05-07T18:44:12+00:00] [seal_outputs.py]   [96/96] OK (no change needed)  pade_refined_ckpt_NC8_Nk1.pkl
+[2026-05-07T18:44:12+00:00] [seal_outputs.py]
+[seal_outputs] Done.  sealed=0  skipped=96  errors=0
+[2026-05-07T18:44:12+00:00] [seal_outputs.py]
+[seal_outputs] Final validation: validated=96  bad=0
+[2026-05-07T18:44:12+00:00] [seal_outputs.py]   All artifacts CLEAN.
+{"elapsed_s": 3.419398, "event": "end", "script": "seal_outputs.py", "status": "ok", "timestamp_utc": "2026-05-07T18:44:12+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\validate_outputs.py", "script": "validate_outputs.py", "status": "running", "timestamp_utc": "2026-05-07T18:44:15+00:00"}
+[2026-05-07T18:44:15+00:00] [validate_outputs.py] [RUN_AUDIT] START script=validate_outputs.py timestamp_utc=2026-05-07T18:44:15+00:00
+[2026-05-07T18:44:16+00:00] [validate_outputs.py] validated=96 bad=0 report=C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\structural\outputs_validation_report.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\outputs_validation_report.json", "script": "validate_outputs.py", "sha256": "813bb85c2b4ca62f6c5e5ac29a67aa335cff8b1f12e989c527c16a84397625c5", "size_bytes": 44125, "status": "ok", "timestamp_utc": "2026-05-07T18:44:16+00:00"}
+{"elapsed_s": 0.517116, "event": "end", "script": "validate_outputs.py", "status": "ok", "timestamp_utc": "2026-05-07T18:44:16+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\audit_lineage.py", "script": "audit_lineage.py", "status": "running", "timestamp_utc": "2026-05-07T18:44:56+00:00"}
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [RUN_AUDIT] START script=audit_lineage.py timestamp_utc=2026-05-07T18:44:56+00:00
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage] Baseline : KwanTube_repo_backup_estable_28042026
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage] Compared (excl. __pycache__): 73 files
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage]   SAME                    (identical to baseline)         :   2
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage]   UPDATED                 (v3.5.1 legitimate evolution)   :  22
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage]   ADDED                   (new modules / tooling)         :  28
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage]   DEPRECATED_INTENTIONAL  (documented in v3.5.1 release)  :  21
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage] VERDICT  : CLEAN — 2 identical; 22 updated (v3.5.1 evolution); 28 added; 21 deprecated/reorganised (documented). No unexpected deletions.
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage] \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+[2026-05-07T18:44:56+00:00] [audit_lineage.py] [audit_lineage] wrote C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\audit\lineage_audit.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\audit\\lineage_audit.json", "script": "audit_lineage.py", "sha256": "d18d40612e8cc39b1b2620602e5d82201b3b78ae669505bf18a2fe879be9d9c9", "size_bytes": 23619, "status": "ok", "timestamp_utc": "2026-05-07T18:44:56+00:00"}
+{"elapsed_s": 0.35601, "event": "end", "script": "audit_lineage.py", "status": "ok", "timestamp_utc": "2026-05-07T18:44:56+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\reproduce_paper_results.py", "script": "reproduce_paper_results.py", "status": "running", "timestamp_utc": "2026-05-07T18:45:01+00:00"}
+[2026-05-07T18:45:01+00:00] [reproduce_paper_results.py] [RUN_AUDIT] START script=reproduce_paper_results.py timestamp_utc=2026-05-07T18:45:01+00:00
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py] ================================================================
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py] KwanTube v3.5.1  -  20/20 checks passed   (wall 33.45s)
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py] SHA-256: fe95a3d0e1d836cc4122f9d65cae828dc5ac8c180bf17c9cf579862966b0c9c6
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py] Outputs: outputs_data/raw_json/structural/validation_report.json  -  LIVING_SI.md
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py] ================================================================
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] noneq_ladder_monotone                  Coherence tau(Delta_mu) is monotonically non-decreasing
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] inversion_recovers_fidelity            Recovery Fidelity phi_hat=1.000
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] sensitivity_phi_finite                 Nominal Coherence phi_0=1.036e-05
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] sobol_canonical_precision              Sobol canonical precision N=50000, bootstrap=200, CI=0.95
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] model_selection_picks_emergent         Selected Model: emergent (Delta_BIC_max=142.70)
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] multi_formalism_concordance            Relative spread < 1.0 across eta coupling grid
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] roc_monotone_global                    Detection probability P_D increases with SNR
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] babcock_bf_decisive                    Decisive Evidence (BF10=183.3)
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] kalra_bf_very_strong                   Very Strong Evidence (Kalra2023, BF10=43.3)
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] sbc_calibrated                         NS Calibration p=0.560
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] lattice_gap_positive                   Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25)
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] lattice_lowest_mode_delocalized        Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9)
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] heom_production_extracted              Pur(30ps)=0.21, Disc=26.39%
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] heom_non_equilibrium_regime            Terminal purity 0.21 < 0.25 confirms transient dynamics
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] heom_redfield_divergence               HEOM-Redfield gap 26.39% exceeds truncation error
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] si2d_complete                          SI-2d mean-force systems=2 status=ok
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] si2b_complete                          SI-2b states=8 status=ok
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] lattice_radiative_family_complete      N130=ok, N260=ok, N520=ok
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] living_si_no_pending_tokens            No pending execution tokens in rendered SI
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py]   [OK] validation_ledger_self_consistent      Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed for the upstream validation set
+[2026-05-07T18:45:34+00:00] [reproduce_paper_results.py] ================================================================
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\validation_report.json", "script": "reproduce_paper_results.py", "sha256": "7a99c941f4caefd623e5fe3b33853505ae9496760ff17e58e51ea828a8ed3598", "size_bytes": 33856, "status": "ok", "timestamp_utc": "2026-05-07T18:45:34+00:00"}
+{"elapsed_s": 33.646107, "event": "end", "script": "reproduce_paper_results.py", "status": "ok", "timestamp_utc": "2026-05-07T18:45:34+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\seal_outputs.py", "script": "seal_outputs.py", "status": "running", "timestamp_utc": "2026-05-07T18:45:38+00:00"}
+[2026-05-07T18:45:38+00:00] [seal_outputs.py] [RUN_AUDIT] START script=seal_outputs.py timestamp_utc=2026-05-07T18:45:38+00:00
+[2026-05-07T18:45:38+00:00] [seal_outputs.py] [seal_outputs] Scanning 96 artifacts under C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [10/96] OK (no change needed)  metrics_007.npz
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [20/96] OK (no change needed)  metrics_017.npz
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [30/96] OK (no change needed)  metrics_027.npz
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [40/96] OK (no change needed)  window_007.npz
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [50/96] OK (no change needed)  window_017.npz
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [60/96] OK (no change needed)  window_027.npz
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [70/96] OK (no change needed)  redfield_6DPU.npz
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [80/96] OK (no change needed)  pade_ckpt_NC3_Nk3.pkl
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [90/96] OK (no change needed)  pade_refined_ckpt_NC3_Nk1.pkl
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   [96/96] OK (no change needed)  pade_refined_ckpt_NC8_Nk1.pkl
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]
+[2026-05-07T18:45:38+00:00] [seal_outputs.py] [seal_outputs] Done.  sealed=0  skipped=96  errors=0
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]
+[2026-05-07T18:45:38+00:00] [seal_outputs.py] [seal_outputs] Final validation: validated=96  bad=0
+[2026-05-07T18:45:38+00:00] [seal_outputs.py]   All artifacts CLEAN.
+{"elapsed_s": 0.806614, "event": "end", "script": "seal_outputs.py", "status": "ok", "timestamp_utc": "2026-05-07T18:45:38+00:00"}
+{"event": "start", "message": "script=C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\src\\scripts\\validation\\validate_outputs.py", "script": "validate_outputs.py", "status": "running", "timestamp_utc": "2026-05-07T18:45:41+00:00"}
+[2026-05-07T18:45:41+00:00] [validate_outputs.py] [RUN_AUDIT] START script=validate_outputs.py timestamp_utc=2026-05-07T18:45:41+00:00
+[2026-05-07T18:45:42+00:00] [validate_outputs.py] validated=96 bad=0 report=C:\Users\User\3D Objects\biofisicaquantiqaCLINE\KwanTube\outputs_data\raw_json\structural\outputs_validation_report.json
+{"event": "output_sha256", "output_path": "C:\\Users\\User\\3D Objects\\biofisicaquantiqaCLINE\\KwanTube\\outputs_data\\raw_json\\structural\\outputs_validation_report.json", "script": "validate_outputs.py", "sha256": "813bb85c2b4ca62f6c5e5ac29a67aa335cff8b1f12e989c527c16a84397625c5", "size_bytes": 44125, "status": "ok", "timestamp_utc": "2026-05-07T18:45:42+00:00"}
+{"elapsed_s": 0.485311, "event": "end", "script": "validate_outputs.py", "status": "ok", "timestamp_utc": "2026-05-07T18:45:42+00:00"}

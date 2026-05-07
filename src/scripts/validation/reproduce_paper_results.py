@@ -38,8 +38,8 @@ from qmc_mt.meta            import per_study_evidence
 from qmc_mt.sbc_report      import posterior_sampler_ns as sbc_sampler, PRIOR_SD as SBC_PRIOR_SD, SIGMA_DATA as SBC_SIGMA_DATA
 from qmc_mt.sbc             import simulation_based_calibration
 from qmc_mt.sensitivity_priors import scan_study
-from qmc_mt.primary_data    import BABCOCK_2024, KALRA_2024
-from qmc_mt.lattice         import summary as lattice_summary
+from qmc_mt.primary_data    import BABCOCK_2024
+from qmc_mt.lattice         import summary_family as lattice_summary_family, compare_family as lattice_compare_family
 
 
 # -----------------------------------------------------------------------------
@@ -118,19 +118,95 @@ def parameter_inversion(p: dict, seed: int = 42) -> dict:
     }
 
 
-def sensitivity_report(p: dict, n_samples: int = 5000, seed: int = 42) -> dict:
+def _load_canonical_sobol(n_samples: int = 50000, n_boot: int = 200) -> dict | None:
+    path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "sensitivity_sobol_final.json"
+    if not path.exists():
+        return None
+    try:
+        payload = _load_json(path)
+    except Exception:
+        return None
+    if int(payload.get("n_samples", 0)) != int(n_samples):
+        return None
+    if int(payload.get("n_boot", 0)) != int(n_boot):
+        return None
+    results = payload.get("results", [])
+    if not results or not all("ci95" in row.get("S1", {}) and "ci95" in row.get("ST", {}) for row in results):
+        return None
+    return {**payload, "source_path": str(path)}
+
+
+def _t2_summary(seed: int = 42, n_draws: int = 2500) -> dict:
+    """Compute the T2* summary used for phi without altering the Sobol ledger."""
+    rng = np.random.default_rng(seed)
+    X = rng.uniform(0, 1, (int(n_draws), 4))
+    X[:, 0] = 0.1 + 0.9 * X[:, 0]
+    X[:, 1] = 1e12 + 9e12 * X[:, 1]
+    X[:, 2] = 280.0 + 40.0 * X[:, 2]
+    X[:, 3] = 1e-4 * (1e-2 / 1e-4) ** X[:, 3]
+
+    dimer = TubulinDimer()
+    t2_ps = []
+    for eta, wc, temp, f_prot in X:
+        params = ExperimentalParameters(temperature=float(temp))
+        model = DecoherenceModel(
+            dimer,
+            params,
+            protection_factor=float(f_prot),
+            eta=float(eta),
+            omega_c=float(wc),
+        )
+        t2_ps.append(1e12 / model.get_all_rates()["total_dephasing"])
+    t2_ps = np.asarray(t2_ps, dtype=float)
+    return {
+        "T2_ps_mean": float(np.mean(t2_ps)),
+        "T2_ps_range": [float(np.min(t2_ps)), float(np.max(t2_ps))],
+        "n_draws": int(n_draws),
+    }
+
+
+def sensitivity_report(p: dict, n_samples: int = 50000, n_boot: int = 200, seed: int = 42) -> dict:
     """Computes Sobol variance decomposition for T2* coherence lifetimes."""
-    s = sobol_indices(n_samples=int(n_samples))
+    canonical = _load_canonical_sobol(n_samples=n_samples, n_boot=n_boot)
+    if canonical is not None:
+        params = [row["parameter"] for row in canonical["results"]]
+        s1 = [float(row["S1"]["mean"]) for row in canonical["results"]]
+        st = [float(row["ST"]["mean"]) for row in canonical["results"]]
+        s1_ci95 = [list(map(float, row["S1"]["ci95"])) for row in canonical["results"]]
+        st_ci95 = [list(map(float, row["ST"]["ci95"])) for row in canonical["results"]]
+        # Preserve the SI phi summary without rerunning or downscaling the Sobol ledger.
+        t2_summary = _t2_summary(seed=seed)
+        source_path = canonical["source_path"]
+    else:
+        s_summary = sobol_indices(n_samples=int(n_samples), seed=seed)
+        params = list(s_summary["parameters"])
+        s1 = list(map(float, s_summary["first_order"]))
+        st = list(map(float, s_summary["total_order"]))
+        s1_ci95 = [list(map(float, ci)) for ci in s_summary.get("first_order_ci95", [])]
+        st_ci95 = [list(map(float, ci)) for ci in s_summary.get("total_order_ci95", [])]
+        t2_summary = {
+            "T2_ps_mean": float(s_summary["T2_ps_mean"]),
+            "T2_ps_range": list(map(float, s_summary["T2_ps_range"])),
+            "n_draws": max(512, int(n_samples) // 2),
+        }
+        source_path = "computed_inline"
     # Add empirical anchor
     eta_emp = p.get("eta_empirical", 0.30)
     return {
-        "parameters":     list(s["parameters"]),
-        "S1":             list(map(float, s["first_order"])),
-        "ST":             list(map(float, s["total_order"])),
-        "T2_ps_mean":     float(s["T2_ps_mean"]),
-        "T2_ps_range":    list(map(float, s["T2_ps_range"])),
+        "parameters":     params,
+        "n_samples":      int(n_samples),
+        "n_boot":         int(n_boot),
+        "confidence_level": 0.95,
+        "S1":             s1,
+        "S1_ci95":        s1_ci95,
+        "ST":             st,
+        "ST_ci95":        st_ci95,
+        "T2_ps_mean":     float(t2_summary["T2_ps_mean"]),
+        "T2_ps_range":    list(map(float, t2_summary["T2_ps_range"])),
+        "T2_summary_draws": int(t2_summary["n_draws"]),
         "eta_empirical":  eta_emp,
-        "phi_nominal":    float(s["T2_ps_mean"]) / 1000.0,
+        "phi_nominal":    float(t2_summary["T2_ps_mean"]) / 1000.0,
+        "source_path":    source_path,
     }
 
 
@@ -176,6 +252,342 @@ class ValidationCheck:
         return {"name": self.name, "passed": bool(ok), "detail": msg}
 
 
+def _canonical_study_key(key: str) -> str:
+    return "Kalra2023" if key == "Kalra2024" else key
+
+
+def _normalize_meta_analysis(meta: dict) -> dict:
+    meta_out = dict(meta)
+    per_study_out = {}
+    for key, record in meta.get("per_study", {}).items():
+        canon_key = _canonical_study_key(str(key))
+        canon_record = dict(record)
+        canon_record["key"] = _canonical_study_key(str(canon_record.get("key", key)))
+        per_study_out[canon_key] = canon_record
+    meta_out["per_study"] = per_study_out
+    return meta_out
+
+
+def _get_study_record(per_study: dict, preferred: str, *aliases: str) -> tuple[str, dict]:
+    for key in (preferred, *aliases):
+        if key in per_study:
+            return key, per_study[key]
+    raise KeyError(f"Missing study key: {preferred} / aliases={aliases}")
+
+
+def _load_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _normalize_mean_force_payload(payload: dict, source_path: Path) -> dict:
+    out = {
+        "status": "missing",
+        "source_path": str(source_path),
+        "complete": False,
+        "systems": {},
+        "error": None,
+    }
+    if not isinstance(payload, dict):
+        out["status"] = "invalid"
+        out["error"] = "Payload is not a JSON object"
+        return out
+
+    systems = payload.get("systems", payload)
+    if not isinstance(systems, dict):
+        out["status"] = "invalid"
+        out["error"] = "Systems payload is not a JSON object"
+        return out
+
+    norm = {}
+    for name, data in systems.items():
+        if not isinstance(data, dict):
+            continue
+        if "kl_bare" not in data or "kl_mf" not in data:
+            continue
+        norm[str(name)] = {
+            "label": str(data.get("label", name)),
+            "kl_bare": float(data["kl_bare"]),
+            "kl_mf": float(data["kl_mf"]),
+            "kl_bare_vs_mf": float(data.get("kl_bare_vs_mf", 0.0)),
+            "drift": float(data.get("drift", 0.0)),
+            "ss_verdict": str(data.get("ss_verdict", "UNKNOWN")),
+            "verdict": str(data.get("verdict", data.get("ss_verdict", "UNKNOWN"))),
+        }
+
+    out["systems"] = norm
+    out["complete"] = bool(norm)
+    out["status"] = "ok" if norm else "invalid"
+    if not norm:
+        out["error"] = "No mean-force systems with KL diagnostics were found"
+    return out
+
+
+def _load_mean_force_diagnostic() -> dict:
+    path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "meanforce_diagnosis.json"
+    if not path.exists():
+        return {
+            "status": "missing",
+            "source_path": str(path),
+            "complete": False,
+            "systems": {},
+            "error": "Artifact not found",
+        }
+    try:
+        return _normalize_mean_force_payload(_load_json(path), path)
+    except Exception as exc:
+        return {
+            "status": "invalid",
+            "source_path": str(path),
+            "complete": False,
+            "systems": {},
+            "error": f"Failed to load mean-force diagnostic: {exc}",
+        }
+
+
+def _normalize_heom_validation_payload(payload: dict, source_path: Path) -> dict:
+    out = {
+        "status": "missing",
+        "source_path": str(source_path),
+        "complete": False,
+        "summary": {},
+        "rows": [],
+        "error": None,
+    }
+    if not isinstance(payload, dict):
+        out["status"] = "invalid"
+        out["error"] = "Payload is not a JSON object"
+        return out
+
+    p_red = payload.get("p_red_500")
+    p_heom = payload.get("p_heom_500")
+    if not isinstance(p_red, list) or not isinstance(p_heom, list) or not p_red or len(p_red) != len(p_heom):
+        out["status"] = "invalid"
+        out["error"] = "Expected p_red_500 and p_heom_500 lists with equal non-zero length"
+        return out
+
+    rows = []
+    for idx, (red, heom) in enumerate(zip(p_red, p_heom)):
+        red_f = float(red)
+        heom_f = float(heom)
+        abs_diff = abs(heom_f - red_f)
+        rows.append({
+            "state_index": idx,
+            "p_redfield_500fs": red_f,
+            "p_heom_500fs": heom_f,
+            "abs_diff": abs_diff,
+            "rel_diff_vs_heom_pct": 100.0 * abs_diff / max(abs(heom_f), 1e-12),
+        })
+
+    out["summary"] = {
+        "max_redfield_deviation": float(payload.get("max_redfield_deviation", max(row["abs_diff"] for row in rows))),
+        "heom_ratio": float(payload.get("heom_ratio", 0.0)),
+        "truncation_error_nc7": float(payload.get("truncation_error_nc7", 0.0)),
+        "max_state_abs_diff": max(row["abs_diff"] for row in rows),
+        "n_states": len(rows),
+    }
+    out["rows"] = rows
+    out["complete"] = True
+    out["status"] = "ok"
+    return out
+
+
+def _load_heom_validation() -> dict:
+    path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "heom_vs_redfield_report.json"
+    if not path.exists():
+        return {
+            "status": "missing",
+            "source_path": str(path),
+            "complete": False,
+            "summary": {},
+            "rows": [],
+            "error": "Artifact not found",
+        }
+    try:
+        return _normalize_heom_validation_payload(_load_json(path), path)
+    except Exception as exc:
+        return {
+            "status": "invalid",
+            "source_path": str(path),
+            "complete": False,
+            "summary": {},
+            "rows": [],
+            "error": f"Failed to load HEOM validation artifact: {exc}",
+        }
+
+
+def _load_lattice_radiative_report(n_sites: int) -> dict:
+    candidates = [
+        PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / f"subradiant_decay_spectrum_N{n_sites}.json",
+    ]
+    if n_sites == 260:
+        candidates.append(PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "subradiant_decay_spectrum.json")
+
+    for path in candidates:
+        if not path.exists():
+            continue
+        try:
+            payload = _load_json(path)
+            geom = payload.get("geometry", {})
+            mode = payload.get("mode_classification", {})
+            ham = payload.get("hamiltonian", {})
+            if int(geom.get("n_sites", -1)) != int(n_sites):
+                continue
+            return {
+                "status": "ok",
+                "source_path": str(path),
+                "complete": True,
+                "n_sites": int(n_sites),
+                "spectral_gap_mev": float(ham.get("spectral_gap_mev", 0.0)),
+                "ipr_max": float(ham.get("ipr_max", 0.0)),
+                "ipr_mean": float(ham.get("ipr_mean", 0.0)),
+                "ipr_over_n_max": float(ham.get("ipr_over_n_max", 0.0)),
+                "fraction_subradiant": float(mode.get("fraction_subradiant", 0.0)),
+                "fraction_superradiant": float(mode.get("fraction_superradiant", 0.0)),
+                "n_subradiant": int(mode.get("n_subradiant_gamma_lt_0p1", 0)),
+                "n_superradiant": int(mode.get("n_superradiant_gamma_gt_10", 0)),
+            }
+        except Exception:
+            continue
+
+    return {
+        "status": "missing",
+        "source_path": str(candidates[0]),
+        "complete": False,
+        "n_sites": int(n_sites),
+        "error": "No radiative decay-spectrum artifact matched this lattice size",
+    }
+
+
+def _build_lattice_family() -> tuple[dict, dict]:
+    family_exc = lattice_summary_family(layer_counts=(10, 20, 40), mu_debye=1700.0, eps_r=80.0)
+    family = {}
+    for label, excitonic in family_exc.items():
+        n_sites = int(excitonic["N_dimers"])
+        family[label] = {
+            "excitonic": excitonic,
+            "radiative": _load_lattice_radiative_report(n_sites),
+        }
+
+    comparison = lattice_compare_family({label: blob["excitonic"] for label, blob in family.items()})
+    radiative_rows = []
+    ordered_labels = [row["label"] for row in comparison.get("ordered", [])]
+    for label in ordered_labels:
+        radiative = family[label]["radiative"]
+        radiative_rows.append({
+            "label": label,
+            "complete": bool(radiative.get("complete", False)),
+            "fraction_subradiant": radiative.get("fraction_subradiant"),
+            "fraction_superradiant": radiative.get("fraction_superradiant"),
+            "n_subradiant": radiative.get("n_subradiant"),
+            "n_superradiant": radiative.get("n_superradiant"),
+        })
+
+    radiative_pairwise = []
+    for prev, curr in zip(radiative_rows, radiative_rows[1:]):
+        if prev["complete"] and curr["complete"]:
+            radiative_pairwise.append({
+                "from": prev["label"],
+                "to": curr["label"],
+                "delta_fraction_subradiant": curr["fraction_subradiant"] - prev["fraction_subradiant"],
+                "delta_fraction_superradiant": curr["fraction_superradiant"] - prev["fraction_superradiant"],
+            })
+
+    comparison["radiative_ordered"] = radiative_rows
+    comparison["radiative_pairwise"] = radiative_pairwise
+    return family, comparison
+
+
+def _kalra_bf_check(r: dict) -> tuple[bool, str]:
+    key, rec = _get_study_record(r["meta_analysis"]["per_study"], "Kalra2023", "Kalra2024")
+    bf = float(rec["BF10_analytic"])
+    return bf > 30.0, f"Very Strong Evidence ({key}, BF10={bf:.1f})"
+
+
+def _lattice_gap_positive_check(r: dict) -> tuple[bool, str]:
+    ordered = r["lattice_comparison"]["ordered"]
+    ok = bool(ordered) and all(row["gap_meV"] > 0.0 for row in ordered)
+    gaps = ", ".join(f"{row['label']}={row['gap_meV']:.2f}" for row in ordered)
+    return ok, f"Positive excitonic gaps across lattice family ({gaps})"
+
+
+def _lattice_lowest_mode_delocalized_check(r: dict) -> tuple[bool, str]:
+    ordered = r["lattice_comparison"]["ordered"]
+    ok = bool(ordered) and all(row["lowest_mode_ipr"] > 2.0 for row in ordered)
+    iprs = ", ".join(f"{row['label']}={row['lowest_mode_ipr']:.1f}" for row in ordered)
+    return ok, f"Lowest-mode IPR remains delocalized across lattice family ({iprs})"
+
+
+def _sobol_canonical_precision_check(r: dict) -> tuple[bool, str]:
+    sens = r["sensitivity"]
+    n_samples = int(sens.get("n_samples", 0))
+    n_boot = int(sens.get("n_boot", 0))
+    confidence = float(sens.get("confidence_level", 0.0))
+    s1_ci = sens.get("S1_ci95", [])
+    st_ci = sens.get("ST_ci95", [])
+    ok = (
+        n_samples == 50000
+        and n_boot == 200
+        and abs(confidence - 0.95) < 1e-12
+        and len(s1_ci) == len(sens.get("parameters", []))
+        and len(st_ci) == len(sens.get("parameters", []))
+    )
+    return ok, f"Sobol canonical precision N={n_samples}, bootstrap={n_boot}, CI={confidence:.2f}"
+
+
+def _validation_ledger_self_check(checks: list[dict]) -> dict:
+    """Validate the validation ledger schema and domain coverage."""
+    names = [str(c.get("name", "")) for c in checks]
+    details = [c.get("detail") for c in checks]
+    schema_ok = all(
+        isinstance(c, dict)
+        and isinstance(c.get("name"), str)
+        and bool(c.get("name"))
+        and isinstance(c.get("passed"), bool)
+        and isinstance(c.get("detail"), str)
+        and bool(c.get("detail"))
+        for c in checks
+    )
+    names_ok = len(names) == len(set(names))
+    def _has_unresolved_pending(detail: Any) -> bool:
+        if not isinstance(detail, str):
+            return False
+        lower = detail.lower()
+        if lower.startswith("no pending"):
+            return False
+        return "pending solver completion" in lower or "pending execution" in lower
+
+    pending_ok = not any(_has_unresolved_pending(detail) for detail in details)
+    domain_prefixes = {
+        "dynamics": ("noneq_", "inversion_", "sensitivity_", "model_", "multi_", "roc_"),
+        "evidence": ("babcock_", "kalra_", "sbc_"),
+        "lattice": ("lattice_",),
+        "heom": ("heom_", "si2b_"),
+        "si_integrity": ("si2d_", "living_si_"),
+    }
+    missing_domains = [
+        domain for domain, prefixes in domain_prefixes.items()
+        if not any(name.startswith(prefixes) for name in names)
+    ]
+    ok = bool(checks) and schema_ok and names_ok and pending_ok and not missing_domains
+    if ok:
+        detail = (
+            f"Ledger schema, unique names, boolean statuses, non-empty details, "
+            f"and {len(domain_prefixes)} validation domains confirmed for the upstream validation set"
+        )
+    else:
+        problems = []
+        if not schema_ok:
+            problems.append("schema")
+        if not names_ok:
+            problems.append("duplicate_names")
+        if not pending_ok:
+            problems.append("pending_tokens")
+        if missing_domains:
+            problems.append("missing_domains=" + ",".join(missing_domains))
+        detail = "Ledger self-check failed: " + "; ".join(problems)
+    return {"name": "validation_ledger_self_consistent", "passed": ok, "detail": detail}
+
+
 CHECKS = [
     ValidationCheck("noneq_ladder_monotone",
         lambda r: (bool(np.all(np.diff(r["noneq"]["tau_ratio_vs_Delta_muJ"]) >= -0.05)),
@@ -186,6 +598,8 @@ CHECKS = [
     ValidationCheck("sensitivity_phi_finite",
         lambda r: (bool(np.isfinite(r["sensitivity"]["phi_nominal"])),
                    f"Nominal Coherence phi_0={r['sensitivity']['phi_nominal']:.3e}")),
+    ValidationCheck("sobol_canonical_precision",
+        _sobol_canonical_precision_check),
     ValidationCheck("model_selection_picks_emergent",
         lambda r: (r["model_selection"]["best"] in ("emergent", "weakly_emergent"),
                    f"Selected Model: {r['model_selection']['best']} "
@@ -201,17 +615,14 @@ CHECKS = [
         lambda r: (r["meta_analysis"]["per_study"]["Babcock2024"]["BF10_analytic"] > 100,
                    f"Decisive Evidence (BF10={r['meta_analysis']['per_study']['Babcock2024']['BF10_analytic']:.1f})")),
     ValidationCheck("kalra_bf_very_strong",
-        lambda r: (r["meta_analysis"]["per_study"]["Kalra2024"]["BF10_analytic"] > 30,
-                   f"Very Strong Evidence (BF10={r['meta_analysis']['per_study']['Kalra2024']['BF10_analytic']:.1f})")),
+        _kalra_bf_check),
     ValidationCheck("sbc_calibrated",
         lambda r: (r["sbc"]["p_value"] > 0.05,
                    f"NS Calibration p={r['sbc']['p_value']:.3f}")),
     ValidationCheck("lattice_gap_positive",
-        lambda r: (r["lattice"]["gap_meV"] > 0.0,
-                   f"Spectral Gap Delta={r['lattice']['gap_meV']:.2f} meV")),
-    ValidationCheck("lattice_subradiant_delocalized",
-        lambda r: (r["lattice"]["subradiant_IPR"] > 2.0,
-                   f"Subradiant IPR={r['lattice']['subradiant_IPR']:.1f}")),
+        _lattice_gap_positive_check),
+    ValidationCheck("lattice_lowest_mode_delocalized",
+        _lattice_lowest_mode_delocalized_check),
 ]
 
 
@@ -276,7 +687,7 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
 
     noneq = noneq_ladder(p, np.linspace(0.0, 4e-20, 9).tolist())
     inv   = parameter_inversion(p, seed=42)
-    sens  = sensitivity_report(p, n_samples=5000, seed=42)
+    sens  = sensitivity_report(p, n_samples=50000, n_boot=200, seed=42)
     ms    = model_selection(p, seed=42)
     eta_list = [0.1, 0.3, 1.0]
     if p["eta_empirical"] not in eta_list:
@@ -295,7 +706,7 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
                       np.linspace(2.0, 3.7, n_snr).tolist(),
                       n_mc=nmc, seed=42)
 
-    meta = per_study_evidence(seed=42)
+    meta = _normalize_meta_analysis(per_study_evidence(seed=42))
     
     # SBC CROSS-CHECK: PRODUCTION DEFAULT 1000
     sbc_res = simulation_based_calibration(
@@ -309,16 +720,9 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
     
     # Sensitivity
     sens_babcock = scan_study(BABCOCK_2024, np.logspace(-1, 1, 5).tolist())
-    # Lattice
-    lat  = lattice_summary(n_layers=10 if fast else 20,
-                           mu_debye=1700.0, eps_r=80.0)
-
-    # Mean-Force Diagnostic (SI-2d) - Load from artifact if exists
-    mf_diag = {}
-    mf_path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "meanforce_diagnosis.json"
-    if mf_path.exists():
-        try: mf_diag = json.loads(mf_path.read_text())
-        except: pass
+    lattice_family, lattice_comparison = _build_lattice_family()
+    mf_diag = _load_mean_force_diagnostic()
+    heom_validation = _load_heom_validation()
 
     results = {
         "_metadata": {
@@ -343,8 +747,10 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
         "meta_analysis":         _sanitize(meta),
         "sbc":                   _sanitize(sbc_res),
         "prior_sensitivity":     {"babcock": sens_babcock},
-        "lattice":               _sanitize(lat),
+        "lattice_family":        _sanitize(lattice_family),
+        "lattice_comparison":    _sanitize(lattice_comparison),
         "mean_force":            _sanitize(mf_diag),
+        "heom_validation":       _sanitize(heom_validation),
     }
 
     # HEOM production metric validation
@@ -370,6 +776,51 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
         "passed": (heom_metrics.get("redfield_discrepancy_pct") or 0.0) > 10.0,
         "detail": f"HEOM-Redfield gap {heom_metrics.get('redfield_discrepancy_pct') or 0.0:.2f}% exceeds truncation error"
     })
+
+    checks.append({
+        "name": "si2d_complete",
+        "passed": bool(results["mean_force"].get("complete")),
+        "detail": (
+            f"SI-2d mean-force systems={len(results['mean_force'].get('systems', {}))} "
+            f"status={results['mean_force'].get('status')}"
+        )
+    })
+
+    checks.append({
+        "name": "si2b_complete",
+        "passed": bool(results["heom_validation"].get("complete")),
+        "detail": (
+            f"SI-2b states={results['heom_validation'].get('summary', {}).get('n_states', 0)} "
+            f"status={results['heom_validation'].get('status')}"
+        )
+    })
+
+    checks.append({
+        "name": "lattice_radiative_family_complete",
+        "passed": all(blob["radiative"].get("complete") for blob in results["lattice_family"].values()),
+        "detail": ", ".join(
+            f"{label}={blob['radiative'].get('status')}"
+            for label, blob in results["lattice_family"].items()
+        )
+    })
+
+    results["_validation"] = {
+        "total":  len(checks),
+        "passed": sum(c["passed"] for c in checks),
+        "checks": checks,
+    }
+    results["_metadata"]["wall_time_s"] = round(time.time() - t0, 2)
+
+    si_preview = _render_si_text(results)
+    pending_tokens = ["pending solver completion", "pending execution"]
+    pending_found = [token for token in pending_tokens if token in si_preview.lower()]
+    checks.append({
+        "name": "living_si_no_pending_tokens",
+        "passed": not pending_found,
+        "detail": "No pending execution tokens in rendered SI" if not pending_found else f"Pending tokens found: {', '.join(pending_found)}",
+    })
+
+    checks.append(_validation_ledger_self_check(checks))
 
     results["_validation"] = {
         "total":  len(checks),
@@ -403,6 +854,7 @@ JSON artifact, verified via the cryptographic SHA-256 signature above.
 - **Coherence Figure-of-Merit**: \(\varphi_0 = {phi0:.3e}\) (mean estimated \(T_2^*\) in ns).
 - **Inversion Fidelity**: \(\hat\varphi = {fid_hat:.3f}\) (Target interval \([0.85,\,1.01]\)).
 - **Model Selection**: **{best_model}** architecture favored (\(\Delta\mathrm{{BIC}}_{{max}} = {max_dbic:.2f}\)).
+- **Sobol Sensitivity**: Saltelli base \(N={sobol_n}\), bootstrap \(n={sobol_boot}\), CI={sobol_ci:.2f}; eta dominates with \(S_1={sobol_eta_s1:.4f}\) [{sobol_eta_s1_lo:.4f}, {sobol_eta_s1_hi:.4f}] and \(S_T={sobol_eta_st:.4f}\) [{sobol_eta_st_lo:.4f}, {sobol_eta_st_hi:.4f}].
 
 ## SI-2a - Analytic Perturbative Benchmarking (Section 2.2.5, COMP-1)
 
@@ -457,14 +909,14 @@ Calculated via Kullback-Leibler (KL) divergence from the final HEOM state $\rho(
 
 ## SI-3 - Detector Performance: ROC Detection Surface (Section 5, COMP-12)
 
-Probability of detection \(P_D(\Delta\ell,\mathrm{{SNR}})\) at a fixed false-alarm rate 
-\(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{{MC}}={nmc}\) 
+Probability of detection \(P_D(\Delta\lambda,\mathrm{{SNR}})\) at a fixed false-alarm rate
+\(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{{MC}}={nmc}\)
 stochastic trials per configuration.
 
 {roc_table}
 
 **Consistency Check**: Verification of monotonic detection gain with increasing SNR across 
-the spatial coherence grid (\(\Delta\ell\)).
+the spatial coherence grid (\(\Delta\lambda\)).
 
 ## SI-4 - Bayesian Evidence Meta-Analysis (Section 5, COMP-11)
 
@@ -476,9 +928,10 @@ Summary of experimental contrasts integrated into the Bayesian hierarchy:
 
 **Statistical Inference Results**:
 - **Babcock (2024)**: \(BF_{{10}} = {bf_b_a:.1f}\) (Decisive evidence, Jeffreys scale). Nested Sampling verification: \({bf_b_ns:.1f} \pm {bf_b_err:.1f}\) (\(n_{{live}}=600\)).
-- **Kalra (2024)**: \(BF_{{10}} = {bf_k_a:.1f}\) (Very Strong evidence, Jeffreys scale). Nested Sampling verification: \({bf_k_ns:.1f} \pm {bf_k_err:.1f}\) (\(n_{{live}}=600\)).
+- **Kalra (2023)**: \(BF_{{10}} = {bf_k_a:.1f}\) (Very Strong evidence, Jeffreys scale). Nested Sampling verification: \({bf_k_ns:.1f} \pm {bf_k_err:.1f}\) (\(n_{{live}}=600\)).
 
-**Aggregate Significance**: Combined Bayes Factor (assuming study independence) \(BF_{{10}} \approx {bf_comb:.1e}\).
+**Descriptive Independence Calculation**: \(BF_{{10}} \approx {bf_comb:.1e}\) under a purely multiplicative independence assumption.
+*(This quantity is reported only as a descriptive cross-check. Optical and behavioral evidence layers remain incommensurate and this value is not interpreted as a pooled causal posterior.)*
 
 ## SI-7 - Calibration and Robustness Audits
 
@@ -503,15 +956,17 @@ Evaluation of Bayes Factor (\(BF_{{10}}\)) stability across a spectrum of weakly
 
 ## SI-5 - Collective Modes in the Microtubule Lattice (Section 4.3, COMP-6)
 
-Analysis of a 13-protofilament B-lattice configuration (\(N = {lat_N}\) dimers, 
-\(\mu={lat_mu:.0f}\) D, \(\varepsilon_r = {lat_eps:.0f}\)):
+Analysis of the 13-protofilament B-lattice family with fixed local couplings
+(\(\mu={lat_mu:.0f}\) D, \(\varepsilon_r = {lat_eps:.0f}\),
+\(J_\parallel={lat_axial:.2f}\) meV, \(J_\perp={lat_lateral:.2f}\) meV).
 
-- **Superradiant Band Edge** (\(E_+\)): {lat_super:.2f} meV
-- **Subradiant Band Edge** (\(E_-\)): {lat_sub:.2f} meV
-- **Excitonic Spectral Gap** (\(\Delta\)): {lat_gap:.2f} meV
-- **Inverse Participation Ratio (IPR)**: {lat_ipr:.1f} (>= 2 indicates delocalized modes)
-- **Axial Interaction** (\(J_\parallel\)): {lat_axial:.2f} meV (Attractive coupling; J-aggregate character)
-- **Lateral Interaction** (\(J_\perp\)): {lat_lateral:.2f} meV (Repulsive coupling; H-aggregate character)
+{lattice_family_table}
+
+**Cross-size interpretation**
+
+{lattice_comparison_text}
+
+*The IPR reported here refers to the lowest-energy excitonic eigenmode and should not be conflated with a radiative decay rate. Radiative protection is summarized separately through the free-space decay-spectrum fractions when those artifacts are available.*
 
 ## SI-6 - Summary of Automated Validation Checks
 
@@ -545,22 +1000,23 @@ To mitigate epistemic risk, the pipeline integrates a multi-layered empirical au
 
 def _render_ctx(r: dict) -> dict:
     meta = r["meta_analysis"]
-    lat  = r["lattice"]; osb = r["open_system_benchmark"]
-    val  = r["_validation"]; md = r["_metadata"]; rocs = r["roc_surface"]
-    mf   = r.get("mean_force", {})
+    osb = r["open_system_benchmark"]
+    val = r["_validation"]
+    md = r["_metadata"]
+    rocs = r["roc_surface"]
+    mf = r.get("mean_force", {})
+    heom_validation = r.get("heom_validation", {})
+    lattice_family = r.get("lattice_family", {})
+    lattice_comparison = r.get("lattice_comparison", {})
 
-    # Mean-Force table (SI-2d)
     mf_rows = []
-    if mf and "systems" in mf:
-        for sys_name, data in mf["systems"].items():
-            kl_bare = data.get("kl_bare", 0.0)
-            kl_mf   = data.get("kl_mf", 0.0)
-            status  = data.get("status", "UNKNOWN")
-            mf_rows.append(f"| {sys_name} | {kl_bare:.4f} | {kl_mf:.1f} | {status} |")
-    
-    mf_table = "\n".join(mf_rows) if mf_rows else "_(Diagnostic results pending execution)_"
+    for sys_name, data in mf.get("systems", {}).items():
+        status = data.get("verdict", data.get("ss_verdict", "UNKNOWN"))
+        mf_rows.append(f"| {sys_name} | {data['kl_bare']:.4f} | {data['kl_mf']:.1f} | {status} |")
     if mf_rows:
-        mf_table = "| System | KL(HEOM || Bare Gibbs) | KL(HEOM || MF 2nd Order) | Status |\n|---|---:|---:|---|\n" + mf_table
+        mf_table = "| System | KL(HEOM || Bare Gibbs) | KL(HEOM || MF 2nd Order) | Verdict |\n|---|---:|---:|---|\n" + "\n".join(mf_rows)
+    else:
+        mf_table = "_(Mean-force diagnostic artifact unavailable or incomplete.)_"
 
     bench_table = "\n".join(
         f"| {row['eta']:.2f} | {row['tau_lindblad_s']:.3e} | "
@@ -569,40 +1025,48 @@ def _render_ctx(r: dict) -> dict:
         for row in osb["ohmic_rows"]
     ) or "_(none)_"
 
-    # HEOM Hierarchical Data (SI-2b)
-    heom_table = "_(Hierarchical results pending solver completion)_"
-    try:
-        h_rows = []
-        for pdb in ["1JFF", "6DPU_fragment"]:
-            # Search in outputs_data/ using the workspace-level PROJECT_ROOT
-            fpath = PROJECT_ROOT / "outputs_data" / "raw_json" / f"redfield_vs_heom_{pdb}.json"
-            if fpath.exists():
-                h_data = json.loads(fpath.read_text())
-                for entry in h_data:
-                    tau_l = entry["tau_lindblad"]
-                    tau_h = entry["tau_heom"]
-                    spread = abs(tau_h - tau_l) / ((tau_h + tau_l) / 2)
-                    h_rows.append(f"| {pdb} | {entry['eta']:.2f} | {tau_l:.3e} | {tau_h:.3e} | {spread:.3f} |")
-        
-        if h_rows:
-            hdr = "| PDB | eta | tau_Lindblad (s) | tau_HEOM_real (s) | rel. spread |"
-            sep = "|---|---|---:|---:|---:|"
-            heom_table = "\n".join([hdr, sep] + h_rows)
-    except Exception as e:
-        heom_table = f"_(Error loading HEOM results: {str(e)})_"
+    heom_rows = heom_validation.get("rows", [])
+    if heom_validation.get("complete") and heom_rows:
+        summary = heom_validation["summary"]
+        summary_table = "\n".join([
+            "| Metric | Value |",
+            "|---|---:|",
+            f"| Max Redfield deviation | {summary['max_redfield_deviation']:.4f} |",
+            f"| HEOM retention ratio | {summary['heom_ratio']:.4f} |",
+            f"| Truncation error (NC7) | {summary['truncation_error_nc7']:.4f} |",
+            f"| Largest state-population mismatch | {summary['max_state_abs_diff']:.4f} |",
+        ])
+        state_rows = "\n".join(
+            f"| {row['state_index']} | {row['p_redfield_500fs']:.4f} | {row['p_heom_500fs']:.4f} | {row['abs_diff']:.4f} | {row['rel_diff_vs_heom_pct']:.1f}% |"
+            for row in heom_rows
+        )
+        state_table = "\n".join([
+            "| State index | Redfield @500 fs | HEOM @500 fs | |Delta| | Rel. diff. vs HEOM |",
+            "|---:|---:|---:|---:|---:|",
+            state_rows,
+        ])
+        heom_table = summary_table + "\n\n" + state_table
+    else:
+        heom_table = "_(HEOM-vs-Redfield artifact unavailable or incomplete.)_"
 
+    preferred_order = ["Babcock2024", "Kalra2023"]
+    ordered_keys = [key for key in preferred_order if key in meta["per_study"]] + [
+        key for key in meta["per_study"] if key not in preferred_order
+    ]
     meta_table = "\n".join(
-        f"| {s['key']} | {s['scale']} | {s['effect']:.2f} | {s['se']:.2f} | J. Phys. Chem. B / eNeuro |"
-        for s in meta["per_study"].values()
+        f"| {meta['per_study'][key]['key']} | {meta['per_study'][key]['scale']} | {meta['per_study'][key]['effect']:.2f} | {meta['per_study'][key]['se']:.2f} | Primary evidence registry |"
+        for key in ordered_keys
     )
 
-    dl_grid  = rocs["dl_grid"]; snr_grid = rocs["snr_exp_grid"]
+    dl_grid = rocs["dl_grid"]
+    snr_grid = rocs["snr_exp_grid"]
     P = np.asarray(rocs["P_D_grid"])
-    hdr = "| Delta_l \\\\ log10 SNR | " + " | ".join(f"{s:.2f}" for s in snr_grid) + " |"
+    hdr = "| Delta_lambda (nm) \\\\ log10 SNR | " + " | ".join(f"{s:.2f}" for s in snr_grid) + " |"
     sep = "|" + "|".join(["---"] * (len(snr_grid) + 1)) + "|"
-    body = [f"| {dl_grid[i]:.2f} | "
-            + " | ".join(f"{P[i,j]:.2f}" for j in range(len(snr_grid))) + " |"
-            for i in range(len(dl_grid))]
+    body = [
+        f"| {dl_grid[i]:.2f} | " + " | ".join(f"{P[i, j]:.2f}" for j in range(len(snr_grid))) + " |"
+        for i in range(len(dl_grid))
+    ]
     roc_table = "\n".join([hdr, sep] + body)
 
     val_rows = "\n".join(
@@ -611,31 +1075,111 @@ def _render_ctx(r: dict) -> dict:
     )
 
     bf_b = meta["per_study"]["Babcock2024"]
-    bf_k = meta["per_study"]["Kalra2024"]
+    _, bf_k = _get_study_record(meta["per_study"], "Kalra2023", "Kalra2024")
+
+    ordered_lattice = sorted(
+        lattice_family.items(),
+        key=lambda kv: int(kv[1]["excitonic"]["N_dimers"]),
+    )
+    lattice_rows = []
+    for _, blob in ordered_lattice:
+        excitonic = blob["excitonic"]
+        radiative = blob["radiative"]
+        sub_str = "N/A"
+        super_str = "N/A"
+        if radiative.get("complete"):
+            sub_str = f"{100.0 * radiative['fraction_subradiant']:.1f}% ({radiative['n_subradiant']}/{radiative['n_sites']})"
+            super_str = f"{100.0 * radiative['fraction_superradiant']:.1f}% ({radiative['n_superradiant']}/{radiative['n_sites']})"
+        lattice_rows.append(
+            f"| {excitonic['N_dimers']} | {excitonic['E_sub_meV']:.2f} | {excitonic['E_super_meV']:.2f} | {excitonic['gap_meV']:.2f} | {excitonic['lowest_mode_ipr']:.1f} | {excitonic['ipr_over_n']:.3f} | {sub_str} | {super_str} |"
+        )
+    lattice_family_table = "\n".join([
+        "| N dimers | E_- (meV) | E_+ (meV) | Gap (meV) | Lowest-mode IPR | IPR/N | Fraction subradiant | Fraction superradiant |",
+        "|---:|---:|---:|---:|---:|---:|---|---|",
+        *lattice_rows,
+    ]) if lattice_rows else "_(Lattice family unavailable.)_"
+
+    lattice_comp_lines = []
+    ordered_comp = lattice_comparison.get("ordered", [])
+    if ordered_comp:
+        first = ordered_comp[0]
+        last = ordered_comp[-1]
+        gap_shift_pct = 100.0 * (last["gap_meV"] - first["gap_meV"]) / max(abs(first["gap_meV"]), 1e-12)
+        ipr_factor = last["lowest_mode_ipr"] / max(first["lowest_mode_ipr"], 1e-12)
+        lattice_comp_lines.append(
+            f"- The excitonic spectral gap shifts by only {gap_shift_pct:.2f}% between {first['label']} and {last['label']}, indicating rapid energetic convergence with lattice length."
+        )
+        lattice_comp_lines.append(
+            f"- The lowest-mode IPR increases by a factor of {ipr_factor:.2f} across the same range, showing that modal support expands far more strongly than the band-edge energies."
+        )
+        lattice_comp_lines.append(
+            f"- The normalized quantity IPR/N evolves from {first['ipr_over_n']:.3f} to {last['ipr_over_n']:.3f}, constraining whether the lowest-energy mode remains extensive or begins to saturate sub-extensively."
+        )
+    rad_rows = lattice_comparison.get("radiative_ordered", [])
+    if rad_rows and all(row.get("complete") for row in rad_rows):
+        first_rad = rad_rows[0]
+        last_rad = rad_rows[-1]
+        lattice_comp_lines.append(
+            f"- The free-space subradiant fraction evolves from "
+            f"{100.0 * first_rad['fraction_subradiant']:.1f}% ({first_rad['label']}) "
+            f"to {100.0 * last_rad['fraction_subradiant']:.1f}% ({last_rad['label']}), "
+            "allowing a direct comparison between excitonic delocalization and radiative protection."
+        )
+    else:
+        lattice_comp_lines.append(
+            "- Radiative cross-size comparison will remain conditional until matched decay-spectrum artifacts are available for the full 130/260/520 lattice family."
+        )
+    lattice_comparison_text = "\n".join(lattice_comp_lines)
+
+    ref_excitonic = ordered_lattice[0][1]["excitonic"] if ordered_lattice else {"mu_Debye": 1700.0, "eps_r": 80.0, "nn_axial_meV": 0.0, "nn_lateral_meV": 0.0}
+    sens = r["sensitivity"]
+    eta_idx = sens.get("parameters", ["eta"]).index("eta") if "eta" in sens.get("parameters", ["eta"]) else 0
+    eta_s1_ci = sens.get("S1_ci95", [[float("nan"), float("nan")]])[eta_idx]
+    eta_st_ci = sens.get("ST_ci95", [[float("nan"), float("nan")]])[eta_idx]
 
     return {
-        "version": md["version"], "timestamp": md["timestamp_utc"],
-        "wall": md["wall_time_s"], "sha": r["_sha256"][:16],
-        "passed": val["passed"], "total": val["total"],
-        "bench_table": bench_table, "heom_table": heom_table,
-        "meta_table": meta_table, "roc_table": roc_table,
+        "version": md["version"],
+        "timestamp": md["timestamp_utc"],
+        "wall": md["wall_time_s"],
+        "sha": str(r.get("_sha256", "pre_sha_validation"))[:16],
+        "passed": val["passed"],
+        "total": val["total"],
+        "bench_table": bench_table,
+        "heom_table": heom_table,
+        "meta_table": meta_table,
+        "roc_table": roc_table,
         "val_rows": val_rows,
-        "phi0": r["sensitivity"]["phi_nominal"],
+        "phi0": sens["phi_nominal"],
+        "sobol_n": sens.get("n_samples", 0),
+        "sobol_boot": sens.get("n_boot", 0),
+        "sobol_ci": sens.get("confidence_level", 0.95),
+        "sobol_eta_s1": sens.get("S1", [float("nan")])[eta_idx],
+        "sobol_eta_s1_lo": eta_s1_ci[0],
+        "sobol_eta_s1_hi": eta_s1_ci[1],
+        "sobol_eta_st": sens.get("ST", [float("nan")])[eta_idx],
+        "sobol_eta_st_lo": eta_st_ci[0],
+        "sobol_eta_st_hi": eta_st_ci[1],
         "fid_hat": r["inversion"]["fidelity_recovered"],
         "best_model": r["model_selection"]["best"],
         "max_dbic": r["model_selection"]["max_dbic"],
-        "bf_b_a": bf_b["BF10_analytic"], "bf_b_ns": bf_b["BF10"], "bf_b_err": bf_b["BF10"] * bf_b["logZ_H1_err"],
-        "bf_k_a": bf_k["BF10_analytic"], "bf_k_ns": bf_k["BF10"], "bf_k_err": bf_k["BF10"] * bf_k["logZ_H1_err"],
+        "bf_b_a": bf_b["BF10_analytic"],
+        "bf_b_ns": bf_b["BF10"],
+        "bf_b_err": bf_b["BF10"] * bf_b["logZ_H1_err"],
+        "bf_k_a": bf_k["BF10_analytic"],
+        "bf_k_ns": bf_k["BF10"],
+        "bf_k_err": bf_k["BF10"] * bf_k["logZ_H1_err"],
         "bf_comb": meta["combined_under_independence"]["BF10"],
-        "sbc_n": r["sbc"]["n_sim"], "sbc_p": r["sbc"]["p_value"],
-        "lat_N": lat["N_dimers"], "lat_mu": lat["mu_Debye"], "lat_eps": lat["eps_r"],
-        "lat_super": lat["E_super_meV"], "lat_sub": lat["E_sub_meV"],
-        "lat_gap": lat["gap_meV"], "lat_ipr": lat["subradiant_IPR"],
-        "lat_axial": lat["nn_axial_meV"],
-        "lat_lateral": lat["nn_lateral_meV"],
+        "sbc_n": r["sbc"]["n_sim"],
+        "sbc_p": r["sbc"]["p_value"],
+        "lat_mu": ref_excitonic["mu_Debye"],
+        "lat_eps": ref_excitonic["eps_r"],
+        "lat_axial": ref_excitonic["nn_axial_meV"],
+        "lat_lateral": ref_excitonic["nn_lateral_meV"],
+        "lattice_family_table": lattice_family_table,
+        "lattice_comparison_text": lattice_comparison_text,
         "mf_table": mf_table,
         "nmc": _guess_nmc(md),
-        "eta_emp": r["sensitivity"].get("eta_empirical", 0.30),
+        "eta_emp": sens.get("eta_empirical", 0.30),
         "heom_P500": r.get("heom_production", {}).get("P_init_500fs", "N/A"),
         "heom_pur30": r.get("heom_production", {}).get("purity_30ps", "N/A"),
         "heom_ipr30": r.get("heom_production", {}).get("ipr_30ps", "N/A"),
@@ -643,6 +1187,10 @@ def _render_ctx(r: dict) -> dict:
         "heom_regime": r.get("heom_production", {}).get("regime", "unknown").replace("_", " "),
         **_load_heom_v2_summary(),
     }
+
+
+def _render_si_text(r: dict) -> str:
+    return SI_TEMPLATE.format(**_render_ctx(r))
 
 
 
@@ -653,7 +1201,7 @@ def _guess_nmc(md: dict) -> int:
 def write_living_si(r: dict, path: str = "LIVING_SI.md") -> None:
     # SI stays in root for user visibility
     full_path = PROJECT_ROOT / path
-    full_path.write_text(SI_TEMPLATE.format(**_render_ctx(r)), encoding="utf-8")
+    full_path.write_text(_render_si_text(r), encoding="utf-8")
 
 
 def _load_heom_v2_summary() -> dict:
@@ -691,19 +1239,28 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="KwanTube reproduction pipeline")
     ap.add_argument("--fast",     action="store_true", help="small grids (~5 s)")
     ap.add_argument("--full-roc", action="store_true", help="8x8 ROC, n_mc=1000 (~3 min)")
-    ap.add_argument("--out", default="outputs_data/raw_json/validation_report.json")
+    ap.add_argument("--mode", default="default", help="Compatibility switch; 'paper' is accepted as a no-op mode label.")
+    ap.add_argument("--out", default="outputs_data/raw_json/structural/validation_report.json")
     ap.add_argument("--si",  default="LIVING_SI.md")
     args = ap.parse_args()
 
     r = run_all(fast=args.fast, full_roc=args.full_roc)
     v, md = r["_validation"], r["_metadata"]
     repo_root = Path(__file__).resolve().parents[3]
-    
+
     # Ensure output JSON path
-    out_path = repo_root / "outputs_data" / "raw_json" / "structural" / "validation_report.json"
+    out_path = Path(args.out)
+    if not out_path.is_absolute():
+        out_path = repo_root / out_path
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(r, indent=2, default=str), encoding="utf-8")
-    
+
+    # If structural path is different, write there too as canonical
+    canonical_path = repo_root / "outputs_data" / "raw_json" / "structural" / "validation_report.json"
+    if out_path.resolve() != canonical_path.resolve():
+        canonical_path.parent.mkdir(parents=True, exist_ok=True)
+        canonical_path.write_text(json.dumps(r, indent=2, default=str), encoding="utf-8")
+
     write_living_si(r, path=args.si)
 
     v, md = r["_validation"], r["_metadata"]

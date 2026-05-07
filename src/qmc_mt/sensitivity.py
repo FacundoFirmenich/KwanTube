@@ -31,6 +31,8 @@ def sobol_indices(n_samples: int = 50000, seed: int = 42):
     params = [r["parameter"] for r in rep["results"]]
     s1 = [float(r["S1"]["mean"]) for r in rep["results"]]
     st = [float(r["ST"]["mean"]) for r in rep["results"]]
+    s1_ci95 = [list(map(float, r["S1"]["ci95"])) for r in rep["results"]]
+    st_ci95 = [list(map(float, r["ST"]["ci95"])) for r in rep["results"]]
 
     # Internal MC to provide T2* summary used in SI rendering
     rng = np.random.default_rng(seed)
@@ -50,8 +52,13 @@ def sobol_indices(n_samples: int = 50000, seed: int = 42):
 
     return {
         "parameters": params,
+        "n_samples": int(rep["n_samples"]),
+        "n_boot": int(rep["n_boot"]),
+        "confidence_level": 0.95,
         "first_order": s1,
+        "first_order_ci95": s1_ci95,
         "total_order": st,
+        "total_order_ci95": st_ci95,
         "T2_ps_mean": float(np.mean(t2_ps)),
         "T2_ps_range": [float(np.min(t2_ps)), float(np.max(t2_ps))],
     }

@@ -94,11 +94,16 @@ class RunAudit:
         flush = bool(kwargs.get("flush", False))
         safe_args = [_safe_console_text(arg) for arg in args]
         message = sep.join(safe_args)
-        line = f"[{utc_now_iso()}] [{self.script_name}] {message}"
-        self._original_print(line, end=end, file=file_obj, flush=flush)
+        prefix = f"[{utc_now_iso()}] [{self.script_name}]"
+        if message:
+            lines = [f"{prefix} {part}" if part else prefix for part in message.split("\n")]
+        else:
+            lines = [prefix]
+        rendered = "\n".join(lines)
+        self._original_print(rendered, end=end, file=file_obj, flush=flush)
         try:
             with self.log_path.open("a", encoding="utf-8", errors="backslashreplace") as handle:
-                handle.write(line + ("" if end == "" else "\n"))
+                handle.write(rendered + ("" if end == "" else "\n"))
         except Exception:
             self._original_print(
                 f"[{utc_now_iso()}] [run_audit] WARNING unable to write log {self.log_path}",

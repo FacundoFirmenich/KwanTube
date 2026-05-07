@@ -8,9 +8,9 @@ with point-dipole nearest-neighbour couplings:
 
 Periodic boundary in the protofilament index, open in the axial index, with
 the B-lattice 0.92 nm lateral rise realised as a shift-by-one along the
-cylinder seam. Returns the superradiant/subradiant band edges, the spectral
-gap, the NN couplings in meV, and the inverse participation ratio (IPR) of
-the subradiant eigenstate.
+cylinder seam. This module reports excitonic band-edge energies and the IPR of
+the lowest-energy eigenmode. Radiative sub/superradiance requires the separate
+decay-spectrum analysis and is intentionally not inferred here from the IPR.
 """
 from __future__ import annotations
 import numpy as np
@@ -23,6 +23,9 @@ if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from qmc_mt.core import const
+
+
+DEFAULT_LAYER_COUNTS = (10, 20, 40)
 
 
 def summary(n_layers: int = 20, mu_debye: float = 1700.0,
@@ -78,7 +81,68 @@ def summary(n_layers: int = 20, mu_debye: float = 1700.0,
         "E_super_meV":       E_super,
         "E_sub_meV":         E_sub,
         "gap_meV":           gap_meV,
+        "lowest_mode_ipr":   IPR_sub,
+        "ipr_over_n":        IPR_sub / max(N, 1),
         "subradiant_IPR":    IPR_sub,
+    }
+
+
+def summary_family(
+    layer_counts: tuple[int, ...] = DEFAULT_LAYER_COUNTS,
+    mu_debye: float = 1700.0,
+    eps_r: float = 80.0,
+    r_axial: float = 8.0e-9,
+    r_lateral: float = 5.2e-9,
+    n_protofilaments: int = 13,
+) -> dict:
+    family = {}
+    for n_layers in layer_counts:
+        item = summary(
+            n_layers=n_layers,
+            mu_debye=mu_debye,
+            eps_r=eps_r,
+            r_axial=r_axial,
+            r_lateral=r_lateral,
+            n_protofilaments=n_protofilaments,
+        )
+        family[f"N{item['N_dimers']}"] = item
+    return family
+
+
+def compare_family(family: dict) -> dict:
+    ordered = sorted(
+        family.items(),
+        key=lambda kv: int(kv[1]["N_dimers"]),
+    )
+    rows = []
+    for label, item in ordered:
+        rows.append({
+            "label": label,
+            "N_dimers": item["N_dimers"],
+            "gap_meV": item["gap_meV"],
+            "lowest_mode_ipr": item["lowest_mode_ipr"],
+            "ipr_over_n": item["ipr_over_n"],
+        })
+
+    pairwise = []
+    for prev, curr in zip(ordered, ordered[1:]):
+        prev_label, prev_item = prev
+        curr_label, curr_item = curr
+        pairwise.append({
+            "from": prev_label,
+            "to": curr_label,
+            "delta_gap_meV": curr_item["gap_meV"] - prev_item["gap_meV"],
+            "delta_gap_pct": 100.0 * (curr_item["gap_meV"] - prev_item["gap_meV"]) / max(abs(prev_item["gap_meV"]), 1e-12),
+            "delta_lowest_mode_ipr": curr_item["lowest_mode_ipr"] - prev_item["lowest_mode_ipr"],
+            "delta_lowest_mode_ipr_pct": 100.0 * (curr_item["lowest_mode_ipr"] - prev_item["lowest_mode_ipr"]) / max(abs(prev_item["lowest_mode_ipr"]), 1e-12),
+            "delta_ipr_over_n": curr_item["ipr_over_n"] - prev_item["ipr_over_n"],
+        })
+
+    return {
+        "ordered": rows,
+        "pairwise": pairwise,
+        "gap_range_meV": max((row["gap_meV"] for row in rows), default=0.0) - min((row["gap_meV"] for row in rows), default=0.0),
+        "lowest_mode_ipr_range": max((row["lowest_mode_ipr"] for row in rows), default=0.0) - min((row["lowest_mode_ipr"] for row in rows), default=0.0),
     }
 
 
@@ -91,4 +155,11 @@ if __name__ == "__main__":
             break
     from qmc_mt.run_audit import install_run_audit as _install_run_audit
     _install_run_audit(__file__)
-    import pprint; pprint.pprint(summary())
+    import pprint
+    family = summary_family()
+    for label, item in family.items():
+        print(f"--- LATTICE {label} ---")
+        pprint.pprint(item)
+        print()
+    print("--- LATTICE FAMILY COMPARISON ---")
+    pprint.pprint(compare_family(family))

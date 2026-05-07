@@ -543,17 +543,27 @@ def main() -> int:
             "outputs_data/raw_json/metrics/"
             "subradiant_decay_spectrum.json"
         ),
-        help="Output JSON path relative to project root.",
+        help=(
+            "Output JSON path relative to project root. When the default path "
+            "is kept, non-N260 runs are automatically suffixed by lattice size."
+        ),
     )
     parser.add_argument(
         "--output-csv",
         default="outputs_data/raw_csv/subradiant_modes.csv",
-        help="Output CSV path relative to project root.",
+        help=(
+            "Output CSV path relative to project root. When the default path "
+            "is kept, non-N260 runs are automatically suffixed by lattice size."
+        ),
     )
     parser.add_argument(
         "--fig-prefix",
         default="outputs_data/figures_final/subradiant_spectrum",
-        help="Figure prefix relative to project root (no extension).",
+        help=(
+            "Figure prefix relative to project root (no extension). When the "
+            "default prefix is kept, non-N260 runs are automatically suffixed by "
+            "lattice size."
+        ),
     )
     args = parser.parse_args()
 
@@ -575,6 +585,14 @@ def main() -> int:
         )
 
     n_sites = args.n_layers * args.n_protofilaments
+    suffix = f"_N{n_sites}"
+    if n_sites != 260:
+        if args.output_json == "outputs_data/raw_json/metrics/subradiant_decay_spectrum.json":
+            args.output_json = f"outputs_data/raw_json/metrics/subradiant_decay_spectrum{suffix}.json"
+        if args.output_csv == "outputs_data/raw_csv/subradiant_modes.csv":
+            args.output_csv = f"outputs_data/raw_csv/subradiant_modes{suffix}.csv"
+        if args.fig_prefix == "outputs_data/figures_final/subradiant_spectrum":
+            args.fig_prefix = f"outputs_data/figures_final/subradiant_spectrum{suffix}"
     print(
         f"[INFO] Building B-lattice: {args.n_protofilaments} pf x "
         f"{args.n_layers} layers = {n_sites} sites, "
@@ -707,6 +725,7 @@ def main() -> int:
             "n_layers": args.n_layers,
             "n_protofilaments": args.n_protofilaments,
             "n_sites": n_sites,
+            "size_label": f"N{n_sites}",
             "axial_spacing_nm": args.axial_spacing_nm,
             "seam_rise_nm": args.seam_rise_nm,
             "radius_nm": radius_nm,
@@ -722,6 +741,8 @@ def main() -> int:
             "ipr_max": ipr_max,
             "ipr_min": ipr_min,
             "ipr_mean": float(np.mean(h_ipr)),
+            "ipr_over_n_max": ipr_max / max(n_sites, 1),
+            "ipr_over_n_mean": float(np.mean(h_ipr)) / max(n_sites, 1),
         },
         "radiative_matrix": {
             "wavelength_nm": args.wavelength_nm,

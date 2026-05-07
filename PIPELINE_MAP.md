@@ -1,6 +1,6 @@
-# PIPELINE_MAP.md — KwanTube v3.5.1
+# PIPELINE_MAP.md - KwanTube v3.5.1
 
-> **Última actualización**: 2026-05-06 | **Arquitectura**: v3.5.1 (Final bioRxiv)
+> **Ultima actualizacion**: 2026-05-07 | **Arquitectura**: v3.5.1 (pre-freeze bioRxiv)
 
 ---
 
@@ -13,18 +13,19 @@ KwanTube/
 │   └── physics_params.yaml
 ├── outputs_data/
 │   ├── figures_final/              # Figuras PNG/PDF publication-ready
-│   ├── production/                 # Ventanas HEOM (000-095)
+│   ├── production/                 # Ventanas HEOM (000-029 production, 030-095 staged v2)
 │   ├── raw_csv/
 │   │   ├── bath/                   # bath_params_empirical.csv, bath_params_proxy.csv
 │   │   ├── compact/                # *_compact.csv, data_registry.csv
 │   │   ├── flags/                  # _done_*.flag
 │   │   ├── heom_+bayesian_analysis/# hierarchy_*.csv, heom_bayes_input_current.csv
-│   │   └── theory/                 # fisher_barrier.csv
+│   │   ├── theory/                 # fisher_barrier.csv
+│   │   └── subradiant_modes*.csv    # espectros radiativos N130/N260/N520
 │   ├── raw_json/
 │   │   ├── audit/                  # lineage_audit.json
-│   │   ├── metrics/                # KWW_fit.json, subradiant_spectrum.json, SBC, Sobol
+│   │   ├── metrics/                # KWW, HEOM/Redfield, mean-force, subradiance, SBC, Sobol
 │   │   ├── progress/               # _progress_*.json
-│   │   └── structural/             # outputs_validation_report.json
+│   │   └── structural/             # validation_report.json, outputs_validation_report.json
 │   ├── raw_npz/                    # H_*.npz, heom_*.npz, master_results.npz
 │   ├── raw_pkl/                    # heom_*.pkl, pade_ckpt_*.pkl
 │   ├── raw_txt+md/
@@ -32,7 +33,8 @@ KwanTube/
 │   │   └── reports/                # diagnostics_v2.txt, claim_traceability_matrix_v2.md
 │   └── verification/
 ├── src/
-│   ├── qmc_mt/                     # Paquete principal (Lógica física y auditoría)
+│   ├── qmc_mt/                     # Paquete principal (Logica fisica y auditoria)
+│   │   ├── lattice.py               # Familia B-lattice N130/N260/N520
 │   │   ├── run_audit.py            # Log de ejecución centralizado
 │   │   └── validate_integrity.py   # Motor criptográfico SHA-256
 │   └── scripts/
@@ -41,9 +43,9 @@ KwanTube/
 │       │   ├── bayesian_heom_hierarchy_v2.py
 │       │   ├── build_hamiltonian.py
 │       │   ├── compute_detectability_metrics.py
-│       │   ├── compute_subradiant_decay_spectrum.py [NUEVO]
+│       │   ├── compute_subradiant_decay_spectrum.py [family-aware]
 │       │   ├── export_claim_traceability.py
-│       │   ├── fit_heom_kww_relaxation.py [NUEVO]
+│       │   ├── fit_heom_kww_relaxation.py
 │       │   └── heom_pade_convergence.py
 │       ├── figures/                # Generación de plots para el paper
 │       │   └── generate_paper_figures.py
@@ -104,12 +106,17 @@ python src/scripts/analysis/bayesian_heom_hierarchy_v2.py
 python src/qmc_mt/sensitivity.py
 python src/qmc_mt/sbc_report.py
 ```
+*   **Sobol canonico**: `src/qmc_mt/sensitivity.py` genera `outputs_data/raw_json/metrics/sensitivity_sobol_final.json` con Saltelli base `N=50000`, bootstrap `n=200` e intervalos `CI=0.95`. El reproduction ledger valida esta precision mediante `sobol_canonical_precision`.
 
 ### FASE 7 — Coherencia Óptica y Subradiancia
 ```bash
+python src/qmc_mt/lattice.py
+python src/scripts/analysis/compute_subradiant_decay_spectrum.py --n-layers 10
 python src/scripts/analysis/compute_subradiant_decay_spectrum.py
+python src/scripts/analysis/compute_subradiant_decay_spectrum.py --n-layers 40
 ```
-*   **Resultados**: Identificación de modos protegidos ($>77\%$ subradiantes).
+*   **Resultados**: familia 13-protofilamento `N130/N260/N520`, con gaps excitonicos convergentes, `lowest_mode_ipr` creciente e incremento monotono de la fraccion subradiante de espacio libre (`70.8% -> 77.3% -> 84.8%`).
+*   **Contrato de artefactos**: `subradiant_decay_spectrum_N130.json`, `subradiant_decay_spectrum.json` (`N260`), `subradiant_decay_spectrum_N520.json` y sus `subradiant_modes*.csv` asociados.
 
 ### FASE 8 — Trazabilidad y Convergencia
 ```bash
@@ -122,14 +129,18 @@ python src/scripts/analysis/heom_pade_convergence.py
 python src/scripts/validation/audit_lineage.py
 python src/scripts/validation/reproduce_paper_results.py --mode paper
 ```
-*   Genera el `LIVING_SI.md` definitivo sincronizado con los datos.
+*   Genera `LIVING_SI.md` y `outputs_data/raw_json/structural/validation_report.json` sincronizados con los datos disponibles.
+*   `--mode paper` se mantiene como alias compatible para el modo de reproduccion del manuscrito; `--fast` ejecuta el mismo contrato en modo smoke test.
+*   El total de macro-checks y el SHA-256 del reporte son release-specific y deben leerse del `validation_report.json`, no copiarse manualmente al manuscrito antes del freeze.
+*   El ledger incluye un metacheck (`validation_ledger_self_consistent`) que valida el schema, los nombres unicos, los estados booleanos, los detalles no vacios y la cobertura minima de dominios del propio conjunto de validaciones.
 
 ### FASE 10 — Sellado Final (Integridad Criptográfica)
 ```bash
 python src/scripts/validation/seal_outputs.py
 python src/scripts/validation/validate_outputs.py
 ```
-*   **Meta**: `validated=96 bad=0`. Este es el estado de "Release Ready".
+*   **Meta de release**: `bad=0` en `validate_outputs.py` despues de sellar. El numero `validated=N` es el conteo de artefactos binarios sellados (`*.npz`, `*.pkl`) y puede cambiar cuando se agregan nuevos artefactos cubiertos por ese contrato.
+*   **No confundir**: los macro-checks de `reproduce_paper_results.py` validan claims, tablas y artefactos JSON/CSV/figuras requeridos por el manuscrito; `validate_outputs.py` valida integridad criptografica de los outputs binarios sellados.
 
 ---
 

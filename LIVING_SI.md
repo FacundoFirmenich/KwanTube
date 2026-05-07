@@ -1,7 +1,7 @@
 # LIVING_SI.md - Supplementary Information (Automated Validation)
 
-> **Version** 3.5.1 * **Generated** 2026-05-06T14:20:49Z * **Wall-time** 116.19s
-> **SHA-256 Hash** `a21fb9e7798043c1...` * **Audit Status** 14/14 validation criteria met
+> **Version** 3.5.1 * **Generated** 2026-05-07T18:45:34Z * **Wall-time** 33.45s
+> **SHA-256 Hash** `fe95a3d0e1d836cc...` * **Audit Status** 20/20 validation criteria met
 
 This document is machine-regenerated from `validation_report.json` on every 
 pipeline run. Every result is cross-referenced with the machine-auditable 
@@ -14,6 +14,7 @@ JSON artifact, verified via the cryptographic SHA-256 signature above.
 - **Coherence Figure-of-Merit**: \(\varphi_0 = 1.036e-05\) (mean estimated \(T_2^*\) in ns).
 - **Inversion Fidelity**: \(\hat\varphi = 1.000\) (Target interval \([0.85,\,1.01]\)).
 - **Model Selection**: **emergent** architecture favored (\(\Delta\mathrm{BIC}_{max} = 142.70\)).
+- **Sobol Sensitivity**: Saltelli base \(N=50000\), bootstrap \(n=200\), CI=0.95; eta dominates with \(S_1=0.9859\) [0.9518, 1.0149] and \(S_T=0.9996\) [0.9898, 1.0084].
 
 ## SI-2a - Analytic Perturbative Benchmarking (Section 2.2.5, COMP-1)
 
@@ -38,7 +39,23 @@ captures the hierarchical physics within the specified perturbative regime.
 Full non-perturbative hierarchical integration (\(L=4\), high-temperature Matsubara truncation). 
 Comparison between the nominal Lindblad baseline and the numerically exact HEOM propagator:
 
-_(Hierarchical results pending solver completion)_
+| Metric | Value |
+|---|---:|
+| Max Redfield deviation | 0.2268 |
+| HEOM retention ratio | 0.5491 |
+| Truncation error (NC7) | 0.0061 |
+| Largest state-population mismatch | 0.2268 |
+
+| State index | Redfield @500 fs | HEOM @500 fs | |Delta| | Rel. diff. vs HEOM |
+|---:|---:|---:|---:|---:|
+| 0 | 0.0080 | 0.0000 | 0.0080 | 547349.1% |
+| 1 | 0.0001 | 0.0000 | 0.0001 | 11838.8% |
+| 2 | 0.0358 | 0.0003 | 0.0356 | 12373.1% |
+| 3 | 0.0905 | 0.0098 | 0.0807 | 825.1% |
+| 4 | 0.1261 | 0.0480 | 0.0781 | 162.8% |
+| 5 | 0.6248 | 0.8516 | 0.2268 | 26.6% |
+| 6 | 0.0429 | 0.0024 | 0.0404 | 1671.3% |
+| 7 | 0.0718 | 0.0879 | 0.0161 | 18.3% |
 
 ## SI-2c - Bayesian HEOM Hierarchy (v2) - Contraction Analysis
 
@@ -63,7 +80,10 @@ module models jump magnitudes on the log-scale to infer stable contraction ratio
 Diagnostic of HEOM relaxation and consistency with second-order Mean-Force (MF) Gibbs states. 
 Calculated via Kullback-Leibler (KL) divergence from the final HEOM state $\rho(t_{final})$.
 
-_(Diagnostic results pending execution)_
+| System | KL(HEOM || Bare Gibbs) | KL(HEOM || MF 2nd Order) | Verdict |
+|---|---:|---:|---|
+| 1JFF | 0.3809 | 18.5 | FAIL |
+| 6DPU | 0.0094 | 28.0 | PASS |
 
 - **Interpretation**: `KL_bare < 0.05` indicates the system has relaxed to the standard 
   Gibbs state. A divergent `KL_mf` is the mathematical signature of the failure of 
@@ -71,18 +91,19 @@ _(Diagnostic results pending execution)_
 
 ## SI-3 - Detector Performance: ROC Detection Surface (Section 5, COMP-12)
 
-Probability of detection \(P_D(\Delta\ell,\mathrm{SNR})\) at a fixed false-alarm rate 
-\(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{MC}=10\) 
+Probability of detection \(P_D(\Delta\lambda,\mathrm{SNR})\) at a fixed false-alarm rate
+\(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{MC}=500\)
 stochastic trials per configuration.
 
-| Delta_l \\ log10 SNR | 2.00 | 2.85 | 3.70 |
-|---|---|---|---|
-| 0.30 | 0.00 | 0.00 | 0.10 |
-| 1.05 | 0.10 | 0.10 | 0.80 |
-| 1.80 | 0.00 | 0.50 | 1.00 |
+| Delta_lambda (nm) \\ log10 SNR | 2.00 | 2.57 | 3.13 | 3.70 |
+|---|---|---|---|---|
+| 0.30 | 0.06 | 0.07 | 0.10 | 0.13 |
+| 0.80 | 0.07 | 0.15 | 0.24 | 0.54 |
+| 1.30 | 0.11 | 0.17 | 0.45 | 0.89 |
+| 1.80 | 0.16 | 0.29 | 0.69 | 0.98 |
 
 **Consistency Check**: Verification of monotonic detection gain with increasing SNR across 
-the spatial coherence grid (\(\Delta\ell\)).
+the spatial coherence grid (\(\Delta\lambda\)).
 
 ## SI-4 - Bayesian Evidence Meta-Analysis (Section 5, COMP-11)
 
@@ -90,14 +111,15 @@ Summary of experimental contrasts integrated into the Bayesian hierarchy:
 
 | Study Identifier | Observable Scale | Effect Size | Standard Error | Source / Context |
 |---|---|---:|---:|---|
-| Babcock2024 | log_ratio | 0.51 | 0.13 | J. Phys. Chem. B / eNeuro |
-| Kalra2024 | raw_mean_diff_seconds | 69.00 | 20.41 | J. Phys. Chem. B / eNeuro |
+| Babcock2024 | log_ratio | 0.51 | 0.13 | Primary evidence registry |
+| Kalra2023 | raw_mean_diff_seconds | 69.00 | 20.41 | Primary evidence registry |
 
 **Statistical Inference Results**:
 - **Babcock (2024)**: \(BF_{10} = 183.3\) (Decisive evidence, Jeffreys scale). Nested Sampling verification: \(178.3 \pm 10.1\) (\(n_{live}=600\)).
-- **Kalra (2024)**: \(BF_{10} = 43.3\) (Very Strong evidence, Jeffreys scale). Nested Sampling verification: \(42.8 \pm 2.3\) (\(n_{live}=600\)).
+- **Kalra (2023)**: \(BF_{10} = 43.3\) (Very Strong evidence, Jeffreys scale). Nested Sampling verification: \(42.8 \pm 2.3\) (\(n_{live}=600\)).
 
-**Aggregate Significance**: Combined Bayes Factor (assuming study independence) \(BF_{10} \approx 7.6e+03\).
+**Descriptive Independence Calculation**: \(BF_{10} \approx 7.6e+03\) under a purely multiplicative independence assumption.
+*(This quantity is reported only as a descriptive cross-check. Optical and behavioral evidence layers remain incommensurate and this value is not interpreted as a pooled causal posterior.)*
 
 ## SI-7 - Calibration and Robustness Audits
 
@@ -122,15 +144,24 @@ Evaluation of Bayes Factor (\(BF_{10}\)) stability across a spectrum of weakly-i
 
 ## SI-5 - Collective Modes in the Microtubule Lattice (Section 4.3, COMP-6)
 
-Analysis of a 13-protofilament B-lattice configuration (\(N = 130\) dimers, 
-\(\mu=1700\) D, \(\varepsilon_r = 80\)):
+Analysis of the 13-protofilament B-lattice family with fixed local couplings
+(\(\mu=1700\) D, \(\varepsilon_r = 80\),
+\(J_\parallel=-88.08\) meV, \(J_\perp=160.36\) meV).
 
-- **Superradiant Band Edge** (\(E_+\)): 480.55 meV
-- **Subradiant Band Edge** (\(E_-\)): -480.55 meV
-- **Excitonic Spectral Gap** (\(\Delta\)): 961.10 meV
-- **Inverse Participation Ratio (IPR)**: 64.1 (>= 2 indicates delocalized modes)
-- **Axial Interaction** (\(J_\parallel\)): -88.08 meV (Attractive coupling; J-aggregate character)
-- **Lateral Interaction** (\(J_\perp\)): 160.36 meV (Repulsive coupling; H-aggregate character)
+| N dimers | E_- (meV) | E_+ (meV) | Gap (meV) | Lowest-mode IPR | IPR/N | Fraction subradiant | Fraction superradiant |
+|---:|---:|---:|---:|---:|---:|---|---|
+| 130 | -480.55 | 480.55 | 961.10 | 64.1 | 0.493 | 70.8% (92/130) | 1.5% (2/130) |
+| 260 | -485.68 | 485.68 | 971.37 | 122.2 | 0.470 | 77.3% (201/260) | 1.9% (5/260) |
+| 520 | -487.13 | 487.13 | 974.25 | 237.9 | 0.458 | 84.8% (441/520) | 1.2% (6/520) |
+
+**Cross-size interpretation**
+
+- The excitonic spectral gap shifts by only 1.37% between N130 and N520, indicating rapid energetic convergence with lattice length.
+- The lowest-mode IPR increases by a factor of 3.71 across the same range, showing that modal support expands far more strongly than the band-edge energies.
+- The normalized quantity IPR/N evolves from 0.493 to 0.458, constraining whether the lowest-energy mode remains extensive or begins to saturate sub-extensively.
+- The free-space subradiant fraction evolves from 70.8% (N130) to 84.8% (N520), allowing a direct comparison between excitonic delocalization and radiative protection.
+
+*The IPR reported here refers to the lowest-energy excitonic eigenmode and should not be conflated with a radiative decay rate. Radiative protection is summarized separately through the free-space decay-spectrum fractions when those artifacts are available.*
 
 ## SI-6 - Summary of Automated Validation Checks
 
@@ -139,17 +170,23 @@ Analysis of a 13-protofilament B-lattice configuration (\(N = 130\) dimers,
 | `noneq_ladder_monotone` | [OK] | Coherence tau(Delta_mu) is monotonically non-decreasing |
 | `inversion_recovers_fidelity` | [OK] | Recovery Fidelity phi_hat=1.000 |
 | `sensitivity_phi_finite` | [OK] | Nominal Coherence phi_0=1.036e-05 |
+| `sobol_canonical_precision` | [OK] | Sobol canonical precision N=50000, bootstrap=200, CI=0.95 |
 | `model_selection_picks_emergent` | [OK] | Selected Model: emergent (Delta_BIC_max=142.70) |
 | `multi_formalism_concordance` | [OK] | Relative spread < 1.0 across eta coupling grid |
 | `roc_monotone_global` | [OK] | Detection probability P_D increases with SNR |
 | `babcock_bf_decisive` | [OK] | Decisive Evidence (BF10=183.3) |
-| `kalra_bf_very_strong` | [OK] | Very Strong Evidence (BF10=43.3) |
+| `kalra_bf_very_strong` | [OK] | Very Strong Evidence (Kalra2023, BF10=43.3) |
 | `sbc_calibrated` | [OK] | NS Calibration p=0.560 |
-| `lattice_gap_positive` | [OK] | Spectral Gap Delta=961.10 meV |
-| `lattice_subradiant_delocalized` | [OK] | Subradiant IPR=64.1 |
+| `lattice_gap_positive` | [OK] | Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25) |
+| `lattice_lowest_mode_delocalized` | [OK] | Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9) |
 | `heom_production_extracted` | [OK] | Pur(30ps)=0.21, Disc=26.39% |
 | `heom_non_equilibrium_regime` | [OK] | Terminal purity 0.21 < 0.25 confirms transient dynamics |
 | `heom_redfield_divergence` | [OK] | HEOM-Redfield gap 26.39% exceeds truncation error |
+| `si2d_complete` | [OK] | SI-2d mean-force systems=2 status=ok |
+| `si2b_complete` | [OK] | SI-2b states=8 status=ok |
+| `lattice_radiative_family_complete` | [OK] | N130=ok, N260=ok, N520=ok |
+| `living_si_no_pending_tokens` | [OK] | No pending execution tokens in rendered SI |
+| `validation_ledger_self_consistent` | [OK] | Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed for the upstream validation set |
 
 ## SI-9 - L4 Public-Data Audit (Structural & Spectroscopic)
 
