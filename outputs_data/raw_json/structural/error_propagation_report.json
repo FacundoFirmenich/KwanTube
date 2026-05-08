@@ -1,0 +1,76 @@
+{
+  "script": "propagations.py",
+  "version": "3.5.1",
+  "timestamp_utc": "2026-05-07T23:48:06+00:00",
+  "methodology": "Parametric Monte Carlo + Numerical Bootstrap",
+  "domain": "error_propagation_tier0",
+  "data_sources": {
+    "validation_report": "raw_json/structural/validation_report.json",
+    "heom_kww_fit": "raw_json/metrics/heom_kww_relaxation_fit.json",
+    "structures_compact": "raw_csv/structures_compact.csv",
+    "bath_params_proxy": "raw_csv/bath_params_proxy.csv"
+  },
+  "propagations": {
+    "p1_t2_structural": {
+      "mean_fs": 7.698722249797725,
+      "ci95_lo": 4.124786202410441,
+      "ci95_hi": 19.31459317922356,
+      "std_fs": 4.0741122867919985,
+      "eta_distribution": {
+        "mean": 0.6124255524861878,
+        "std": 0.20882462412007494,
+        "ci95_lo": 0.18600531250000002,
+        "ci95_hi": 1.0,
+        "n_samples": 362,
+        "systematic_error": 0.09186383287292817,
+        "source": "structures_compact.csv_bootstrap"
+      }
+    },
+    "p2_u_det": {
+      "mean": 0.3961704403252395,
+      "std": 0.1299119598035423,
+      "ci95_lo": 0.1603282635905778,
+      "ci95_hi": 0.6597194693060077,
+      "note": "Generic Beta distributions used (Exp 4 surface not available)"
+    },
+    "p3_kww_beta": {
+      "mean": 0.4426750047901106,
+      "std_fit": 0.002377955618686304,
+      "std_truncation": 0.003752834976096298,
+      "ci95_lo": 0.4356479267374101,
+      "ci95_hi": 0.4505834990628235,
+      "excludes_markov": true,
+      "sigma_frob_source": "validation_report.json[heom_validation.summary.truncation_error_nc7]",
+      "sigma_frob_value": 0.006117575578821005,
+      "n_successful_fits": 500
+    },
+    "p4_heom_red_gap": {
+      "mean_pct": 26.388449099380587,
+      "std_pct": 1.2,
+      "ci95_lo": 24.055365153996757,
+      "ci95_hi": 28.754267745518366,
+      "sigma_heom_used": 0.006117575578821005,
+      "method": "truncation_error_propagation"
+    },
+    "p5_qed_tau": {
+      "mean_s": 5.324723889303333e-07,
+      "ci95_lo": 1.340933820750154e-07,
+      "ci95_hi": 1.112483110690764e-06,
+      "log_mean": -6.273702907412403,
+      "log_ci95_lo": -6.872592655401383,
+      "log_ci95_hi": -5.953706573596004
+    },
+    "p6_u_eq_worst": {
+      "worst_case_99p": 4.0807548144896615e-09,
+      "median": 7.695508412649942e-10,
+      "proves_u_lt_1": true
+    },
+    "p7_vn_entropy": {
+      "mean_nats": 1.7876347539439688,
+      "std_nats": 0.017346153253824003,
+      "ci95_lo": 1.7518755120989056,
+      "ci95_hi": 1.8204230892382334,
+      "sigma_frob_used": 0.006117575578821005
+    }
+  }
+}

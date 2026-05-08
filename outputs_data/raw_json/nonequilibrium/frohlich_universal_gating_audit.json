@@ -1,0 +1,458 @@
+{
+  "audit": "frohlich_universal_gating_dimensional_audit",
+  "criteria": {
+    "carrier_wavelength": "L_omega = pi v_g / omega_F = v_g / (2 f_F)",
+    "linewidth_continuum": "L_gamma = pi v_g / gamma = v_g / (2 gamma_Hz)",
+    "interpretation": "Micron-scale gating at THz carrier frequencies is not wavelength-controlled; it requires a narrow effective linewidth or a lower-frequency collective mode."
+  },
+  "cases": [
+    {
+      "case": {
+        "name": "microtubule",
+        "spacing_m": 8e-09,
+        "group_velocity_m_s": 2000.0,
+        "note": "Tubulin dimer repeat; representative protein acoustic velocity."
+      },
+      "carrier_wavelength_criterion": [
+        {
+          "frequency_hz": 1000000.0,
+          "L_omega_m": 0.001,
+          "L_omega_um": 1000.0,
+          "monomers_at_L_omega": 125000.0
+        },
+        {
+          "frequency_hz": 100000000.0,
+          "L_omega_m": 1e-05,
+          "L_omega_um": 10.0,
+          "monomers_at_L_omega": 1250.0
+        },
+        {
+          "frequency_hz": 1000000000.0,
+          "L_omega_m": 1e-06,
+          "L_omega_um": 1.0,
+          "monomers_at_L_omega": 124.99999999999999
+        },
+        {
+          "frequency_hz": 10000000000.0,
+          "L_omega_m": 1e-07,
+          "L_omega_um": 0.09999999999999999,
+          "monomers_at_L_omega": 12.499999999999998
+        },
+        {
+          "frequency_hz": 100000000000.0,
+          "L_omega_m": 1e-08,
+          "L_omega_um": 0.01,
+          "monomers_at_L_omega": 1.25
+        },
+        {
+          "frequency_hz": 1000000000000.0,
+          "L_omega_m": 1e-09,
+          "L_omega_um": 0.001,
+          "monomers_at_L_omega": 0.125
+        }
+      ],
+      "linewidth_continuum_criterion": [
+        {
+          "linewidth_hz": 1000000.0,
+          "L_gamma_m": 0.001,
+          "L_gamma_um": 1000.0,
+          "monomers_at_L_gamma": 125000.0
+        },
+        {
+          "linewidth_hz": 10000000.0,
+          "L_gamma_m": 9.999999999999999e-05,
+          "L_gamma_um": 99.99999999999999,
+          "monomers_at_L_gamma": 12499.999999999998
+        },
+        {
+          "linewidth_hz": 100000000.0,
+          "L_gamma_m": 1e-05,
+          "L_gamma_um": 10.0,
+          "monomers_at_L_gamma": 1250.0
+        },
+        {
+          "linewidth_hz": 1000000000.0,
+          "L_gamma_m": 1e-06,
+          "L_gamma_um": 1.0,
+          "monomers_at_L_gamma": 124.99999999999999
+        },
+        {
+          "linewidth_hz": 10000000000.0,
+          "L_gamma_m": 1e-07,
+          "L_gamma_um": 0.09999999999999999,
+          "monomers_at_L_gamma": 12.499999999999998
+        },
+        {
+          "linewidth_hz": 100000000000.0,
+          "L_gamma_m": 1e-08,
+          "L_gamma_um": 0.01,
+          "monomers_at_L_gamma": 1.25
+        }
+      ],
+      "beta_eff_proxy": [
+        {
+          "length_m": 1e-08,
+          "length_um": 0.01,
+          "beta_eff_gamma_100MHz": 0.9999990000010001
+        },
+        {
+          "length_m": 1e-07,
+          "length_um": 0.09999999999999999,
+          "beta_eff_gamma_100MHz": 0.9999000099990001
+        },
+        {
+          "length_m": 1e-06,
+          "length_um": 1.0,
+          "beta_eff_gamma_100MHz": 0.9900990099009901
+        },
+        {
+          "length_m": 1e-05,
+          "length_um": 10.0,
+          "beta_eff_gamma_100MHz": 0.5
+        },
+        {
+          "length_m": 0.0001,
+          "length_um": 100.0,
+          "beta_eff_gamma_100MHz": 0.009900990099009901
+        }
+      ],
+      "linewidth_required_for_10um_hz": 99999999.99999999
+    },
+    {
+      "case": {
+        "name": "F-actin",
+        "spacing_m": 2.75e-09,
+        "group_velocity_m_s": 2000.0,
+        "note": "Actin axial monomer rise; velocity kept equal for class comparison."
+      },
+      "carrier_wavelength_criterion": [
+        {
+          "frequency_hz": 1000000.0,
+          "L_omega_m": 0.001,
+          "L_omega_um": 1000.0,
+          "monomers_at_L_omega": 363636.36363636365
+        },
+        {
+          "frequency_hz": 100000000.0,
+          "L_omega_m": 1e-05,
+          "L_omega_um": 10.0,
+          "monomers_at_L_omega": 3636.363636363637
+        },
+        {
+          "frequency_hz": 1000000000.0,
+          "L_omega_m": 1e-06,
+          "L_omega_um": 1.0,
+          "monomers_at_L_omega": 363.6363636363636
+        },
+        {
+          "frequency_hz": 10000000000.0,
+          "L_omega_m": 1e-07,
+          "L_omega_um": 0.09999999999999999,
+          "monomers_at_L_omega": 36.36363636363637
+        },
+        {
+          "frequency_hz": 100000000000.0,
+          "L_omega_m": 1e-08,
+          "L_omega_um": 0.01,
+          "monomers_at_L_omega": 3.6363636363636367
+        },
+        {
+          "frequency_hz": 1000000000000.0,
+          "L_omega_m": 1e-09,
+          "L_omega_um": 0.001,
+          "monomers_at_L_omega": 0.3636363636363637
+        }
+      ],
+      "linewidth_continuum_criterion": [
+        {
+          "linewidth_hz": 1000000.0,
+          "L_gamma_m": 0.001,
+          "L_gamma_um": 1000.0,
+          "monomers_at_L_gamma": 363636.36363636365
+        },
+        {
+          "linewidth_hz": 10000000.0,
+          "L_gamma_m": 9.999999999999999e-05,
+          "L_gamma_um": 99.99999999999999,
+          "monomers_at_L_gamma": 36363.63636363636
+        },
+        {
+          "linewidth_hz": 100000000.0,
+          "L_gamma_m": 1e-05,
+          "L_gamma_um": 10.0,
+          "monomers_at_L_gamma": 3636.363636363637
+        },
+        {
+          "linewidth_hz": 1000000000.0,
+          "L_gamma_m": 1e-06,
+          "L_gamma_um": 1.0,
+          "monomers_at_L_gamma": 363.6363636363636
+        },
+        {
+          "linewidth_hz": 10000000000.0,
+          "L_gamma_m": 1e-07,
+          "L_gamma_um": 0.09999999999999999,
+          "monomers_at_L_gamma": 36.36363636363637
+        },
+        {
+          "linewidth_hz": 100000000000.0,
+          "L_gamma_m": 1e-08,
+          "L_gamma_um": 0.01,
+          "monomers_at_L_gamma": 3.6363636363636367
+        }
+      ],
+      "beta_eff_proxy": [
+        {
+          "length_m": 1e-08,
+          "length_um": 0.01,
+          "beta_eff_gamma_100MHz": 0.9999990000010001
+        },
+        {
+          "length_m": 1e-07,
+          "length_um": 0.09999999999999999,
+          "beta_eff_gamma_100MHz": 0.9999000099990001
+        },
+        {
+          "length_m": 1e-06,
+          "length_um": 1.0,
+          "beta_eff_gamma_100MHz": 0.9900990099009901
+        },
+        {
+          "length_m": 1e-05,
+          "length_um": 10.0,
+          "beta_eff_gamma_100MHz": 0.5
+        },
+        {
+          "length_m": 0.0001,
+          "length_um": 100.0,
+          "beta_eff_gamma_100MHz": 0.009900990099009901
+        }
+      ],
+      "linewidth_required_for_10um_hz": 99999999.99999999
+    },
+    {
+      "case": {
+        "name": "collagen",
+        "spacing_m": 2.86e-10,
+        "group_velocity_m_s": 3000.0,
+        "note": "Peptide axial rise scale; slightly higher axial sound velocity."
+      },
+      "carrier_wavelength_criterion": [
+        {
+          "frequency_hz": 1000000.0,
+          "L_omega_m": 0.0015,
+          "L_omega_um": 1500.0,
+          "monomers_at_L_omega": 5244755.244755245
+        },
+        {
+          "frequency_hz": 100000000.0,
+          "L_omega_m": 1.5e-05,
+          "L_omega_um": 15.0,
+          "monomers_at_L_omega": 52447.55244755245
+        },
+        {
+          "frequency_hz": 1000000000.0,
+          "L_omega_m": 1.5e-06,
+          "L_omega_um": 1.5,
+          "monomers_at_L_omega": 5244.755244755245
+        },
+        {
+          "frequency_hz": 10000000000.0,
+          "L_omega_m": 1.5e-07,
+          "L_omega_um": 0.15,
+          "monomers_at_L_omega": 524.4755244755245
+        },
+        {
+          "frequency_hz": 100000000000.0,
+          "L_omega_m": 1.5e-08,
+          "L_omega_um": 0.015,
+          "monomers_at_L_omega": 52.44755244755245
+        },
+        {
+          "frequency_hz": 1000000000000.0,
+          "L_omega_m": 1.5e-09,
+          "L_omega_um": 0.0015,
+          "monomers_at_L_omega": 5.244755244755245
+        }
+      ],
+      "linewidth_continuum_criterion": [
+        {
+          "linewidth_hz": 1000000.0,
+          "L_gamma_m": 0.0015,
+          "L_gamma_um": 1500.0,
+          "monomers_at_L_gamma": 5244755.244755245
+        },
+        {
+          "linewidth_hz": 10000000.0,
+          "L_gamma_m": 0.00015,
+          "L_gamma_um": 150.0,
+          "monomers_at_L_gamma": 524475.5244755244
+        },
+        {
+          "linewidth_hz": 100000000.0,
+          "L_gamma_m": 1.5e-05,
+          "L_gamma_um": 15.0,
+          "monomers_at_L_gamma": 52447.55244755245
+        },
+        {
+          "linewidth_hz": 1000000000.0,
+          "L_gamma_m": 1.5e-06,
+          "L_gamma_um": 1.5,
+          "monomers_at_L_gamma": 5244.755244755245
+        },
+        {
+          "linewidth_hz": 10000000000.0,
+          "L_gamma_m": 1.5e-07,
+          "L_gamma_um": 0.15,
+          "monomers_at_L_gamma": 524.4755244755245
+        },
+        {
+          "linewidth_hz": 100000000000.0,
+          "L_gamma_m": 1.5e-08,
+          "L_gamma_um": 0.015,
+          "monomers_at_L_gamma": 52.44755244755245
+        }
+      ],
+      "beta_eff_proxy": [
+        {
+          "length_m": 1e-08,
+          "length_um": 0.01,
+          "beta_eff_gamma_100MHz": 0.9999995555557532
+        },
+        {
+          "length_m": 1e-07,
+          "length_um": 0.09999999999999999,
+          "beta_eff_gamma_100MHz": 0.9999555575307764
+        },
+        {
+          "length_m": 1e-06,
+          "length_um": 1.0,
+          "beta_eff_gamma_100MHz": 0.995575221238938
+        },
+        {
+          "length_m": 1e-05,
+          "length_um": 10.0,
+          "beta_eff_gamma_100MHz": 0.6923076923076922
+        },
+        {
+          "length_m": 0.0001,
+          "length_um": 100.0,
+          "beta_eff_gamma_100MHz": 0.02200488997555012
+        }
+      ],
+      "linewidth_required_for_10um_hz": 150000000.0
+    },
+    {
+      "case": {
+        "name": "generic_dipolar_chain",
+        "spacing_m": 1e-09,
+        "group_velocity_m_s": 2000.0,
+        "note": "Dimensionless reference chain."
+      },
+      "carrier_wavelength_criterion": [
+        {
+          "frequency_hz": 1000000.0,
+          "L_omega_m": 0.001,
+          "L_omega_um": 1000.0,
+          "monomers_at_L_omega": 1000000.0
+        },
+        {
+          "frequency_hz": 100000000.0,
+          "L_omega_m": 1e-05,
+          "L_omega_um": 10.0,
+          "monomers_at_L_omega": 10000.0
+        },
+        {
+          "frequency_hz": 1000000000.0,
+          "L_omega_m": 1e-06,
+          "L_omega_um": 1.0,
+          "monomers_at_L_omega": 999.9999999999999
+        },
+        {
+          "frequency_hz": 10000000000.0,
+          "L_omega_m": 1e-07,
+          "L_omega_um": 0.09999999999999999,
+          "monomers_at_L_omega": 99.99999999999999
+        },
+        {
+          "frequency_hz": 100000000000.0,
+          "L_omega_m": 1e-08,
+          "L_omega_um": 0.01,
+          "monomers_at_L_omega": 10.0
+        },
+        {
+          "frequency_hz": 1000000000000.0,
+          "L_omega_m": 1e-09,
+          "L_omega_um": 0.001,
+          "monomers_at_L_omega": 1.0
+        }
+      ],
+      "linewidth_continuum_criterion": [
+        {
+          "linewidth_hz": 1000000.0,
+          "L_gamma_m": 0.001,
+          "L_gamma_um": 1000.0,
+          "monomers_at_L_gamma": 1000000.0
+        },
+        {
+          "linewidth_hz": 10000000.0,
+          "L_gamma_m": 9.999999999999999e-05,
+          "L_gamma_um": 99.99999999999999,
+          "monomers_at_L_gamma": 99999.99999999999
+        },
+        {
+          "linewidth_hz": 100000000.0,
+          "L_gamma_m": 1e-05,
+          "L_gamma_um": 10.0,
+          "monomers_at_L_gamma": 10000.0
+        },
+        {
+          "linewidth_hz": 1000000000.0,
+          "L_gamma_m": 1e-06,
+          "L_gamma_um": 1.0,
+          "monomers_at_L_gamma": 999.9999999999999
+        },
+        {
+          "linewidth_hz": 10000000000.0,
+          "L_gamma_m": 1e-07,
+          "L_gamma_um": 0.09999999999999999,
+          "monomers_at_L_gamma": 99.99999999999999
+        },
+        {
+          "linewidth_hz": 100000000000.0,
+          "L_gamma_m": 1e-08,
+          "L_gamma_um": 0.01,
+          "monomers_at_L_gamma": 10.0
+        }
+      ],
+      "beta_eff_proxy": [
+        {
+          "length_m": 1e-08,
+          "length_um": 0.01,
+          "beta_eff_gamma_100MHz": 0.9999990000010001
+        },
+        {
+          "length_m": 1e-07,
+          "length_um": 0.09999999999999999,
+          "beta_eff_gamma_100MHz": 0.9999000099990001
+        },
+        {
+          "length_m": 1e-06,
+          "length_um": 1.0,
+          "beta_eff_gamma_100MHz": 0.9900990099009901
+        },
+        {
+          "length_m": 1e-05,
+          "length_um": 10.0,
+          "beta_eff_gamma_100MHz": 0.5
+        },
+        {
+          "length_m": 0.0001,
+          "length_um": 100.0,
+          "beta_eff_gamma_100MHz": 0.009900990099009901
+        }
+      ],
+      "linewidth_required_for_10um_hz": 99999999.99999999
+    }
+  ]
+}

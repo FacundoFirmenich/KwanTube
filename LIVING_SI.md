@@ -1,7 +1,7 @@
 # LIVING_SI.md - Supplementary Information (Automated Validation)
 
-> **Version** 3.5.1 * **Generated** 2026-05-07T18:45:34Z * **Wall-time** 33.45s
-> **SHA-256 Hash** `fe95a3d0e1d836cc...` * **Audit Status** 20/20 validation criteria met
+> **Version** 3.5.1 * **Generated** 2026-05-08T18:02:16Z * **Wall-time** 39.07s
+> **SHA-256 Hash** `672b90345ecc9e52...` * **Audit Status** 22/22 validation criteria met
 
 This document is machine-regenerated from `validation_report.json` on every 
 pipeline run. Every result is cross-referenced with the machine-auditable 
@@ -89,18 +89,41 @@ Calculated via Kullback-Leibler (KL) divergence from the final HEOM state $\rho(
   Gibbs state. A divergent `KL_mf` is the mathematical signature of the failure of 
   second-order perturbation theory in the intermediate coupling regime (\(\lambda\beta \sim 1\)).
 
-## SI-3 - Detector Performance: ROC Detection Surface (Section 5, COMP-12)
+## SI-2e - HEOM Structured Non-Markovian Relaxation Diagnostics
+
+Secondary diagnostics reuse the archived HEOM KWW time-series and fit ledger. No new
+HEOM trajectory is generated.
+
+- **Population/purity/entropy observables**: 6 observables.
+- **KWW exponent range**: \(\beta=0.370\)--\(0.462\).
+- **Mean exponent**: \(\bar\beta=0.428\).
+- **Interpretation**: sub-unitary KWW clustering supports distributed non-Markovian relaxation over the finite 30 ps production window. It does not establish thermodynamic glassiness, a glass transition, or a non-equilibrium steady state.
+
+## SI-2f - Universal Fröhlich Dimensional Audit
+
+The carrier-wavelength and linewidth-continuum criteria are tracked separately:
+\(L_\omega=v_g/(2f_F)\) and \(L_\gamma=v_g/(2\gamma_{Hz})\).
+
+- **Microtubule carrier criterion**: \(L_\omega(0.1\,\mathrm{THz})=0.01\,\mu\mathrm{m}\).
+- **Linewidth needed for 10 µm gate**: \(\gamma_{Hz}=1e+08\,\mathrm{Hz}\).
+- **Cases audited**: 4 (microtubule, F-actin, collagen, generic dipolar chain).
+
+## SI-3 - Detector Performance: Neyman--Pearson Detection-Power Surface (Section 5, COMP-12)
 
 Probability of detection \(P_D(\Delta\lambda,\mathrm{SNR})\) at a fixed false-alarm rate
-\(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{MC}=500\)
+\(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{MC}=1000\)
 stochastic trials per configuration.
 
-| Delta_lambda (nm) \\ log10 SNR | 2.00 | 2.57 | 3.13 | 3.70 |
-|---|---|---|---|---|
-| 0.30 | 0.06 | 0.07 | 0.10 | 0.13 |
-| 0.80 | 0.07 | 0.15 | 0.24 | 0.54 |
-| 1.30 | 0.11 | 0.17 | 0.45 | 0.89 |
-| 1.80 | 0.16 | 0.29 | 0.69 | 0.98 |
+| Delta_lambda (nm) \\ log10 SNR | 2.00 | 2.24 | 2.49 | 2.73 | 2.97 | 3.21 | 3.46 | 3.70 |
+|---|---|---|---|---|---|---|---|---|
+| 0.30 | 0.06 | 0.05 | 0.08 | 0.07 | 0.09 | 0.11 | 0.15 | 0.15 |
+| 0.51 | 0.07 | 0.08 | 0.09 | 0.10 | 0.12 | 0.18 | 0.22 | 0.31 |
+| 0.73 | 0.09 | 0.10 | 0.11 | 0.17 | 0.18 | 0.23 | 0.32 | 0.53 |
+| 0.94 | 0.10 | 0.12 | 0.14 | 0.16 | 0.22 | 0.34 | 0.50 | 0.68 |
+| 1.16 | 0.11 | 0.12 | 0.15 | 0.22 | 0.29 | 0.41 | 0.63 | 0.81 |
+| 1.37 | 0.11 | 0.12 | 0.18 | 0.26 | 0.39 | 0.55 | 0.74 | 0.92 |
+| 1.59 | 0.12 | 0.15 | 0.20 | 0.30 | 0.47 | 0.64 | 0.84 | 0.98 |
+| 1.80 | 0.14 | 0.19 | 0.26 | 0.36 | 0.53 | 0.74 | 0.92 | 0.99 |
 
 **Consistency Check**: Verification of monotonic detection gain with increasing SNR across 
 the spatial coherence grid (\(\Delta\lambda\)).
@@ -180,11 +203,13 @@ Analysis of the 13-protofilament B-lattice family with fixed local couplings
 | `lattice_gap_positive` | [OK] | Positive excitonic gaps across lattice family (N130=961.10, N260=971.37, N520=974.25) |
 | `lattice_lowest_mode_delocalized` | [OK] | Lowest-mode IPR remains delocalized across lattice family (N130=64.1, N260=122.2, N520=237.9) |
 | `heom_production_extracted` | [OK] | Pur(30ps)=0.21, Disc=26.39% |
-| `heom_non_equilibrium_regime` | [OK] | Terminal purity 0.21 < 0.25 confirms transient dynamics |
+| `heom_finite_window_transient` | [OK] | Terminal purity 0.21 < 0.25 confirms transient dynamics |
 | `heom_redfield_divergence` | [OK] | HEOM-Redfield gap 26.39% exceeds truncation error |
 | `si2d_complete` | [OK] | SI-2d mean-force systems=2 status=ok |
 | `si2b_complete` | [OK] | SI-2b states=8 status=ok |
 | `lattice_radiative_family_complete` | [OK] | N130=ok, N260=ok, N520=ok |
+| `frohlich_gating_dimensional_audit` | [OK] | L_omega(0.1THz)=0.01 um; gamma_10um=1e+08 Hz; cases=4 |
+| `heom_structured_relaxation_diagnostics` | [OK] | beta=0.370-0.462; n=6; all_subunitary=True |
 | `living_si_no_pending_tokens` | [OK] | No pending execution tokens in rendered SI |
 | `validation_ledger_self_consistent` | [OK] | Ledger schema, unique names, boolean statuses, non-empty details, and 5 validation domains confirmed for the upstream validation set |
 
