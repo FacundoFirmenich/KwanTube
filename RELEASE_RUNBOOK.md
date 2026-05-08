@@ -1,4 +1,4 @@
-# Repository Release Runbook
+# Repository Release Runbook — KwanTube v3.5.1
 
 This runbook specifies the canonical sequence for validating the KwanTube repository prior to an official release or manuscript submission.
 
@@ -15,23 +15,24 @@ pip install -e .
 Execute the fast-mode validation pipeline to verify the integrity of the numerical ledger.
 
 ```bash
-python scripts/reproduce_paper_results.py --fast
+python src/scripts/validation/reproduce_paper_results.py --fast
 ```
 
 **Expected Outcomes**:
-- Successful regeneration of `outputs_data/validation_report.json`.
+- Successful regeneration of `outputs_data/raw_json/structural/validation_report.json`.
 - Successful regeneration of `LIVING_SI.md`.
 - All summary checks marked as `[OK]`.
+- **Current ledger**: 22/22 checks passed.
 
 ## 3. Manuscript Figure Generation
 
 Verify that the visualization engine produces all required manuscript figures.
 
 ```bash
-python scripts/generate_paper_figures.py
+python src/scripts/figures/generate_paper_figures.py
 ```
 
-**Expected Artifacts** (`git_repo/figures_final/`):
+**Expected Artifacts** (`outputs_data/figures_final/`):
 - `fig1_landscape.(pdf|png)`
 - `fig2_signatures.(pdf|png)`
 - `fig3_frohlich.(pdf|png)`
@@ -43,7 +44,6 @@ Execute the full unit and consistency test batteries.
 
 ```bash
 python -m pytest tests/ -v
-python scripts/test_ns_consistency.py
 ```
 
 ## 5. Bayesian HEOM Hierarchy Validation (v2)
@@ -51,7 +51,7 @@ python scripts/test_ns_consistency.py
 Validate the Bayesian contraction layer for existing HEOM convergence evidence.
 
 ```bash
-python src/scripts/bayesian_heom_hierarchy_v2.py src/heom_bayes_input_current.csv --output-dir heom_bayes_out_v2_ci
+python src/scripts/analysis/bayesian_heom_hierarchy_v2.py src/heom_bayes_input_current.csv --output-dir heom_bayes_out_v2_ci
 ```
 
 **Core Deliverables** (`outputs_data/heom_bayes_out_v2_ci/`):
@@ -67,12 +67,12 @@ bath coupling constraints from RCSB PDB and generate the Fisher information barr
 for Experiment 4 (cavity doublet detection).
 
 ```bash
-python src/scripts/scripts_data_real/run_pipeline_vscode.py
+python src/scripts/public_data/run_pipeline_vscode.py
 ```
 
-**Expected outputs** (`outputs_data/analysis/`):
+**Expected outputs** (`outputs_data/raw_csv/`):
 - `structures_compact.csv` — 507 RCSB tubulin structures with Wilson B-factors
-- `bath_params_empirical.csv` — `eta_proxy=0.6026`, `H_s=0.53` (N=364 structures)
+- `bath_params_proxy.csv` — `eta_proxy=0.6026`, `H_s=0.53` (N=364 structures)
 - `fisher_barrier.csv` — Cramér-Rao SNR requirements for Experiment 4 (36-point grid)
 - `comparative_panels_compact.csv` — U_phys per mechanism (equilibrium, Fröhlich, QED cavity, subradiance)
 - `claim_traceability_matrix_v2.md` — L4 traceability ledger for PRX Life reviewers
@@ -82,19 +82,43 @@ python src/scripts/scripts_data_real/run_pipeline_vscode.py
 that the conservative range `eta ∈ [0.1, 1.0]` adopted in §2.1.1 of the manuscript
 is empirically grounded, not arbitrary.
 
-## 6. Editorial Consistency Checks
+## 6. Error Propagation Audit (v3.5.1)
+
+Run the Monte Carlo error propagation module to generate uncertainty bounds for
+Tier-0 structural claims.
+
+```bash
+python src/scripts/analysis/propagations.py
+```
+
+**Expected output**: `outputs_data/raw_json/structural/error_propagation_report.json`
+
+## 7. Epistemic Graph Generation (v3.5.1)
+
+Build the interactive epistemic graph synchronizing claims, constraints, and
+validation artifacts.
+
+```bash
+python src/scripts/analysis/build_epistemic_graph.py
+```
+
+**Expected outputs**:
+- `outputs_data/raw_json/structural/epistemic_graph.json`
+- `outputs_data/interactive/epistemic_graph.html`
+
+## 8. Editorial Consistency Checks
 
 Manual verification of metadata and document integrity:
-- [ ] Ensure `paper.md` scope aligns with v3.5.0 features.
-- [ ] Confirm `paper.bib` coverage for all software citations.
+- [ ] Ensure manuscript scope aligns with v3.5.1 features.
+- [ ] Confirm `CITATION.cff` coverage for all software citations.
 - [ ] Verify version synchronization between `CITATION.cff` and `pyproject.toml`.
-- [ ] Confirm `LIVING_SI.md` hash matches `heom_acceptance_criteria.md`.
+- [ ] Confirm `LIVING_SI.md` hash matches `validation_report.json`.
 
-## 7. Extended Reproducibility (Optional)
+## 9. Extended Reproducibility (Optional)
 
 For final submission, execute the high-resolution sweeps:
 
 ```bash
-python scripts/reproduce_paper_results.py
-python scripts/reproduce_paper_results.py --full-roc
+python src/scripts/validation/reproduce_paper_results.py --mode paper
+python src/scripts/validation/reproduce_paper_results.py --full-roc
 ```

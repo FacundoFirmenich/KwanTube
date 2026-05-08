@@ -126,6 +126,13 @@ _V3_5_1_KNOWN_EVOLUTION: frozenset[str] = frozenset({
     "src/scripts/extract_vector_figure.py",
     "src/scripts/generate_paper_figures.py",
     "src/scripts/reproduce_paper_results.py",
+    
+    # v3.5.1 new analysis scripts (not present in baseline backup)
+    "src/scripts/analysis/fit_heom_kww_relaxation.py",
+    "src/scripts/analysis/analyze_heom_structured_relaxation.py",
+    "src/scripts/analysis/frohlich_universal_gating_audit.py",
+    "src/scripts/analysis/build_epistemic_graph.py",
+    "src/scripts/analysis/propagations.py",
 })
 
 

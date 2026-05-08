@@ -253,7 +253,9 @@ class ValidationCheck:
 
 
 def _canonical_study_key(key: str) -> str:
-    return "Kalra2023" if key == "Kalra2024" else key
+    if key in {"Kalra2024", "KhanKalra2024", "Khan2024"}:
+        return "Kalra2023"
+    return key
 
 
 def _normalize_meta_analysis(meta: dict) -> dict:
@@ -415,6 +417,51 @@ def _load_heom_validation() -> dict:
         }
 
 
+def _load_frohlich_gating_audit() -> dict:
+    path = PROJECT_ROOT / "outputs_data" / "raw_json" / "nonequilibrium" / "frohlich_universal_gating_audit.json"
+    if not path.exists():
+        return {"status": "missing", "source_path": str(path), "complete": False, "error": "Artifact not found"}
+    try:
+        payload = _load_json(path)
+        cases = payload.get("cases", []) if isinstance(payload, dict) else []
+        mt = next((case for case in cases if case.get("case", {}).get("name") == "microtubule"), None)
+        carrier = mt.get("carrier_wavelength_criterion", []) if mt else []
+        thz = next((row for row in carrier if float(row.get("frequency_hz", 0.0)) == 1.0e11), {})
+        gamma_req = float(mt.get("linewidth_required_for_10um_hz", 0.0)) if mt else 0.0
+        return {
+            "status": "ok",
+            "source_path": str(path),
+            "complete": bool(mt and thz and gamma_req),
+            "n_cases": len(cases),
+            "microtubule_Lomega_0p1THz_um": float(thz.get("L_omega_um", 0.0)),
+            "microtubule_gamma_for_10um_hz": gamma_req,
+            "interpretation": payload.get("criteria", {}).get("interpretation", ""),
+        }
+    except Exception as exc:
+        return {"status": "invalid", "source_path": str(path), "complete": False, "error": f"Failed to load Frohlich audit: {exc}"}
+
+
+def _load_heom_structured_diagnostics() -> dict:
+    path = PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / "heom_structured_relaxation_diagnostics.json"
+    if not path.exists():
+        return {"status": "missing", "source_path": str(path), "complete": False, "error": "Artifact not found"}
+    try:
+        payload = _load_json(path)
+        summary = payload.get("purity_population_entropy_beta_summary", {})
+        return {
+            "status": "ok",
+            "source_path": str(path),
+            "complete": bool(summary.get("n_observables", 0) >= 3 and summary.get("all_subunitary")),
+            "n_observables": int(summary.get("n_observables", 0)),
+            "beta_min": float(summary.get("beta_min", 0.0)),
+            "beta_max": float(summary.get("beta_max", 0.0)),
+            "beta_mean": float(summary.get("beta_mean", 0.0)),
+            "all_subunitary": bool(summary.get("all_subunitary", False)),
+        }
+    except Exception as exc:
+        return {"status": "invalid", "source_path": str(path), "complete": False, "error": f"Failed to load structured-relaxation diagnostics: {exc}"}
+
+
 def _load_lattice_radiative_report(n_sites: int) -> dict:
     candidates = [
         PROJECT_ROOT / "outputs_data" / "raw_json" / "metrics" / f"subradiant_decay_spectrum_N{n_sites}.json",
@@ -498,7 +545,7 @@ def _build_lattice_family() -> tuple[dict, dict]:
 
 
 def _kalra_bf_check(r: dict) -> tuple[bool, str]:
-    key, rec = _get_study_record(r["meta_analysis"]["per_study"], "Kalra2023", "Kalra2024")
+    key, rec = _get_study_record(r["meta_analysis"]["per_study"], "Kalra2023", "Khan2024")
     bf = float(rec["BF10_analytic"])
     return bf > 30.0, f"Very Strong Evidence ({key}, BF10={bf:.1f})"
 
@@ -697,7 +744,7 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
                                       eta_list=eta_list,
                                       omega_c=4.5e12)
 
-    # ROC grid sizing
+    # Neyman-Pearson detection-power grid sizing
     if fast:          n_dl, n_snr, nmc = 3, 3, 10
     elif full_roc:    n_dl, n_snr, nmc = 8, 8, 1000
     else:             n_dl, n_snr, nmc = 4, 4, 500
@@ -723,6 +770,8 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
     lattice_family, lattice_comparison = _build_lattice_family()
     mf_diag = _load_mean_force_diagnostic()
     heom_validation = _load_heom_validation()
+    frohlich_gating = _load_frohlich_gating_audit()
+    heom_structured = _load_heom_structured_diagnostics()
 
     results = {
         "_metadata": {
@@ -751,6 +800,8 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
         "lattice_comparison":    _sanitize(lattice_comparison),
         "mean_force":            _sanitize(mf_diag),
         "heom_validation":       _sanitize(heom_validation),
+        "frohlich_gating":       _sanitize(frohlich_gating),
+        "heom_structured":        _sanitize(heom_structured),
     }
 
     # HEOM production metric validation
@@ -767,7 +818,7 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
                   f"Disc={heom_metrics.get('redfield_discrepancy_pct') or 'N/A'}%"
     })
     checks.append({
-        "name": "heom_non_equilibrium_regime",
+        "name": "heom_finite_window_transient",
         "passed": (heom_metrics.get("purity_30ps") or 1.0) < 0.25,
         "detail": f"Terminal purity {heom_metrics.get('purity_30ps') or 'N/A'} < 0.25 confirms transient dynamics"
     })
@@ -801,6 +852,30 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
         "detail": ", ".join(
             f"{label}={blob['radiative'].get('status')}"
             for label, blob in results["lattice_family"].items()
+        )
+    })
+
+    checks.append({
+        "name": "frohlich_gating_dimensional_audit",
+        "passed": bool(results["frohlich_gating"].get("complete"))
+                  and 0.005 <= float(results["frohlich_gating"].get("microtubule_Lomega_0p1THz_um", 0.0)) <= 0.02
+                  and 5e7 <= float(results["frohlich_gating"].get("microtubule_gamma_for_10um_hz", 0.0)) <= 2e8,
+        "detail": (
+            f"L_omega(0.1THz)={results['frohlich_gating'].get('microtubule_Lomega_0p1THz_um', 0.0):.3g} um; "
+            f"gamma_10um={results['frohlich_gating'].get('microtubule_gamma_for_10um_hz', 0.0):.3g} Hz; "
+            f"cases={results['frohlich_gating'].get('n_cases', 0)}"
+        )
+    })
+
+    checks.append({
+        "name": "heom_structured_relaxation_diagnostics",
+        "passed": bool(results["heom_structured"].get("complete"))
+                  and float(results["heom_structured"].get("beta_max", 1.0)) < 1.0,
+        "detail": (
+            f"beta={results['heom_structured'].get('beta_min', 0.0):.3f}-"
+            f"{results['heom_structured'].get('beta_max', 0.0):.3f}; "
+            f"n={results['heom_structured'].get('n_observables', 0)}; "
+            f"all_subunitary={results['heom_structured'].get('all_subunitary', False)}"
         )
     })
 
@@ -907,7 +982,26 @@ Calculated via Kullback-Leibler (KL) divergence from the final HEOM state $\rho(
   Gibbs state. A divergent `KL_mf` is the mathematical signature of the failure of 
   second-order perturbation theory in the intermediate coupling regime (\(\lambda\beta \sim 1\)).
 
-## SI-3 - Detector Performance: ROC Detection Surface (Section 5, COMP-12)
+## SI-2e - HEOM Structured Non-Markovian Relaxation Diagnostics
+
+Secondary diagnostics reuse the archived HEOM KWW time-series and fit ledger. No new
+HEOM trajectory is generated.
+
+- **Population/purity/entropy observables**: {structured_n} observables.
+- **KWW exponent range**: \(\beta={structured_beta_min:.3f}\)--\({structured_beta_max:.3f}\).
+- **Mean exponent**: \(\bar\beta={structured_beta_mean:.3f}\).
+- **Interpretation**: sub-unitary KWW clustering supports distributed non-Markovian relaxation over the finite 30 ps production window. It does not establish thermodynamic glassiness, a glass transition, or a non-equilibrium steady state.
+
+## SI-2f - Universal Fröhlich Dimensional Audit
+
+The carrier-wavelength and linewidth-continuum criteria are tracked separately:
+\(L_\omega=v_g/(2f_F)\) and \(L_\gamma=v_g/(2\gamma_{{Hz}})\).
+
+- **Microtubule carrier criterion**: \(L_\omega(0.1\,\mathrm{{THz}})={frohlich_Lomega_um:.3g}\,\mu\mathrm{{m}}\).
+- **Linewidth needed for 10 µm gate**: \(\gamma_{{Hz}}={frohlich_gamma_10um:.3g}\,\mathrm{{Hz}}\).
+- **Cases audited**: {frohlich_cases} (microtubule, F-actin, collagen, generic dipolar chain).
+
+## SI-3 - Detector Performance: Neyman--Pearson Detection-Power Surface (Section 5, COMP-12)
 
 Probability of detection \(P_D(\Delta\lambda,\mathrm{{SNR}})\) at a fixed false-alarm rate
 \(\alpha=0.05\). Results computed using a matched-filter detector over \(N_{{MC}}={nmc}\)
@@ -1008,6 +1102,8 @@ def _render_ctx(r: dict) -> dict:
     heom_validation = r.get("heom_validation", {})
     lattice_family = r.get("lattice_family", {})
     lattice_comparison = r.get("lattice_comparison", {})
+    frohlich_gating = r.get("frohlich_gating", {})
+    heom_structured = r.get("heom_structured", {})
 
     mf_rows = []
     for sys_name, data in mf.get("systems", {}).items():
@@ -1075,7 +1171,7 @@ def _render_ctx(r: dict) -> dict:
     )
 
     bf_b = meta["per_study"]["Babcock2024"]
-    _, bf_k = _get_study_record(meta["per_study"], "Kalra2023", "Kalra2024")
+    _, bf_k = _get_study_record(meta["per_study"], "Kalra2023", "Khan2024")
 
     ordered_lattice = sorted(
         lattice_family.items(),
@@ -1185,6 +1281,13 @@ def _render_ctx(r: dict) -> dict:
         "heom_ipr30": r.get("heom_production", {}).get("ipr_30ps", "N/A"),
         "heom_disc": r.get("heom_production", {}).get("redfield_discrepancy_pct", "N/A"),
         "heom_regime": r.get("heom_production", {}).get("regime", "unknown").replace("_", " "),
+        "structured_n": int(heom_structured.get("n_observables", 0)),
+        "structured_beta_min": float(heom_structured.get("beta_min", 0.0)),
+        "structured_beta_max": float(heom_structured.get("beta_max", 0.0)),
+        "structured_beta_mean": float(heom_structured.get("beta_mean", 0.0)),
+        "frohlich_Lomega_um": float(frohlich_gating.get("microtubule_Lomega_0p1THz_um", 0.0)),
+        "frohlich_gamma_10um": float(frohlich_gating.get("microtubule_gamma_for_10um_hz", 0.0)),
+        "frohlich_cases": int(frohlich_gating.get("n_cases", 0)),
         **_load_heom_v2_summary(),
     }
 
@@ -1238,7 +1341,7 @@ def _load_heom_v2_summary() -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser(description="KwanTube reproduction pipeline")
     ap.add_argument("--fast",     action="store_true", help="small grids (~5 s)")
-    ap.add_argument("--full-roc", action="store_true", help="8x8 ROC, n_mc=1000 (~3 min)")
+    ap.add_argument("--full-roc", action="store_true", help="8x8 Neyman-Pearson surface, n_mc=1000 (~3 min)")
     ap.add_argument("--mode", default="default", help="Compatibility switch; 'paper' is accepted as a no-op mode label.")
     ap.add_argument("--out", default="outputs_data/raw_json/structural/validation_report.json")
     ap.add_argument("--si",  default="LIVING_SI.md")

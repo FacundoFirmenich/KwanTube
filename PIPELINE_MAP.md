@@ -1,10 +1,10 @@
 # PIPELINE_MAP.md - KwanTube v3.5.1
 
-> **Ultima actualizacion**: 2026-05-07 | **Arquitectura**: v3.5.1 (pre-freeze bioRxiv)
+> **Last updated**: 2026-05-08 | **Architecture**: v3.5.1 (pre-freeze)
 
 ---
 
-## 1. Árbol del Repositorio
+## 1. Repository Tree
 
 ```
 KwanTube/
@@ -12,20 +12,22 @@ KwanTube/
 │   ├── numerical_params.yaml
 │   └── physics_params.yaml
 ├── outputs_data/
-│   ├── figures_final/              # Figuras PNG/PDF publication-ready
-│   ├── production/                 # Ventanas HEOM (000-029 production, 030-095 staged v2)
+│   ├── figures_final/              # Publication-ready PNG/PDF figures
+│   ├── production/                 # HEOM windows (000-029 production, 030-095 staged v2)
 │   ├── raw_csv/
 │   │   ├── bath/                   # bath_params_empirical.csv, bath_params_proxy.csv
 │   │   ├── compact/                # *_compact.csv, data_registry.csv
 │   │   ├── flags/                  # _done_*.flag
 │   │   ├── heom_+bayesian_analysis/# hierarchy_*.csv, heom_bayes_input_current.csv
 │   │   ├── theory/                 # fisher_barrier.csv
-│   │   └── subradiant_modes*.csv    # espectros radiativos N130/N260/N520
+│   │   └── subradiant_modes*.csv    # radiative spectra N130/N260/N520
 │   ├── raw_json/
 │   │   ├── audit/                  # lineage_audit.json
 │   │   ├── metrics/                # KWW, HEOM/Redfield, mean-force, subradiance, SBC, Sobol
+│   │   ├── nonequilibrium/          # frohlich_universal_gating_audit.json
 │   │   ├── progress/               # _progress_*.json
 │   │   └── structural/             # validation_report.json, outputs_validation_report.json
+│   ├── interactive/                 # epistemic_graph.html
 │   ├── raw_npz/                    # H_*.npz, heom_*.npz, master_results.npz
 │   ├── raw_pkl/                    # heom_*.pkl, pade_ckpt_*.pkl
 │   ├── raw_txt+md/
@@ -33,130 +35,142 @@ KwanTube/
 │   │   └── reports/                # diagnostics_v2.txt, claim_traceability_matrix_v2.md
 │   └── verification/
 ├── src/
-│   ├── qmc_mt/                     # Paquete principal (Logica fisica y auditoria)
-│   │   ├── lattice.py               # Familia B-lattice N130/N260/N520
-│   │   ├── run_audit.py            # Log de ejecución centralizado
-│   │   └── validate_integrity.py   # Motor criptográfico SHA-256
+│   ├── kt_utils/                   # Cross-cutting utilities v3.5.1
+│   │   ├── __init__.py
+│   │   ├── paths.py                # Canonical path resolution
+│   │   └── logging.py              # Centralized logger with RUN_AUDIT
+│   ├── qmc_mt/                     # Main package (physics + auditing)
+│   │   ├── lattice.py               # B-lattice family N130/N260/N520
+│   │   ├── run_audit.py            # Centralized execution log
+│   │   └── validate_integrity.py   # SHA-256 cryptographic engine
 │   └── scripts/
-│       ├── analysis/               # Motores de inferencia y post-procesamiento
+│       ├── analysis/               # Inference and post-processing engines
 │       │   ├── assemble_master_results.py
 │       │   ├── bayesian_heom_hierarchy_v2.py
 │       │   ├── build_hamiltonian.py
+│       │   ├── build_epistemic_graph.py
+│       │   ├── analyze_heom_structured_relaxation.py
 │       │   ├── compute_detectability_metrics.py
 │       │   ├── compute_subradiant_decay_spectrum.py [family-aware]
 │       │   ├── export_claim_traceability.py
 │       │   ├── fit_heom_kww_relaxation.py
+│       │   ├── frohlich_universal_gating_audit.py
 │       │   └── heom_pade_convergence.py
-│       ├── figures/                # Generación de plots para el paper
+│       ├── figures/                # Paper plot generation
 │       │   └── generate_paper_figures.py
-│       ├── heom/                   # Drivers de producción HEOM (costosos)
+│       ├── heom/                   # HEOM production drivers (expensive)
 │       │   └── heom_production_driver.py
-│       ├── public_data/            # Ingestión y curación de datos externos
+│       ├── public_data/            # External data ingestion and curation
 │       │   ├── fetch_public_data.py
 │       │   ├── curate_compact.py
 │       │   ├── build_registry.py
 │       │   └── run_pipeline_vscode.py
-│       └── validation/             # Auditoría técnica y reproducción
+│       └── validation/             # Technical auditing and reproduction
 │           ├── audit_lineage.py
 │           ├── reproduce_paper_results.py
 │           ├── seal_outputs.py
 │           └── validate_outputs.py
-├── tests/                          # Suite de validación CI
+├── tests/                          # CI validation suite
 ├── CITATION.cff, README.md, LIVING_SI.md
-└── paper.bib / paper.md            # Manuscrito fuente
+└── pyproject.toml                  # Package configuration
 ```
 
 ---
 
-## 2. Pipeline de Ejecución Secuencial
+## 2. Sequential Execution Pipeline
 
-### FASE 1 — Ingestión (Datos Públicos)
+### PHASE 1 — Ingestion (Public Data)
 ```bash
 python src/scripts/public_data/fetch_public_data.py
 ```
-> **Nota**: Los datos brutos (~1.5 GB) se descargan vía API y se guardan localmente.
-> Ver [`PUBLIC_DATA.md`](PUBLIC_DATA.md) para el link al mirror en Drive.
+> **Note**: Raw data (~1.5 GB) is downloaded via API and saved locally.
+> See [`PUBLIC_DATA.md`](PUBLIC_DATA.md) for the Drive mirror link.
 
-### FASE 2 — Curación y Registro
+### PHASE 2 — Curation and Registry
 ```bash
 python src/scripts/public_data/curate_compact.py
 python src/scripts/public_data/build_registry.py
 ```
 
-### FASE 3 — Estructura y Hamiltoniano
+### PHASE 3 — Structure and Hamiltonian
 ```bash
 python src/qmc_mt/pdb_tubulin_analysis.py
 python src/scripts/analysis/build_hamiltonian.py
 ```
 
-### FASE 4 — Producción HEOM (Solo si es necesario)
+### PHASE 4 — HEOM Production (Only if necessary)
 ```bash
 python src/scripts/heom/heom_production_driver.py
 ```
 
-### FASE 5 — Dinámica de Relajación (KWW)
+### PHASE 5 — Relaxation Dynamics (KWW)
 ```bash
 python src/scripts/analysis/fit_heom_kww_relaxation.py
+python src/scripts/analysis/analyze_heom_structured_relaxation.py
 ```
-*   **Resultados**: $\beta \approx 0.44$ (pureza cuántica), indicando desviación Markoviana.
+*   **Results**: $\beta \approx 0.44$ (quantum purity) and subunitary clustering $\beta=0.370$--$0.462$ across six population/purity/entropy observables, supporting structured non-Markovian distributed relaxation over a finite window without asserting thermodynamic glass transition.
 
-### FASE 6 — Inferencia Bayesiana y Sensibilidad
+### PHASE 6 — Bayesian Inference and Sensitivity
 ```bash
 python src/scripts/analysis/bayesian_heom_hierarchy_v2.py
 python src/qmc_mt/sensitivity.py
 python src/qmc_mt/sbc_report.py
 ```
-*   **Sobol canonico**: `src/qmc_mt/sensitivity.py` genera `outputs_data/raw_json/metrics/sensitivity_sobol_final.json` con Saltelli base `N=50000`, bootstrap `n=200` e intervalos `CI=0.95`. El reproduction ledger valida esta precision mediante `sobol_canonical_precision`.
+*   **Canonical Sobol**: `src/qmc_mt/sensitivity.py` generates `outputs_data/raw_json/metrics/sensitivity_sobol_final.json` with Saltelli base `N=50000`, bootstrap `n=200` and `CI=0.95` intervals. The reproduction ledger validates this precision via `sobol_canonical_precision`.
 
-### FASE 7 — Coherencia Óptica y Subradiancia
+### PHASE 7 — Optical Coherence and Subradiance
 ```bash
 python src/qmc_mt/lattice.py
 python src/scripts/analysis/compute_subradiant_decay_spectrum.py --n-layers 10
 python src/scripts/analysis/compute_subradiant_decay_spectrum.py
 python src/scripts/analysis/compute_subradiant_decay_spectrum.py --n-layers 40
+python src/scripts/analysis/frohlich_universal_gating_audit.py
 ```
-*   **Resultados**: familia 13-protofilamento `N130/N260/N520`, con gaps excitonicos convergentes, `lowest_mode_ipr` creciente e incremento monotono de la fraccion subradiante de espacio libre (`70.8% -> 77.3% -> 84.8%`).
-*   **Contrato de artefactos**: `subradiant_decay_spectrum_N130.json`, `subradiant_decay_spectrum.json` (`N260`), `subradiant_decay_spectrum_N520.json` y sus `subradiant_modes*.csv` asociados.
+*   **Results**: 13-protofilament family `N130/N260/N520`, with convergent excitonic gaps, increasing `lowest_mode_ipr` and monotonic increase of free-space subradiant fraction (`70.8% -> 77.3% -> 84.8%`).
+*   **Artifact contract**: `subradiant_decay_spectrum_N130.json`, `subradiant_decay_spectrum.json` (`N260`), `subradiant_decay_spectrum_N520.json` and their associated `subradiant_modes*.csv`.
+*   **Fröhlich audit**: separates `L_omega=v_g/(2f_F)` from `L_gamma=v_g/(2 gamma_Hz)`; for MT at 0.1 THz yields `L_omega≈10 nm` and `L_gamma≈10 um` only if `gamma_Hz≈1e8`.
 
-### FASE 8 — Trazabilidad y Convergencia
+### PHASE 8 — Traceability and Convergence
 ```bash
 python src/scripts/analysis/export_claim_traceability.py
 python src/scripts/analysis/heom_pade_convergence.py
+python src/scripts/analysis/build_epistemic_graph.py
 ```
+*   **Interactive graph**: generates `outputs_data/raw_json/structural/epistemic_graph.json` and `outputs_data/interactive/epistemic_graph.html`, synchronizing claims, constraints, scope boundaries, TUR, Fröhlich linewidth-conditional and structured non-Markovian diagnostics.
 
-### FASE 9 — Auditoría Forense y Reproducción
+### PHASE 9 — Forensic Audit and Reproduction
 ```bash
 python src/scripts/validation/audit_lineage.py
 python src/scripts/validation/reproduce_paper_results.py --mode paper
 ```
-*   Genera `LIVING_SI.md` y `outputs_data/raw_json/structural/validation_report.json` sincronizados con los datos disponibles.
-*   `--mode paper` se mantiene como alias compatible para el modo de reproduccion del manuscrito; `--fast` ejecuta el mismo contrato en modo smoke test.
-*   El total de macro-checks y el SHA-256 del reporte son release-specific y deben leerse del `validation_report.json`, no copiarse manualmente al manuscrito antes del freeze.
-*   El ledger incluye un metacheck (`validation_ledger_self_consistent`) que valida el schema, los nombres unicos, los estados booleanos, los detalles no vacios y la cobertura minima de dominios del propio conjunto de validaciones.
+*   Generates `LIVING_SI.md` and `outputs_data/raw_json/structural/validation_report.json` synchronized with available data.
+*   `--mode paper` is maintained as a compatible alias for manuscript reproduction mode; `--fast` executes the same contract in smoke test mode.
+*   Total macro-checks and SHA-256 of the report are release-specific and must be read from `validation_report.json`, not manually copied to the manuscript before freeze.
+*   The ledger includes a metacheck (`validation_ledger_self_consistent`) that validates schema, unique names, boolean statuses, non-empty details and minimum domain coverage of the validation set itself.
 
-### FASE 10 — Sellado Final (Integridad Criptográfica)
+### PHASE 10 — Final Sealing (Cryptographic Integrity)
 ```bash
 python src/scripts/validation/seal_outputs.py
 python src/scripts/validation/validate_outputs.py
 ```
-*   **Meta de release**: `bad=0` en `validate_outputs.py` despues de sellar. El numero `validated=N` es el conteo de artefactos binarios sellados (`*.npz`, `*.pkl`) y puede cambiar cuando se agregan nuevos artefactos cubiertos por ese contrato.
-*   **No confundir**: los macro-checks de `reproduce_paper_results.py` validan claims, tablas y artefactos JSON/CSV/figuras requeridos por el manuscrito; `validate_outputs.py` valida integridad criptografica de los outputs binarios sellados.
+*   **Release target**: `bad=0` in `validate_outputs.py` after sealing. The number `validated=N` is the count of sealed binary artifacts (`*.npz`, `*.pkl`) and may change when new artifacts covered by that contract are added.
+*   **Do not confuse**: macro-checks from `reproduce_paper_results.py` validate claims, tables and JSON/CSV/figure artifacts required by the manuscript; `validate_outputs.py` validates cryptographic integrity of sealed binary outputs.
 
 ---
 
-## 3. Orquestadores de Conveniencia
+## 3. Convenience Orchestrators
 
-| Launcher | Uso |
+| Launcher | Use |
 |:---------|:----|
-| `src/scripts/public_data/run_pipeline_vscode.py` | Ejecución aislada de Fases 1-3 |
-| `reproduce_results.sh / .bat` | Ejecución del bloque de análisis (5-9) |
+| `src/scripts/public_data/run_pipeline_vscode.py` | Isolated execution of Phases 1-3 |
+| `reproduce_results.sh / .bat` | Execution of analysis block (5-9) |
 
 ---
 
-## 4. Suite de Tests (GitHub Actions)
+## 4. Test Suite (GitHub Actions)
 
-El repositorio mantiene un CI (`ci.yml`) que valida cada push:
+The repository maintains a CI (`ci.yml`) that validates each push:
 1.  **Unit Tests**: `pytest tests/`
-2.  **SBC Check**: Calibración estadística del motor Bayesiano.
-3.  **Smoke Tests**: Ejecución rápida de `reproduce_paper_results.py --fast`.
-4.  **Integrity**: Verificación de firmas SHA-256 en artefactos críticos.
+2.  **SBC Check**: Statistical calibration of the Bayesian engine.
+3.  **Smoke Tests**: Fast execution of `reproduce_paper_results.py --fast`.
+4.  **Integrity**: SHA-256 signature verification on critical artifacts.
