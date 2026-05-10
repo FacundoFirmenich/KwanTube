@@ -1,6 +1,6 @@
 """validate_integrity.py — SHA-256 integrity utilities for KwanTube artifacts.
 
-Patch v3.5.1 requires that generated binary artifacts can be checked against
+Patch v3.5.1.1 requires that generated binary artifacts can be checked against
 sidecar ``.sha256`` files. This module provides small, dependency-free helpers
 for creating and validating those sidecars for ``.npz`` and ``.pkl`` outputs.
 """

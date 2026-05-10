@@ -5,7 +5,7 @@ This runner uses subprocess to call each script independently, which:
   - Properly isolates each stage's environment.
   - Works correctly after the public_data / analysis folder reorganization.
 
-Script locations after reorganization (v3.5.1+):
+Script locations after reorganization (v3.5.1.1+):
   public_data/  : fetch_public_data, curate_compact, build_registry, run_comparative_panels
   analysis/     : compute_detectability_metrics, export_claim_traceability
 """

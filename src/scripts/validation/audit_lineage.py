@@ -4,7 +4,7 @@ This script compares the current local repository tree against an optional
 stable backup tree. It is intentionally read-only: it never modifies files and
 never interacts with Git remotes.
 
-Classification of delta entries (v3.5.1 semantics):
+Classification of delta entries (v3.5.1.1 semantics):
   SAME                   — file present in both trees with identical SHA-256.
   UPDATED                — file present in both trees but with different SHA-256
                            (legitimate code evolution since backup was taken).
@@ -13,7 +13,7 @@ Classification of delta entries (v3.5.1 semantics):
   RELOCATED              — file absent from its old path but whose SHA-256 content
                            is present elsewhere in the current tree.
   DEPRECATED_INTENTIONAL — file absent from current tree, documented in the
-                           v3.5.1 release notes as intentionally removed or
+                           v3.5.1.1 release notes as intentionally removed or
                            superseded. Does NOT trigger REVIEW_REQUIRED.
   REMOVED                — file truly absent from current tree with no SHA-256 match
                            and not in the known-evolution allowlist. Triggers review.
@@ -80,7 +80,7 @@ def _is_excluded(rel: Path) -> bool:
 
 
 # ---------------------------------------------------------------------------
-# v3.5.1 known-evolution allowlist
+# v3.5.1.1 known-evolution allowlist
 #
 # Files that appear "missing" in the current tree relative to the
 # KwanTube_repo_backup_estable_28042026 baseline are listed here with their
@@ -127,7 +127,7 @@ _V3_5_1_KNOWN_EVOLUTION: frozenset[str] = frozenset({
     "src/scripts/generate_paper_figures.py",
     "src/scripts/reproduce_paper_results.py",
     
-    # v3.5.1 new analysis scripts (not present in baseline backup)
+    # v3.5.1.1 new analysis scripts (not present in baseline backup)
     "src/scripts/analysis/fit_heom_kww_relaxation.py",
     "src/scripts/analysis/analyze_heom_structured_relaxation.py",
     "src/scripts/analysis/frohlich_universal_gating_audit.py",
@@ -202,7 +202,7 @@ def compare_trees(
                 status = "RELOCATED"
                 target = other_paths[0]
             elif rel_str in _V3_5_1_KNOWN_EVOLUTION:
-                # Documented v3.5.1 evolution — not an unexpected deletion
+                # Documented v3.5.1.1 evolution — not an unexpected deletion
                 status = "DEPRECATED_INTENTIONAL"
                 target = None
             else:
@@ -254,7 +254,7 @@ def _build_verdict(counts: dict[str, int]) -> str:
     if removed == 0:
         parts = []
         if same:       parts.append(f"{same} identical")
-        if updated:    parts.append(f"{updated} updated (v3.5.1 evolution)")
+        if updated:    parts.append(f"{updated} updated (v3.5.1.1 evolution)")
         if added:      parts.append(f"{added} added")
         if reloc:      parts.append(f"{reloc} relocated")
         if deprecated: parts.append(f"{deprecated} deprecated/reorganised (documented)")
@@ -281,10 +281,10 @@ def _print_summary(records: list[FileLineage], backup_path: Path, out_json: Path
     order = ["SAME", "UPDATED", "RELOCATED", "ADDED", "DEPRECATED_INTENTIONAL", "REMOVED"]
     labels = {
         "SAME":                  "SAME                    (identical to baseline)",
-        "UPDATED":               "UPDATED                 (v3.5.1 legitimate evolution)",
+        "UPDATED":               "UPDATED                 (v3.5.1.1 legitimate evolution)",
         "RELOCATED":             "RELOCATED               (same content, reorganised path)",
         "ADDED":                 "ADDED                   (new modules / tooling)",
-        "DEPRECATED_INTENTIONAL":"DEPRECATED_INTENTIONAL  (documented in v3.5.1 release)",
+        "DEPRECATED_INTENTIONAL":"DEPRECATED_INTENTIONAL  (documented in v3.5.1.1 release)",
         "REMOVED":               "REMOVED ✗               (no SHA-256 match — verify)",
     }
     for status in order:

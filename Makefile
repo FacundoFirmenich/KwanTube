@@ -78,7 +78,7 @@ test:
 # DOCKER
 # ─────────────────────────────────────────────────────────────
 docker-build:
-	docker build -t kwantube:3.5.1 .
+	docker build -t kwantube:3.5.1.1 .
 
 docker-run: docker-build
 	docker compose up
@@ -105,7 +105,7 @@ clean:
 # HELP
 # ─────────────────────────────────────────────────────────────
 help:
-	@echo "KwanTube v3.5.1 — Available targets:"
+	@echo "KwanTube v3.5.1.1 — Available targets:"
 	@echo ""
 	@echo "  make reproduce    Full pipeline (Phases 6-9) — recommended"
 	@echo "  make data         Data acquisition pipeline (Phases 1-7)"

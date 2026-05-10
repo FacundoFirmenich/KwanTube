@@ -1,6 +1,6 @@
 {
   "script": "propagations.py",
-  "version": "3.5.1",
+  "version": "3.5.1.1",
   "timestamp_utc": "2026-05-07T23:48:06+00:00",
   "methodology": "Parametric Monte Carlo + Numerical Bootstrap",
   "domain": "error_propagation_tier0",

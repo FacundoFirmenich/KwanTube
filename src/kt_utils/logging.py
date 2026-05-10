@@ -1,4 +1,4 @@
-"""Standardized logging for KwanTube v3.5.1."""
+"""Standardized logging for KwanTube v3.5.1.1."""
 import logging
 from datetime import datetime, timezone
 

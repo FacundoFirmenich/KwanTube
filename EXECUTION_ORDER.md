@@ -1,8 +1,8 @@
-# EXECUTION_ORDER.md — KwanTube v3.5.1
+# EXECUTION_ORDER.md — KwanTube v3.5.1.1
 # Canonical Script Execution Order
 
-> **Version**: 3.5.1 | **Updated**: 2026-05-08  
-> Official reference document. Reflects folder reorganization introduced in v3.5.1+.  
+> **Version**: 3.5.1.1 | **Updated**: 2026-05-08  
+> Official reference document. Reflects folder reorganization introduced in v3.5.1.1+.  
 > **Current ledger**: 22/22 checks | SHA-256: `228cfd088821c5ba489b6dfc78fc5af448cf5b26855b35e1008c464d23b09273`
 
 ---
@@ -196,11 +196,11 @@ python src/scripts/validation/validate_outputs.py
 
 ---
 
-## Folder structure `src/` (post-reorganization v3.5.1)
+## Folder structure `src/` (post-reorganization v3.5.1.1)
 
 ```
 src/
-├── kt_utils/                        ← v3.5.1: cross-cutting utilities
+├── kt_utils/                        ← v3.5.1.1: cross-cutting utilities
 │   ├── __init__.py
 │   ├── paths.py                     # Canonical path resolution
 │   └── logging.py                   # Centralized logger with RUN_AUDIT
@@ -213,18 +213,18 @@ src/
 │   └── validate_integrity.py        # SHA-256 cryptographic engine
 └── scripts/
     ├── analysis/                    ← Physical and Bayesian analysis
-    │   ├── analyze_heom_structured_relaxation.py  ← v3.5.1: structured non-Markovian diagnostics
+    │   ├── analyze_heom_structured_relaxation.py  ← v3.5.1.1: structured non-Markovian diagnostics
     │   ├── assemble_master_results.py
     │   ├── bayesian_heom_hierarchy_v2.py
-    │   ├── build_epistemic_graph.py           ← v3.5.1: interactive epistemic graph
+    │   ├── build_epistemic_graph.py           ← v3.5.1.1: interactive epistemic graph
     │   ├── build_hamiltonian.py
     │   ├── compute_detectability_metrics.py
     │   ├── export_claim_traceability.py
     │   ├── extract_heom_production_figure.py
-    │   ├── fit_heom_kww_relaxation.py        ← v3.5.1: KWW fit for HEOM
-    │   ├── frohlich_universal_gating_audit.py ← v3.5.1: Fröhlich dimensional audit
+    │   ├── fit_heom_kww_relaxation.py        ← v3.5.1.1: KWW fit for HEOM
+    │   ├── frohlich_universal_gating_audit.py ← v3.5.1.1: Fröhlich dimensional audit
     │   ├── heom_pade_convergence.py
-    │   └── propagations.py                    ← v3.5.1: MC error propagation
+    │   └── propagations.py                    ← v3.5.1.1: MC error propagation
     ├── figures/
     │   ├── extract_vector_figure.py       ← DEPRECATED
     │   └── generate_paper_figures.py

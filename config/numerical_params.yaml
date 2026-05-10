@@ -1,5 +1,5 @@
 # numerical_params.yaml — Tolerancias y parámetros de convergencia numérica
-# Patch v3.5.1 — Centraliza parámetros que antes estaban hardcodeados en scripts.
+# Patch v3.5.1.1 — Centraliza parámetros que antes estaban hardcodeados en scripts.
 # REGLA: Cambios aquí requieren re-validación explícita del pipeline HEOM.
 
 heom:

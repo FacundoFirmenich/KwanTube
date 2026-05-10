@@ -1,6 +1,6 @@
 """
 test_interpolation_integrity.py — Tests de integridad para robust_interp.py.
-Patch v3.5.1 — Valida que ningún método interpolador opere sin diagnóstico,
+Patch v3.5.1.1 — Valida que ningún método interpolador opere sin diagnóstico,
 que las incertidumbres se propaguen correctamente, y que las extrapolaciones
 se detecten y adviertan.
 

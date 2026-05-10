@@ -1,5 +1,5 @@
 # KwanTube — Dockerfile
-# One-shot reproducibility image for KwanTube v3.5.1
+# One-shot reproducibility image for KwanTube v3.5.1.1
 #
 # Usage:
 #   docker build -t kwantube .
@@ -13,7 +13,7 @@
 FROM python:3.11-slim
 
 LABEL maintainer="f.firmenich@cedesur.org"
-LABEL version="3.5.1"
+LABEL version="3.5.1.1"
 LABEL description="KwanTube: reproducible quantum coherence pipeline for tubulin"
 
 # System dependencies for matplotlib/scipy

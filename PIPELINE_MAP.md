@@ -1,6 +1,6 @@
-# PIPELINE_MAP.md - KwanTube v3.5.1
+# PIPELINE_MAP.md - KwanTube v3.5.1.1
 
-> **Last updated**: 2026-05-08 | **Architecture**: v3.5.1 (pre-freeze)
+> **Last updated**: 2026-05-08 | **Architecture**: v3.5.1.1 (pre-freeze)
 
 ---
 
@@ -35,7 +35,7 @@ KwanTube/
 │   │   └── reports/                # diagnostics_v2.txt, claim_traceability_matrix_v2.md
 │   └── verification/
 ├── src/
-│   ├── kt_utils/                   # Cross-cutting utilities v3.5.1
+│   ├── kt_utils/                   # Cross-cutting utilities v3.5.1.1
 │   │   ├── __init__.py
 │   │   ├── paths.py                # Canonical path resolution
 │   │   └── logging.py              # Centralized logger with RUN_AUDIT

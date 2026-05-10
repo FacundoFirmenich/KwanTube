@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "qmc_mt"
-version = "3.5.1"
+version = "3.5.1.1"
 description = "KwanTube: reproducible open-system and convergence-validation framework for tubulin quantum dynamics"
 authors = [
   { name = "Facundo Firmenich", email = "f.firmenich@cedesur.org" },

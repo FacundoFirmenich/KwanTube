@@ -1,5 +1,5 @@
 # physics_params.yaml — Parámetros físicos centralizados con trazabilidad de fuente
-# Patch v3.5.1 — Única fuente de verdad para build_hamiltonian.py y pipeline derivados.
+# Patch v3.5.1.1 — Única fuente de verdad para build_hamiltonian.py y pipeline derivados.
 # REGLA: NO editar valores sin actualizar 'source' y 'uncertainty'.
 # Cualquier cambio aquí debe reflejarse en un commit con mensaje descriptivo (Conventional Commits).
 

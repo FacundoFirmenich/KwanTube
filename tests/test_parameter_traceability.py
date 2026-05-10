@@ -1,6 +1,6 @@
 """
 test_parameter_traceability.py — Tests de trazabilidad de parámetros físicos.
-Patch v3.5.1 — Valida que build_hamiltonian.py lee desde config/physics_params.yaml,
+Patch v3.5.1.1 — Valida que build_hamiltonian.py lee desde config/physics_params.yaml,
 que los valores numéricos son consistentes con la fuente documentada, y que
 no existen parámetros hardcodeados sin respaldo en el YAML.
 
@@ -32,7 +32,7 @@ class TestYAMLFiles:
     def test_physics_yaml_exists(self):
         assert PHYSICS_YAML.exists(), (
             f"config/physics_params.yaml no encontrado en {PHYSICS_YAML}. "
-            "Ejecutar el patch v3.5.1 para crearlo."
+            "Ejecutar el patch v3.5.1.1 para crearlo."
         )
 
     def test_numerical_yaml_exists(self):

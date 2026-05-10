@@ -1,4 +1,4 @@
-"""Path resolution for KwanTube v3.5.1."""
+"""Path resolution for KwanTube v3.5.1.1."""
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]

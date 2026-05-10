@@ -27,7 +27,7 @@ Derivación de C:
     Resultado numérico estándar: V[cm^-1] = 5.04e4 * kappa * mu[D]^2 / (epsilon * r[Å]^3)
     (ver Madjet, Abdurakhmanov, Renger 2006, J.Phys.Chem.B 110:17268, ec.2)
 
-Trazabilidad de parámetros (Patch v3.5.1)
+Trazabilidad de parámetros (Patch v3.5.1.1)
 ------------------------------------------
 Todos los parámetros físicos se cargan desde config/physics_params.yaml.
 Si el archivo no existe, se usan valores por defecto documentados con fuente.

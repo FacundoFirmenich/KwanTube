@@ -1,4 +1,4 @@
-# Repository Release Runbook — KwanTube v3.5.1
+# Repository Release Runbook — KwanTube v3.5.1.1
 
 This runbook specifies the canonical sequence for validating the KwanTube repository prior to an official release or manuscript submission.
 
@@ -82,7 +82,7 @@ python src/scripts/public_data/run_pipeline_vscode.py
 that the conservative range `eta ∈ [0.1, 1.0]` adopted in §2.1.1 of the manuscript
 is empirically grounded, not arbitrary.
 
-## 6. Error Propagation Audit (v3.5.1)
+## 6. Error Propagation Audit (v3.5.1.1)
 
 Run the Monte Carlo error propagation module to generate uncertainty bounds for
 Tier-0 structural claims.
@@ -93,7 +93,7 @@ python src/scripts/analysis/propagations.py
 
 **Expected output**: `outputs_data/raw_json/structural/error_propagation_report.json`
 
-## 7. Epistemic Graph Generation (v3.5.1)
+## 7. Epistemic Graph Generation (v3.5.1.1)
 
 Build the interactive epistemic graph synchronizing claims, constraints, and
 validation artifacts.
@@ -109,7 +109,7 @@ python src/scripts/analysis/build_epistemic_graph.py
 ## 8. Editorial Consistency Checks
 
 Manual verification of metadata and document integrity:
-- [ ] Ensure manuscript scope aligns with v3.5.1 features.
+- [ ] Ensure manuscript scope aligns with v3.5.1.1 features.
 - [ ] Confirm `CITATION.cff` coverage for all software citations.
 - [ ] Verify version synchronization between `CITATION.cff` and `pyproject.toml`.
 - [ ] Confirm `LIVING_SI.md` hash matches `validation_report.json`.

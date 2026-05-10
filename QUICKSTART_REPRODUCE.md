@@ -1,6 +1,6 @@
 # QUICKSTART_REPRODUCE.md
 
-Reviewer-oriented reproduction guide for KwanTube v3.5.1.
+Reviewer-oriented reproduction guide for KwanTube v3.5.1.1.
 
 ## Purpose
 
@@ -65,7 +65,7 @@ The quickstart validates:
 
 ## Release identifiers
 
-- Version: 3.5.1
+- Version: 3.5.1.1
 - Zenodo DOI: `10.5281/zenodo.19744600`
 - License: GPL-3.0
 - Canonical validation command: `python src/scripts/validation/reproduce_paper_results.py --mode paper --full-roc`

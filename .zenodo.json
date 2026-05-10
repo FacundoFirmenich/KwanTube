@@ -1,6 +1,6 @@
 {
-    "title": "KwanTube v3.5.1: reproducible open-system and convergence-validation framework for tubulin quantum dynamics",
-    "description": "KwanTube is a fully reproducible computational framework for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack (HEOM, Redfield, Bayesian hierarchy, Sobol sensitivity, SBC) required to reproduce all claims in the associated manuscript (PRX Life / bioRxiv). Architecture v3.5.1 introduces a hierarchical output directory structure and full SHA-256 integrity ledger.",
+    "title": "KwanTube v3.5.1.1: reproducible open-system and convergence-validation framework for tubulin quantum dynamics",
+    "description": "KwanTube is a fully reproducible computational framework for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack (HEOM, Redfield, Bayesian hierarchy, Sobol sensitivity, SBC) required to reproduce all claims in the associated manuscript. Architecture v3.5.1.1 introduces a hierarchical output directory structure and full SHA-256 integrity ledger.",
     "creators": [
         {
             "name": "Firmenich, Facundo",
@@ -30,7 +30,7 @@
         "reproducibility",
         "open-science"
     ],
-    "version": "3.5.1",
+    "version": "3.5.1.1",
     "upload_type": "software",
     "access_right": "open",
     "related_identifiers": [

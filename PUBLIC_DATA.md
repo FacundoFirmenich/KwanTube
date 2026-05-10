@@ -101,7 +101,7 @@ To cite this software:
   author    = {Firmenich, Facundo and Firmenich, Pau and Firmenich, León},
   title     = {KwanTube: reproducible open-system and convergence-validation
                framework for tubulin quantum dynamics},
-  version   = {3.5.1},
+  version   = {3.5.1.1},
   year      = {2026},
   doi       = {10.5281/zenodo.19744600},
   url       = {https://doi.org/10.5281/zenodo.19744600}

@@ -4,7 +4,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org)
 
-**KwanTube** (v3.5.1) is a reproducible computational framework for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack required to reproduce all claims presented in the associated manuscript.
+**KwanTube** (v3.5.1.1) is a reproducible computational framework for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack required to reproduce all claims presented in the associated manuscript.
 
 The Python package maintains the legacy import namespace `qmc_mt` for backward compatibility with established analysis pipelines.
 
@@ -140,7 +140,7 @@ The full pipeline runs in **10 sequential phases**. See [`PIPELINE_MAP.md`](PIPE
 
 ---
 
-## Output Directory Architecture (v3.5.1)
+## Output Directory Architecture (v3.5.1.1)
 
 ```
 outputs_data/
@@ -220,7 +220,7 @@ See [`PIPELINE_MAP.md`](PIPELINE_MAP.md) for the full annotated repository tree 
 - `src/qmc_mt/` — Core physical and statistical implementations
 - `src/scripts/` — Executable pipeline scripts (public_data/, analysis/, figures/, heom/, validation/)
 - `config/` — Physical and numerical parameters (`physics_params.yaml`, `numerical_params.yaml`)
-- `outputs_data/` — Validated numerical artifacts (hierarchical v3.5.1 structure)
+- `outputs_data/` — Validated numerical artifacts (hierarchical v3.5.1.1 structure)
 - `tests/` — Automated test suite
 
 ---

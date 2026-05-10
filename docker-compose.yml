@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: kwantube:3.5.1
+    image: kwantube:3.5.1.1
     container_name: kwantube_reproduce
     volumes:
       # Bind-mount outputs so results persist after the container exits

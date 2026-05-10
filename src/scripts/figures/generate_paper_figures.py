@@ -1,6 +1,6 @@
 """
 Generate all figures for the paper (Tier 1 Production Version).
-Version: 3.5.1 (Tier-0 Production Sync)
+Version: 3.5.1.1 (Tier-0 Production Sync)
 """
 
 import numpy as np
@@ -177,7 +177,7 @@ def figure4_scaling():
 
 def main():
     figure1_landscape(); figure2_signatures(); figure3_frohlich(); figure4_scaling()
-    print(f"\nVisual excellence v3.5.1: OK. Figures saved in {OUT}")
+    print(f"\nVisual excellence v3.5.1.1: OK. Figures saved in {OUT}")
 
 if __name__ == "__main__":
     from pathlib import Path as _RunAuditPath

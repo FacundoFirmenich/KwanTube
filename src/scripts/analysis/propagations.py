@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-KwanTube v3.5.1 - Parametric Monte Carlo Error Propagation Module
+KwanTube v3.5.1.1 - Parametric Monte Carlo Error Propagation Module
 Script: propagate_errors.py
 Target: Resolves Tier-0 structural uncertainties (Eqs. 1, 7, 11, 14, 16)
 
@@ -442,7 +442,7 @@ def run_propagation_audit():
     
     results = {
         "script": "propagations.py",
-        "version": "3.5.1",
+        "version": "3.5.1.1",
         "timestamp_utc": ts,
         "methodology": "Parametric Monte Carlo + Numerical Bootstrap",
         "domain": "error_propagation_tier0",

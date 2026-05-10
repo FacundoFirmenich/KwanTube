@@ -1,6 +1,6 @@
 """richardson_fragment.py — Richardson extrapolation for HEOM convergence.
 
-Patch v3.5.1: computes the contraction ratio from available ledger/checkpoints
+Patch v3.5.1.1: computes the contraction ratio from available ledger/checkpoints
 instead of using hardcoded NC=7/8 values silently.
 """
 from __future__ import annotations

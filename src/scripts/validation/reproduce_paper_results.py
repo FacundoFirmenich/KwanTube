@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-# reproduce_paper_results.py - KwanTube v3.5.1
+# reproduce_paper_results.py - KwanTube v3.5.1.1
 End-to-end reproduction of the repository-level numerical validation ledger
 supporting the manuscript's reproducible baseline claims.
 
@@ -775,7 +775,7 @@ def run_all(fast: bool = False, full_roc: bool = False) -> dict:
 
     results = {
         "_metadata": {
-            "version":       "3.5.1",
+            "version":       "3.5.1.1",
             "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             "python":        platform.python_version(),
             "platform":      platform.platform(),

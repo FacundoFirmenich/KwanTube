@@ -1,5 +1,5 @@
 """
-robust_interp.py — Interpolador con trazabilidad epistemológica (Patch v3.5.1).
+robust_interp.py — Interpolador con trazabilidad epistemológica (Patch v3.5.1.1).
 
 Cada llamada devuelve un InterpResult que contiene:
   - value: valor interpolado / extrapolado
