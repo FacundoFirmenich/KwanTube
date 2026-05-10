@@ -75,7 +75,7 @@ python src/scripts/public_data/run_pipeline_vscode.py
 - `bath_params_proxy.csv` — `eta_proxy=0.6026`, `H_s=0.53` (N=364 structures)
 - `fisher_barrier.csv` — Cramér-Rao SNR requirements for Experiment 4 (36-point grid)
 - `comparative_panels_compact.csv` — U_phys per mechanism (equilibrium, Fröhlich, QED cavity, subradiance)
-- `claim_traceability_matrix_v2.md` — L4 traceability ledger for PRX Life reviewers
+- `claim_traceability_matrix_v2.md` — L4 traceability ledger for reviewers
 
 **Physical interpretation**: The Wilson B-factor median of 48.2 Å² (vs. FMO reference
 12 Å²) yields a tubulin-specific bath coupling proxy `eta_proxy ≈ 0.60`, confirming

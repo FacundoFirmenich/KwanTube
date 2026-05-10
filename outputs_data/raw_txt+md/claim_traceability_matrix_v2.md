@@ -59,7 +59,7 @@ but constitutes the L4 (External validation) layer of the traceability hierarchy
 
 ---
 
-## Open gaps (honest accounting for PRX Life reviewers)
+## Open gaps (honest accounting for reviewers)
 
 1. **BMRB NMR chemical shifts**: Not yet fetched. Would provide residue-level
    linewidth data for omegac constraint. Estimated 1-2 day fetch + curation sprint.

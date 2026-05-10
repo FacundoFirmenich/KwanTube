@@ -4,7 +4,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org)
 
-**KwanTube** (v3.5.1) is a reproducible computational framework for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack required to reproduce all claims presented in the associated manuscript (PRX Life / bioRxiv).
+**KwanTube** (v3.5.1) is a reproducible computational framework for the study of quantum dynamics and decoherence in microtubule-inspired open quantum systems. It provides the full numerical stack required to reproduce all claims presented in the associated manuscript.
 
 The Python package maintains the legacy import namespace `qmc_mt` for backward compatibility with established analysis pipelines.
 
