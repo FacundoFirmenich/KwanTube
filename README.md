@@ -37,10 +37,13 @@ python src/scripts/public_data/fetch_public_data.py
 | Integrity report | `outputs_data/raw_json/structural/outputs_validation_report.json` |
 | Living SI | `LIVING_SI.md` |
 | Pipeline map | `PIPELINE_MAP.md` |
+| Reviewer quickstart | `QUICKSTART_REPRODUCE.md` |
 
 ---
 
 ## Quick Start
+
+For reviewers and readers: the manuscript results and Living Supplementary can be reproduced in approximately 5-15 minutes using [`QUICKSTART_REPRODUCE.md`](QUICKSTART_REPRODUCE.md).
 
 ### One-shot reproduction (Phases 6–9)
 
