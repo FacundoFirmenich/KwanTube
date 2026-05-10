@@ -92,7 +92,7 @@ by re-running `fetch_public_data.py` against the original APIs.
 
 The KwanTube software package is permanently archived on Zenodo with a citable DOI:
 
-> **DOI: [10.5281/zenodo.19744600](https://doi.org/10.5281/zenodo.19744600)**
+> **DOI: [10.5281/zenodo.19744599](https://doi.org/10.5281/zenodo.19744599)**
 
 To cite this software:
 
@@ -103,8 +103,8 @@ To cite this software:
                framework for tubulin quantum dynamics},
   version   = {3.5.1.1},
   year      = {2026},
-  doi       = {10.5281/zenodo.19744600},
-  url       = {https://doi.org/10.5281/zenodo.19744600}
+  doi       = {10.5281/zenodo.19744599},
+  url       = {https://doi.org/10.5281/zenodo.19744599}
 }
 ```
 

@@ -66,6 +66,6 @@ The quickstart validates:
 ## Release identifiers
 
 - Version: 3.5.1.1
-- Zenodo DOI: `10.5281/zenodo.19744600`
+- Zenodo DOI: `10.5281/zenodo.19744599`
 - License: GPL-3.0
 - Canonical validation command: `python src/scripts/validation/reproduce_paper_results.py --mode paper --full-roc`

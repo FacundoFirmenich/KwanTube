@@ -1,6 +1,6 @@
 # KwanTube
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19744600.svg)](https://doi.org/10.5281/zenodo.19744600)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19744599.svg)](https://doi.org/10.5281/zenodo.19744599)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org)
 

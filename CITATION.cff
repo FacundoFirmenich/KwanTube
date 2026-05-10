@@ -13,7 +13,7 @@ authors:
   affiliation: "Centro de Estudios del Sur (CEDESUR)"
 title: "KwanTube v3.5.1.1: Hierarchical Quantum Pipeline & Automated Validation Ledger"
 version: 3.5.1.1
-doi: 10.5281/zenodo.19744600
+doi: 10.5281/zenodo.19744599
 date-released: 2026-03-26
 url: "https://github.com/FacundoFirmenich/KwanTube"
 preferred-citation:
@@ -32,4 +32,4 @@ preferred-citation:
   title: "The equilibrium-to-functionality gap in tubulin quantum dynamics: open-system constraints, length-gated Fröhlich dynamics, and falsifiable tests"
   year: 2026
   url: "https://github.com/FacundoFirmenich/KwanTube"
-  doi: 10.5281/zenodo.19744600
+  doi: 10.5281/zenodo.19744599
